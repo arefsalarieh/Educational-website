@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    colors: {
+      primary: '#338D81',
+      secondary: '#CCA349',
+    },
     fontFamily: {
       irSans: ['IranSans'],
     }
