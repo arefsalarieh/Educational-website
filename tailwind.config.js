@@ -5,10 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary: '#338D81',
-      secondary: '#CCA349',
+    extend: {
+      colors: {
+        primary: '#338D81',
+        secondary: '#CCA349',
+      },
     },
     fontFamily: {
       irSans: ['IranSans'],
