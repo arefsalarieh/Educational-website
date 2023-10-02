@@ -3,6 +3,7 @@ import { Button } from "antd/es/radio";
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import 'leaflet/dist/leaflet.css';
 
 const position = [36.59783708008768, 53.06466164759884];
 
@@ -79,7 +80,6 @@ const Footer = () => {
                 <Popup>آکادمی بحر</Popup>
               </Marker>
             </MapContainer>
-            ,
           </div>
         </div>
       </div>
