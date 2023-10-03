@@ -186,6 +186,78 @@ const Landing = () => {
       
       </div>
     </section>
+
+
+    <section className='mt-32 '>
+      <h2 className='text-center text-2xl w-full'>اخبار و مقالات</h2>
+
+      <div className='flex flex-wrap xl:flex-nowrap gap-12 px-48'>
+
+        <div className='flex flex-wrap  items-center w-10/12 lg:w-1/2 mx-auto my-8 gap-4'>
+          <h3 className='  w-1/12'>اخبار </h3>
+          <span className='border-8 h-4 w-10/12 '></span>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+        </div>
+
+
+        <div className='flex flex-wrap  items-center w-10/12 lg:w-1/2 mx-auto my-8 gap-4'>
+          <h3 className='  w-1/12'>اخبار </h3>
+          <span className='border-8 h-4 w-10/12 '></span>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
+            <p className='pl-8 pr-4 text-sm mt-6'>
+              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+
+  
+    </section>
     </>
   )
 }
