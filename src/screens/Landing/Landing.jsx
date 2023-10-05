@@ -193,7 +193,7 @@ const Landing = () => {
     <section className='mt-32 '>
       <h2 className='text-center text-2xl w-full'>اخبار و مقالات</h2>
 
-      <div className='flex flex-wrap xl:flex-nowrap gap-12 px-48'>
+      <div className='flex flex-wrap xl:flex-nowrap gap-12 lg:px-48'>
 
         <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
           <h3 className='  w-1/12'>اخبار </h3>
@@ -266,7 +266,7 @@ const Landing = () => {
       <h2 className='text-center w-full text-2xl mt-8'>پیشمهادات و شکایات</h2>
       <div className=' flex flex-wrap lg:flex-nowrap gap-4   mx-auto'>
         <div className=' w-full lg:w-1/2'>
-          <Form className=' shadow-xl  mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
+          <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
             <label for='d1'>ایمیل شما</label>
             <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>
               <Input className='w-full h-14 text-xl p-4' style={{direction:'ltr'}} placeholder='Maryammohajer@gmail.com'/>
