@@ -19,6 +19,7 @@ export default {
         'zgh' : '#CCA349',
         'daste' : '#F0F0F0',
         'course' : '#F0F0F0',
+        'send' : '#6ACA56',
       },
 
       backgroundImage: {

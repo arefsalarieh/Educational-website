@@ -1,4 +1,6 @@
 import React from 'react'
+import { Button, Checkbox, Form, Input   } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 
 const Landing = () => {
   return (
@@ -193,7 +195,7 @@ const Landing = () => {
 
       <div className='flex flex-wrap xl:flex-nowrap gap-12 px-48'>
 
-        <div className='flex flex-wrap  items-center w-10/12 lg:w-1/2 mx-auto my-8 gap-4'>
+        <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
           <h3 className='  w-1/12'>اخبار </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
@@ -224,7 +226,7 @@ const Landing = () => {
         </div>
 
 
-        <div className='flex flex-wrap  items-center w-10/12 lg:w-1/2 mx-auto my-8 gap-4'>
+        <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
           <h3 className='  w-1/12'>اخبار </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
@@ -258,6 +260,39 @@ const Landing = () => {
 
   
     </section>
+
+
+    <section className='mt-12 '>
+      <h2 className='text-center w-full text-2xl mt-8'>پیشمهادات و شکایات</h2>
+      <div className=' flex flex-wrap lg:flex-nowrap gap-4   mx-auto'>
+        <div className=' w-full lg:w-1/2'>
+          <Form className=' shadow-xl  mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
+            <label for='d1'>ایمیل شما</label>
+            <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>
+              <Input className='w-full h-14 text-xl p-4' style={{direction:'ltr'}} placeholder='Maryammohajer@gmail.com'/>
+            </Form.Item>
+
+            <label for='d2'>متن پیام شما</label>
+            <Form.Item id='d2' className='mt-4'>
+              <TextArea className='h-24 rounded-xl' style={{direction:'ltr' , height:'160px' ,minHeight:'100px'}}/>
+            </Form.Item>
+
+            <Form.Item >
+              <Button type="primary" className='bg-send rounded-xl mx-auto mb-8 px-6 pt-0 h-10 block text-xl '>ارسال</Button>
+            </Form.Item>
+            
+          </Form>
+        </div>
+
+        <div className=' w-full lg:w-1/2'>
+          <img className='w-8/12 mx-auto lg:mr-16' src="./pish.png" alt="" />
+        </div>
+        
+      </div>
+    </section>
+
+  
+
     </>
   )
 }
