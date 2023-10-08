@@ -2,6 +2,23 @@ body{
     direction: rtl;
 }
 
+.teachers img{
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;    
+}
+
+.teachers:hover img{
+    top: -10px;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

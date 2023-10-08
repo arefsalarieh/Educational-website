@@ -159,30 +159,30 @@ const Landing = () => {
     </section>
 
 
-    <section className=' '>
+    <section className='text-justify '>
       <h2 className='text-center text-2xl  my-24 '> اساتید برتر</h2>
 
-      <div className='gap-6 md:flex px-18'>
+      <div className='gap-6 md:flex px-10 xl:px-18 '>
 
-        <div className=' shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60'>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lh my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:-top-8 lg:left-4' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>
-
-        <div className=' shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60'>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lh my-6'>دکتر محمد حسین بحرالعلوم</h2>
+        <div  className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8'>
+          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
           <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4' src='./dr.png'/>
           <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 xl:mt-4 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
+          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12 '>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
         </div>
 
-        <div className=' shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60'>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lh my-6'>دکتر محمد حسین بحرالعلوم</h2>
+        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
+          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
+          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
+          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
+          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
+        </div>
+
+        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8'>
+          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
           <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4' src='./dr.png'/>
           <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 xl:mt-4 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
+          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
         </div>
 
       
@@ -190,7 +190,7 @@ const Landing = () => {
     </section>
 
 
-    <section className='mt-32 '>
+    <section className='mt-32 text-justify'>
       <h2 className='text-center text-2xl w-full'>اخبار و مقالات</h2>
 
       <div className='flex flex-wrap xl:flex-nowrap gap-12 lg:px-48'>
@@ -199,27 +199,27 @@ const Landing = () => {
           <h3 className='  w-1/12'>اخبار </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
@@ -230,27 +230,27 @@ const Landing = () => {
           <h3 className='  w-1/12'>اخبار </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4'>
+          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
             <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
             <p className='pl-8 pr-4 text-sm mt-6'>
               م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0  left-6 bottom-2' src='./felesh.png'/></span>
+              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2  left-6 bottom-2' src='./felesh.png'/></span>
             </p>
           </div>
 
@@ -264,7 +264,7 @@ const Landing = () => {
 
     <section className='mt-12 '>
       <h2 className='text-center w-full text-2xl mt-8'>پیشمهادات و شکایات</h2>
-      <div className=' flex flex-wrap lg:flex-nowrap gap-4   mx-auto'>
+      <div className=' flex flex-wrap flex-col-reverse lg:flex-row lg:flex-nowrap gap-4   mx-auto'>
         <div className=' w-full lg:w-1/2'>
           <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
             <label for='d1'>ایمیل شما</label>
