@@ -90,7 +90,7 @@ const NewsArticle = () => {
       nameWriter: "زهرا",
       description: "این توضیحات 4 هست",
     },
-    {
+       {
       title: " 4آموزش جامع طراحی وب",
       view: "100",
       nameWriter: "حسین",
@@ -161,7 +161,7 @@ const NewsArticle = () => {
   return (
     <>
       {/* Global Container */}
-      <div className="flex w-screen flex-col items-center mx-auto h-screen gap-6">
+      <div className="flex w-screen flex-col items-center mx-auto p-6 gap-6">
         {/* Images */}
         <div className="w-full mx-auto justify-center ">
           <img
