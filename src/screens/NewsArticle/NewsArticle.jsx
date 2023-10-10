@@ -27,7 +27,115 @@ const NewsArticle = () => {
     {
       title: " 4آموزش جامع طراحی وب",
       view: "100",
-      nameWriter: "14020623",
+      nameWriter: "حسین",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 2آموزش جامع طراحی وب",
+      view: "95",
+      nameWriter: "عارف",
+      description: ".....   این توضیحات دو هست" ,
+    },
+    {
+      title: " 3آموزش جامع طراحی وب",
+      view: "46",
+      nameWriter: "مزیم",
+      description: "این توضیحات سه هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "178",
+      nameWriter: "زهرا",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 1آموزش جامع طراحی وب",
+      view: "223",
+      nameWriter: "سمیه",
+      description: "این توضیحات یک هست",
+    },
+    {
+      title: " 2آموزش جامع طراحی وب",
+      view: "123",
+      nameWriter: "وحید",
+      description: "این توضیحات دو هست",
+    },
+    {
+      title: " 3آموزش جامع طراحی وب",
+      view: "14",
+      nameWriter: "رضا",
+      description: "این توضیحات سه هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "100",
+      nameWriter: "محمد حسین",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 2آموزش جامع طراحی وب",
+      view: "95",
+      nameWriter: "عارف",
+      description: ".....   این توضیحات دو هست" ,
+    },
+    {
+      title: " 3آموزش جامع طراحی وب",
+      view: "46",
+      nameWriter: "مزیم",
+      description: "این توضیحات سه هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "178",
+      nameWriter: "زهرا",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "100",
+      nameWriter: "حسین",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 2آموزش جامع طراحی وب",
+      view: "95",
+      nameWriter: "عارف",
+      description: ".....   این توضیحات دو هست" ,
+    },
+    {
+      title: " 3آموزش جامع طراحی وب",
+      view: "46",
+      nameWriter: "مزیم",
+      description: "این توضیحات سه هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "178",
+      nameWriter: "زهرا",
+      description: "این توضیحات 4 هست",
+    },
+    {
+      title: " 1آموزش جامع طراحی وب",
+      view: "223",
+      nameWriter: "سمیه",
+      description: "این توضیحات یک هست",
+    },
+    {
+      title: " 2آموزش جامع طراحی وب",
+      view: "123",
+      nameWriter: "وحید",
+      description: "این توضیحات دو هست",
+    },
+    {
+      title: " 3آموزش جامع طراحی وب",
+      view: "14",
+      nameWriter: "رضا",
+      description: "این توضیحات سه هست",
+    },
+    {
+      title: " 4آموزش جامع طراحی وب",
+      view: "100",
+      nameWriter: "محمد حسین",
       description: "این توضیحات 4 هست",
     },
     {
@@ -71,8 +179,8 @@ const NewsArticle = () => {
           <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-sans placeholder:font-light placeholder:text-[10px]]" />
         </div>
         {/*Tthe ListOf News and Articels */}
-        <div>
-          <ListNewsCards  articelList={articelList}/>
+        <div className="">
+          <ListNewsCards  articelList={articelList} />
         </div>
         {/*Button More */}
         <div>
