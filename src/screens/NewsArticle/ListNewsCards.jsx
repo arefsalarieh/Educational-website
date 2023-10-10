@@ -3,7 +3,7 @@ import { NewsCard } from "./NewsCard";
 const ListNewsCards = ({ articelList }) => {
   return (
     <>
-      <div className="container mx-auto justify-center flex flex-col gap-6 lg:flex-row lg:container">
+      <div className="container mx-auto justify-center flex flex-wrap  gap-6 lg:flex-row lg:flex-wrap">
         {articelList.map((card, index) => {
           return (
             <NewsCard
