@@ -23,10 +23,12 @@ export default {
 
       backgroundImage: {
         'line': "url('./line.svg')", 
+        'magnifier' :  "url('./magnifier.png')", 
       },
 
       backgroundSize: {
         '80': '80%', 
+        '50': '50%', 
       },
 
       backgroundPosition: {
