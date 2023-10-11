@@ -14,6 +14,9 @@ export default {
         bgnews: '#f7f7f7',
         bgWriterNews:'#6f97b9',
         bgBorder:'#ffffff',
+        bgDetail:'#f3f3f3',
+        bgBorderSplit:'#707070',   
+        bgArrowDown:'#a5a5a5',
       },
       screens: {
         'xs':'300px',
