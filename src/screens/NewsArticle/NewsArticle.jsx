@@ -161,7 +161,7 @@ const NewsArticle = () => {
   return (
     <>
       {/* Global Container */}
-      <div className="flex w-screen flex-col items-center mx-auto p-6 gap-6">
+      <div className="flex w-screen flex-col items-center mx-auto p-5 gap-6">
         {/* Images */}
         <div className="w-full mx-auto justify-center ">
           <img
