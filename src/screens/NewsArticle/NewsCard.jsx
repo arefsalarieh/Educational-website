@@ -9,7 +9,7 @@ const NewsCard = ({
 })  => {
   return (
     <>
-      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4 mx-auto justify-center border border-bg-bgBorder rounded-md p-3">
+      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4 w-full  mx-auto justify-center border border-bg-bgBorder rounded-md p-3">
         {/* Image */}
         <div className="w-full mx-auto justify-center pb-4">
           <img src="/public/assets/img/itemNewsPic.jpg" alt="NewsPic" />
@@ -25,7 +25,7 @@ const NewsCard = ({
           </div>
           {/* Description */}
           <div className="mx-auto">
-            <p className=" text-justify text-xs font-sans pb-2">
+            <p className=" text-justify text-xs font-sans pb-2 text-ellipsis">
             {description}
               {/* لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
               استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
