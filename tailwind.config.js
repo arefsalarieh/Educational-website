@@ -24,6 +24,7 @@ export default {
 
       backgroundImage: {
         'line': "url('./line.svg')", 
+        'magnifier' :  "url('./magnifier.png')", 
       },
 
       backgroundSize: {
