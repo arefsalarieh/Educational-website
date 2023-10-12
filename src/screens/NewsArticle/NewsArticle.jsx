@@ -34,7 +34,7 @@ const NewsArticle = () => {
       title: " 2آموزش جامع طراحی وب",
       view: "95",
       nameWriter: "عارف",
-      description: ".....   این توضیحات دو هست" ,
+      description: ".....   این توضیحات دو هست",
     },
     {
       title: " 3آموزش جامع طراحی وب",
@@ -76,7 +76,7 @@ const NewsArticle = () => {
       title: " 2آموزش جامع طراحی وب",
       view: "95",
       nameWriter: "عارف",
-      description: ".....   این توضیحات دو هست" ,
+      description: ".....   این توضیحات دو هست",
     },
     {
       title: " 3آموزش جامع طراحی وب",
@@ -90,7 +90,7 @@ const NewsArticle = () => {
       nameWriter: "زهرا",
       description: "این توضیحات 4 هست",
     },
-       {
+    {
       title: " 4آموزش جامع طراحی وب",
       view: "100",
       nameWriter: "حسین",
@@ -100,7 +100,7 @@ const NewsArticle = () => {
       title: " 2آموزش جامع طراحی وب",
       view: "95",
       nameWriter: "عارف",
-      description: ".....   این توضیحات دو هست" ,
+      description: ".....   این توضیحات دو هست",
     },
     {
       title: " 3آموزش جامع طراحی وب",
@@ -142,7 +142,7 @@ const NewsArticle = () => {
       title: " 2آموزش جامع طراحی وب",
       view: "95",
       nameWriter: "عارف",
-      description: ".....   این توضیحات دو هست" ,
+      description: ".....   این توضیحات دو هست",
     },
     {
       title: " 3آموزش جامع طراحی وب",
@@ -161,7 +161,7 @@ const NewsArticle = () => {
   return (
     <>
       {/* Global Container */}
-      <div className="flex w-screen flex-col items-center mx-auto p-5 gap-6">
+      <div className="flex w-full flex-col items-center  mx-auto p-5 gap-4 bg-red-600">
         {/* Images */}
         <div className="w-full mx-auto justify-center ">
           <img
@@ -171,16 +171,18 @@ const NewsArticle = () => {
           />
         </div>
         {/* Title and Input Seach  */}
-        <div className="w-full flex flex-col items-center  gap-6">
+        <div className="w-full flex flex-col items-center  gap-4">
           <p className="mx-auto font-bold font-sans text-lg sm:text-2xl md:text-4xl">
             {" "}
             اخبار و مقالات{" "}
           </p>
-          <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-sans placeholder:font-light placeholder:text-[10px]]" />
+          <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-sans placeholder:font-light placeholder:text-[10px]] md:w-[400px]" />
         </div>
+        {/*end Title and Input Seach  */}
+
         {/*Tthe ListOf News and Articels */}
         <div className="">
-          <ListNewsCards  articelList={articelList} />
+          <ListNewsCards articelList={articelList} />
         </div>
         {/*Button More */}
         <div>
@@ -190,4 +192,4 @@ const NewsArticle = () => {
     </>
   );
 };
-export { NewsArticle};
+export { NewsArticle };
