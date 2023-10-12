@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+      
       spacing: {
         '18': '4.5rem',
         '26': '6.5rem',
@@ -23,12 +24,10 @@ export default {
 
       backgroundImage: {
         'line': "url('./line.svg')", 
-        'magnifier' :  "url('./magnifier.png')", 
       },
 
       backgroundSize: {
         '80': '80%', 
-        '50': '50%', 
       },
 
       backgroundPosition: {
