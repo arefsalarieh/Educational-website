@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import logo from "../../assets/images/logo.png";
 // import { useState } from "react";
 // import Search from "antd/es/transfer/search";
-import headerSvg from "../../assets/images/headerShape.svg";
+// import headerSvg from "../../assets/images/headerShape.svg";
 
 import { useState } from "react";
 import { Menu, Row, Col, Input, Drawer, Divider } from "antd";
@@ -34,7 +34,10 @@ const Header = () => {
   };
 
   return (
-    <div className="menu-top" style={{ backgroundImage: { headerSvg } }}>
+    <div
+      className="menu-top"
+      // style={{ backgroundImage: { headerSvg } }}
+    >
       <div className="py-4 container mx-auto relative">
         <Row justify="space-between" align="middle">
           <Col lg={6} xs={18} sm={18}>
