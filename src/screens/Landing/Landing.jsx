@@ -5,6 +5,7 @@ import TextArea from 'antd/es/input/TextArea';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
+import AllCourses from '../../components/common/course/allCourse';
 
 
 const Landing = () => {
@@ -111,53 +112,7 @@ const Landing = () => {
     <section className='flex flex-wrap  mt-24 text-xl text-center'>
       <h2 className=' w-full text-2xl font-bold mb-16 '> دوره های آموزشی </h2>
       
-      <div className='flex justify-around flex-wrap lg:flex-nowrap  gap-8 w-full px-18 text-xl text-center'>
-
-        <div className='border shadow-xl pb-7 text-center w-full sm:w-5/12 lg:w-1/4'>
-          <div className='bg-course p-8'>
-            <img className=' mx-auto w-4/6'  src='./c1.png'/>
-          </div>
-          <div>
-            <h3 className=' p-2 font-semibold  mt-4'>دوره آموزش جامع انگولار</h3>
-            <p className=' p-2'>مدرس : آرمین ساکت</p>
-            <button className='border-2  text-zgh rounded-xl p-2 px-4 m-3 '>ثبت دوره</button>
-          </div>
-        </div>
-
-        <div className='border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/4'>
-          <div className='bg-course p-8'>
-            <img className=' mx-auto w-4/6'  src='./c2.png'/>
-          </div>
-          <div>
-            <h3 className=' p-2 font-semibold mt-4'>دوره آموزش جامع انگولار</h3>
-            <p className=' p-2'>مدرس : آرمین ساکت</p>
-            <button className='border-2 text-zgh rounded-xl p-2 px-4 m-3 '>ثبت دوره</button>
-          </div>
-        </div>
-
-        <div className='border shadow-xl pb-7 text-center w-full sm:w-5/12 lg:w-1/4'>
-          <div className='bg-course p-8'>
-            <img className=' mx-auto w-4/6'  src='./c3.png'/>
-          </div>
-          <div>
-            <h3 className=' p-2 font-semibold  mt-4'>دوره آموزش جامع انگولار</h3>
-            <p className=' p-2'>مدرس : آرمین ساکت</p>
-            <button className='border-2 text-zgh rounded-xl p-2 px-4 m-3 '>ثبت دوره</button>
-          </div>
-        </div>
-
-        <div className='border shadow-xl pb-7 text-center w-full sm:w-5/12 lg:w-1/4'>
-          <div className='bg-course p-8'>
-            <img className=' mx-auto w-4/6'  src='./c4.png'/>
-          </div>
-          <div>
-            <h3 className=' p-2 font-semibold  mt-4'>دوره آموزش جامع انگولار</h3>
-            <p className=' p-2'>مدرس : آرمین ساکت</p>
-            <button className='border-2 text-zgh rounded-xl p-2 px-4 m-3 '>ثبت دوره</button>
-          </div>
-        </div>
-
-      </div>
+      <AllCourses parentShape='landing' courseShape='landing'/>
 
       <button className='mx-auto my-24 bg-zgh p-4 rounded-xl text-white'>مشاهده دوره ها</button>
 
