@@ -9,21 +9,19 @@ const SingleArticleDetail = ({ id, title, date }) => {
           <img
             src="/public/assets/img/office.jpg"
             alt="NewsPic"
-            className=" rounded-full w-100 h-100 p-3"
+            className=" rounded-full w-28 h-28 p-3"
           />
         </div>
-        {/* Title */}
-        <div>
-          <p className=" text-justify  text-sm  font-bold  whitespace-nowrap pb-2 ">
+       <div className="flex flex-col items-center gap-4">
+         {/* Title */}
+          <p className=" text-justify  text-sm  font-bold  whitespace-nowrap md:text-[13px] md:font-bold  lg:text-sm ">
             {title}
           </p>
-        </div>
         {/* Date */}
-        <div>
           <p className=" text-justify  text-sm  font-bold  whitespace-nowrap pb-2 text-bgbtns">
             {date}
           </p>
-        </div>
+       </div>
       </div>
     </>
   );
