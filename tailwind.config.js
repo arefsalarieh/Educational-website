@@ -1,43 +1,57 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      
-      spacing: {
-        '18': '4.5rem',
-        '26': '6.5rem',
-        '30': '7.5rem',
-      },
+    fontFamily: {
+      irSans: ["IranSans"],
+    },
+    screens: {
+      xs: "0px",
 
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
+    extend: {
+      // spacing: {
+      //   18: "4.5rem",
+      //   26: "6.5rem",
+      //   30: "7.5rem",
+      // },
       colors: {
-        primary: '#338D81',
-        secondary: '#CCA349',
-        'zgh' : '#CCA349',
-        'daste' : '#F0F0F0',
-        'course' : '#F0F0F0',
-        'send' : '#6ACA56',
+        primary: "#338D81",
+        secondary: "#CCA349",
+        zgh: "#CCA349",
+        daste: "#F0F0F0",
+        course: "#F0F0F0",
+        send: "#6ACA56",
       },
 
       backgroundImage: {
-        'line': "url('./line.svg')", 
+        line: "url('./line.svg')",
+        bgLogRegFor: "url('./bgLog.svg')",
       },
 
       backgroundSize: {
-        '80': '80%', 
+        80: "80%",
       },
 
       backgroundPosition: {
-        'top-4': 'center top 8rem',
+        "top-4": "center top 8rem",
       },
     },
-    fontFamily: {
-      irSans: ['IranSans'],
-    }
+    
   },
   plugins: [],
-}
-
+};
