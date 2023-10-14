@@ -120,7 +120,7 @@ const Landing = () => {
     </section>
 
 
-    <section className='text-justify '>
+    <section className='text-justify px-16'>
       <h2 className='text-center text-2xl  my-24 '> اساتید برتر</h2>
 
       <TeachersSlider/>
