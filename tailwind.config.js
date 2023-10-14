@@ -6,7 +6,8 @@ export default {
       irSans: ["IranSans"],
     },
     screens: {
-      xs: "0px",
+      xs: "300px",
+      // => @media (min-width: 300px) { ... }
 
       sm: "640px",
       // => @media (min-width: 640px) { ... }
@@ -24,11 +25,11 @@ export default {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
-      // spacing: {
-      //   18: "4.5rem",
-      //   26: "6.5rem",
-      //   30: "7.5rem",
-      // },
+      spacing: {
+        18: "4.5rem",
+        26: "6.5rem",
+        30: "7.5rem",
+      },
       colors: {
         primary: "#338D81",
         secondary: "#CCA349",
