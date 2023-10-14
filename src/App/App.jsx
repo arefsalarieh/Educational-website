@@ -1,7 +1,7 @@
 import Layout from "../components/Layout/Layout.jsx";
 import Landing from "../screens/Landing/Landing.jsx";
 import RouteError from "../screens/Errors/ErrorPage.jsx";
-import Login from "../screens/Login/Login.jsx";
+import LoginPage from "../screens/Login/LoginPage.jsx";
 import ForgotPassword from "../screens/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "../screens/ResetPassword/ResetPassword.jsx";
 import {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <LoginPage />,
         errorElement: <RouteError />,
       },
       {
