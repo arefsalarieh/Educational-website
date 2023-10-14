@@ -1,6 +1,9 @@
 import Layout from "../components/Layout/Layout.jsx";
-import InputEmail from "../components/common/uiKit/inputEmail.jsx";
-import SerachCourses from "../components/common/search/serachCourses.jsx";
+import Landing from "../screens/Landing/Landing.jsx";
+import RouteError from "../screens/Errors/ErrorPage.jsx";
+import Login from "../screens/Login/Login.jsx";
+import ForgotPassword from "../screens/ForgotPassword/ForgotPassword.jsx";
+import ResetPassword from "../screens/ResetPassword/ResetPassword.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,7 +13,34 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-  },
+    children: [
+      {
+        path: "/",
+        element: <Landing />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/forgotPassword",
+        element: <ForgotPassword />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/resetPassword",
+        element: <ResetPassword />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "*",
+        element: <RouteError />,
+      },
+    ],
+    errorElement: <RouteError />
+  }
 ]);
 
 

@@ -1,10 +1,9 @@
 import Input from "antd/es/input/Input";
 import { Button } from "antd";
 import React from "react";
-// import bgImg from "../../assets/images/forgot.png";
+import bgImg from "../../assets/images/forgot.png";
 import { Form, Formik } from "formik";
 import { KeyOutlined } from "@ant-design/icons";
-// import mailValidation from "../../core/validations/mailValidation"
 
 const ResetPassword = () => {
   const onSubmit = (values) => {
@@ -56,7 +55,7 @@ const ResetPassword = () => {
         <div className="w-[80%] md:w-[40%] mx-auto flex items-center mt-5 md:mt-0 overflow-hidden">
           <img
             className="w-fit h-fit object-fit"
-            // src={bgImg}
+            src={bgImg}
             alt="Reset Password"
           />
         </div>
