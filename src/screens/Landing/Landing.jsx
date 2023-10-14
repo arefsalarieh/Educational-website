@@ -6,12 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
 import AllCourses from '../../components/common/course/allCourse';
+import TeachersSlider from '../../components/teachersSlider/teachersSlider';
 
 
 const Landing = () => {
   return (
     <>
-  
+
     <section className='md:flex justify-center gap-x-6'>
 
       <div className='  md:w-2/5 w-full'>
@@ -122,111 +123,8 @@ const Landing = () => {
     <section className='text-justify '>
       <h2 className='text-center text-2xl  my-24 '> اساتید برتر</h2>
 
-      <div className='gap-6 md:flex px-10 xl:px-18 pt-8'>
-      <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={50}
-          breakpoints={{
-            // when window width is >= 640px
+      <TeachersSlider/>
 
-            // when window width is >= 768px
-            768: {
-      
-              slidesPerView: 2,
-            },
-
-            1024: {
-      
-              slidesPerView: 3,
-            },            
-          }}
-          
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-          
-
-    >
-      <SwiperSlide >
-        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>  
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div> 
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>  
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div> 
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>  
-      </SwiperSlide>
-
-      <SwiperSlide>
-      <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div> 
-      </SwiperSlide>
-
-    </Swiper>
-
-        {/* <div  className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8'>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12 '>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>
-
-        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8 '>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4 ' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div>
-
-        <div className='teachers shadow-2xl rounded-xl lg:flex lg:flex-wrap lg:relative lg:h-60 pt-1 md:pt-0 pb-8'>
-          <h2 className=' text-center lg:text-right lg:pr-6 lg:w-9/12 lg:text-lg my-6'>دکتر محمد حسین بحرالعلوم</h2>
-          <img className='mx-auto lg:absolute lg:w-2/12 lg:top-4 lg:left-4' src='./dr.png'/>
-          <button className='mt-4 text-lg text-center lg:absolute top-14 mx-auto lg:mr-4 block lg:w-24 py-2  px-6 rounded-lg text-white bg-zgh '>مدیریت</button>
-          <p className='lg:text-right pr-6 mt-6 lg:mt-12 w-10/12'>ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استست چاپگرها و متون بلکه ی مورد نیاز و کاربر</p>
-        </div> */}
-
-      
-      </div>
     </section>
 
 
