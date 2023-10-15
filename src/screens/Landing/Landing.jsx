@@ -352,12 +352,12 @@ const Landing = () => {
       <div className=' flex flex-wrap flex-col-reverse lg:flex-row lg:flex-nowrap gap-4   mx-auto'>
         <div className=' w-full lg:w-1/2'>
           <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
-            <label for='d1'>ایمیل شما</label>
+            <label htmlFor='d1'>ایمیل شما</label>
             <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>
               <Input className='w-full h-14 text-xl p-4' style={{direction:'ltr'}} placeholder='Maryammohajer@gmail.com'/>
             </Form.Item>
 
-            <label for='d2'>متن پیام شما</label>
+            <label htmlFor='d2'>متن پیام شما</label>
             <Form.Item id='d2' className='mt-4'>
               <TextArea className='h-24 rounded-xl' style={{direction:'ltr' , height:'160px' ,minHeight:'100px'}}/>
             </Form.Item>
