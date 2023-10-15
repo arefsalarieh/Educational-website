@@ -1,11 +1,19 @@
 import { CheckCircleOutlined } from '@ant-design/icons'
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../common/button/button'
 import SmallSlider from '../smallSlider/SmallSlider'
 
 
 
-const Detail = () => {
+const CompDetail = () => {
+  const [relationCourses , setRelationCourses] = useState([
+    {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
+    {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
+    {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
+    {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
+    {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
+])
+  
   return (
     <div className='lg:flex lg:flex-wrap bg-mygray pb-12 font-irSans'>
        <div className=' lg:w-7/12 '>
@@ -113,7 +121,7 @@ const Detail = () => {
         </div>
 
         <div className='container border  mt-16'>
-            <SmallSlider/>
+            <SmallSlider relationCourses={relationCourses}/>
         </div>
 
         <div className="mx-auto">
@@ -137,4 +145,4 @@ const Detail = () => {
   )
 }
 
-export default Detail
+export default CompDetail

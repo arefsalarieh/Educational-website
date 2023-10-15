@@ -1,6 +1,6 @@
 import React from 'react'
 import { Space, Tabs } from 'antd'
-import Detail from '../../components/coursesDetailComponents/detail'
+import CompDetail from '../../components/coursesDetailComponents/compDetail'
 
 const CoursesDetail = () => {
   return (
@@ -10,11 +10,11 @@ const CoursesDetail = () => {
 
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
-                <Detail/>
+                <CompDetail/>
             </Tabs.TabPane>
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
-                <Detail/>
+                <CompDetail/>
             </Tabs.TabPane>
 
     

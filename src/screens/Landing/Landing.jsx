@@ -1,12 +1,17 @@
 import React from 'react'
-import { Button, Checkbox, Form, Input   } from 'antd';
-import TextArea from 'antd/es/input/TextArea';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
 import AllCourses from '../../components/common/course/allCourse';
 import TeachersSlider from '../../components/teachersSlider/teachersSlider';
+import Services from '../../components/Services/Services';
+import Dastes from '../../components/daste/dastes';
+import News from '../../components/News and Article/News';
+import Article from '../../components/News and Article/Article';
+import PishForm from '../../components/PishForm/PishForm';
+import Button from '../../components/common/button/button'
+
 
 
 const Landing = () => {
@@ -31,82 +36,17 @@ const Landing = () => {
     <section className=' flex flex-wrap flex-col-2 justify-evenly text-center mt-16 lg:mt-0 bg-line bg-no-repeat bg-top-4 bg-80'>
       <h2 className='mb-10 w-full '>خدمات ما</h2>
 
-      <div className='  text-center w-full sm:w-1/2  lg:w-1/4 lg:mt-30'>
-        <div className='  mx-auto rounded-full overflow-hidden w-36 h-36 lg:w-30 lg:h-30'>
-          <img src='./k1.png'/>
-        </div>
-        <h3 className='mb-2'>مشاوره</h3>
-        <span className='block w-16 mx-auto border-b-4 border-yellow-400'></span>
-        <p className='mt-2 text-xs md:text-lg'>لورم ایپسوم متن  صنعت چاپ</p>
-      </div>
+      <Services/>
 
-      <div className='  text-center w-full sm:w-1/2  lg:w-1/4 lg:mt-30'>
-        <div className='  mx-auto rounded-full overflow-hidden w-36 h-36 lg:w-30 lg:h-30'>
-          <img src='k2.png'/>
-        </div>
-        <h3 className='mb-2'>مشاوره</h3>
-        <span className='block w-16 mx-auto border-b-4 border-yellow-400'></span>
-        <p className='mt-2 text-xs md:text-lg'>لورم ایپسوم متن  صنعت چاپ</p>
-      </div>
 
-      <div className='  text-center w-full sm:w-1/2  lg:w-1/4 mt-8 lg:mt-26 '>
-        <div className='  mx-auto rounded-full overflow-hidden w-40 h-40 lg:w-40 lg:h-40'>
-          <img src='k3.png'/>
-        </div>
-        <h3 className='mb-2'>مشاوره</h3>
-        <span className='block w-16 mx-auto border-b-4 border-yellow-400'></span>
-        <p className='mt-2 text-xs md:text-lg'>لورم ایپسوم متن  صنعت چاپ</p>
-      </div>      
-
-      <div className='  text-center w-full sm:w-1/2  lg:w-1/4 mt-10 lg:mt-30'>
-        <div className='  mx-auto rounded-full overflow-hidden w-36 h-36 lg:w-30 lg:h-30'>
-          <img src='k4.png'/>
-        </div>
-        <h3 className='mb-2'>مشاوره</h3>
-        <span className='block w-16 mx-auto border-b-4 border-yellow-400'></span>
-        <p className='mt-2 text-xs md:text-lg'>لورم ایپسوم متن  صنعت چاپ</p>
-      </div>
     </section>
 
 
     <section className=' mx-auto flex flex-wrap justify-evenly text-center mt-32 w-full md:w-2/3'>
       <h2 className=' w-full text-2xl mb-4'> دسته بندی</h2>
 
-      <div className='bg-daste rounded-lg  text-center mt-12 w-full sm:w-1/6 h-32'>
-        <div className=' w-10 h-10 mx-auto mt-8  overflow-hidden'>
-          <img src='./d1.png'/>
-        </div>
-        <h3 className='my-3'>وب</h3>
-      </div>
+      <Dastes/>
 
-      <div className='bg-daste rounded-lg  text-center mt-12  w-full sm:w-1/6 h-32'>
-        <div className=' w-10 h-10 mx-auto mt-8  overflow-hidden'>
-          <img src='./d2.png'/>
-        </div>
-        <h3 className='my-3'>آی تی</h3>
-      </div>
-
-      <div className='bg-daste rounded-lg  text-center mt-12  w-full sm:w-1/6 h-32'>
-        <div className=' w-10 h-10 mx-auto mt-8  overflow-hidden'>
-          <img src='./d3.png'/>
-        </div>
-        <h3 className='my-3'>شبکه</h3>
-      </div>
-
-      <div className='bg-daste rounded-lg  text-center mt-12  w-full sm:w-1/6 h-32'>
-        <div className=' w-10 h-10 mx-auto mt-8  overflow-hidden'>
-          <img src='./d4.png'/>
-        </div>
-        <h3 className='my-3'>امنیت</h3>
-      </div>
-
-      <div className='bg-daste rounded-lg  text-center mt-12  w-full sm:w-1/6 h-32'>
-        <div className=' w-10 h-10 mx-auto mt-8  overflow-hidden'>
-          <img src='./d5.png'/>
-        </div>
-        <h3 className='my-3'>ریکت</h3>
-      </div>
-     
     </section>
 
 
@@ -115,7 +55,8 @@ const Landing = () => {
       
       <AllCourses parentShape='landing' courseShape='landing'/>
 
-      <button className='mx-auto my-24 bg-zgh p-4 rounded-xl text-white'>مشاهده دوره ها</button>
+
+      <Button title='مشاهده دوره ها' paddingX='p-4' paddingY='p-4' extra='mx-auto mt-12'/>
 
     </section>
 
@@ -137,60 +78,15 @@ const Landing = () => {
           <h3 className='  w-1/12'>اخبار </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
-
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
-
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
-
+          <News/>
         </div>
 
 
         <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
-          <h3 className='  w-1/12'>اخبار </h3>
+          <h3 className='  w-1/12'>مقالات </h3>
           <span className='border-8 h-4 w-10/12 '></span>
 
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
-
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
-
-          <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
-            <img className='m-4 mx-auto sm:mx-0' src='./news.png'/>
-            <p className='pl-8 pr-4 text-sm mt-6'>
-              م ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرد   
-              <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2  left-6 bottom-2' src='./felesh.png'/></span>
-            </p>
-          </div>
+          <Article/>
 
         </div>
       </div>
@@ -204,22 +100,7 @@ const Landing = () => {
       <h2 className='text-center w-full text-2xl mt-8'>پیشمهادات و شکایات</h2>
       <div className=' flex flex-wrap flex-col-reverse lg:flex-row lg:flex-nowrap gap-4   mx-auto'>
         <div className=' w-full lg:w-1/2'>
-          <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
-            <label for='d1'>ایمیل شما</label>
-            <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>
-              <Input className='w-full h-14 text-xl p-4' style={{direction:'ltr'}} placeholder='Maryammohajer@gmail.com'/>
-            </Form.Item>
-
-            <label for='d2'>متن پیام شما</label>
-            <Form.Item id='d2' className='mt-4'>
-              <TextArea className='h-24 rounded-xl' style={{direction:'ltr' , height:'160px' ,minHeight:'100px'}}/>
-            </Form.Item>
-
-            <Form.Item >
-              <Button type="primary" className='bg-send rounded-xl mx-auto mb-8 px-6 pt-0 h-10 block text-xl '>ارسال</Button>
-            </Form.Item>
-            
-          </Form>
+          <PishForm/>
         </div>
 
         <div className=' w-full lg:w-1/2'>

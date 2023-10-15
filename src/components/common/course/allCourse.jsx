@@ -20,8 +20,8 @@ const AllCourses = ({parentShape , courseShape}) => {
       ])
   return (
     <section className='mx-auto text-center'>
-        <h2 className='mb-12'>دوره های آموزشی</h2>
-        <SerachCourses />
+        
+        
 
         <div className={parentShape == 'courses' ? parentDesign[0].parentCourses : parentDesign[1].parentLanding }>
           {coursesList.map((item , index)=>{
@@ -31,7 +31,7 @@ const AllCourses = ({parentShape , courseShape}) => {
           }) }
         </div>
 
-        <button className='block mx-auto rounded-xl mt-12 py-3 px-10 border-zgh border'>بیشتر</button>
+        
 
     </section>
   )

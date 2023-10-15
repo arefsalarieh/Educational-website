@@ -13,13 +13,19 @@ import AllCourses from '../../components/common/course/allCourse';
 const Courses = () => {
 
   return (
-    <div>
+    <div className='text-center'>
 
     <section>
         <div className='mx-auto w-2/5 mt-12'><img src="laptop.png" alt="" /></div>
     </section>
 
+    <h2 className='mb-12'>دوره های آموزشی</h2>
+
+    <SerachCourses />
+
     <AllCourses parentShape='courses' courseShape='courses'/>
+
+    <button className='block mx-auto rounded-xl mt-12 py-3 px-10 border-zgh border'>بیشتر</button>
 
     </div>
   )

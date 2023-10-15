@@ -8,14 +8,8 @@ import SmallSlide from './smallSlide';
 
 
 
-const SmallSlider = () => {
-    const [relationCourses , setRelationCourses] = useState([
-        {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
-        {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
-        {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
-        {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
-        {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
-    ])
+const SmallSlider = ({relationCourses}) => {
+
   return (
     <Swiper
       // install Swiper modules
@@ -28,7 +22,7 @@ const SmallSlider = () => {
           },
           1024: {
 
-            slidesPerView: 3,
+            slidesPerView: 4,
           },  
     
       }}  
