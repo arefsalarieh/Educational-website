@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import RegisterPage from "../screens/Register/RegisterPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
         errorElement: <RouteError />,
       },
       {
