@@ -25,7 +25,7 @@ const TeachersSlider = () => {
 
       1024: {
 
-        slidesPerView: 3,
+        slidesPerView: 4,
       },            
     }}
     slidesPerView={1}

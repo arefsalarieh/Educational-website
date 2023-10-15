@@ -9,6 +9,7 @@ import UnauthenticatedApp from "./App/UnauthenticatedApp/UnauthenticatedApp.jsx"
 import Landing from "./screens/Landing/Landing.jsx";
 import Courses from "./screens/Courses/Courses.jsx";
 import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
+import SmallSlider from "./components/smallSlider/SmallSlider.jsx";
 
 
 const route = createBrowserRouter([
@@ -35,7 +36,13 @@ const route = createBrowserRouter([
         path: "/CoursesDetail",
         element: <CoursesDetail />,
         errorElement: <RouteError />,
-      },                 
+      }, 
+      {
+        path: "/SmallSlider",
+        element: <SmallSlider />,
+        errorElement: <RouteError />,
+      },       
+      
       {
         path: "*",
         element: <RouteError />,
