@@ -42,6 +42,7 @@ export default {
       backgroundImage: {
         line: "url('./line.svg')",
         bgLogRegFor: "url('./bgLog.svg')",
+        headerSvg: "url('src/assets/images/headerShape.svg')",
       },
 
       backgroundSize: {
