@@ -8,6 +8,7 @@ import RouteError from "./screens/Errors/RouteError.jsx";
 import UnauthenticatedApp from "./App/UnauthenticatedApp/UnauthenticatedApp.jsx";
 import Landing from "./screens/Landing/Landing.jsx";
 import Courses from "./screens/Courses/Courses.jsx";
+import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
 
 
 const route = createBrowserRouter([
@@ -29,7 +30,12 @@ const route = createBrowserRouter([
         path: "/courses",
         element: <Courses />,
         errorElement: <RouteError />,
-      },           
+      },  
+      {
+        path: "/CoursesDetail",
+        element: <CoursesDetail />,
+        errorElement: <RouteError />,
+      },                 
       {
         path: "*",
         element: <RouteError />,

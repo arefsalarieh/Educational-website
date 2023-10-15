@@ -20,6 +20,7 @@ export default {
         'daste' : '#F0F0F0',
         'course' : '#F0F0F0',
         'send' : '#6ACA56',
+        'mygray' : '#F3F3F3'
       },
 
       backgroundImage: {
