@@ -8,7 +8,7 @@ import SmallSlide from './smallSlide';
 
 
 
-const SmallSlider = ({relationCourses}) => {
+const SmallSlider = ({list}) => {
 
   return (
     <Swiper
@@ -34,7 +34,7 @@ const SmallSlider = ({relationCourses}) => {
 
     >
 
-        {relationCourses.map((item , index)=>{
+        {list.map((item , index)=>{
             return(
                 <SwiperSlide key={index}>
                     <SmallSlide name={item.name} src={item.src} date={item.date}/>

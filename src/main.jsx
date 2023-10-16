@@ -10,6 +10,7 @@ import Landing from "./screens/Landing/Landing.jsx";
 import Courses from "./screens/Courses/Courses.jsx";
 import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
 import SmallSlider from "./components/smallSlider/SmallSlider.jsx";
+import NewsDetail from "./screens/NewsDetail/NewsDetail.jsx";
 
 
 const route = createBrowserRouter([
@@ -37,6 +38,11 @@ const route = createBrowserRouter([
         element: <CoursesDetail />,
         errorElement: <RouteError />,
       }, 
+      {
+        path: "/NewsDetail",
+        element: <NewsDetail />,
+        errorElement: <RouteError />,
+      },       
       {
         path: "/SmallSlider",
         element: <SmallSlider />,

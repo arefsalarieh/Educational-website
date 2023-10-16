@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SingleItem from '../News and Article/singleItem'
+import SingleItem from './singleItem'
 
 const Article = () => {
     const [newsList , setNewsList] = useState([

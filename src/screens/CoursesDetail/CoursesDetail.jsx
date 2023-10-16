@@ -1,6 +1,6 @@
 import React from 'react'
 import { Space, Tabs } from 'antd'
-import CompDetail from '../../components/coursesDetailComponents/compDetail'
+import CompDetail from '../../components/coursesDetailComponents/coursesDetailComponents'
 
 const CoursesDetail = () => {
   return (

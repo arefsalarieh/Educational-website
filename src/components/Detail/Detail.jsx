@@ -2,23 +2,24 @@ import { CheckCircleOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import React from 'react'
 
-const Detail = () => {
+const Detail = ({title1 , title1Desc , title2 , title2Desc , title3 , title3Desc , title4 , title4Desc  , title5 , title5desc , 
+                title6 , title6Desc , title7 , title7Desc , title8 , title8Desc , title9 , title9Desc , title10 , title10Desc , logoSize}) => {
   return (
     <div className=' lg:w-7/12 '>
     <div className='flex flex-wrap'>
       <div className='  h-16 w-1/2 mt-12 pr-10'>
-        <h2 className='text-lg font-extrabold'>عنوان  دوره :</h2>
-        <h5 className='text-lg font-medium mt-2'>آموزش جامع ریکت</h5>
+        <h2 className='text-lg font-extrabold'>  {title1}</h2>
+        <h5 className='text-lg font-medium mt-2'> {title1Desc} </h5>
       </div>
       <div className=' h-16 w-1/2 mt-12 pr-10'>
-        <h2 className='text-lg font-extrabold'>مدرس دوره :</h2>
-        <h5 className='text-lg font-medium mt-2'>مهندس آرمین ساکت</h5>
+        <h2 className='text-lg font-extrabold'> {title2}</h2>
+        <h5 className='text-lg font-medium mt-2'>{title2Desc}  </h5>
       </div>
     </div>
 
-      <h2 className='block text-lg font-extrabold w-full mt-8 mr-10'>درباره دوره :</h2>
+      <h2 className='block text-lg font-extrabold w-full mt-8 mr-10'>  {title3}</h2>
       <p className=' text-lg mr-10 mt-8'>
-      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد 
+        {title3Desc}
       </p>
 
       <h2 className='block text-lg font-extrabold w-full mt-8 mr-10'>اطلاعات بیشتر :</h2>
@@ -26,35 +27,24 @@ const Detail = () => {
       <p className='h-8 mr-10 mt-6 font-extrabold'>
       <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
         <span className='text-lg font-extrabold mr-4'>
-          شهریه دوره :   
+          {title4}
         </span>
         <span className=' font-bold mr-2'>
-           66/500 تومان              
+          {title4Desc}             
         </span>
 
-        <span className='mr-4 bg-green-300 p-2'>
-          20%
+        <span className={title5desc}>
+          {title5}
         </span>
       </p>
 
       <p className='h-8 mr-10 mt-6 font-extrabold'>
       <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
         <span className='text-lg font-extrabold mr-4'>
-          ترم ارائه شده دوره :   
+          {title6}
         </span>
         <span className=' font-bold mr-2'>
-            40 نفر               
-        </span>
-      </p>
-
-
-      <p className='h-8 mr-10 mt-6 font-extrabold'>
-      <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
-        <span className='text-lg font-extrabold mr-4'>
-          تاریخ شروع دوره :   
-        </span>
-        <span className=' font-bold mr-2'>
-           3 / 12 / 1400                
+            {title6Desc}            
         </span>
       </p>
 
@@ -62,10 +52,21 @@ const Detail = () => {
       <p className='h-8 mr-10 mt-6 font-extrabold'>
       <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
         <span className='text-lg font-extrabold mr-4'>
-          تاریخ پایان دوره :   
+          {title7} 
         </span>
         <span className=' font-bold mr-2'>
-           3 / 12 / 1400                
+          {title7Desc}              
+        </span>
+      </p>
+
+
+      <p className='h-8 mr-10 mt-6 font-extrabold'>
+      <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
+        <span className='text-lg font-extrabold mr-4'>
+            {title8}
+        </span>
+        <span className=' font-bold mr-2'>
+           {title8Desc}                
         </span>
       </p>
 
@@ -73,20 +74,20 @@ const Detail = () => {
     <p className='h-8 mr-10 mt-6 font-extrabold'>
       <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
         <span className='text-lg font-extrabold mr-4'>
-          ظرفیت  دوره :   
+          {title9} 
         </span>
         <span className=' font-bold mr-2'>
-            40 نفر               
+           {title9Desc}             
         </span>
     </p>  
 
     <p className='h-8 mr-10 mt-6 font-extrabold'>
       <CheckCircleOutlined  style={{fontSize:20 , color:'#CCA349'}}/>
         <span className='text-lg font-extrabold mr-4'>
-          تعداد دانشجویان  دوره :   
+            {title10}   
         </span>
         <span className=' font-bold mr-2'>
-            20 نفر               
+           {title10Desc}              
         </span>
     </p>  
 
