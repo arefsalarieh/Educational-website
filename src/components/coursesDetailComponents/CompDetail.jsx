@@ -39,7 +39,7 @@ const CompDetail = () => {
         </div>
 
         <div className='container border  mt-16'>
-            <SmallSlider relationCourses={relationCourses}/>
+            <SmallSlider list={relationCourses}/>
         </div>
 
         <div className="mx-auto">

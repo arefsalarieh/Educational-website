@@ -11,6 +11,7 @@ import Courses from "./screens/Courses/Courses.jsx";
 import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
 import SmallSlider from "./components/smallSlider/SmallSlider.jsx";
 import NewsDetail from "./screens/NewsDetail/NewsDetail.jsx";
+import NewsArticle from "./screens/NewsArticle/NewsArticle.jsx";
 
 
 const route = createBrowserRouter([
@@ -44,8 +45,8 @@ const route = createBrowserRouter([
         errorElement: <RouteError />,
       },       
       {
-        path: "/SmallSlider",
-        element: <SmallSlider />,
+        path: "/NewsArticle",
+        element: <NewsArticle />,
         errorElement: <RouteError />,
       },       
       
