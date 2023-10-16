@@ -7,8 +7,8 @@ import AllCourses from '../../components/common/course/allCourse';
 import TeachersSlider from '../../components/teachersSlider/teachersSlider';
 import Services from '../../components/Services/Services';
 import Dastes from '../../components/daste/dastes';
-import News from '../../components/News and Article/News';
-import Article from '../../components/News and Article/Article';
+import News from '../../components/News/News';
+import Article from '../../components/Article/Article';
 import PishForm from '../../components/PishForm/PishForm';
 import Button from '../../components/common/button/button'
 
