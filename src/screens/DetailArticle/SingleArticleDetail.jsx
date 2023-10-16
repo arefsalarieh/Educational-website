@@ -3,13 +3,14 @@ import React from "react";
 const SingleArticleDetail = ({ id, title, date }) => {
   return (
     <>
-      <div className="w-full flex  flex-col mx-auto justify-center items-center border border-bg-bgBorder rounded-md p-5 bg-white 2xl: xl:w-1/7 lg:w-1/6 md:w-1/5 sm:w-1/4 ">
+    {/* 2xl: xl:w-1/7 lg:w-1/6 md:w-1/5 sm:w-1/4   mx-auto  */}
+      <div className="w-full flex  flex-col justify-center items-center border border-bg-bgBorder rounded-md p-5 bg-white ">
         {/* Image */}
-        <div className="w-full flex justify-center pb-2 ">
+        <div className="w-full flex justify-center pb-2  flex-grow">
           <img
             src="/public/assets/img/office.jpg"
             alt="NewsPic"
-            className=" rounded-full w-28 h-28 p-3"
+            className=" rounded-full w-36 h-36 p-3   mx-auto  "
           />
         </div>
        <div className="flex flex-col items-center gap-4">
@@ -18,7 +19,7 @@ const SingleArticleDetail = ({ id, title, date }) => {
             {title}
           </p>
         {/* Date */}
-          <p className=" text-justify  text-sm  font-bold  whitespace-nowrap pb-2 text-bgbtns">
+          <p className=" text-justify  text-sm  font-bold   whitespace-nowrap pb-2 text-bgbtns">
             {date}
           </p>
        </div>
