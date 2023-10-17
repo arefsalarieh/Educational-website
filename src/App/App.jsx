@@ -4,6 +4,7 @@ import RouteError from "../screens/Errors/ErrorPage.jsx";
 import LoginPage from "../screens/Login/LoginPage.jsx";
 import ForgotPassword from "../screens/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "../screens/ResetPassword/ResetPassword.jsx";
+import StudentPanel from "../screens/StudentPanel"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: "/resetPassword",
         element: <ResetPassword />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/studentPanel",
+        element: <StudentPanel />,
         errorElement: <RouteError />,
       },
       {
