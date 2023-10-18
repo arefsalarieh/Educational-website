@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Course = ({courseShape , courseName , teacher , date , src }) => {
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses
-    {parent : 'border  md:w-5/12 rounded-xl p-8 lg:flex shadow-2xl',
+    {parent : 'border  md:w-6/12 rounded-xl p-8 lg:flex shadow-2xl',
       firstDiv:'lg:w-1/2  rounded-xl shadow-inner bg-course',
       img:'mx-auto',
       secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6',
@@ -18,10 +18,10 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
       firstDiv:'bg-course p-8',
       img:' mx-auto w-4/6',
       secondDiv:'',
-      h2:' p-2 font-semibold mt-4',
-      firstP:'p-2',
+      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4',
+      firstP:'p-2 md:p-4 text-sm sm:text-base md:text-lg text-blue-400',
       secondP:'p-2',
-      but:' border-2 text-zgh rounded-xl p-2 px-4 m-3 ',  
+      but:' border-2 text-zgh rounded-xl p-2 px-2 md:px-4 m-2 ',  
     }
   ])
 

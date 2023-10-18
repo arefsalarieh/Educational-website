@@ -13,7 +13,7 @@ const Services = () => {
     <>
         {servicesList.map((item , index)=>{
             return(
-                <Service name={item.name} pic={item.pic} desc={item.desc}/>
+                <Service key={index} name={item.name} pic={item.pic} desc={item.desc}/>
             )
         })}
     </>

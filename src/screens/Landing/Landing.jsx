@@ -16,7 +16,7 @@ import Button from '../../components/common/button/button'
 
 const Landing = () => {
   return (
-    <>
+    <div className='font-irSans px-4'>
 
     <section className='md:flex justify-center gap-x-6'>
 
@@ -24,17 +24,17 @@ const Landing = () => {
         <img src='./big.png' alt='jdth' className='md:pt-20 lg:pt-0'/>
       </div>
 
-      <div className='md:mr-24  md:pt-32 md:w-1/3 w-full text-center md:text-right lg:pt-32'>
-        <h2><span className='text-zgh'>پژوهشگاه</span> سپهر</h2>
+      <div className='md:mr-24  md:pt-32 md:w-1/3 w-full px-6 text-center md:text-right lg:pt-32'>
+        <h2 className='text-lg font-extrabold'><span className=' text-zgh'>پژوهشگاه</span > سپهر</h2>
         <p className='mt-8 '>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربرده</p>
-        <button className='bg-zgh mt-6 p-2 rounded-lg'>مشاهده دوره ها</button>
+        <Button title='مشاهده دوره ها' paddingX='px-6' paddingY='py-3' rounded='rounded-md' extra='mt-6 text-sm'/>
       </div>
 
     </section>
 
 
-    <section className=' flex flex-wrap flex-col-2 justify-evenly text-center mt-16 lg:mt-0 bg-line bg-no-repeat bg-top-4 bg-80'>
-      <h2 className='mb-10 w-full '>خدمات ما</h2>
+    <section className=' flex flex-wrap flex-col-2 justify-evenly text-center mt-20 pb-14  bg-line bg-no-repeat bg-top-4 bg-80'>
+      <h2 className='mb-12 w-full text-xl  font-extrabold'>خدمات ما</h2>
 
       <Services/>
 
@@ -42,7 +42,7 @@ const Landing = () => {
     </section>
 
 
-    <section className=' mx-auto flex flex-wrap justify-evenly text-center mt-32 w-full md:w-2/3'>
+    <section className=' mx-auto flex flex-wrap justify-evenly px-8 text-center mt-32 w-full lg:w-10/12 xl:w-2/3'>
       <h2 className=' w-full text-2xl mb-4'> دسته بندی</h2>
 
       <Dastes/>
@@ -61,7 +61,7 @@ const Landing = () => {
     </section>
 
 
-    <section className='text-justify px-16'>
+    <section className='text-justify px-2 sm:px-16  '>
       <h2 className='text-center text-2xl  my-24 '> اساتید برتر</h2>
 
       <TeachersSlider/>
@@ -112,7 +112,7 @@ const Landing = () => {
 
   
 
-    </>
+    </div>
   )
 }
 
