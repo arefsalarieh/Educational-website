@@ -1,12 +1,11 @@
 import { CheckCircleOutlined } from '@ant-design/icons'
 import React, { useState } from 'react'
-import Button from '../common/button/button'
 import SmallSlider from '../smallSlider/SmallSlider'
-import Detail from '../Detail/Detail'
+import Detail from '../common/DetailComponents/Detail'
 
 
 
-const CompDetail = () => {
+const CoursesDetailComponents = () => {
   const [relationCourses , setRelationCourses] = useState([
     {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
     {name:'دوره ریکت ترم بهار' , src:'minislide.png' , date : 'سال 1399'},
@@ -66,4 +65,4 @@ const CompDetail = () => {
   )
 }
 
-export default CompDetail
+export default CoursesDetailComponents

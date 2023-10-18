@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SingleItem from './singleItem'
+import SingleNewsAndArticle from '../common/SingleNewsAndArticle/SingleNewsAndArticle'
 
 const Article = () => {
     const [newsList , setNewsList] = useState([
@@ -12,7 +12,7 @@ const Article = () => {
     <>
         {newsList.map((item , index)=>{
             return(
-                <SingleItem key={index} pic={item.pic} desc={item.desc}/>                
+                <SingleNewsAndArticle key={index} pic={item.pic} desc={item.desc}/>                
             )
         })}
 

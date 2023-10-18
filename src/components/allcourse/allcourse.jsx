@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import SerachCourses from '../search/serachCourses'
-import Course from './Course'
+import Course from '../common/course/Course'
 
-const AllCourses = ({parentShape , courseShape}) => {
-
+const Allcourse = ({parentShape , courseShape}) => {
     const [coursesList , setCoursesList] = useState([
         {courseName:'دوره آموزش جامع ریکت' , teacher:'آرمین ساکت' , date:'1402/9/10' , src:'c2.png'},
         {courseName:'دوره آموزش جامع ریکت' , teacher:'آرمین ساکت' , date:'1402/9/10' , src:'c2.png'},
@@ -15,26 +13,26 @@ const AllCourses = ({parentShape , courseShape}) => {
          // course wraper style for courses
         {parentCourses : 'border w-full xl:w-10/12 mt-12 mx-auto md:flex md:flex-wrap justify-center gap-16 ' },
         //course wraper style for landing 
-        {parentLanding : 'flex justify-around flex-wrap lg:flex-nowrap mt-8 gap-8 w-full px-18 text-xl text-center'},
+        {parentLanding : 'flex justify-around flex-wrap lg:flex-nowrap mt-8 gap-8 w-full px-6 sm:px-18 text-xl text-center'},
  
       ])
-  return (
-    <section className='mx-auto text-center'>
-        
-        
-
-        <div className={parentShape == 'courses' ? parentDesign[0].parentCourses : parentDesign[1].parentLanding }>
-          {coursesList.map((item , index)=>{
-          return(
-            <Course key={index} courseShape={courseShape} courseName={item.courseName}  teacher={item.teacher} date={item.date} src={item.src}/>          
-          )
-          }) }
-        </div>
-
-        
-
-    </section>
-  )
+      return (
+        <section className='mx-auto text-center'>
+            
+            
+    
+            <div className={parentShape == 'courses' ? parentDesign[0].parentCourses : parentDesign[1].parentLanding }>
+              {coursesList.map((item , index)=>{
+              return(
+                <Course key={index} courseShape={courseShape} courseName={item.courseName}  teacher={item.teacher} date={item.date} src={item.src}/>          
+              )
+              }) }
+            </div>
+    
+            
+    
+        </section>
+      )
 }
 
-export default AllCourses
+export default Allcourse

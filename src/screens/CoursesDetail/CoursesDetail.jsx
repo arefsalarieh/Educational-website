@@ -1,6 +1,6 @@
 import React from 'react'
 import { Divider, Tabs } from 'antd'
-import CompDetail from '../../components/coursesDetailComponents/CompDetail'
+import CoursesDetailComponents from '../../components/CoursesDetailComponents/CoursesDetailComponents'
 
 const CoursesDetail = () => {
   return (
@@ -10,13 +10,13 @@ const CoursesDetail = () => {
 
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
-                <CompDetail/>
+                <CoursesDetailComponents/>
             </Tabs.TabPane>
 
             <Divider/>
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
-                <CompDetail/>
+                <CoursesDetailComponents/>
             </Tabs.TabPane>
 
     

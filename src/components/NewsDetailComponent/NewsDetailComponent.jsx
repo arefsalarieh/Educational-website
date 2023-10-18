@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Detail from '../Detail/Detail'
+import Detail from '../common/DetailComponents/Detail'
 import SmallSlider from '../smallSlider/SmallSlider'
 
 const NewsDetailComponent = () => {

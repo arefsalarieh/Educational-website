@@ -3,7 +3,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
-import AllCourses from '../../components/common/course/allCourse';
+
 import TeachersSlider from '../../components/teachersSlider/teachersSlider';
 import Services from '../../components/Services/Services';
 import Dastes from '../../components/daste/dastes';
@@ -11,6 +11,7 @@ import News from '../../components/News/News';
 import Article from '../../components/Article/Article';
 import PishForm from '../../components/PishForm/PishForm';
 import Button from '../../components/common/button/button'
+import AllCourse from '../../components/allcourse/allcourse';
 
 
 
@@ -53,7 +54,7 @@ const Landing = () => {
     <section className='flex flex-wrap  mt-24 text-xl text-center'>
       <h2 className=' w-full text-2xl font-bold mb-16 '> دوره های آموزشی </h2>
       
-      <AllCourses parentShape='landing' courseShape='landing'/>
+      <AllCourse parentShape='landing' courseShape='landing'/>
 
 
       <Button title='مشاهده دوره ها' paddingX='p-4' paddingY='p-4' extra='mx-auto mt-12'/>

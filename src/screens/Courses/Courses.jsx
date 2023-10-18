@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Input, Space } from 'antd';
 import Course from '../../components/common/course/Course';
 import SerachCourses from '../../components/common/search/serachCourses';
-import AllCourses from '../../components/common/course/allCourse';
+import Allcourse from '../../components/allcourse/allcourse';
 
 
 
@@ -23,7 +23,7 @@ const Courses = () => {
 
       <SerachCourses placeholder='جستجوی دوره ...'/>
 
-      <AllCourses parentShape='courses' courseShape='courses'/>
+      <Allcourse parentShape='courses' courseShape='courses'/>
 
       <button className='block mx-auto rounded-xl mt-12 py-3 px-10 border-zgh border'>بیشتر</button>
 

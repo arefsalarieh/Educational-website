@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SingleItem = ({pic , desc}) => {
+const SingleNewsAndArticle = ({pic , desc}) => {
   return (
     <div className='border shadow-2xl relative sm:flex gap-8 w-full xl:h-40 mt-4 px-3'>
         <img className='m-4 mx-auto sm:mx-0' src={pic}/>
@@ -12,4 +12,4 @@ const SingleItem = ({pic , desc}) => {
   )
 }
 
-export default SingleItem
+export default SingleNewsAndArticle
