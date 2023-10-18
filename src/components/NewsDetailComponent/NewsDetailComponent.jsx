@@ -13,6 +13,7 @@ const NewsDetailComponent = () => {
 
   return (
     <div className='lg:flex lg:flex-wrap bg-mygray pb-12 font-irSans'>
+      <div className='flex flex-col-reverse lg:flex-row'>
         <Detail title1='عنوان خبر :' title1Desc="آموزش جامع ریکت" title2=" دسته خبر :" title2Desc="مهندس آرمین ساکت" 
                 title3="متن خبر  :" title3Desc=" لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد "
                 title4=' تاریخ انتشار خبر :' title4Desc='3 / 12 / 1400'  title6='دسته بندی :' title6Desc='مقاله '
@@ -22,15 +23,17 @@ const NewsDetailComponent = () => {
 
 
        <div className=' lg:w-5/12'>
-          <img className='w-10/12 mt-12' src='./courses.png'/>
-       </div>
+          <img className='w-10/12 mt-12 mx-auto' src='./courses.png'/>
+       </div>        
+      </div>
 
 
 
-        <div className='flex w-full items-center text-center mt-8'>
-          <span className=' border-black w-full h-1'></span>
-          <h2 className='w-3/12 text-lg font-extrabold'> اخبار مرتبط</h2>
-          <span className=' border-black w-full h-1'></span>        
+
+        <div className='flex w-full  items-center text-center mt-8'>
+          <span className='border-2 border-black w-full h-1'></span>
+          <h2 className='w-4/12 lg:text-lg lg:font-extrabold'> اخبار مرتبط</h2>
+          <span className='border-2 border-black w-full h-1'></span>        
         </div>
 
         <div className='container border  mt-16'>

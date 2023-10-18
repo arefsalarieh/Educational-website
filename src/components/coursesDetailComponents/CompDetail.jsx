@@ -36,9 +36,9 @@ const CompDetail = () => {
 
 
         <div className='flex w-full items-center text-center mt-8'>
-          <span className=' border-black w-full h-1'></span>
-          <h2 className='w-3/12 text-lg font-extrabold'>دوره های مرتبط</h2>
-          <span className=' border-black w-full h-1'></span>        
+          <span className='border-2 border-black w-full h-1'></span>
+          <h2 className='w-4/12 text-lg font-extrabold'>دوره های مرتبط</h2>
+          <span className='border-2 border-black w-full h-1'></span>        
         </div>
 
         <div className='container border  mt-16'>

@@ -10,13 +10,13 @@ const NewsDetail = () => {
         <Tabs>
 
 
-          <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
+          <Tabs.TabPane  tab='جزییات خبر' key='tab1'>
               <NewsDetailComponent/>
           </Tabs.TabPane>
 
           <Divider/>
 
-          <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
+          <Tabs.TabPane  tab='جزییات خبر' key='tab2'>
               <NewsDetailComponent/>            
           </Tabs.TabPane>
 
