@@ -1,6 +1,7 @@
 import React from 'react'
-import { Space, Tabs } from 'antd'
+import { Divider, Tabs } from 'antd'
 import NewsDetailComponent from '../../components/NewsDetailComponent/NewsDetailComponent'
+
 
 const NewsDetail = () => {
   return (
@@ -12,6 +13,8 @@ const NewsDetail = () => {
           <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
               <NewsDetailComponent/>
           </Tabs.TabPane>
+
+          <Divider/>
 
           <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
               <NewsDetailComponent/>            

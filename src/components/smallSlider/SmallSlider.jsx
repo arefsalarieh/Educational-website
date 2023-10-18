@@ -12,6 +12,7 @@ const SmallSlider = ({list}) => {
 
   return (
     <Swiper
+
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
@@ -29,7 +30,7 @@ const SmallSlider = ({list}) => {
       slidesPerView={1}      
  
       navigation
-      pagination={{ clickable: true }}
+
 
 
     >

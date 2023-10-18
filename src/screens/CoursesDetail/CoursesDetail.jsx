@@ -1,5 +1,5 @@
 import React from 'react'
-import { Space, Tabs } from 'antd'
+import { Divider, Tabs } from 'antd'
 import CompDetail from '../../components/coursesDetailComponents/CompDetail'
 
 const CoursesDetail = () => {
@@ -12,6 +12,8 @@ const CoursesDetail = () => {
             <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
                 <CompDetail/>
             </Tabs.TabPane>
+
+            <Divider/>
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
                 <CompDetail/>
