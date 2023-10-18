@@ -6,7 +6,7 @@ const SingleItem = ({pic , desc}) => {
         <img className='m-4 mx-auto sm:mx-0' src={pic}/>
         <p className='pl-8 pr-4 text-sm mt-6'>
             {desc}
-        <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
+          <span><img className='sm:absolute w-8 mx-auto sm:mx-0 mt-2 left-6 bottom-2' src='./felesh.png'/></span>
         </p>
     </div>
   )
