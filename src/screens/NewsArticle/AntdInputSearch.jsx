@@ -20,7 +20,7 @@ const AntdInputSearch = () => (
       placeholder="عنوان مورد نظر ...."
       onSearch={onSearch}
       style={{
-        width: 270,
+        width:290,
         backgroundColor: '#cca349',
         focus:"#6c4e0c"
       }}
