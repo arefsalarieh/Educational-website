@@ -17,6 +17,12 @@ export default {
         bgDetail:'#f3f3f3',
         bgBorderSplit:'#707070',   
         bgArrowDown:'#a5a5a5',
+        bgPlaceholder:"#a29c9c",
+        bgBtnComment:"#6aca56",
+        bgFocusText:"#ded9d9",
+        bgShadowBtnComm:"#f6d282", 
+        bgDivTopComm:"#e6f0ff",
+        bgTextTopComm:"#b6bae3",
       },
       screens: {
         'xs':'300px',
