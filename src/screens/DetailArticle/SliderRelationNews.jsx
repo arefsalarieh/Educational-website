@@ -37,7 +37,7 @@ const SliderRelationNews = ({ articelList }) => {
         }}
         slidesPerView={1}
         navigation={true}
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
         loop={true}
         // scrollbar={{ draggable: true }}
