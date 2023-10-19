@@ -8,6 +8,9 @@ import RouteError from "./screens/Errors/RouteError.jsx";
 import UnauthenticatedApp from "./App/UnauthenticatedApp/UnauthenticatedApp.jsx";
 import { NewsArticle } from "./screens/NewsArticle/NewsArticle.jsx";
 import { DetailArticle } from "./screens/DetailArticle/DetailArticle.jsx";
+import { InsertComment } from "./screens/DetailArticle/InsertComment.jsx";
+import { SingleArticleDetail } from "./screens/DetailArticle/SingleArticleDetail.jsx";
+import { Comments } from "./screens/DetailArticle/Comments.jsx";
 
 
 const route = createBrowserRouter([
@@ -35,6 +38,17 @@ const route = createBrowserRouter([
         element: <DetailArticle/>,
         errorElement: <RouteError />,
       },
+      {
+        path: "/InsertComment",
+        element: <InsertComment/>,
+        errorElement: <RouteError />,
+      },  
+      {
+        path: "/Comments",
+        element: <Comments/>,
+        errorElement: <RouteError />,
+      }
+      ,
       {
         path: "*",
         element: <RouteError />,
