@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillCalendarCheckFill } from "react-icons/bs";
 
 const SingleArticleDetail = ({ id, title, date }) => {
   return (
@@ -10,7 +11,7 @@ const SingleArticleDetail = ({ id, title, date }) => {
           <img
             src="/public/assets/img/office.jpg"
             alt="NewsPic"
-            className=" rounded-full w-36 h-36 p-3   mx-auto  "
+            className=" rounded-full w-36 h-36 p-3  mx-auto  "
           />
         </div>
        <div className="flex flex-col items-center gap-4">
@@ -19,9 +20,12 @@ const SingleArticleDetail = ({ id, title, date }) => {
             {title}
           </p>
         {/* Date */}
+        <div className="flex gap-2">
+        <BsFillCalendarCheckFill className=" text-bgArrowDown  w-4 h-4 "/>
           <p className=" text-justify  text-sm  font-bold   whitespace-nowrap pb-2 text-bgbtns">
             {date}
           </p>
+        </div>
        </div>
       </div>
     </>
