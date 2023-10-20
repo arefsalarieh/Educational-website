@@ -2,7 +2,10 @@
 
 body {
   direction:rtl;
+  font-family:IRANSans;
+
 }
+
 
 @tailwind base;
 @tailwind components;
