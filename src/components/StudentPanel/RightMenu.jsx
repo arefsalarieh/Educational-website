@@ -6,6 +6,7 @@ import {
   InboxStackIcon,
   ShoppingCartIcon,
   ArrowLeftOnRectangleIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import {
   Accordion,
@@ -16,9 +17,11 @@ import { Link } from "react-router-dom";
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
-  const [alwaysOpen, setAlwaysOpen] = React.useState(false);
+  const [alwaysOpenCourses, setAlwaysOpenCourses] = React.useState(false);
+  const [alwaysOpenProfile, setAlwaysOpenProfile] = React.useState(false);
 
-  const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
+  const handleAlwaysOpenCourses = () => setAlwaysOpenCourses((x) => !x);
+  const handleAlwaysOpenProfile = () => setAlwaysOpenProfile((y) => !y);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
@@ -56,12 +59,14 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
               <span className="ms-4 md:text-sm xl:text-base">داشبورد</span>
             </li>
             <li>
-              <Accordion className="w-full " open={alwaysOpen}>
+              <Accordion className="w-full " open={alwaysOpenCourses}>
                 <AccordionHeader
                   className="flex justify-start w-full text-xs md:text-base border-none hover:text-secondary hover:border-none hover:bg-white hover:bg-opacity-60 hover:shadow-md focus:border-none p-2.5 my-2 rounded-md duration-150 cursor-pointer"
-                  onClick={handleAlwaysOpen}>
+                  onClick={handleAlwaysOpenCourses}>
                   <AcademicCapIcon className="w-4 h-4 md:w-6 md:h-6" />
-                  <span className="ms-4 text-left font-normal md:text-sm xl:text-base">دوره‌ها</span>
+                  <span className="ms-4 text-left font-normal md:text-sm xl:text-base">
+                    دوره‌ها
+                  </span>
                 </AccordionHeader>
                 <AccordionBody className="flex justify-end sm:py-0 md:py-2">
                   <ul className="w-4/5 text-start text-white">
@@ -90,13 +95,35 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
                 </AccordionBody>
               </Accordion>
             </li>
-            <li
-              onClick={() => {
-                setNavigateTo("edit");
-              }}
-              className="flex hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md p-2 rounded-md duration-150 cursor-pointer">
-              <PencilSquareIcon className="w-4 h-4 md:w-6 md:h-6" />
-              <span className="ms-4 md:text-sm xl:text-base">ویرایش پروفایل</span>
+            <li>
+              <Accordion className="w-full " open={alwaysOpenProfile}>
+                <AccordionHeader
+                  className="flex justify-start w-full text-xs md:text-base border-none hover:text-secondary hover:border-none hover:bg-white hover:bg-opacity-60 hover:shadow-md focus:border-none p-2.5 my-2 rounded-md duration-150 cursor-pointer"
+                  onClick={handleAlwaysOpenProfile}>
+                  <PencilSquareIcon className="w-4 h-4 md:w-6 md:h-6" />
+                  <span className="ms-4 text-left font-normal md:text-sm xl:text-base text-clip">
+                    پروفایل
+                  </span>
+                </AccordionHeader>
+                <AccordionBody className="flex justify-end sm:py-0 md:py-2">
+                  <ul className="w-4/5 text-start text-white">
+                    <li
+                      onClick={() => {
+                        setNavigateTo("edit");
+                      }}
+                      className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
+                      اطلاعات کاربری
+                    </li>
+                    <li
+                      onClick={() => {
+                        setNavigateTo("changePass");
+                      }}
+                      className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
+                      تغییر گذرواژه
+                    </li>
+                  </ul>
+                </AccordionBody>
+              </Accordion>
             </li>
           </ul>
         </div>
@@ -129,7 +156,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <SquaresPlusIcon className="w-5 h-5 mx-auto" />
-          <span className=" text-[7px]">داشبورد</span>
+          <span className="text-ellipsis text-[7px]">داشبورد</span>
         </div>
         <div
           onClick={() => {
@@ -137,7 +164,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <AcademicCapIcon className="w-5 h-5 mx-auto" />
-          <span className=" text-[7px]">دوره‌ها</span>
+          <span className="text-ellipsis text-[7px]">دوره‌ها</span>
         </div>
         <div
           onClick={() => {
@@ -145,7 +172,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <InboxStackIcon className="w-5 h-5 mx-auto" />
-          <span className=" text-[7px]">دوره‌های من</span>
+          <span className="text-ellipsis text-[7px]">دوره‌های من</span>
         </div>
         <div
           onClick={() => {
@@ -153,7 +180,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <ShoppingCartIcon className="w-5 h-5 mx-auto" />
-          <span className=" text-[7px]">خرید دوره</span>
+          <span className="text-ellipsis text-[7px]">خرید دوره</span>
         </div>
         <div
           onClick={() => {
@@ -161,13 +188,21 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <PencilSquareIcon className="w-5 h-5 mx-auto" />
-          <span className=" text-[7px]">ویرایش</span>
+          <span className="text-ellipsis text-[7px]">پروفایل</span>
+        </div>
+        <div
+          onClick={() => {
+            setNavigateTo("edit");
+          }}
+          className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
+          <ShieldCheckIcon className="w-5 h-5 mx-auto" />
+          <span className="text-ellipsis text-[7px]">گذرواژه</span>
         </div>
         <Link
           to="/"
           className="flex flex-col text-center p-1 rounded-md bg-white bg-opacity-30">
           <ArrowLeftOnRectangleIcon className="w-4 h-4 md:w-6 md:h-6" />
-          <span className=" text-[7px]">خروج</span>
+          <span className="text-ellipsis text-[7px]">خروج</span>
         </Link>
       </div>
     </>

@@ -4,6 +4,7 @@ import AllCourses from "./AllCourses.jsx";
 import PaidCourses from "./PaidCourses.jsx";
 import BuyCourse from "./BuyCourse.jsx";
 import EditProfile from "./EditProfile.jsx";
+import ChangePassword from "./ChangePassword.jsx";
 
 let layoutRenderer = (navigateTo) => {
   if (navigateTo === "dash") {
@@ -16,6 +17,8 @@ let layoutRenderer = (navigateTo) => {
     return <BuyCourse />;
   } else if (navigateTo === "edit") {
     return <EditProfile />;
+  } else if (navigateTo === "changePass") {
+    return <ChangePassword />;
   }
 };
 
