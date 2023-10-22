@@ -6,6 +6,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./screens/Login/Login.jsx";
 import RouteError from "./screens/Errors/RouteError.jsx";
 import UnauthenticatedApp from "./App/UnauthenticatedApp/UnauthenticatedApp.jsx";
+import Landing from "./screens/Landing/Landing.jsx";
+import Courses from "./screens/Courses/Courses.jsx";
+import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
+import SmallSlider from "./components/smallSlider/SmallSlider.jsx";
+import NewsDetail from "./screens/NewsDetail/NewsDetail.jsx";
+import NewsArticle from "./screens/NewsArticle/NewsArticle.jsx";
+
 
 const route = createBrowserRouter([
   {
@@ -14,7 +21,7 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <UnauthenticatedApp />,
+        element: <Landing />,
         errorElement: <RouteError />,
       },
       {
@@ -23,9 +30,31 @@ const route = createBrowserRouter([
         errorElement: <RouteError />,
       },
       {
+        path: "/courses",
+        element: <Courses />,
+        errorElement: <RouteError />,
+      },  
+      {
+        path: "/CoursesDetail",
+        element: <CoursesDetail />,
+        errorElement: <RouteError />,
+      }, 
+      {
+        path: "/NewsDetail",
+        element: <NewsDetail />,
+        errorElement: <RouteError />,
+      },       
+      {
+        path: "/NewsArticle",
+        element: <NewsArticle />,
+        errorElement: <RouteError />,
+      },       
+      
+      {
         path: "*",
         element: <RouteError />,
       },
+
     ],
     errorElement: <RouteError />
   }

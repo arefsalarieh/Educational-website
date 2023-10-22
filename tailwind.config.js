@@ -6,9 +6,34 @@ export default {
   ],
   theme: {
     extend: {
+      
+      spacing: {
+        '18': '4.5rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
+      },
+
       colors: {
         primary: '#338D81',
         secondary: '#CCA349',
+        'zgh' : '#CCA349',
+        'daste' : '#F0F0F0',
+        'course' : '#F0F0F0',
+        'send' : '#6ACA56',
+        'mygray' : '#F3F3F3'
+      },
+
+      backgroundImage: {
+        'line': "url('./line.svg')", 
+        'magnifier' :  "url('./magnifier.png')", 
+      },
+
+      backgroundSize: {
+        '80': '80%', 
+      },
+
+      backgroundPosition: {
+        'top-4': 'center top 8rem',
       },
     },
     fontFamily: {
