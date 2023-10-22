@@ -1,6 +1,6 @@
 import React from 'react'
 import NewsArticleComponent from '../../components/NewsArticleComponent/NewsArticleComponent'
-import SerachCourses from '../../components/common/search/serachCourses'
+import SearchCourses from '../../components/common/search/searchCourses'
 import Button from '../../components/common/button/button'
 
 const NewsArticle = () => {
@@ -13,7 +13,7 @@ const NewsArticle = () => {
 
     <h2 className='mb-12'>اخبار و مقالات  </h2>
 
-    <SerachCourses placeholder='عنوان مورد نظر ...'/>
+    <SearchCourses placeholder='عنوان مورد نظر ...'/>
 
     <NewsArticleComponent/>
 

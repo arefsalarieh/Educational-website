@@ -2,7 +2,7 @@ import { AudioOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { Input, Space } from 'antd';
 import Course from '../../components/common/course/Course';
-import SerachCourses from '../../components/common/search/serachCourses';
+import SearchCourses from '../../components/common/search/searchCourses';
 import Allcourse from '../../components/allcourse/allcourse';
 
 
@@ -21,7 +21,7 @@ const Courses = () => {
 
       <h2 className='mb-12'>دوره های آموزشی</h2>
 
-      <SerachCourses placeholder='جستجوی دوره ...'/>
+      <SearchCourses placeholder='جستجوی دوره ...'/>
 
       <Allcourse parentShape='courses' courseShape='courses'/>
 
