@@ -65,6 +65,6 @@ const route = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.Fragment>
-    <RouterProvider router={route} />
+    <App />
   </React.Fragment>
 );
