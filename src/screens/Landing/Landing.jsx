@@ -359,7 +359,7 @@ const Landing = () => {
 
             <label htmlFor='d2'>متن پیام شما</label>
             <Form.Item id='d2' className='mt-4'>
-              <TextArea className='h-24 rounded-xl' style={{direction:'ltr' , height:'160px' ,minHeight:'100px'}}/>
+              <TextArea className='h-24 rounded-xl' style={{direction:'ltr' , height:'160px' ,minHeight:'100px' , maxHeight:'300px'}}/>
             </Form.Item>
 
             <Form.Item >
