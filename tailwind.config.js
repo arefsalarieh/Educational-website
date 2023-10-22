@@ -27,6 +27,7 @@ export default {
     extend: {
       spacing: {
         18: "4.5rem",
+        22: "5.5rem",
         26: "6.5rem",
         30: "7.5rem",
       },
@@ -37,12 +38,16 @@ export default {
         daste: "#F0F0F0",
         course: "#F0F0F0",
         send: "#6ACA56",
+        pannel : "#46A194",
+        mygray : '#F3F3F3',
       },
 
       backgroundImage: {
         line: "url('./line.svg')",
         bgLogRegFor: "url('./bgLog.svg')",
         headerSvg: "url('src/assets/images/headerShape.svg')",
+        magnifier :  "url('./magnifier.png')",
+        courseIcon :  "url('./courseIcon.png')",
       },
 
       backgroundSize: {
