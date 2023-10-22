@@ -174,7 +174,7 @@ const NewsArticle = () => {
         {/* Title and Input Seach  */}
         <div className="w-full flex flex-col items-center  gap-4">
           <p className="mx-auto font-bold  text-lg sm:text-2xl md:text-4xl">
-            اخبار و مقالات{" "}
+            اخبار و مقالات
           </p>
           <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" />
         </div>
