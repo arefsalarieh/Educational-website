@@ -19,7 +19,7 @@ const NewsCard = ({
         <div className="mx-auto">
           {/* Title */}
           <div>
-            <p className=" text-justify  xs:text-sm  font-bold whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px]">
+            <p className=" flex justify-center text-justify  xs:text-sm  font-bold whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px]">
               {title}
             </p>
           </div>

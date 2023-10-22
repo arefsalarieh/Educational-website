@@ -65,7 +65,6 @@ const DetailArticle = () => {
   return (
     <>
       {/* Global Container */}
-
       <div className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 ">
         {/* Top Container */}
         {/* sm:flex-row */}
@@ -83,7 +82,6 @@ const DetailArticle = () => {
                 </p>
               </div>
               {/*category */}
-
               <div className="flex  gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
                   دسته خبر :
@@ -119,16 +117,18 @@ const DetailArticle = () => {
               </div>
               <div className="flex flex-col gap-3 pr-2">
                 <div className="flex flex-row gap-2">
-
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
-                  <p className="text-[13px]  font-bold font-irSans">تاریخ انتشار خبر :</p>
+                  <p className="text-[13px]  font-bold font-irSans">
+                    تاریخ انتشار خبر :
+                  </p>
                   <span className=" text-[13px]">1402/07/19</span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
-           
-                  <p className="text-[13px]  font-bold font-irSans">دسته بندی:</p>
+                  <p className="text-[13px]  font-bold font-irSans">
+                    دسته بندی:
+                  </p>
                   <span className="text-[13px] font-irSans">مقاله</span>
                 </div>
               </div>
@@ -143,7 +143,6 @@ const DetailArticle = () => {
               <img
                 src="/public/assets/img/detailNewsPic.webp"
                 className="mx-auto justify-center"
-              
                 alt="newsPic"
               />
             </div>
@@ -169,7 +168,6 @@ const DetailArticle = () => {
           <SliderRelationNews articelList={articelList} />
         </div>
         {/* end The ListOf Related news and articles */}
-        
         <div className="flex justify-center">
           <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-8 h-8 md:w-12 md:h-12 relative  top-8 md:top-10" />
         </div>

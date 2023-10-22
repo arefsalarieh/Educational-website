@@ -14,9 +14,7 @@ const InsertComment = () => {
           <textarea
             className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-[#f3f3f3] placeholder-[#a5a5a5]  font-irSans  text-base resize-none  placeholder:text-sm    md:placeholder:text-lg   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText"
             placeholder="نظر خود را وارد نمایید..."
-            
           />
-
           {/*Boutton */}
           <div className="w-full mt-4 ">
             {/* bg-bgBtnComment border-bgBtnComment  shadow-green-200 */}
