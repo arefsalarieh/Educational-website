@@ -18,10 +18,10 @@ const Comments = () => {
   return (
     <>
       {/* Global Container */}
-      <div className=" w-full md:w-5/6  items-center justify-center  bg-bgDetail mx-auto p-[26px] space-y-10  md:p-12">
+      <div className=" w-full  items-center justify-center  bg-zinc-100 mx-auto p-[26px] space-y-10  md:p-12">
         <div className="w-full flex flex-col gap-8">
-          <div className=" bg-bgDivTopComm  rounded-md  align-middle   py-2 md:py-4   md:px-8">
-            <p className="  whitespace-nowrap  px-2 pr-4 text-[16px]  md:text-lg  text-bgTextTopComm font-irSans  font-bold">  برای ثبت نظر باید وارد سایت شده باشید</p>
+          <div className=" bg-blue-200  rounded-md  align-middle   py-2 md:py-4   md:px-8">
+            <p className="  whitespace-nowrap  px-2 pr-4 text-[16px]  md:text-lg  text-blue-800 font-irSans  font-bold">  برای ثبت نظر باید وارد سایت شده باشید</p>
           </div>
           <div className="flex">
             <img
@@ -71,7 +71,7 @@ const Comments = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <BsFillArrowDownCircleFill className="rounded-full text-bgArrowDown w-10 h-10 relative  top-12 md:top-16 md:w-12 md:h-12" />
+          <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-10 h-10 relative  top-12 md:top-16 md:w-12 md:h-12" />
         </div>
       </div>
     </>

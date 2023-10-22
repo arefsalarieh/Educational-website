@@ -6,13 +6,13 @@ const InsertComment = () => {
   return (
     <>
       {/* Global Container */}
-      <div className="w-5/6 items-center justify-center  bg-bgDetail mx-auto p-8  md:p-12">
+      <div className="w-full items-center justify-center  bg-zinc-100 mx-auto p-8  md:p-12">
         <div className="w-full flex flex-col">
           <p className="font-semibold mb-2 whitespace-nowrap text-[12px]">
             نظر خود را وارد کنید!
           </p>
           <textarea
-            className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail placeholder-bgPlaceholder   text-base resize-none  placeholder:text-sm    md:placeholder:text-lg   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText"
+            className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-zinc-100 placeholder-bgPlaceholder   text-base resize-none  placeholder:text-sm    md:placeholder:text-lg   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText"
             placeholder="نظر خود را وارد نمایید..."
             
           />
@@ -26,7 +26,7 @@ const InsertComment = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <BsFillArrowDownCircleFill className="rounded-full text-bgArrowDown w-10 h-10 relative  top-12 md:top-16 md:w-12 md:h-12" />
+          <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-10 h-10 relative  top-12 md:top-16 md:w-12 md:h-12" />
         </div>
       </div>
     </>

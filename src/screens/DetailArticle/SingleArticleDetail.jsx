@@ -21,7 +21,7 @@ const SingleArticleDetail = ({ id, title, date }) => {
           </p>
         {/* Date */}
         <div className="flex gap-2">
-        <BsFillCalendarCheckFill className=" text-bgArrowDown  w-4 h-4 "/>
+        <BsFillCalendarCheckFill className=" text-[#a5a5a5]  w-4 h-4 "/>
           <p className=" text-justify  text-sm  font-bold   whitespace-nowrap pb-2 text-bgbtns">
             {date}
           </p>

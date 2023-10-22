@@ -28,12 +28,12 @@ const MenuDetail = () => {
   return (
     <section className="w-full md:w-5/6 px-2 md:px-4 mx-auto">
       {/* top nav */}
-      <ul className="flex bg-bgDetail w-full justify-center  md:w-max px-2 py-2 ">
+      <ul className="flex bg-zinc-100 w-full justify-center  md:w-max px-2 py-2 ">
         <li
           onClick={detailShowHandler}
           className={
             details
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-bgbtns after:absolute after:-bottom-2 after:left-0  font-irSans md:text-lg font-bold "
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0  font-irSans md:text-lg font-bold "
               : "after:hidden px-4 font-irSans text-[12px] md:text-lg  whitespace-nowrap "
           }
         >
@@ -43,7 +43,7 @@ const MenuDetail = () => {
           onClick={commentShowHandler}
           className={
             comments
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-bgbtns after:absolute after:-bottom-2 after:left-0 font-irSans  text-lg  font-bold"
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans  text-lg  font-bold"
               : "after:hidden  px-4 font-irSans  text-[15px] md:text-lg  whitespace-nowrap"
           }
         >
@@ -53,7 +53,7 @@ const MenuDetail = () => {
           onClick={insertShowHandler}
           className={
             insertComment
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-bgbtns after:absolute after:-bottom-2 after:left-0 font-irSans text-lg font-bold"
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans text-lg font-bold"
               : "after:hidden  px-4 font-irSans text-[15px] md:text-lg whitespace-nowrap "
           }
         >

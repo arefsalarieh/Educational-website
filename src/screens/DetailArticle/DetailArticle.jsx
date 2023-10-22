@@ -83,7 +83,7 @@ const DetailArticle = () => {
     <>
       {/* Global Container */}
 
-      <div className="w-full flex  flex-col   bg-bgDetail mx-auto p-5 ">
+      <div className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 ">
         {/* Top Container */}
         {/* sm:flex-row */}
         <div className="flex flex-col-reverse md:flex-row">
@@ -152,14 +152,14 @@ const DetailArticle = () => {
                       stroke-linejoin="round"
                     ></path>
                   </svg> */}
-                  <BsFillCheckCircleFill className=" rounded-full text-bgbtns w-4 h-4" />
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
-                  <BsFillCheckCircleFill className=" rounded-full text-bgbtns w-4 h-4" />
+                  
                   <p className="text-[13px]  font-bold ">تاریخ انتشار خبر :</p>
                   <span className=" text-[13px]">1402/07/19</span>
                 </div>
                 <div className="flex flex-row gap-2">
-                  <BsFillCheckCircleFill className=" rounded-full text-bgbtns w-4 h-4" />
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
                   {/* <
                   <BsFillCheckCircleFill className=" rounded-full text-bgbtns w-4 h-4" />
                   {/* <svg
@@ -205,7 +205,7 @@ const DetailArticle = () => {
         {/*Border Split Top and Below*/}
         <div className="w-full mt-14 mb-6">
           <div className="w-full  border-2 border-bg-bgBorderSplit"></div>
-          <div className="mx-auto relative bottom-4  items-center  bg-bgDetail  w-fit h-fit px-3">
+          <div className="mx-auto relative bottom-4  items-center  bg-zinc-100  w-fit h-fit px-3">
             <p className="text-sm text-center font-irSans md:text-lg">
               اخبار مرتبط
             </p>
@@ -221,7 +221,7 @@ const DetailArticle = () => {
         {/* end The ListOf Related news and articles */}
         
         <div className="flex justify-center">
-          <BsFillArrowDownCircleFill className="rounded-full text-bgArrowDown w-8 h-8 md:w-12 md:h-12 relative  top-8 md:top-10" />
+          <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-8 h-8 md:w-12 md:h-12 relative  top-8 md:top-10" />
         </div>
       </div>
       {/*end Global Container */}
