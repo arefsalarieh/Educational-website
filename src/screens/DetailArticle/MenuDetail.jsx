@@ -28,7 +28,7 @@ const MenuDetail = () => {
   return (
     <section className="w-full md:w-5/6 px-2 md:px-4 mx-auto">
       {/* top nav */}
-      <ul className="flex bg-zinc-100 w-full justify-center  md:w-max px-2 py-2 ">
+      <ul className="flex bg-[#f3f3f3] w-full justify-center  md:w-max px-2 py-2 ">
         <li
           onClick={detailShowHandler}
           className={
@@ -61,7 +61,7 @@ const MenuDetail = () => {
         </li>
       </ul>
       {/* body Page */}
-      <section className="flex flex-col md:flex-row-reverse bg-bgDetail">
+      <section className="flex flex-col md:flex-row-reverse bg-[#f3f3f3]">
         {details && <DetailArticle />}
         {comments && <Comments />}
         {insertComment && <InsertComment />}

@@ -29,9 +29,6 @@ const Comments = () => {
               alt="academi"
               className="w-[33px] h-[33px]  pl-1 rounded-full relative top-8 md:left-2 md:w-12 md:h-12"
             />
-            {/* <textarea
-              className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail placeholder-bgPlaceholder  text-base resize-none  focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText"
-            /> */}
             <div className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail   text-base focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText bg-white">
               <div className="flex flex-col gap-4 pr-2 pt-4">
                 <p className="flex flex-row gap-2 text-[16px] md:text-lg font-irSans whitespace-nowrap font-bold">
@@ -49,9 +46,6 @@ const Comments = () => {
               alt="academi"
               className="w-[33px] h-[33px]  rounded-full  relative top-8  right-8 pr-1  md:w-12 md:h-12 md:right-16"
             />
-            {/* <textarea
-              className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail placeholder-bgPlaceholder  text-base resize-none   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText"
-            /> */}
             <div className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail   text-base   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText  bg-white">
               <div className="flex flex-col gap-4 pr-2">
                 <p className="flex flex-row gap-2 pr-4  text-[16px] md:pr-12 md:text-lg font-irSans  whitespace-nowrap font-bold">

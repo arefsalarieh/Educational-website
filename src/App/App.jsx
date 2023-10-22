@@ -11,6 +11,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
+import { NewsArticle } from "../screens/NewsArticle/NewsArticle.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
         element: <MenuDetail />,
         errorElement: <RouteError />,
       },
+      {
+        path: "/NewsArticle",
+        element: <NewsArticle/>,
+        errorElement: <RouteError />,
+      }
+      ,
       {
         path: "/resetPassword",
         element: <ResetPassword />,

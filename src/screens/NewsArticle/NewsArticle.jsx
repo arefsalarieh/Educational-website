@@ -160,7 +160,7 @@ const NewsArticle = () => {
   ]);
 
   return (
-    <>
+    <div className=" font-irSans">
       {/* Global Container */}
       <div className="flex w-full flex-col items-center  mx-auto p-5 gap-4">
         {/* Images */}
@@ -173,11 +173,10 @@ const NewsArticle = () => {
         </div>
         {/* Title and Input Seach  */}
         <div className="w-full flex flex-col items-center  gap-4">
-          <p className="mx-auto font-bold font-sans text-lg sm:text-2xl md:text-4xl">
-            {" "}
+          <p className="mx-auto font-bold  text-lg sm:text-2xl md:text-4xl">
             اخبار و مقالات{" "}
           </p>
-          <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-sans placeholder:font-light placeholder:text-[10px]] md:w-[400px]" />
+          <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" />
         </div>
         {/*end Title and Input Seach  */}
 
@@ -187,10 +186,10 @@ const NewsArticle = () => {
         </div>
         {/*Button More */}
         <div>
-          <Button className="border border-bgbtns font-sans ">بیشتر</Button>
+          <Button className="border border-secondary  font-irSans ">بیشتر</Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export { NewsArticle };

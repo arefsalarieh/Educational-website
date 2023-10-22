@@ -62,23 +62,6 @@ const DetailArticle = () => {
     },
   ]);
 
-  // const items = [
-  //   {
-  //     key: 1,
-  //     lable: "جزئیات خبر",
-  //     children: <DetailArticle />,
-  //   },
-  //   {
-  //     key: 2,
-  //     lable: "نظرات",
-  //     children: <Comments />,
-  //   },
-  //   {
-  //     key: 3,
-  //     lable: "درج نظر",
-  //     children: <InsertComment />,
-  //   },
-  // ];
   return (
     <>
       {/* Global Container */}
@@ -92,29 +75,28 @@ const DetailArticle = () => {
             <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28">
               {/*title */}
               <div className="flex gap-2 md:flex-col">
-                <p className="text-sm font-bold whitespace-nowrap ">
+                <p className="text-sm font-bold whitespace-nowrap font-irSans">
                   عنوان خبر :
                 </p>
-                <p className="text-[13px] font-semibold whitespace-nowrap ">
-                  {" "}
+                <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
                   دوره جامع آموزش ری اکت
                 </p>
               </div>
               {/*category */}
 
               <div className="flex  gap-2 md:flex-col">
-                <p className="text-sm font-bold whitespace-nowrap ">
+                <p className="text-sm font-bold whitespace-nowrap font-irSans">
                   دسته خبر :
                 </p>
-                <p className="text-[13px] font-semibold whitespace-nowrap ">
+                <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
                   مقاله
                 </p>
               </div>
             </div>
             {/*content article right side */}
             <div className="flex flex-col">
-              <p className="text-sm font-bold ">متن خبر :</p>
-              <p className="text-sm text-justify ">
+              <p className="text-sm font-bold font-irSans">متن خبر :</p>
+              <p className="text-sm text-justify font-irSans">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
                 در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
@@ -133,53 +115,21 @@ const DetailArticle = () => {
             {/*More Information  Section*/}
             <div className="flex flex-col gap-3">
               <div>
-                <p className="font-bold text-sm  ">اطلاعات بیشتر:</p>
+                <p className="font-bold text-sm  font-irSans">اطلاعات بیشتر:</p>
               </div>
               <div className="flex flex-col gap-3 pr-2">
                 <div className="flex flex-row gap-2">
-                  {/* <svg
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="bg-bgbtns rounded-full text-white w-5 h-5"
-                  >
-                    <path
-                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg> */}
+
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
-                  
-                  <p className="text-[13px]  font-bold ">تاریخ انتشار خبر :</p>
+                  <p className="text-[13px]  font-bold font-irSans">تاریخ انتشار خبر :</p>
                   <span className=" text-[13px]">1402/07/19</span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
-                  {/* <
-                  <BsFillCheckCircleFill className=" rounded-full text-bgbtns w-4 h-4" />
-                  {/* <svg
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="bg-bgbtns rounded-full text-white w-5 h-5"
-                  >
-                    <path
-                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg> */}
-
-                  <p className="text-[13px]  font-bold ">دسته بندی:</p>
-                  <span className="text-[13px] ">مقاله</span>
+           
+                  <p className="text-[13px]  font-bold font-irSans">دسته بندی:</p>
+                  <span className="text-[13px] font-irSans">مقاله</span>
                 </div>
               </div>
             </div>

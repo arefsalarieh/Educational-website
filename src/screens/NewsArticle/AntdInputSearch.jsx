@@ -8,8 +8,6 @@ const suffix = (
   <AudioOutlined
     style={{
       fontSize: 16,
-      // color: 'bg-bgbtns',
-      // backgroundColor: '#cca349',
     }}
   />
 );

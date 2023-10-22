@@ -10,7 +10,7 @@ const NewsCard = ({
 })  => {
   return (
     <>
-      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center border border-bg-bgBorder rounded-md p-3">
+      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center border border-bg-[#ffffff] rounded-md p-3">
         {/* Image */}
         <div className="w-full mx-auto justify-center pb-4 cursor-pointer">
           <img src="/public/assets/img/itemNewsPic.jpg" alt="NewsPic" />
@@ -19,13 +19,13 @@ const NewsCard = ({
         <div className="mx-auto">
           {/* Title */}
           <div>
-            <p className=" text-justify  xs:text-sm  font-bold font-sans whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px]">
+            <p className=" text-justify  xs:text-sm  font-bold whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px]">
               {title}
             </p>
           </div>
           {/* Description */}
           <div className="mx-auto ">
-            <p className=" text-justify text-xs font-sans pb-2  truncate">
+            <p className=" text-justify text-xs  pb-2  truncate">
             {description}
             </p>
           </div>
@@ -33,16 +33,16 @@ const NewsCard = ({
           <div className="flex justify-between ">
             {/*View */}
             <div className="flex gap-1">
-            <FaEye className="text-bgbtns"/>
+            <FaEye className="text-secondary"/>
             {/* font-light */}
-              <p className=" text-justify  text-[11px] font-sans  text-bgWriterNews font-bold">
+              <p className=" text-justify  text-[11px]  text-[#6f97b9] font-bold">
                 {view}
               </p>
             </div>
             {/* Writer*/}
             <div className="flex gap-1">
-              {/* <BsBookHalf className="text-bgWriterNews"/> */}
-              <p className=" text-justify  text-xs text-bgWriterNews  font-semibold font-sans">
+              {/* <BsBookHalf className="text-[#6f97b9]"/> */}
+              <p className=" text-justify  text-xs text-[#6f97b9]  font-semibold ">
                 {nameWriter}
               </p>
             </div>
