@@ -22,7 +22,6 @@ const Comments = () => {
         <div className="w-full flex flex-col gap-8">
           <div className=" bg-blue-200  rounded-md  align-middle   py-2 md:py-4   md:px-8">
             <p className="  whitespace-nowrap  px-2 pr-4 text-[16px]  md:text-lg  text-blue-800 font-irSans  font-bold">
-              {" "}
               برای ثبت نظر باید وارد سایت شده باشید
             </p>
           </div>
