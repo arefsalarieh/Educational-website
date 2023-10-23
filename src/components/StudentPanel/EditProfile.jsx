@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Formik } from 'formik'
 import { Input , Select  } from 'antd'
 import TextArea from 'antd/es/input/TextArea';
+import Button from '../common/button/button';
 
 
 const EditProfile = () => {
@@ -61,7 +62,12 @@ const EditProfile = () => {
             <TextArea  id='desc' name='desc' style={{ height:'200px' ,minHeight:'100px', maxHeight:'300px'}}/>            
           </div> 
 
-                             
+          <div  className=' mt-4 w-full flex flex-col sm:flex-row flex-wrap  sm:justify-start gap-4 '>
+            <Button title='ثبت' backgroundColor='bg-green-400' borderWidth='border-none'></Button>                
+            <Button title='حذف' backgroundColor='bg-red-400' borderWidth='border-none'></Button> 
+            <Button margin='sm:mr-auto' title='بازگشت'></Button>      
+          </div>
+        
 
         </form>
 

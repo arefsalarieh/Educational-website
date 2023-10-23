@@ -7,7 +7,7 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
   return(
     <div className='my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border'>
       <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0'>
-        <img className='border mt-6 lg:mt-0 mx-auto' src={pic}/>        
+        <img className=' mt-6 lg:mt-0 mx-auto' src={pic}/>        
       </div>
 
       <h2 className='font-extrabold mt-4 lg:mt-0'>
@@ -59,8 +59,7 @@ const PaidCourses = () => {
   const bigList = pCourses;
   const smallList = pCourses.filter((item , index)=>index >= start && index <= end)
 
-  var pCoursesLength = pCourses.length;
-  console.log(pCoursesLength);
+
 
 
   return (
@@ -85,7 +84,7 @@ const PaidCourses = () => {
         })}
 
         <div className='mt-8'>
-           <Pagination total={pCoursesLength} pageSize={6} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>
+           <Pagination total={pCourses.length} pageSize={6} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>
         </div>
 
 
