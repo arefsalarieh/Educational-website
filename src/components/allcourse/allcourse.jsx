@@ -16,12 +16,23 @@ const Allcourse = ({parentShape , courseShape}) => {
         {parentLanding : 'flex justify-around flex-wrap lg:flex-nowrap mt-8 gap-8 w-full px-6 sm:px-18 text-xl text-center'},
  
       ])
+
+      var st = 'st' ;
+
+      if(parentShape == 'courses'){
+        st = parentDesign[0].parentCourses;
+      }
+      else if(parentShape == 'landing'){
+        st = parentDesign[1].parentLanding ;
+      }
+
+       
       return (
         <section className='mx-auto text-center'>
             
             
     
-            <div className={parentShape == 'courses' ? parentDesign[0].parentCourses : parentDesign[1].parentLanding }>
+            <div className={st }>
               {coursesList.map((item , index)=>{
               return(
                 <Course key={index} courseShape={courseShape} courseName={item.courseName}  teacher={item.teacher} date={item.date} src={item.src}/>          
