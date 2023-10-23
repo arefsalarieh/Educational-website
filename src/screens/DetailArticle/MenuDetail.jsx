@@ -34,7 +34,7 @@ const MenuDetail = () => {
           className={
             details
               ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0  font-irSans md:text-lg font-bold "
-              : "after:hidden px-4 font-irSans text-[12px] md:text-lg  whitespace-nowrap "
+              : "after:hidden px-4 font-irSans text-[12px] md:text-lg  whitespace-nowrap cursor-pointer "
           }
         >
           جزئیات دوره
@@ -44,7 +44,7 @@ const MenuDetail = () => {
           className={
             comments
               ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans  text-lg  font-bold"
-              : "after:hidden  px-4 font-irSans  text-[15px] md:text-lg  whitespace-nowrap"
+              : "after:hidden  px-4 font-irSans  text-[15px] md:text-lg  whitespace-nowrap  cursor-pointer"
           }
         >
           نظرات
@@ -54,7 +54,7 @@ const MenuDetail = () => {
           className={
             insertComment
               ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans text-lg font-bold"
-              : "after:hidden  px-4 font-irSans text-[15px] md:text-lg whitespace-nowrap "
+              : "after:hidden  px-4 font-irSans text-[15px] md:text-lg whitespace-nowrap  cursor-pointer"
           }
         >
           درج نظر
