@@ -18,10 +18,10 @@ const Comments = () => {
   return (
     <>
       {/* Global Container */}
-      <div className=" w-full  items-center justify-center  bg-zinc-100 mx-auto p-[26px] space-y-10  md:p-12">
+      <div className=" w-full  items-center justify-center  bg-zinc-100 mx-auto p-[26px]  pr-2 md:pr-[26px] space-y-10  md:p-12">
         <div className="w-full flex flex-col gap-8">
-          <div className=" bg-blue-200  rounded-md  align-middle   py-2 md:py-4   md:px-8">
-            <p className="  whitespace-nowrap  px-2 pr-4 text-[16px]  md:text-lg  text-blue-800 font-irSans  font-bold">
+          <div className=" bg-blue-200  rounded-md  align-middle mr-[20px]  py-2 md:py-4  px-4  md:px-8">
+            <p className="  whitespace-nowrap   text-[12px]  md:text-lg  text-blue-800 font-irSans  font-bold">
               برای ثبت نظر باید وارد سایت شده باشید
             </p>
           </div>
@@ -33,12 +33,12 @@ const Comments = () => {
             />
             <div className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail   text-base focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText bg-white">
               <div className="flex flex-col gap-4 pr-2 pt-4">
-                <p className="flex flex-row gap-2 text-[16px] md:text-lg font-irSans whitespace-nowrap font-bold">
+                <p className="flex flex-row gap-2 text-[14px] md:text-lg font-irSans whitespace-nowrap font-bold">
                   <div className="md:text-lg">{questioncomm.userName}</div>
                   <span className="text-gray-300">|</span>
                   <div className="md:text-sm">{questioncomm.dateSend}</div>
                 </p>
-                <p className="flex flex-col gap-2 text-[16px] font-irSans text-gray-800 ">
+                <p className="flex flex-col gap-2 text-[14px] font-irSans text-gray-800 ">
                   {questioncomm.userMsg}
                 </p>
               </div>
@@ -50,9 +50,9 @@ const Comments = () => {
               alt="academi"
               className="w-[33px] h-[33px]  rounded-full  relative top-8  right-8 pr-1  md:w-12 md:h-12 md:right-16"
             />
-            <div className="w-full  h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail   text-base   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText  bg-white">
-              <div className="flex flex-col gap-4 pr-2">
-                <p className="flex flex-row gap-2 pr-4  text-[16px] md:pr-12 md:text-md font-irSans  whitespace-nowrap font-bold">
+            <div className="w-full pt-4 h-[120px] p-3 md:h-[150px] border rounded-md  boreder-bgDetail   text-base   focus:outline-none focus:border-bgFocusText focus:ring-1 focus:ring-bgFocusText  bg-white">
+              <div className="flex flex-col gap-4 pr-2 ">
+                <p className="flex flex-row gap-2 pr-4   text-[14px] md:pr-12 md:text-md font-irSans  whitespace-nowrap font-bold">
                   <div className="md:text-lg">{responsecomm.name}</div>
                   <span className="text-gray-300 ">|</span>
                   <div className="md:text-sm">{responsecomm.date}</div>
