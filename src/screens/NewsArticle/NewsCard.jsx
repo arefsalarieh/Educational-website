@@ -5,7 +5,7 @@ const NewsCard = ({ id, title, nameWriter, view, description }) => {
   return (
     <>
     {/* border border-bg-[#ffffff] */}
-      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center border border-bg-[#ffffff] shadow-lg  shadow-bg-[#ffffff]  rounded-md p-3">
+      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff]  rounded-md p-3">
         {/* Image */}
         <div className="w-full mx-auto justify-center pb-4 cursor-pointer">
           <img src="/public/assets/img/itemNewsPic.jpg" alt="NewsPic" />
