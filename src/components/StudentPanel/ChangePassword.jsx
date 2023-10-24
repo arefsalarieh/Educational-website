@@ -26,8 +26,8 @@ const ChangePassword = () => {
                 <ContentChangePass />
                 {/*end Below Content Side */}
                 {/*Boutton */}
-                <div className=" w-full flex justify-center cursor-pointer  font-bold text-white mt-2  md:mt-0 rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition    hover:-translate-y-0.5 duration-150 py-1 text-sm  md:text-[16px]  md:py-2  md:w-3/4   md:relative md:right-1/4  lg:w-[82.333%]   lg:right-[130px]  xl:w-[86.120%] xl:right-[127px]">
-                  <button className="font-irSans md:py-1">ذخیره تغییرات</button>
+                <div className=" w-full flex justify-center cursor-pointer  font-bold text-white mt-2  md:mt-0 rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition    hover:-translate-y-0.5 duration-150 py-1 text-sm  md:text-[16px]    md:w-3/4   md:relative md:right-1/4  lg:w-[82.333%]   lg:right-[130px]  xl:w-[86.120%] xl:right-[127px]">
+                  <button className="font-irSans py-1 md:py-2">ذخیره تغییرات</button>
                 </div>
                 {/*end Boutton */}
               </div>
