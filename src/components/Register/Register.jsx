@@ -27,7 +27,7 @@ const Register = () => {
             <div className="flex  w-9/12 p-12 space-y-10  bg-white shadow-2xl rounded-2xl lg:flex-row  xs:flex-col-reverse xs:p-6">
               {/* Right Side */}
               <div className=" flex flex-col justify-center w-full ">
-                <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4 text-black">
+                <h1 className="justify-center   font-irSans sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4 text-black">
                   ثبت نام کاربر
                 </h1>
 
@@ -35,7 +35,7 @@ const Register = () => {
                 <div className="flex flex-col gap-4 w-full">
                   <div className=" w-full flex flex-col lg:flex-row gap-4">
                     <div className="flex flex-col w-full ">
-                      <p className="font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[14px] text-black">
+                      <p className="font-semibold mb-2 whitespace-nowrap  font-irSans  sm:text-base  xs:text-[14px] text-black">
                         نام و نام خانوادگی
                       </p>
                       <Input
@@ -45,7 +45,7 @@ const Register = () => {
                       />
                     </div>
                     <div className="flex flex-col  w-full">
-                      <p className="font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[14px] text-black">
+                      <p className="font-semibold mb-2 whitespace-nowrap  font-irSans  sm:text-base  xs:text-[14px] text-black">
                         شماره تماس
                       </p>
                       <InputContact
@@ -57,7 +57,7 @@ const Register = () => {
                   </div>
                   <div className="w-full flex justify-between flex-col lg:flex-row gap-4">
                     <div className="flex flex-col  w-full ">
-                      <p className="font-semibold mb-2 whitespace-nowrap   sm:text-base  xs:text-[14px] text-black">
+                      <p className="font-semibold mb-2 whitespace-nowrap   font-irSans  sm:text-base  xs:text-[14px] text-black">
                         شماره ملی
                       </p>
                       <NumericInput
@@ -66,7 +66,7 @@ const Register = () => {
                       />
                     </div>
                     <div className="flex flex-col  w-full">
-                      <p className="font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[14px] text-black">
+                      <p className="font-semibold mb-2 whitespace-nowrap  font-irSans  sm:text-base  xs:text-[14px] text-black">
                         {" "}
                         تاریخ تولد
                       </p>
@@ -75,7 +75,7 @@ const Register = () => {
                   </div>
                   <div className="flex flex-col gap-4">
                     <div>
-                      <p className="font-semibold mb-2  sm:text-base  xs:text-[14px]  text-black">
+                      <p className="font-semibold mb-2  sm:text-base  font-irSans   xs:text-[14px]  text-black">
                         ایمیل
                       </p>
                       <Input
@@ -88,7 +88,7 @@ const Register = () => {
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <p className="font-semibold  mb-2  sm:text-base  xs:text-[14px] text-black">
+                    <p className="font-semibold  mb-2   font-irSans sm:text-base  xs:text-[14px] text-black">
                       پسورد
                     </p>
                     <Input.Password
@@ -103,10 +103,10 @@ const Register = () => {
                   </div>
                   {/*Bouttons */}
                   <div className="flex  sm:mt-8    xs:mt-4 sm:justify-items-center sm:justify-center ">
-                    <button className="w-full  xs:justify-center whitespace-nowrap ml-4   flex  sm:justify-center sm:items-center   lg:px-10 md:px-24 space-x-4 font-sans font-bold text-white rounded-md shadow-lg  bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center  hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
+                    <button className="w-full  font-irSans  xs:justify-center whitespace-nowrap ml-4   flex  sm:justify-center sm:items-center   lg:px-10 md:px-24 space-x-4 font-sans font-bold text-white rounded-md shadow-lg  bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center  hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
                       ثبت نام
                     </button>
-                    <button className="w-full   xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white rounded-md shadow-lg  bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
+                    <button className="w-full   font-irSans  xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white rounded-md shadow-lg  bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
                       ورود
                     </button>
                   </div>
