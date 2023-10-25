@@ -3,7 +3,7 @@ import { AntdInputSearch } from "./AntdInputSearch";
 import { ListNewsCards } from "./ListNewsCards";
 import React from "react";
 import { Button, Dropdown, Space } from "antd";
-
+import SearchCourses from "../../components/common/search/serachCourses";
 
 const NewsArticle = () => {
   const [articelList, setArticelList] = useState([
@@ -176,7 +176,8 @@ const NewsArticle = () => {
           <p className="mx-auto font-bold  text-lg sm:text-2xl md:text-4xl">
             اخبار و مقالات
           </p>
-          <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" />
+          {/* <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" /> */}
+         <SearchCourses/>
         </div>
         {/*end Title and Input Seach  */}
 
