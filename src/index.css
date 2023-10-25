@@ -20,7 +20,6 @@ body {
     @apply justify-center font-irSans sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4;
   }
 }
-
 @layer components {
 .mail-input-login{
   @apply w-full text-left  sm:py-3 border border-gray-400 rounded-md placeholder:font-irSans  sm:placeholder:font-light sm:w-11/12 xs:py-1  xs:placeholder:text-[12px] ;
@@ -29,7 +28,6 @@ body {
   @apply flex-row-reverse  text-left w-full  sm:py-3 border border-gray-400 rounded-md placeholder:font-sans placeholder:font-light sm:w-11/12 xs:py-1;
 }
 } 
-
 .global-container{
   @apply flex items-center justify-center  bg-bgLogRegFor  w-screen  h-screen;
 }
@@ -40,7 +38,7 @@ body {
   @apply sm:flex flex-col justify-center  sm:w-full  xs:w-full xs:py-0 xs:px-8;
 }
 .message-forgot{
-  @apply font-thin text-cyan-700 whitespace-nowrap sm:text-base xs:text-sm;
+  @apply font-thin text-cyan-700 whitespace-nowrap sm:text-base xs:text-sm font-irSans;
 }
 .button-register{
   @apply  w-full ml-4  md:w-auto  flex justify-center items-center sm:p-3  md:px-6  md:py-2 space-x-4 font-irSans font-bold text-white rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center  hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center;
