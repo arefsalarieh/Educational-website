@@ -4,6 +4,12 @@ import { ListNewsCards } from "./ListNewsCards";
 import React from "react";
 import { Button, Dropdown, Space } from "antd";
 import SearchCourses from "../../components/common/search/serachCourses";
+import { BsFillCalendarCheckFill } from "react-icons/bs";
+
+  {/*
+import "react-datepicker/dist/react-datepicker.css";
+import { DatePickerPersian } from "../../components/common/datePicker/DatePickerPersian"
+import "../../datepicker.css"; */}
 
 const NewsArticle = () => {
   const [articelList, setArticelList] = useState([
@@ -11,19 +17,22 @@ const NewsArticle = () => {
       title: "آموزش ری اکت جی اس با استاد جدید",
       view: "223",
       nameWriter: "سمیه",
-      description:"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.",
     },
     {
       title: "آموزش ری اکت جی اس با استاد جدید",
       view: "123",
       nameWriter: "وحید",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد ",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد ",
     },
     {
       title: "آموزش ری اکت جی اس با استاد جدید",
       view: "14",
       nameWriter: "رضا",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد ",
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد ",
     },
     {
       title: "آموزش ری اکت جی اس با استاد جدید",
@@ -177,9 +186,39 @@ const NewsArticle = () => {
             اخبار و مقالات
           </p>
           {/* <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" /> */}
-         <SearchCourses/>
+          <SearchCourses />
         </div>
         {/*end Title and Input Seach  */}
+        {/* filter newsArticle */}
+        <div className="flex  w-full gap-2 mr-2 mt-4">
+          <div className="flex text-[#131b1f] text-[11px] md:text-sm  bg-white  cursor-pointer select-none items-center rounded-xl border border-[#dddedf] pr-2  pl-2 md:pr-4  md:pl-4 font-light relative bottom-2 h-[30px]">
+            <BsFillCalendarCheckFill className=" text-[#a5a5a5] w-4 h-4 ml-2 mr-2" />
+            {/* <DatePickerPersian size="large xs:default" /> */}
+            <p className="font-bold font-irSans " id="dateFilter">
+              تاریخ انتشار
+            </p>
+          </div>
+        </div>
+        {/* end filter newsArticle */}
+        {/*border Spliter  */}
+        <div className="w-full mt-1 mb-1">
+          <div className="w-full   border-[1px]  border-[#f3f0f0]"></div>
+          <div className="mx-auto relative bottom-4  items-center  bg-zinc-100  w-fit h-fit px-3"></div>
+        </div>
+        {/*End border Spliter  */}
+
+        {/* SortBy newsArticle */}
+        <div className="flex w-full gap-[14px]  mb-[30px] h-[40px]">
+          <span className=" text-xs md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 font-bold leading-4">
+            <input type="checkbox" id="mostVisited" name="sortGroup"  className="bg-[#a5a5a5]  w-3 h-3"/>
+            <label for="mostVisited"> پربازدیدترین </label>
+          </span>
+          <span className=" text-xs md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
+            <input type="checkbox" id="newest" name="sortGroup" className="bg-[#a5a5a5]  w-3 h-3"/>
+            <label for="newest"> جدیدترین</label>
+          </span>
+        </div>
+        {/* end SortBy newsArticle */}
 
         {/*Tthe ListOf News and Articels */}
         <div className="">
@@ -187,7 +226,9 @@ const NewsArticle = () => {
         </div>
         {/*Button More */}
         <div>
-          <Button className="border border-secondary  font-irSans ">بیشتر</Button>
+          <Button className="border border-secondary  font-irSans ">
+            بیشتر
+          </Button>
         </div>
       </div>
     </div>
