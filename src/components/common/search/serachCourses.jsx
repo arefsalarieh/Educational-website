@@ -1,12 +1,12 @@
 import React from 'react'
 
-const SerachCourses = () => {
+const SearchCourses = ({backgroundColor='bg-zgh' , placeholder='جستجوی خبر و مقاله ...' , width='w-full md:w-8/12' , height='h-10 md:h-12'}) => {
   return (
-  <div className='border w-5/12 flex rounded-lg h-14 overflow-hidden'>
-    <input className='block w-full pr-4' placeholder='جستجوی دوره ...'/>    
-    <button className='bg-zgh bg-magnifier bg-50 bg-no-repeat bg-center w-1/12  magnifier block text-white p-2.5 px-4'></button>
+  <div className={`border mx-auto  flex rounded-lg  overflow-hidden ${height} ${width}`}>
+    <input className='block w-full pr-4' placeholder={placeholder}/>    
+    <button className={` block  bg-magnifier bg-50 bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4  ${backgroundColor}`}></button>
   </div>
   )
 }
 
-export default SerachCourses
+export default SearchCourses
