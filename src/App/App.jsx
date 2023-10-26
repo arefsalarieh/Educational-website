@@ -11,7 +11,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
-import { NewsArticle } from "../screens/NewsArticle/NewsArticle.jsx";
+import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 
 const router = createBrowserRouter([
   {
