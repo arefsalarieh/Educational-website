@@ -206,38 +206,6 @@ const NewsArticle = () => {
     },
   ]);
 
-  function filterData() {
-    galary1.innerHTML = "";
-
-    allCat = true;
-    let type1 = "";
-    let type2 = "";
-    let type3 = "";
-
-    var filtered = articelList.filter(function (el) {
-      return (
-        el.title.indexOf(searchInp.value) != -1 &&
-        el.price >= priFrom.value &&
-        el.price <= priTo.value &&
-        (el.type == type1 || el.type == type2 || el.type == type3 || allCat) &&
-        el.number == passengerNumber.innerHTML
-      );
-    });
-    // Sort
-    if (starSort.checked) {
-      filtered = filtered.sort((a, b) => {
-        return b.star - a.star;
-      });
-    }
-    if (priceSort.checked) {
-      filtered = filtered.sort(function (a, b) {
-        return a.price - b.price;
-      });
-    }
-
-    fill_galary(filtered);
-  }
-
   return (
     <div className=" font-irSans">
       {/* Global Container */}
