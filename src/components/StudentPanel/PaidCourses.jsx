@@ -28,7 +28,7 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>قیمت    :</span>
-        <span className='font-light'>{cost}    </span>
+        <span className='font-light'>{cost}   تومان </span>
       </h2>
       <div className= 'mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6'> </div>
 
@@ -39,14 +39,14 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
 
 const PaidCourses = () => {
   const [pCourses , setPCourses] = useState([
-    {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c2.png' , name : '2دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c3.png' , name : '3دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c4.png' , name : '4دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c1.png' , name : '5دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c2.png' , name : '6دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c3.png' , name : '7دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
-    {pic:'c4.png' , name : '8دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000  نومان '},
+    {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c2.png' , name : '2دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c3.png' , name : '3دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c4.png' , name : '4دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c1.png' , name : '5دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c2.png' , name : '6دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c3.png' , name : '7دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
+    {pic:'c4.png' , name : '8دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
   ])
 
   const [start , setStart] = useState(0)
@@ -56,7 +56,7 @@ const PaidCourses = () => {
     setStart((pageSize-1)*6) ;
   }  
 
-  const bigList = pCourses;
+
   const smallList = pCourses.filter((item , index)=>index >= start && index <= end)
 
 
