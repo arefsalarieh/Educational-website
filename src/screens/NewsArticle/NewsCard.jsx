@@ -1,10 +1,11 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { BsBookHalf } from "react-icons/bs";
-const NewsCard = ({ id, title, nameWriter, view, description }) => {
+const NewsCard = ({ id, title, nameWriter, view, description,star }) => {
+
   return (
     <>
-    {/* border border-bg-[#ffffff] */}
+      {/* border border-bg-[#ffffff] */}
       <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff]  rounded-md p-3">
         {/* Image */}
         <div className="w-full mx-auto justify-center pb-4 cursor-pointer">
@@ -24,6 +25,10 @@ const NewsCard = ({ id, title, nameWriter, view, description }) => {
               {description}
             </p>
           </div>
+          {/* star */}
+         {/* var  width=18*{star} + "px";  */}
+          <span className="w-[36px] h-[20px] mb-1 ml-[10px] bg-[18px]  block  bg-[url('/public/assets/img/star.PNG')] bg-no-repeat-x">{star}</span>
+          {/*End star */}
           {/* Writer and View */}
           <div className="flex justify-between ">
             {/* Writer*/}
@@ -34,7 +39,7 @@ const NewsCard = ({ id, title, nameWriter, view, description }) => {
               </p>
             </div>
             {/*View */}
-            <div className="flex gap-1">       
+            <div className="flex gap-1">
               <p className=" text-justify  text-[11px]  text-[#6f97b9] font-bold">
                 {view}
               </p>
