@@ -224,7 +224,7 @@ const NewsArticle = () => {
             اخبار و مقالات
           </p>
           {/* <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" /> */}
-          <SearchCourses />
+          <SearchCourses className="cursor-pointer"/>
         </div>
         {/*end Title and Input Seach  */}
         {/* filter newsArticle */}
@@ -232,7 +232,7 @@ const NewsArticle = () => {
           <div className="flex text-[#131b1f] text-[11px] md:text-sm  bg-white  cursor-pointer select-none items-center rounded-xl border border-[#dddedf] pr-2  pl-2 md:pr-4  md:pl-4 font-light relative bottom-2 h-[30px]">
             <BsFillCalendarCheckFill className=" text-[#a5a5a5] w-4 h-4 ml-2 mr-2" />
             {/* <DatePickerPersian size="large xs:default" />  */}
-            <p className="font-bold font-irSans " id="dateFilter">
+            <p className="font-bold font-irSans text-gray-400 hover:text-gray-600" id="dateFilter">
               تاریخ انتشار
             </p>
           </div>
@@ -246,24 +246,24 @@ const NewsArticle = () => {
         {/*End border Spliter  */}
 
         {/* SortBy newsArticle */}
-        <div className="flex w-full gap-[14px]  mb-[30px] h-[40px]">
-          <span className=" text-xs md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 font-bold leading-4">
+        <div className="flex w-full gap-[14px]  mb-[30px] h-[40px] ">
+          <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 font-bold leading-4">
             <input
               type="checkbox"
               id="mostVisited"
               name="sortGroup"
-              className="bg-[#a5a5a5]  w-3 h-3"
+              className="bg-[#a5a5a5]  w-3 h-3 cursor-pointer"
             />
-            <label for="mostVisited"> پربازدیدترین </label>
+            <label for="mostVisited" className="cursor-pointer"> پربازدیدترین </label>
           </span>
-          <span className=" text-xs md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
+          <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
             <input
               type="checkbox"
               id="newest"
               name="sortGroup"
-              className="bg-[#a5a5a5]  w-3 h-3"
+              className="bg-[#a5a5a5]  w-3 h-3  cursor-pointer"
             />
-            <label for="newest"> جدیدترین</label>
+            <label for="newest" className="cursor-pointer"> جدیدترین</label>
           </span>
         </div>
         {/* end SortBy newsArticle */}
