@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AcademicCapIcon,
   PencilSquareIcon,
@@ -13,16 +13,22 @@ import {
   AccordionHeader,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import ModalSlider from "./ModalSlider";
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
   const [alwaysOpen, setAlwaysOpen] = React.useState(false);
+  const [modalStyle , setModalStyle] = useState('hidden top-0 z-50 bg-gray-600/50 h-screen w-screen ')
 
   const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const showModal = ()=>{
+    setModalStyle('absolute top-0 z-50 bg-gray-600/50 h-screen w-screen ')
+  }
 
   return (
     <>
+      <ModalSlider modalStyle={modalStyle} setModalStyle={setModalStyle}/>
       <div className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
         {/* image container */}
         <div
@@ -33,6 +39,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           <img
             src={userInfo.img}
             className="rounded-full object-contain hover:ring-4 hover:ring-secondary"
+            onClick={showModal}
           />
         </div>
         {/* user data */}
