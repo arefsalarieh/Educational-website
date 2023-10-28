@@ -1,3 +1,9 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import Layout from "../components/Layout/Layout.jsx";
 import Landing from "../screens/Landing/Landing.jsx";
 import RouteError from "../screens/Errors/ErrorPage.jsx";
@@ -6,10 +12,6 @@ import ForgotPassword from "../screens/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "../screens/ResetPassword/ResetPassword.jsx";
 import StudentPanel from "../screens/StudentPanel"
 import {MenuDetail} from "../screens/DetailArticle/MenuDetail"
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
 import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 
@@ -70,10 +72,11 @@ const router = createBrowserRouter([
 
 
 function App() {
+  const client = new QueryClient({defaultOptions: {queries: {refetchOnWindowFocus: false, staleTime: 1000*6*5}, mutations:{}}})
   return (
-    <>
+    <QueryClientProvider client={client}>
       <RouterProvider router={router} />
-    </>
+    </QueryClientProvider>
   );
 }
 
