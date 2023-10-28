@@ -20,6 +20,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [alwaysOpen, setAlwaysOpen] = React.useState(false);
   const [modalStyle , setModalStyle] = useState('hidden top-0 z-50 bg-gray-600/50 h-screen w-screen ')
 
+
   const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const showModal = ()=>{

@@ -13,6 +13,12 @@ import "../../../node_modules/swiper/swiper-bundle.min.js";
 
 
 const ModalSlider = ({modalStyle , setModalStyle}) => {
+  const [image , setImage] = useState([
+    {pic : '1.jpg'},
+    {pic : '2.jpg'},
+    {pic : '3.jpg'},
+    {pic : '4.jpg'},
+  ])
 
   const hideModal = () =>{
     setModalStyle('hidden top-0 z-50 bg-gray-600/50 h-screen w-screen ')
@@ -33,29 +39,17 @@ const ModalSlider = ({modalStyle , setModalStyle}) => {
         scrollbar={{ draggable: true }}
         className=' shadow-2xl bg-slate-500/75 mt-30 w-2/3 h-2/3 mx-auto'
           >
-        <SwiperSlide>
-          <div className='w-full h-full'>
-            <img className='w-full h-full' src="1.jpg" alt="" />
-          </div>
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <div className='w-full h-full'>
-            <img className='w-full h-full' src="2.jpg" alt="" />
-          </div>
-        </SwiperSlide>
+        {image.map((item , index)=>{
+          return(
+          <SwiperSlide key={index}>
+            <div className='w-full h-full'>
+              <img className='w-full h-full' src={item.pic} alt="" />
+            </div>
+          </SwiperSlide>            
+          )
+        })}
 
-        <SwiperSlide>
-          <div className='w-full h-full'>
-            <img className='w-full h-full' src="3.jpg" alt="" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div className='w-full h-full'>
-            <img className='w-full h-full' src="4.jpg" alt="" />
-          </div>
-        </SwiperSlide>
 
         ...
       </Swiper>      
