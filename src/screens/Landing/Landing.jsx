@@ -68,7 +68,7 @@ const Landing = () => {
         initial={{  opacity: 0  }}
         whileInView={{  opacity: 1 }}
         transition={{delay:0.3}}      
-        className='flex flex-wrap  mt-24 text-xl text-center'
+        className='mt-24 text-xl text-center'
         >
         <h2 className=' w-full text-2xl font-bold mb-16 '> دوره های آموزشی </h2>
         
