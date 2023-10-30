@@ -1,11 +1,16 @@
 import { CheckCircleOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const Detail = ({title1 , title1Desc , title2 , title2Desc , title3 , title3Desc , title4 , title4Desc  , title5  , 
                 title6 , title6Desc , title7 , title7Desc , title8 , title8Desc , title9 , title9Desc , title10 , title10Desc , logoSize}) => {
                     return (
-                        <div className='w-10/12 mx-auto lg:w-7/12 '>
+                        <motion.div
+                        initial={{x:100}}
+                        animate={{x:0}}
+                        transition={{duration:0.5}}
+                        className='w-10/12 mx-auto lg:w-7/12 '>
                           <div className='sm:flex flex-wrap'>
                             <div className=' text-center sm:text-right  sm:w-1/2 mt-12 sm:pr-10'>
                               <h2 className='text-lg sfont-extrabold'>  {title1}</h2>
@@ -112,7 +117,7 @@ const Detail = ({title1 , title1Desc , title2 , title2Desc , title3 , title3Desc
                     
                           {/* <Button  backgroundColor='bg-green-300' borderWidth='border-0' rounded='rounded-sm' paddingX='px-20' title='ـبت دوره' extra='mr-10 mt-6'/> */}
                     
-                        </div>
+                        </motion.div>
                       )
 }
 

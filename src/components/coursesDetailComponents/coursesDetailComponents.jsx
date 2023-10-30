@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Detail from '../common/DetailComponents/Detail'
 import SmallSlider from '../smallSlider/SmallSlider'
+import { motion } from 'framer-motion'
 
 const CoursesDetailComponents = () => {
     const [relationCourses , setRelationCourses] = useState([
@@ -23,9 +24,13 @@ const CoursesDetailComponents = () => {
 
 
 
-        <div className=' lg:w-5/12'>
+        <motion.div
+        initial={{x:-100}}
+        animate={{x:0}}
+        transition={{duration:0.5}} 
+        className=' lg:w-5/12'>
             <img className='w-10/12 mt-12 mx-auto' src='./courses.png'/>
-        </div>        
+        </motion.div>        
       </div>
 
         <div className='flex w-full items-center text-center mt-8'>
@@ -35,9 +40,13 @@ const CoursesDetailComponents = () => {
         </div>
 
 
-        <div className='container shadow-2xl  mt-16'>
+        <motion.div
+        initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{delay:0.3}}
+        className='container shadow-2xl  mt-16'>
             <SmallSlider list={relationCourses}/>
-        </div>
+        </motion.div>
 
         
 

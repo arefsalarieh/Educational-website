@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import SmallSlide from './smallSlide';
+
 
 const SmallSlider = ({list}) => {
     return (
