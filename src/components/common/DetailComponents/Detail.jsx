@@ -35,7 +35,7 @@ const Detail = ({title1 , title1Desc , title2 , title2Desc , title3 , title3Desc
                                   {title4}
                                 </span>
                     
-                                <div className='sm:inline'>
+                                <div className=' sm:inline'  style={{direction: "ltr"}}>
                                   <span className='text-center sm:text-right text-lg font-bold  sm:mr-2'>
                                     {title4Desc}             
                                   </span>          

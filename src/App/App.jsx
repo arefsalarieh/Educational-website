@@ -15,6 +15,7 @@ import {MenuDetail} from "../screens/DetailArticle/MenuDetail"
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
 import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 import Courses from "../screens/Courses/Courses.jsx"
+import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/CoursesDetail",
+        element: <CoursesDetail />,
         errorElement: <RouteError />,
       },
       {

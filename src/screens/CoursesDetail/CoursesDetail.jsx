@@ -11,7 +11,7 @@ const CoursesDetail = () => {
     transition={{duration:0.5}}
     className='w-5/6 mx-auto'>
 
-        <Tabs>
+        <Tabs className='font-irSans dark:text-stone-200'>
 
 
             <Tabs.TabPane  tab='جزییات دوره' key='tab1'>
@@ -20,7 +20,7 @@ const CoursesDetail = () => {
 
             <Divider/>
 
-            <Tabs.TabPane  tab='جزییات دوره' key='tab2'>
+            <Tabs.TabPane tab='جزییات دوره' key='tab2'>
                 222222
             </Tabs.TabPane>
 

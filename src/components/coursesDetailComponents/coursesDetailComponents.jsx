@@ -13,7 +13,7 @@ const CoursesDetailComponents = () => {
     ])
 
   return (
-    <div className='lg:flex lg:flex-wrap bg-mygray pb-12 font-irSans'>
+    <div className='lg:flex lg:flex-wrap bg-mygray dark:bg-slate-600 dark:text-stone-200 pb-12 font-irSans'>
       <div className='flex flex-col-reverse lg:flex-row'>
         <Detail title1='عنوان دوره :' title1Desc="آموزش جامع ریکت" title2="مدرس دوره :" title2Desc="مهندس آرمین ساکت" 
                 title3="درباره دوره :" title3Desc=" لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد "
