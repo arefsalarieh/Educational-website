@@ -14,23 +14,28 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import ModalSlider from "./ModalSlider";
+import { motion } from "framer-motion"
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
   const [alwaysOpen, setAlwaysOpen] = React.useState(false);
-  const [modalStyle , setModalStyle] = useState('hidden top-0 z-50 bg-gray-600/50 h-screen w-screen ')
+  const [modalStyle , setModalStyle] = useState('hidden top-0 z-50 bg-gray-600/50 h-screen w-full ')
 
 
   const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const showModal = ()=>{
-    setModalStyle('absolute top-0 z-50 bg-gray-600/50 h-screen w-screen ')
+    setModalStyle('absolute top-0 z-50 bg-gray-600/50 h-screen w-full ')
   }
 
   return (
     <>
       <ModalSlider modalStyle={modalStyle} setModalStyle={setModalStyle}/>
-      <div className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
+      <motion.div
+      initial={{opacity:0 , x:100}}
+      animate={{opacity:1 , x:0}}
+      transition={{delay:0.5}}
+      className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
         {/* image container */}
         <div
           onClick={() => {
@@ -117,8 +122,12 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
             بازگشت به خانه
           </span>
         </Link>
-      </div>
-      <div className="bg-primary flex flex-col items-center gap-y-1 rounded-l-md sm:hidden w-1/12 sm:w-0 min-h-screen text-white text-center">
+      </motion.div>
+
+
+      <div
+      
+      className="bg-primary flex flex-col items-center gap-y-1 rounded-l-md sm:hidden w-1/12 sm:w-0 min-h-screen text-white text-center">
         {/* user image */}
         <div
           onClick={() => {

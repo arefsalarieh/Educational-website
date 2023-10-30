@@ -65,7 +65,7 @@ const EditProfile = () => {
           <div  className=' mt-4 w-full flex flex-col sm:flex-row flex-wrap  sm:justify-start gap-4 '>
             <Button title='ثبت' backgroundColor='bg-green-400' borderWidth='border-none'></Button>                
             <Button title='حذف' backgroundColor='bg-red-400' borderWidth='border-none'></Button> 
-            <Button margin='sm:mr-auto' title='بازگشت'></Button>      
+     
           </div>
         
 
