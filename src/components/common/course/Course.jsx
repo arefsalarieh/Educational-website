@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion';
 
 const Course = ({courseShape , courseName , teacher , date , src }) => {
   const [courseStyle , setCourseStyle] = useState([
@@ -28,7 +29,11 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
   return (
 
 
-    <div className={courseShape =='courses' ? courseStyle[0].parent : courseStyle[1].parent}>
+    <motion.div
+    initial={{opacity:0}}
+    whileInView={{opacity:1}}
+    transition={{ delay:0.3}}
+    className={courseShape =='courses' ? courseStyle[0].parent : courseStyle[1].parent}>
         <div className={courseShape =='courses' ? courseStyle[0].firstDiv : courseStyle[1].firstDiv}>
             <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={src} alt="" />
         </div>
@@ -40,7 +45,7 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
             : null}
             <button className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
