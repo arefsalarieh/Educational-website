@@ -202,7 +202,7 @@ const Header = () => {
         className="relative mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-headerSvg bg-no-repeat bg-[length:50%_300px] bg-[position:50px_-190px]"
         aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5 flex items-center">
+          <a href="/" className="-m-1.5 p-1.5 flex items-center">
             <img className="h-8 md:h-10 w-auto" src={logo} alt="" />
             <h2 className="ms-2 md:ms-4 font-irSans md:text-2xl md:font-bold">
               آکادمی بحر
@@ -226,7 +226,7 @@ const Header = () => {
           className="hidden lg:flex lg:gap-x-6"
           style={{ flex: 2 }}>
           <Link
-            to="#"
+            to="/"
             className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <HomeIcon className="h-4 w-4" aria-hidden="true" />
             <span>خانه</span>
@@ -238,7 +238,7 @@ const Header = () => {
             <span>دوره‌ها</span>
           </Link>
           <Link
-            to="#"
+            to="newsArticle"
             className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <NewspaperIcon className="h-4 w-4" aria-hidden="true" />
             <span>اخبار</span>
@@ -270,7 +270,7 @@ const Header = () => {
             />
           </Link>
           <Link
-            to="#"
+            to="login"
             className="bg-white text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
             <span>ورود</span>
           </Link>
@@ -324,7 +324,7 @@ const Header = () => {
         <div className="fixed inset-0 z-10 transition-all duration-200" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-slate-600 dark:text-stone-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 ">
           <div className="flex items-center justify-between divide-gray-500/10">
-            <Link to="#" className="-m-1.5 p-1.5 flex items-center">
+            <Link to="/" className="-m-1.5 p-1.5 flex items-center">
               <img className="h-8 w-auto" src={logo} alt="" />
               <h2 className="ms-2 md:ms-4 font-irSans md:text-lg md:font-semibold dark:text-stone-300">
                 آکادمی بحر
@@ -342,7 +342,7 @@ const Header = () => {
             <div className="-my-6 divide-y divide-gray-500/10 text-gray-900 dark:text-stone-300">
               <div className="space-y-2 py-6">
                 <Link
-                  to="#"
+                  to="/"
                   className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <HomeIcon className="h-4 w-4" aria-hidden="true" />
                   <span>خانه</span>
@@ -354,7 +354,7 @@ const Header = () => {
                   <span>دوره‌ها</span>
                 </Link>
                 <Link
-                  to="#"
+                  to="newsArticle"
                   className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <NewspaperIcon className="h-4 w-4" aria-hidden="true" />
                   <span>اخبار</span>
@@ -375,7 +375,7 @@ const Header = () => {
               </div>
               <div className="py-6 flex gap-x-4">
                 <Link
-                  to="#"
+                  to="login"
                   className="bg-white dark:bg-slate-400 text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
                   <span>ورود</span>
                 </Link>
