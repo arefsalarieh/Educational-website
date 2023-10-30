@@ -43,7 +43,7 @@ const Landing = () => {
 
     </section>
 
-
+    {/* daste */}
     <section className=' mx-auto flex flex-wrap justify-evenly px-8 text-center mt-32 w-full lg:w-10/12 xl:w-2/3'>
       <h2 className=' w-full text-2xl mb-4'> دسته بندی</h2>
 
@@ -51,7 +51,7 @@ const Landing = () => {
 
     </section>
 
-
+    {/* courses */}
     <section className='flex flex-wrap  mt-24 text-xl text-center'>
       <h2 className=' w-full text-2xl font-bold mb-16 '> دوره های آموزشی </h2>
       
@@ -62,7 +62,7 @@ const Landing = () => {
 
     </section>
 
-
+    {/* best teacher */}
     <section className='text-justify px-2 sm:px-16  '>
       <h2 className='text-center text-2xl  my-24 '> اساتید برتر</h2>
 
@@ -71,6 +71,7 @@ const Landing = () => {
     </section>
 
 
+    {/* NewsAndArticle */}
     <section className='mt-32 text-justify'>
       <h2 className='text-center text-2xl w-full'>اخبار و مقالات</h2>
 
