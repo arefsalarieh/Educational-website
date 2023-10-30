@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Course from '../common/course/Course'
 
+
 const Allcourse = ({parentShape , courseShape}) => {
     const [coursesList , setCoursesList] = useState([
         {courseName:'دوره آموزش جامع ریکت' , teacher:'آرمین ساکت' , date:'1402/9/10' , src:'c2.png'},
