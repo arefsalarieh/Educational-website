@@ -9,6 +9,7 @@ import UnauthenticatedApp from "./App/UnauthenticatedApp/UnauthenticatedApp.jsx"
 import Landing from "./screens/Landing/Landing.jsx";
 import Courses from "./screens/Courses/Courses.jsx";
 import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
+import NewsDetail from "./screens/NewsDetail/NewsDetail.jsx";
 
 
 const route = createBrowserRouter([
@@ -30,7 +31,12 @@ const route = createBrowserRouter([
         path: "/CoursesDetail",
         element: <CoursesDetail />,
         errorElement: <RouteError />,
-      },          
+      },  
+      {
+        path: "/NewsDetail",
+        element: <NewsDetail />,
+        errorElement: <RouteError />,
+      },                
       {
         path: "/login",
         element: <Login />,
