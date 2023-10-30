@@ -68,7 +68,7 @@ const Landing = () => {
         initial={{  opacity: 0  }}
         whileInView={{  opacity: 1 }}
         transition={{delay:0.3}}      
-        className='flex flex-wrap  mt-24 text-xl text-center'
+        className='mt-24 text-xl text-center'
         >
         <h2 className=' w-full text-2xl font-bold mb-16 '> دوره های آموزشی </h2>
         
@@ -126,7 +126,7 @@ const Landing = () => {
 
       {/* pish */}
       <section className='mt-12 '>
-          <h2 className='text-center w-full text-2xl mt-8'>پیشمهادات و شکایات</h2>
+          <h2 className='text-center w-full text-2xl mt-8'>پیشنهادات و شکایات</h2>
           <div className=' flex flex-wrap flex-col-reverse lg:flex-row lg:flex-nowrap gap-4   mx-auto'>
             <motion.div
             initial={{ x : 10 , opacity: 0  }}
