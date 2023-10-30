@@ -20,7 +20,7 @@ const Login = () => {
               <div className="right-side-container ">
                 <h1 className="">ورود کاربر</h1>
                 {/* Right section Inputes */}
-                <div className="mr-8  sm:mr-6">
+                <div className="mr-8 mt-5 sm:mr-6">
                   <p className="font-semibold mb-2 ">ایمیل</p>
                   <div className="flex">
                     <Input
@@ -41,7 +41,7 @@ const Login = () => {
                     }
                   />
                   <div className="message-forgot ">
-                    رمز عبورم را فرا موش کردم):{" "}
+                    رمز عبورم را فرا موش کردم ):
                   </div>
                   {/*Bouttons */}
                   <div className="flex mt-8 sm:ml-10">
@@ -55,7 +55,7 @@ const Login = () => {
                 <img
                   src="assets/img/loginPic.avif"
                   alt="loginPic"
-                  className="w-max"
+                  className="w-max rounded-xl"
                 />
               </div>
             </div>
