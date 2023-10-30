@@ -19,6 +19,7 @@ const Landing = () => {
   return (
     <div className='font-irSans px-4'>
 
+    {/* Introduction accademy */}
     <section className='md:flex justify-center gap-x-6'>
 
       <div className='  md:w-2/5 w-full'>
@@ -33,7 +34,7 @@ const Landing = () => {
 
     </section>
 
-
+    {/* our Services */}
     <section className=' flex flex-wrap flex-col-2 justify-evenly text-center mt-20 pb-14  bg-line bg-no-repeat bg-top-4 bg-80'>
       <h2 className='mb-12 w-full text-xl  font-extrabold'>خدمات ما</h2>
 
