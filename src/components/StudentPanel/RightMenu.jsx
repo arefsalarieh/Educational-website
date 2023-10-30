@@ -26,7 +26,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
 
   return (
     <>
-      <div className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
+      <div className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary dark:bg-teal-800 me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
         {/* image container */}
         <div
           onClick={() => {

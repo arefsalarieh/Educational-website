@@ -26,7 +26,7 @@ let layoutRenderer = (navigateTo) => {
 const LeftLayout = ({ navigateTo }) => {
   console.log(navigateTo);
   return (
-    <div className=" shadow-[0px_0px_25px_rgba(51,141,129,0.4)] rounded-r-md sm:rounded-r-none sm:rounded-l-2xl w-11/12 ms-2 sm:ms-0 sm:w-3/4 min-h-screen xl:mt-6 2xl:mt-10">
+    <div className=" shadow-shadowPrimaryFront dark:shadow-shadowDarkFront rounded-r-md sm:rounded-r-none sm:rounded-l-2xl w-11/12 ms-2 sm:ms-0 sm:w-3/4 min-h-screen xl:mt-6 2xl:mt-10">
       {layoutRenderer(navigateTo)}
     </div>
   );

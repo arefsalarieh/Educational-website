@@ -35,7 +35,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-
 // antd header
 const { Search } = Input;
 
@@ -215,8 +214,8 @@ const Header = () => {
         <div className="flex justify-end lg:hidden" style={{ flex: 1 }}>
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 shadow-lg hover:bg-slate-50 hover:shadow-2xl transition-all duration-200"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 shadow-lg hover:bg-slate-50 dark:bg-slate-600 dark:text-slate-300 hover:shadow-2xl transition-all duration-200"
+            onClick={() => setMobileMenuOpen(mobileMenuOpen === false ? true : false)}>
             <span className="sr-only">نمایش لیست منو</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
@@ -228,32 +227,32 @@ const Header = () => {
           style={{ flex: 2 }}>
           <Link
             to="#"
-            className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <HomeIcon className="h-4 w-4" aria-hidden="true" />
             <span>خانه</span>
           </Link>
           <Link
             to="#"
-            className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <AcademicCapIcon className="h-4 w-4" aria-hidden="true" />
             <span>دوره‌ها</span>
           </Link>
           <Link
             to="#"
-            className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <NewspaperIcon className="h-4 w-4" aria-hidden="true" />
             <span>اخبار</span>
           </Link>
 
           <Link
             to="#"
-            className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <UserGroupIcon className="h-4 w-4" aria-hidden="true" />
             <span>خدمات</span>
           </Link>
           <Link
             to="#"
-            className="bg-white text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <PhoneIcon className="h-4 w-4" aria-hidden="true" />
             <span>تماس با ما</span>
           </Link>
@@ -286,7 +285,7 @@ const Header = () => {
         <div
           className={
             wannaSearch
-              ? "absolute w-[70%] p-2 bg-white shadow-md -bottom-8 rounded-md left-[13%] transition-all duration-200"
+              ? "absolute w-[70%] p-2 bg-white dark:bg-slate-900 shadow-md -bottom-8 rounded-md left-[13%] transition-all duration-200"
               : "hidden transition-all duration-200"
           }>
           <form>
@@ -308,7 +307,7 @@ const Header = () => {
               />
               <button
                 type="submit"
-                className="text-white absolute left-0  bg-primary hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-600 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary dark:hover:bg-teal-700 dark:focus:ring-teal-800 font-irSans">
+                className="text-white absolute left-0  bg-primary dark:bg-teal-800 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-600 font-medium rounded-lg text-sm px-4 py-2 dark:hover:bg-teal-700 dark:focus:ring-teal-800 font-irSans">
                 جست و جو
               </button>
             </div>
@@ -323,11 +322,11 @@ const Header = () => {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10 transition-all duration-200" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 ">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white dark:bg-slate-600 dark:text-stone-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 ">
           <div className="flex items-center justify-between divide-gray-500/10">
             <Link to="#" className="-m-1.5 p-1.5 flex items-center">
               <img className="h-8 w-auto" src={logo} alt="" />
-              <h2 className="ms-2 md:ms-4 font-irSans md:text-lg md:font-semibold">
+              <h2 className="ms-2 md:ms-4 font-irSans md:text-lg md:font-semibold dark:text-stone-300">
                 آکادمی بحر
               </h2>
             </Link>
@@ -339,37 +338,37 @@ const Header = () => {
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
+          <div className="mt-6 flow-root ">
+            <div className="-my-6 divide-y divide-gray-500/10 text-gray-900 dark:text-stone-300">
               <div className="space-y-2 py-6">
                 <Link
                   to="#"
-                  className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+                  className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <HomeIcon className="h-4 w-4" aria-hidden="true" />
                   <span>خانه</span>
                 </Link>
                 <Link
                   to="#"
-                  className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+                  className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <AcademicCapIcon className="h-4 w-4" aria-hidden="true" />
                   <span>دوره‌ها</span>
                 </Link>
                 <Link
                   to="#"
-                  className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+                  className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <NewspaperIcon className="h-4 w-4" aria-hidden="true" />
                   <span>اخبار</span>
                 </Link>
 
                 <Link
                   to="#"
-                  className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+                  className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <UserGroupIcon className="h-4 w-4" aria-hidden="true" />
                   <span>خدمات</span>
                 </Link>
                 <Link
                   to="#"
-                  className="text-sm leading-6 text-gray-900 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+                  className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
                   <span>تماس با ما</span>
                 </Link>
@@ -377,7 +376,7 @@ const Header = () => {
               <div className="py-6 flex gap-x-4">
                 <Link
                   to="#"
-                  className="bg-white text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
+                  className="bg-white dark:bg-slate-400 text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
                   <span>ورود</span>
                 </Link>
                 <Link
