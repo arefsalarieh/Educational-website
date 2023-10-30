@@ -6,6 +6,7 @@ import { Space, Tabs, Divider } from "antd";
 import "/src/menuTabs.css";
 import { InsertComment } from "./InsertComment";
 import { Comments } from "./Comments";
+import { motion } from "framer-motion"
 
 import {
   BsFillCheckCircleFill,
@@ -65,13 +66,13 @@ const DetailArticle = () => {
   return (
     <>
       {/* Global Container */}
-      <div className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 ">
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 dark:bg-slate-600 ">
         {/* Top Container */}
         {/* sm:flex-row */}
         <div className="flex flex-col-reverse md:flex-row">
           {/* Right Side */}
-          <div className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center">
-            <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28">
+          <motion.div initial={{opacity:0, x:100}} animate={{opacity:1, x:0}} transition={{delay:0.3}} className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center   ps-4">
+            <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28 ">
               {/*title */}
               <div className="flex gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
@@ -94,7 +95,7 @@ const DetailArticle = () => {
             {/*content article right side */}
             <div className="flex flex-col">
               <p className="text-sm font-bold font-irSans">متن خبر :</p>
-              <p className="text-sm text-justify font-irSans">
+              <p className="w-4/5 text-sm text-justify font-irSans">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
                 در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
@@ -134,10 +135,10 @@ const DetailArticle = () => {
               </div>
             </div>
             {/*end More Information  Section*/}
-          </div>
+          </motion.div>
           {/* end Right Side */}
           {/* Left Side */}
-          <div>
+          <motion.div initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.3}}>
             {/* Images */}
             <div className="w-full  mx-auto justify-center  ">
               <img
@@ -146,32 +147,32 @@ const DetailArticle = () => {
                 alt="newsPic"
               />
             </div>
-          </div>
+          </motion.div>
           {/* end Left Side */}
         </div>
         {/* end Top Container */}
 
         {/*Border Split Top and Below*/}
-        <div className="w-full mt-14 mb-6">
+        <motion.div initial={{opacity:0, y:-100}} animate={{opacity:1, y:0}} transition={{delay:0.5}} className="w-full mt-14 mb-6">
           <div className="w-full  border-2 border-bg-bgBorderSplit"></div>
           <div className="mx-auto relative bottom-4  items-center  bg-zinc-100  w-fit h-fit px-3">
-            <p className="text-sm text-center font-irSans md:text-lg">
+            <p className="text-sm text-center font-irSans md:text-lg dark:text-slate-800">
               اخبار مرتبط
             </p>
           </div>
-        </div>
+        </motion.div>
         {/* end Border Split Top and Below */}
 
         {/*The ListOf Related news and articles */}
-        <div className="">
+        <motion.div initial={{opacity:0, y:100}} animate={{opacity:1, y:0}} transition={{delay:0.7}} className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
-          <SliderRelationNews articelList={articelList} />
-        </div>
+          <SliderRelationNews className="px-2 pb-2" articelList={articelList} />
+        </motion.div>
         {/* end The ListOf Related news and articles */}
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-8 h-8 md:w-12 md:h-12 relative  top-8 md:top-10" />
-        </div>
-      </div>
+        </div> */}
+      </motion.div>
       {/*end Global Container */}
     </>
   );

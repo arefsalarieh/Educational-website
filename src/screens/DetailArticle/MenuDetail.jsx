@@ -3,6 +3,7 @@ import { DetailArticle } from "./DetailArticle";
 import { Comments } from "./Comments";
 import { InsertComment } from "./InsertComment";
 import { useState } from "react";
+import {motion} from 'framer-motion'
 
 const MenuDetail = () => {
   const [details, setDetails] = useState(true);
@@ -26,14 +27,14 @@ const MenuDetail = () => {
   };
 
   return (
-    <section className="w-full md:w-5/6 px-2 md:px-4 mx-auto">
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="w-full md:w-5/6 px-2 md:px-4 mx-auto font-irSans">
       {/* top nav */}
-      <ul className="flex bg-[#f3f3f3] w-full justify-center  md:w-max px-2 py-2 ">
+      <ul className="flex bg-[#f3f3f3] dark:bg-slate-600 w-full justify-center  md:w-max px-2 py-2 ">
         <li
           onClick={detailShowHandler}
           className={
             details
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0  font-irSans md:text-lg font-bold "
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 cursor-pointer font-irSans md:text-lg font-bold "
               : "after:hidden px-4 font-irSans text-[12px] md:text-lg  whitespace-nowrap cursor-pointer "
           }
         >
@@ -43,7 +44,7 @@ const MenuDetail = () => {
           onClick={commentShowHandler}
           className={
             comments
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans  text-lg  font-bold"
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans cursor-pointer text-lg  font-bold"
               : "after:hidden  px-4 font-irSans  text-[15px] md:text-lg  whitespace-nowrap  cursor-pointer"
           }
         >
@@ -53,7 +54,7 @@ const MenuDetail = () => {
           onClick={insertShowHandler}
           className={
             insertComment
-              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans text-lg font-bold"
+              ? "px-4 after:w-full after:h-0.5  after:md:h-1 relative after:bg-secondary after:absolute after:-bottom-2 after:left-0 font-irSans cursor-pointer text-lg font-bold"
               : "after:hidden  px-4 font-irSans text-[15px] md:text-lg whitespace-nowrap  cursor-pointer"
           }
         >
@@ -61,12 +62,12 @@ const MenuDetail = () => {
         </li>
       </ul>
       {/* body Page */}
-      <section className="flex flex-col md:flex-row-reverse bg-[#f3f3f3]">
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="flex flex-col md:flex-row-reverse bg-[#f3f3f3] dark:bg-slate-600">
         {details && <DetailArticle />}
         {comments && <Comments />}
         {insertComment && <InsertComment />}
-      </section>
-    </section>
+      </motion.div>
+    </motion.div>
   );
 };
 

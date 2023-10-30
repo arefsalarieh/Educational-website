@@ -3,6 +3,7 @@ import { Button, Input, Space } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
+import {motion} from "framer-motion"
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -15,9 +16,9 @@ const Login = () => {
           {/* bg-teal-600 */}
           <div className=" global-container">
             {/* Card Container  */}
-            <div className="card-container ">
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="card-container ">
               {/* Right Side */}
-              <div className="right-side-container ">
+              <motion.div initial={{opacity:0, x:100}} animate={{opacity:1, x:0}} transition={{delay:0.3}} className="right-side-container ">
                 <h1 className="">ورود کاربر</h1>
                 {/* Right section Inputes */}
                 <div className="mr-8 mt-5 sm:mr-6">
@@ -49,16 +50,16 @@ const Login = () => {
                     <button className="button-login">ورود</button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               {/* left Side  */}
-              <div className="left-side-container">
+              <motion.div initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.3}} className="left-side-container">
                 <img
                   src="assets/img/loginPic.avif"
                   alt="loginPic"
                   className="w-max rounded-xl"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </form>
       </Formik>
