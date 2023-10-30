@@ -3,6 +3,7 @@ import { Button } from "antd/es/radio";
 import React from "react";
 import { HomeOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import MapLeafLet from "../MapLeafLet/MapLeafLet";
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -17,7 +18,7 @@ const Footer = () => {
             </span>
             <ul className="flex flex-col gap-y-3 md:gap-y-4 list-disc">
               <li className="hover:text-secondary transition-all cursor-pointer text-sm md:text-base">
-                صفحه اصلی
+                <Link to="/">صفحه اصلی</Link>
               </li>
               <li className="hover:text-secondary transition-all cursor-pointer font-medium">
                 آموزش
