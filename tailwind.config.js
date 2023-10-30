@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       irSans: ["IranSans"],
@@ -25,6 +26,13 @@ export default {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      boxShadow: {
+        "shadowPrimaryFront" : '0px 0px 25px rgba(51,141,129,0.4)',
+        "shadowSecondaryFront" : '0px 0px 12px rgba(204,163,73,0.4)',
+        "shadowDarkFront" : '0px 0px 12px rgba(255,255,255,0.4)',
+        "shadowDarkUp" : '0px 5px 6px rgba(255,255,255,0.2)',
+        
+      },
       spacing: {
         18: "4.5rem",
         22: "5.5rem",

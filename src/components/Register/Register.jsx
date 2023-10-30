@@ -8,7 +8,7 @@ import { Field, Form, Formik } from "formik";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { DatePickerPersian } from "./DatePickerPersian";
-import "../datepicker.css";
+import "../datepicke.css";
 
 const Register = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);

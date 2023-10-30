@@ -1,3 +1,9 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import Layout from "../components/Layout/Layout.jsx";
 import Landing from "../screens/Landing/Landing.jsx";
 import RouteError from "../screens/Errors/ErrorPage.jsx";
@@ -5,11 +11,11 @@ import LoginPage from "../screens/Login/LoginPage.jsx";
 import ForgotPassword from "../screens/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "../screens/ResetPassword/ResetPassword.jsx";
 import StudentPanel from "../screens/StudentPanel"
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import {MenuDetail} from "../screens/DetailArticle/MenuDetail"
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
+import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
+import Courses from "../screens/Courses/Courses.jsx"
+import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,8 +43,29 @@ const router = createBrowserRouter([
         errorElement: <RouteError />,
       },
       {
+        path: "/menudetail",
+        element: <MenuDetail />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/NewsArticle",
+        element: <NewsArticle/>,
+        errorElement: <RouteError />,
+      }
+      ,
+      {
         path: "/resetPassword",
         element: <ResetPassword />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/CoursesDetail",
+        element: <CoursesDetail />,
         errorElement: <RouteError />,
       },
       {
@@ -57,10 +84,11 @@ const router = createBrowserRouter([
 
 
 function App() {
+  const client = new QueryClient({defaultOptions: {queries: {refetchOnWindowFocus: false, staleTime: 1000*6*5}, mutations:{}}})
   return (
-    <>
+    <QueryClientProvider client={client}>
       <RouterProvider router={router} />
-    </>
+    </QueryClientProvider>
   );
 }
 
