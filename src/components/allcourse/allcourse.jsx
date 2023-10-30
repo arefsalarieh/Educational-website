@@ -12,7 +12,7 @@ const Allcourse = ({parentShape , courseShape}) => {
 
       const [parentDesign , setParentDesign] = useState([
          // course wraper style for courses
-        {parentCourses : 'border w-full xl:w-10/12 mt-12 mx-auto md:flex md:flex-wrap justify-center gap-16 ' },
+        {parentCourses : 'w-full xl:w-10/12 mt-12 mx-auto md:flex md:flex-wrap justify-center gap-16 ' },
         //course wraper style for landing 
         {parentLanding : 'flex justify-around flex-wrap lg:flex-nowrap mt-8 gap-8 w-full px-6 sm:px-18 text-xl text-center'},
  

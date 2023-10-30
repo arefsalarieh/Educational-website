@@ -14,6 +14,7 @@ import StudentPanel from "../screens/StudentPanel"
 import {MenuDetail} from "../screens/DetailArticle/MenuDetail"
 import RegisterPage from "../screens/Register/RegisterPage.jsx";
 import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
+import Courses from "../screens/Courses/Courses.jsx"
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: "/resetPassword",
         element: <ResetPassword />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
         errorElement: <RouteError />,
       },
       {
