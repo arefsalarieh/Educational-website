@@ -13,7 +13,7 @@ const ChangePassword = () => {
               <img
                 src="/src/assets/images/changePass.jpg"
                 alt="ChangePassPic"
-                className="w-max"
+                className="w-max rounded-2xl"
               />
             </div>
             {/* end Top img Side  */}
