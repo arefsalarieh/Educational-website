@@ -27,7 +27,7 @@ const ModalSlider = ({modalStyle , setModalStyle}) => {
 
   return (
     <div className={modalStyle}>
-      <div className='text-center text-white p-3 m-8 bg-red-700 w-16' onClick={hideModal}>
+      <div className='text-center cursor-pointer text-white p-3 m-8 bg-red-700 w-16' onClick={hideModal}>
           close
       </div>
       <Swiper
