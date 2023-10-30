@@ -10,6 +10,7 @@ import Landing from "./screens/Landing/Landing.jsx";
 import Courses from "./screens/Courses/Courses.jsx";
 import CoursesDetail from "./screens/CoursesDetail/CoursesDetail.jsx";
 import NewsDetail from "./screens/NewsDetail/NewsDetail.jsx";
+import NewsArticle from "./screens/NewsArticle/NewsArticle.jsx";
 
 
 const route = createBrowserRouter([
@@ -36,7 +37,12 @@ const route = createBrowserRouter([
         path: "/NewsDetail",
         element: <NewsDetail />,
         errorElement: <RouteError />,
-      },                
+      },
+      {
+        path: "/NewsArticle",
+        element: <NewsArticle />,
+        errorElement: <RouteError />,
+      },                      
       {
         path: "/login",
         element: <Login />,
