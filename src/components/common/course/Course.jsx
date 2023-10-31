@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Course = ({courseShape , courseName , teacher , date , src }) => {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate("/CoursesDetail")
+  }
+
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses
-    {parent : 'border  md:w-5/12 rounded-xl p-8 lg:flex shadow-2xl dark:shadow-shadowDarkUp dark:border-slate-400 m-6 md:m-0',
+    {parent : 'border  md:w-5/12 rounded-xl p-8 lg:flex shadow-2xl dark:shadow-shadowDarkUp dark:border-slate-400 m-6 md:m-0 cursor-pointer',
       firstDiv:'lg:w-1/2  rounded-xl shadow-inner bg-course',
       img:'mx-auto',
       secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6',
@@ -30,6 +38,7 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
 
 
     <motion.div
+    onClick={handleClick}
     initial={{opacity:0}}
     whileInView={{opacity:1}}
     transition={{ delay:0.3}}

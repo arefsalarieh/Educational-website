@@ -23,7 +23,7 @@ const Register = () => {
       <Formik>
         <form>
           {/* Global Container */}
-          <div className=" flex items-center justify-center font-irSans bg-gradient-to-b from-primary dark:from-teal-800 sm:p-0 w-screen sm:h-screen xs:p-8">
+          <div className=" flex items-center justify-center font-irSans bg-gradient-to-b from-primary dark:from-teal-800 sm:p-0 w-full sm:h-screen xs:p-8">
             {/* Card Container  */}
             <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{delay: 0.3}} className="flex  w-9/12 p-12 space-y-10  bg-white dark:bg-slate-600 dark:text-stone-200 shadow-2xl rounded-2xl lg:flex-row  xs:flex-col-reverse xs:p-6">
               {/* Right Side */}

@@ -102,7 +102,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
                         setNavigateTo("buyCourse");
                       }}
                       className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
-                      خرید دوره
+                      سبد خرید
                     </li>
                   </ul>
                 </AccordionBody>
@@ -197,7 +197,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="flex flex-col text-center p-1 rounded-md hover:bg-white hover:bg-opacity-40">
           <ShoppingCartIcon className="w-5 h-5 mx-auto" />
-          <span className="text-ellipsis text-[7px]">خرید دوره</span>
+          <span className="text-ellipsis text-[7px]">سبد خرید</span>
         </div>
         <div
           onClick={() => {
