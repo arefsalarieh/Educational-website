@@ -40,13 +40,13 @@ const Detail = ({title1 , title1Desc , title2 , title2Desc , title3 , title3Desc
                                     {title4Desc}             
                                   </span>          
                       
-                                  {title5 ? 
+                                  {/* {title5 ? 
                                     <div className='inline'>
                                       <span className='sm:mr-4 mr-1 bg-green-300 p-1 text-xs'>
                                         {title5}
                                       </span>
                                     </div>            
-                                  : null }
+                                  : null } */}
                                 </div>
                     
                             </p>
