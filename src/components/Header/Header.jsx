@@ -275,7 +275,7 @@ const Header = () => {
             <span>ورود</span>
           </Link>
           <Link
-            to="#"
+            to="register"
             className="text-sm leading-6 text-zinc-100 bg-secondary px-4 py-1 font-irSans rounded-lg hover:bg-yellow-600 hover:text-white hover:shadow-md hover:shadow-yellow-700 transition-all duration-200">
             <span>ثبت نام</span>
           </Link>
@@ -380,7 +380,7 @@ const Header = () => {
                   <span>ورود</span>
                 </Link>
                 <Link
-                  to="#"
+                  to="register"
                   className="text-sm leading-6 text-zinc-100 bg-secondary px-4 py-1 font-irSans rounded-lg hover:bg-yellow-600 hover:text-white hover:shadow-md hover:shadow-yellow-700 transition-all duration-200">
                   <span>ثبت نام</span>
                 </Link>
