@@ -4,7 +4,7 @@ import TextArea from 'antd/es/input/TextArea';
 
 const PishForm = () => {
   return (
-    <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-4 sm:px-12 w-8/12 '    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
+    <Form className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-4 sm:px-12 w-8/12 dark:bg-slate-700 rounded-2xl dark:text-stone-200 font-irSans dark:shadow-shadowDarkUp'    name="basic" labelCol={{span: 8,}}   initialValues={{remember: true,}}>
     
         <label for='d1'>ایمیل شما</label>
         <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>
@@ -17,7 +17,7 @@ const PishForm = () => {
         </Form.Item>
 
         <Form.Item >
-          <Button type="primary" className='bg-send rounded-xl mx-auto mb-8 px-6 pt-0 h-10 block text-xl '>ارسال</Button>
+          <Button type="primary" className='bg-send font-irSans rounded-xl mx-auto mb-8 px-6 pt-0 h-10 block text-lg '>ارسال</Button>
         </Form.Item>
         
     </Form>

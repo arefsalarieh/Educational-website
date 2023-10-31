@@ -126,13 +126,13 @@ const Landing = () => {
 
       {/* pish */}
       <section className='mt-12 '>
-          <h2 className='text-center w-full text-2xl mt-8'>پیشنهادات و شکایات</h2>
+          <h2 className='text-center w-full text-2xl my-8'>پیشنهادات و شکایات</h2>
           <div className=' flex flex-wrap flex-col-reverse lg:flex-row lg:flex-nowrap gap-4   mx-auto'>
             <motion.div
             initial={{ x : 10 , opacity: 0  }}
             whileInView={{ x : 0 , opacity: 1 }}
             transition={{delay:0.3}}
-            className=' w-full lg:w-1/2'
+            className=' w-full lg:w-1/2 '
             >
               <PishForm/>
             </motion.div>
@@ -143,7 +143,7 @@ const Landing = () => {
             transition={{delay:0.5}}
             className=' w-full lg:w-1/2'
             >
-              <img className='w-8/12 mx-auto lg:mr-16' src="./pish.png" alt="" />
+              <img className='w-8/12 mx-auto lg:mr-16 rounded-2xl' src="./pish.png" alt="" />
             </motion.div>
             
           </div>
