@@ -232,7 +232,7 @@ const Header = () => {
             <span>خانه</span>
           </Link>
           <Link
-            to="#"
+            to="courses"
             className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
             <AcademicCapIcon className="h-4 w-4" aria-hidden="true" />
             <span>دوره‌ها</span>
