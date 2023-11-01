@@ -4,9 +4,15 @@ import { MailOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { Field, Form, Formik } from "formik";
 import {motion} from "framer-motion"
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
+  const navigate = useNavigate()
+  
+  const handleClick = () => {
+    navigate("/studentPanel")
+  }
 
   return (
     <>
@@ -47,7 +53,7 @@ const Login = () => {
                   {/*Bouttons */}
                   <div className="flex mt-8 sm:ml-10">
                     <button className=" button-register">ثبت نام</button>
-                    <button className="button-login">ورود</button>
+                    <button onClick={handleClick} className="button-login">ورود</button>
                   </div>
                 </div>
               </motion.div>

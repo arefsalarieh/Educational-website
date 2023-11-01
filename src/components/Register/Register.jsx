@@ -10,9 +10,15 @@ import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import { DatePickerPersian } from "./DatePickerPersian";
 import "./datepicker.css";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("/login")
+  }
 
   const onChange = (value) => {
     console.log("changed", value);
@@ -107,7 +113,7 @@ const Register = () => {
                     <button className="w-full  xs:justify-center whitespace-nowrap ml-4   flex  sm:justify-center sm:items-center  lg:px-10 md:px-24 space-x-4 font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center  hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
                       ثبت نام
                     </button>
-                    <button className="w-full   xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
+                    <button onClick={handleClick()}  className="w-full   xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
                       ورود
                     </button>
                   </div>
