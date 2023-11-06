@@ -3,10 +3,10 @@ import React from "react";
 const SearchResItem = ({ data }) => {
   return (
     <div className="w-[97%] h-[120px] mx-auto grid grid-cols-3 grid-rows-2 shadow-shadowPrimaryFront cursor-pointer rounded-lg me-[6px]">
-      <div className="col-span-1 row-span-2 flex items-center justify-center">
+      <div className="col-span-1 row-span-2 flex items-center justify-center rounded-lg">
         <img
-          className="w-5/6 h-5/6 object-contain rounded-lg"
-          src={data.image}
+          className="w-5/6 h-5/6 object-fit rounded-lg"
+          src={data.img}
           alt=""
         />
       </div>
