@@ -96,3 +96,31 @@ button:focus-visible {
 .left-side-container{
   @apply w-2/3 mr-10 ml-20 relative bottom-5 sm:mx-auto xs:mx-auto;
 }
+
+.underline-hover{
+  @apply hover:after:w-full after:h-[2px] relative after:bg-secondary after:absolute after:-bottom-1 after:right-0 hover:transition-all hover:duration-200
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  visiblity: hidden;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: tranparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #999;
+}

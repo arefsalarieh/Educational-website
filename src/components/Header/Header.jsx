@@ -1,11 +1,6 @@
-// import { Button, Menu } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import logo from "../../assets/images/logo.png";
-// import { useState } from "react";
-// import Search from "antd/es/transfer/search";
-// import headerSvg from "../../assets/images/headerShape.svg";
 
-// import { useState } from "react";
 import { Menu, Row, Col, Input, Drawer, Divider } from "antd";
 import {
   UserOutlined,
@@ -21,8 +16,8 @@ import { Button } from "antd/es/radio";
 
 // tailwind dependencies
 
-import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { useState } from "react";
+import { Dialog, Popover } from "@headlessui/react";
 import {
   AcademicCapIcon,
   Bars3Icon,
@@ -31,9 +26,9 @@ import {
   UserGroupIcon,
   XMarkIcon,
   PhoneIcon,
-  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
 
 // antd header
 const { Search } = Input;
@@ -194,12 +189,11 @@ const Header2 = () => {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [wannaSearch, setWannaSearch] = useState(false);
 
   return (
     <header className="bg-transparent">
       <nav
-        className="relative mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-headerSvg bg-no-repeat bg-[length:50%_300px] bg-[position:50px_-190px]"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-headerSvg bg-no-repeat bg-[length:50%_300px] bg-[position:50px_-190px]"
         aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5 flex items-center">
@@ -227,32 +221,32 @@ const Header = () => {
           style={{ flex: 2 }}>
           <Link
             to="/"
-            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="underline-hover text-sm leading-6 font-irSans flex items-center gap-x-2 hover:text-secondary transition-all duration-200 px-2 py-1">
             <HomeIcon className="h-4 w-4" aria-hidden="true" />
             <span>خانه</span>
           </Link>
           <Link
             to="courses"
-            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="underline-hover text-sm leading-6 font-irSans flex items-center gap-x-2 hover:text-secondary transition-all duration-200 px-2 py-1">
             <AcademicCapIcon className="h-4 w-4" aria-hidden="true" />
             <span>دوره‌ها</span>
           </Link>
           <Link
             to="newsArticle"
-            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="underline-hover text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
             <NewspaperIcon className="h-4 w-4" aria-hidden="true" />
             <span>اخبار</span>
           </Link>
 
           <Link
             to="#"
-            className="text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="underline-hover text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
             <UserGroupIcon className="h-4 w-4" aria-hidden="true" />
             <span>خدمات</span>
           </Link>
           <Link
             to="#"
-            className="bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 hover:border-b-2 hover:border-secondary box-border hover:text-secondary transition-all duration-150 px-2 py-1">
+            className="underline-hover bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
             <PhoneIcon className="h-4 w-4" aria-hidden="true" />
             <span>تماس با ما</span>
           </Link>
@@ -260,15 +254,7 @@ const Header = () => {
         <div
           className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
           style={{ flex: 1 }}>
-          <Link
-            to="#"
-            className="text-sm font-semibold leading-6 text-gray-900 p-1.5 rounded-md bg-gray-200 hover:shadow-md hover:text-white hover:bg-gray-500 transition-all duration-200">
-            <MagnifyingGlassIcon
-              className="h-5 w-5 "
-              aria-hidden="true"
-              onClick={() => setWannaSearch(!wannaSearch)}
-            />
-          </Link>
+          <HeaderSearch />
           <Link
             to="login"
             className="bg-white text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
@@ -281,38 +267,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* search box */}
-        <div
-          className={
-            wannaSearch
-              ? "absolute w-[70%] p-2 bg-white dark:bg-slate-900 shadow-md -bottom-8 rounded-md left-[13%] transition-all duration-200"
-              : "hidden transition-all duration-200"
-          }>
-          <form>
-            <label
-              htmlFor="default-search"
-              className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
-              Search
-            </label>
-            <div className="relative flex items-center transition-all duration-200">
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <MagnifyingGlassIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </div>
-              <input
-                type="search"
-                id="default-search"
-                className="block w-full p-2 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:font-irSans"
-                placeholder="جست و جو"
-                required
-              />
-              <button
-                type="submit"
-                className="text-white absolute left-0  bg-primary dark:bg-teal-800 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-600 font-medium rounded-lg text-sm px-4 py-2 dark:hover:bg-teal-700 dark:focus:ring-teal-800 font-irSans">
-                جست و جو
-              </button>
-            </div>
-          </form>
-        </div>
+        
       </nav>
 
       {/* drawer menu */}

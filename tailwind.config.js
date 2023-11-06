@@ -27,7 +27,7 @@ export default {
     },
     extend: {
       boxShadow: {
-        "shadowPrimaryFront" : '0px 0px 25px rgba(51,141,129,0.4)',
+        "shadowPrimaryFront" : '0px 0px 12px rgba(51,141,129,0.4)',
         "shadowSecondaryFront" : '0px 0px 12px rgba(204,163,73,0.4)',
         "shadowDarkFront" : '0px 0px 12px rgba(255,255,255,0.4)',
         "shadowDarkUp" : '0px 5px 6px rgba(255,255,255,0.2)',
