@@ -268,7 +268,7 @@ const NewsArticle = () => {
         </div>
         {/* end SortBy newsArticle */}
 
-        {/*Tthe ListOf News and Articels */}
+        {/*The ListOf News and Articels */}
         <div className="">
           <ListNewsCards articelList={articelList} />
         </div>
