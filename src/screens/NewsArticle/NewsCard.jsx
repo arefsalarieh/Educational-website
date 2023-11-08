@@ -1,6 +1,10 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { BsBookHalf } from "react-icons/bs";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { FaUserEdit } from "react-icons/fa";
+
 const NewsCard = ({ id, title, nameWriter, view, description, star }) => {
   return (
     <>
@@ -18,12 +22,6 @@ const NewsCard = ({ id, title, nameWriter, view, description, star }) => {
               {title}
             </p>
           </div>
-          {/* star */}
-          {/* var  width=18*{star} + "px";  */}
-          <span className="w-[36px] h-[20px] mb-1 ml-[10px] bg-[18px]  block  bg-[url('/public/assets/img/star.PNG')] bg-no-repeat-x">
-            {star}
-          </span>
-          {/*End star */}
           {/* Description */}
           <div className="mx-auto ">
             <p className=" text-justify text-xs  pb-2  truncate">
@@ -34,17 +32,17 @@ const NewsCard = ({ id, title, nameWriter, view, description, star }) => {
           <div className="flex justify-between ">
             {/* Writer*/}
             <div className="flex gap-1">
-              {/* <BsBookHalf className="text-[#6f97b9]"/> */}
-              <p className=" text-justify  text-xs text-[#6f97b9]  font-semibold ">
+              <FaUserEdit className=" text-secondary text-[18px]" />
+              <p className=" text-justify  text-[13px] text-[#5eabee]  font-semibold ">
                 {nameWriter}
               </p>
             </div>
             {/*View */}
             <div className="flex gap-1">
-              <p className=" text-justify  text-[11px]  text-[#6f97b9] font-bold">
+              <p className=" text-justify  text-[11px]  text-[#68a4d8] font-bold">
                 {view}
               </p>
-              <FaEye className="text-secondary" />
+              <FaEye className="text-secondary  text-sm md:text-xs" />
             </div>
           </div>
         </div>
