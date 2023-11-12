@@ -6,24 +6,30 @@ import sampleImage from "../../../assets/images/logo.png";
 import SearchResItems from "./SearchResItems";
 import { QueryClient, useQuery } from "react-query";
 import axios from "axios";
+import { headerSearch } from "../../../core/services/api/search";
 
 const HeaderSearch = () => {
   const [wannaSearch, setWannaSearch] = useState(false);
-  const [inputEntered, setInputEntered] = useState("");
+  const [inputEntered, setInputEntered] = useState();
 
   const queryClient = new QueryClient();
-  
-  const {data, isLoading} = useQuery({
-    queryKey: ['search', {inputEntered}],
-    queryFn: async (inputEntered) => {return axios.get("https://64fdf6da596493f7af7ece1d.mockapi.io/cards").then((res) => res.data)},
-  })
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["search", { inputEntered }],
+    queryFn: () => {
+      if (!inputEntered) return;
+      return headerSearch(inputEntered).then((data) => {
+        console.log(data);
+        return data.courseFilterDtos;
+      });
+    },
+  });
 
   const handleInputChanges = (val) => {
     queryClient.invalidateQueries(["search"]);
     setInputEntered(val);
     if (val === "") setInputEntered("");
   };
-
 
   return (
     <>
@@ -123,7 +129,11 @@ const HeaderSearch = () => {
           {/* courses result */}
           <SearchResItems data={data} isLoading={isLoading} header="دوره‌ها" />
           {/* news result */}
-          <SearchResItems data={data} isLoading={isLoading} header="اخبار و مقالات" />
+          <SearchResItems
+            data={data}
+            isLoading={isLoading}
+            header="اخبار و مقالات"
+          />
         </motion.div>
       </motion.div>
     </>

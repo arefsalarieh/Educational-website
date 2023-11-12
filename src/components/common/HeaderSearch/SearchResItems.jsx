@@ -3,7 +3,7 @@ import SearchResItem from "./SearchResItem";
 import SearchResNull from "./SearchResNull";
 import SearchItemSkeleton from "./SearchItemSkeleton";
 
-function SearchResItems({ data, header, isLoading }) {
+function SearchResItems({ data, header, isLoading, isLoadingError }) {
   if (isLoading) {
     return (
       <div className="flex flex-col py-3">
@@ -15,6 +15,9 @@ function SearchResItems({ data, header, isLoading }) {
         </div>
       </div>
     );
+  }
+  else if (isLoadingError) {
+    <SearchResNull />
   }
   return (
     <div className="w-full h-auto my-4">

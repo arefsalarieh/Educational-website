@@ -30,7 +30,7 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use(opt => {
-    const token = getItem("token") ? JSON.parse(getItem("token")) : null;
+    const token = localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null;
 
     // opt.headers['MessageTest'] = "Hello World"; 
     // opt.headers['Content-Type'] = "application/json";
