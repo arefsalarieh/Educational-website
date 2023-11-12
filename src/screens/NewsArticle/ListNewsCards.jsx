@@ -1,6 +1,7 @@
 import { NewsCard } from "./NewsCard";
 
 const ListNewsCards = ({ articelList }) => {
+  
   return (
     <>
       <div className="container mx-auto justify-center flex flex-wrap  gap-6 p-3 lg:flex-row lg:flex-wrap">

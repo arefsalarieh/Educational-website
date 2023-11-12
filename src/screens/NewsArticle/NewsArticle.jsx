@@ -3,7 +3,7 @@ import { AntdInputSearch } from "./AntdInputSearch";
 import { ListNewsCards } from "./ListNewsCards";
 import React from "react";
 import { Button, Dropdown, Space } from "antd";
-import SearchCourses from "../../components/common/search/serachCourses";
+import SearchCourses from "../../components/common/search/SearchCourses";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
 
 // import "react-datepicker/dist/react-datepicker.css";
@@ -282,4 +282,4 @@ const NewsArticle = () => {
     </div>
   );
 };
-export { NewsArticle };
+export default NewsArticle;
