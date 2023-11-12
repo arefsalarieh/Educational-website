@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 const SearchCourses = ({backgroundColor='bg-zgh' , placeholder='جستجوی دوره ...' , width='w-8/12 md:w-5/12' , height='h-14'}) => {

@@ -153,8 +153,8 @@ const DetailArticle = () => {
         {/* end Top Container */}
 
         {/*Border Split Top and Below*/}
-        <motion.div initial={{opacity:0, y:-100}} animate={{opacity:1, y:0}} transition={{delay:0.5}} className="w-full mt-14 mb-6">
-          <div className="w-full  border-2 border-bg-bgBorderSplit"></div>
+        <div className="w-full mt-14 mb-6">
+          <div className="w-full  border-2 border-gray-200"></div>
           <div className="mx-auto relative bottom-4  items-center  bg-zinc-100  w-fit h-fit px-3">
             <p className="text-sm text-center font-irSans md:text-lg dark:text-slate-800">
               اخبار مرتبط
