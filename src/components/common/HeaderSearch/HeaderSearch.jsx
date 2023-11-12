@@ -6,7 +6,7 @@ import sampleImage from "../../../assets/images/logo.png";
 import SearchResItems from "./SearchResItems";
 import { QueryClient, useQuery } from "react-query";
 import axios from "axios";
-import { headerSearch } from "../../../core/services/api/search";
+import { headerCourseSearch, headerNewsSearch } from "../../../core/services/api/headerSearch";
 
 const HeaderSearch = () => {
   const [wannaSearch, setWannaSearch] = useState(false);
@@ -14,13 +14,24 @@ const HeaderSearch = () => {
 
   const queryClient = new QueryClient();
 
-  const { data, isLoading } = useQuery({
+  const { data: course, isLoading: courseIsLoading } = useQuery({
     queryKey: ["search", { inputEntered }],
     queryFn: () => {
       if (!inputEntered) return;
-      return headerSearch(inputEntered).then((data) => {
+      return headerCourseSearch(inputEntered).then((data) => {
         console.log(data);
         return data.courseFilterDtos;
+      });
+    },
+  });
+
+  const { data: news, isLoading: newsIsLoading } = useQuery({
+    queryKey: ["search", { inputEntered }],
+    queryFn: () => {
+      if (!inputEntered) return;
+      return headerNewsSearch(inputEntered).then((data) => {
+        console.log(data);
+        return data;
       });
     },
   });
@@ -127,11 +138,15 @@ const HeaderSearch = () => {
               : "hidden"
           }>
           {/* courses result */}
-          <SearchResItems data={data} isLoading={isLoading} header="دوره‌ها" />
+          <SearchResItems
+            data={course}
+            isLoading={courseIsLoading}
+            header="دوره‌ها"
+          />
           {/* news result */}
           <SearchResItems
-            data={data}
-            isLoading={isLoading}
+            data={news}
+            isLoading={newsIsLoading}
             header="اخبار و مقالات"
           />
         </motion.div>
