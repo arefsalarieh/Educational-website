@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Course from "../common/course/Course";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
-import { string } from "yup";
+import { Pagination } from "antd";
 
 const Allcourse = ({ parentShape, courseShape }) => {
   const [coursesList, setCoursesList] = useState([
@@ -12,9 +12,9 @@ const Allcourse = ({ parentShape, courseShape }) => {
       date: "1402/9/10",
       src: "c2.png",
       statusName: "درحال برگذاری",
-      levelName:"مقدماتی",
-      typeName:"حضوری",
-      cost:"17500.00"
+      levelName: "مقدماتی",
+      typeName: "حضوری",
+      cost: "17500.00",
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -22,9 +22,9 @@ const Allcourse = ({ parentShape, courseShape }) => {
       date: "1402/9/10",
       src: "c2.png",
       statusName: "درحال برگذاری",
-      levelName:"مقدماتی",
-      typeName:"حضوری",
-      cost:"17500.00"
+      levelName: "مقدماتی",
+      typeName: "حضوری",
+      cost: "17500.00",
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -32,9 +32,9 @@ const Allcourse = ({ parentShape, courseShape }) => {
       date: "1402/9/10",
       src: "c2.png",
       statusName: "درحال برگذاری",
-      levelName:"مقدماتی",
-      typeName:"حضوری",
-      cost:"17500.00"
+      levelName: "مقدماتی",
+      typeName: "حضوری",
+      cost: "17500.00",
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -42,9 +42,9 @@ const Allcourse = ({ parentShape, courseShape }) => {
       date: "1402/9/10",
       src: "c2.png",
       statusName: "درحال برگذاری",
-      levelName:"مقدماتی",
-      typeName:"حضوری",
-      cost:"17500.00"
+      levelName: "مقدماتی",
+      typeName: "حضوری",
+      cost: "17500.00",
     },
   ]);
 
@@ -60,15 +60,30 @@ const Allcourse = ({ parentShape, courseShape }) => {
         "flex justify-around flex-wrap lg:flex-nowrap mt-8 gap-8 w-full px-6 sm:px-18 text-xl text-center",
     },
   ]);
-  const getCoursesPaging = async () => {
-    const result = await http.get("/Home/GetCoursesWithPagination?PageNumber=3&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0");
+
+      
+  const changeStart = (pageSize) =>{
+    setPageNumber(pageSize) ;
+    console.log(pageNumber);
+  
+  }    
+  
+  const [pageNumber , setPageNumber] = useState(1)      
+
+  const getCourseList = async () =>{
+    const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0`)
     return result;
-  };
+  }
+
+  
+
+  const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList , )
+
+  
   const getCoursesList = async () => {
     const result = await http.get("/Home/GetCoursesTop?Count=5");
     return result;
   };
-  const { data, status } = useQuery("CoursesQuery", getCoursesPaging);
 
   var st = "st";
 
@@ -82,21 +97,31 @@ const Allcourse = ({ parentShape, courseShape }) => {
     <section className="mx-auto text-center">
       <div className={st}>
         {status === "success" &&
-          data.map((item, index) => {
+          data.courseFilterDtos.map((item, index) => {
             return (
               <Course
-              key={index}
-              courseShape={courseShape}
-              courseName={item.classRoomName}
-              teacher={item.teacherName}
-              date={item.lastUpdate}
-              typeName = {item.typeName}
-              levelName = {item.levelName}
-              src={item.src}
+                key={index}
+                courseShape={courseShape}
+                courseName={item.classRoomName}
+                teacher={item.teacherName}
+                date={item.date}
+                src={item.tumbImageAddress}
               />
             );
           })}
       </div>
+      {parentShape == "courses" && status === "success" && (
+        <div className="mt-8">
+          <Pagination
+            total={data.totalCount}
+            pageSize={2}
+            showQuickJumper
+            onChange={(pageSize) => {
+              changeStart(pageSize);
+            }}
+          />
+        </div>
+      )}
     </section>
   );
 };
