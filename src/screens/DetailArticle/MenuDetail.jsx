@@ -38,7 +38,7 @@ const MenuDetail = () => {
               : "after:hidden px-4 font-irSans text-[12px] md:text-lg  whitespace-nowrap cursor-pointer "
           }
         >
-          جزئیات دوره
+          جزئیات خبر
         </li>
         <li
           onClick={commentShowHandler}
