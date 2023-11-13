@@ -66,6 +66,7 @@ const AllCourses = () => {
 
   const changeStart = (pageSize) =>{
     setStart((pageSize-1)*6) ;
+    console.log(pageSize);
   }  
 
 

@@ -23,7 +23,7 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
     },
 
     //course style for landing 
-    {parent : 'border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/4',
+    {parent : 'border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/5',
       firstDiv:'bg-course p-8',
       img:' mx-auto w-4/6',
       secondDiv:'',
