@@ -52,10 +52,6 @@ const Course = ({courseShape , courseName , teacher , date , src ,typeName,level
             {courseShape =='courses' ? 
             <p className={ courseStyle[0].secondP }>  تاریخ شروع : {date}</p>
             : null}
-
-<p className={courseShape =='courses' ? courseStyle[0].firstP : courseStyle[1].firstP}>نوع کلاس : {typeName} </p>
-<p className={courseShape =='courses' ? courseStyle[0].firstP : courseStyle[1].firstP}>سطح کلاس : {levelName} </p>
-
             <button className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
         </div>
     </motion.div>
