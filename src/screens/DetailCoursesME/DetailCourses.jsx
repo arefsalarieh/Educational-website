@@ -83,7 +83,7 @@ const DetailCourses = () => {
               {/*category */}
               <div className="flex  gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
-                  دسته خبر :
+                  مدرس دوره  :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
                   مقاله
@@ -92,7 +92,7 @@ const DetailCourses = () => {
             </div>
             {/*content article right side */}
             <div className="flex flex-col">
-              <p className="text-sm font-bold font-irSans">متن خبر :</p>
+              <p className="text-sm font-bold font-irSans"> درباره ی دوره :</p>
               <p className="w-4/5 text-sm text-justify font-irSans">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
@@ -119,16 +119,44 @@ const DetailCourses = () => {
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
                   <p className="text-[13px]  font-bold font-irSans">
-                    تاریخ انتشار خبر :
+                   شهریه ی دوره:
                   </p>
                   <span className=" text-[13px]">1402/07/19</span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
                   <p className="text-[13px]  font-bold font-irSans">
-                    دسته بندی:
+                   ترم ارائه شده ی دوره:
                   </p>
                   <span className="text-[13px] font-irSans">مقاله</span>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                   تاریخ شروع دوره  :
+                  </p>
+                  <span className="text-[13px] font-irSans">1402/08/23</span>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                  تاریخ پایان دوره:
+                  </p>
+                  <span className="text-[13px] font-irSans">1402/8/23</span>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                   ظرفیت دوره:
+                  </p>
+                  <span className="text-[13px] font-irSans">40 نفر</span>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                   تعداد دانشجویان دوره:
+                  </p>
+                  <span className="text-[13px] font-irSans">20 نفر</span>
                 </div>
               </div>
             </div>
