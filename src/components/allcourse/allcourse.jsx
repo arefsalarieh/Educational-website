@@ -52,12 +52,11 @@ const Allcourse = ({parentShape , courseShape}) => {
         st = parentDesign[1].parentLanding ;
       }
 
-       
       return (
         
         <section className='mx-auto text-center'>
             
-            
+
 
             <div className={st }>
               {status === 'success' && (
