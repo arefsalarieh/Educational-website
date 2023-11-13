@@ -61,19 +61,20 @@ const Allcourse = ({ parentShape, courseShape }) => {
     },
   ]);
 
-  const [pageNumber , setPageNumber] = useState(1) 
-
   const changeStart = (pageSize) =>{
     setPageNumber(pageSize) ;
     console.log(pageNumber);
+  
   }    
+  
+  const [pageNumber , setPageNumber] = useState(1)      
 
   const getCourseList = async () =>{
     const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0`)
     return result;
   }
 
-  const {data , status} = useQuery(['courseQuery', pageNumber] , getCourseList)
+  const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList )
 
   var st = "st";
 
