@@ -7,7 +7,7 @@ import {
   Virtual,
 } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
-import "swiper/swiper-bundle.min.js";
+import "../../../node_modules/swiper/swiper-bundle.min.js";
 import { SingleCourseDetail } from "./SingleCourseDetail";
 
 import "../../../node_modules/swiper/modules/virtual";
