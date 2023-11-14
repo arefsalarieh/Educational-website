@@ -95,7 +95,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
                 courseShape={courseShape}
                 courseName={item.classRoomName}
                 teacher={item.teacherName}
-                date={item.date}
+                date={item.lastUpdate}
                 src={item.tumbImageAddress}
               />
             );
