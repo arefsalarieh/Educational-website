@@ -15,7 +15,7 @@ const HeaderSearch = () => {
   const queryClient = new QueryClient();
 
   const { data: course, isLoading: courseIsLoading } = useQuery({
-    queryKey: ["search", { inputEntered }],
+    queryKey: ["searchCourse", { inputEntered }],
     queryFn: () => {
       if (!inputEntered) return;
       return headerCourseSearch(inputEntered).then((data) => {
@@ -26,12 +26,12 @@ const HeaderSearch = () => {
   });
 
   const { data: news, isLoading: newsIsLoading } = useQuery({
-    queryKey: ["search", { inputEntered }],
+    queryKey: ["searchNews", { inputEntered }],
     queryFn: () => {
       if (!inputEntered) return;
       return headerNewsSearch(inputEntered).then((data) => {
         console.log(data);
-        return data;
+        return data.news;
       });
     },
   });

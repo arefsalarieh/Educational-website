@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { AntdInputSearch } from "./AntdInputSearch";
+import { useEffect, useState } from "react";
+import { QueryClient, useQuery } from "react-query";
+import { getAllNews } from "../../core/services/api/news";
+
 import { ListNewsCards } from "./ListNewsCards";
 import React from "react";
 import { Button, Dropdown, Space } from "antd";
@@ -206,8 +208,42 @@ const NewsArticle = () => {
     },
   ]);
 
+  const qClient = new QueryClient();
+  const [params, setParams] = useState({
+    PageNumber: 1,
+    RowsOfPage: 10,
+    SortingCol: "InsertDate",
+    SortType: "DESC",
+  });
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["newsList"],
+    queryFn: () => {
+      return getAllNews(params).then((data) => {
+        return data.news;
+      });
+    },
+  });
+
+  useEffect(() => {
+    let fetching = false;
+    const onScroll = (e) => {
+      const { scrollHieght, scrollTop, clientHeight } = e.target.scrollingElement;
+      
+      if(scrollHieght - scrollTop <= clientHeight * 1.5)
+      fetching = true;
+      console.log("hi");
+      fetching = false;
+    }
+
+    document.addEventListener(scroll, onScroll)
+    return () => {
+      document.removeEventListener(scroll, onScroll)
+    }
+  }, [])
+
   return (
-    <div className=" font-irSans">
+    <div className="font-irSans">
       {/* Global Container */}
       <div className="flex w-full flex-col items-center  mx-auto p-5 gap-4">
         {/* Images */}
@@ -224,7 +260,7 @@ const NewsArticle = () => {
             اخبار و مقالات
           </p>
           {/* <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" /> */}
-          <SearchCourses className="cursor-pointer"/>
+          <SearchCourses className="cursor-pointer" />
         </div>
         {/*end Title and Input Seach  */}
         {/* filter newsArticle */}
@@ -232,7 +268,9 @@ const NewsArticle = () => {
           <div className="flex text-[#131b1f] text-[11px] md:text-sm  bg-white  cursor-pointer select-none items-center rounded-xl border border-[#dddedf] pr-2  pl-2 md:pr-4  md:pl-4 font-light relative bottom-2 h-[30px]">
             <BsFillCalendarCheckFill className=" text-[#a5a5a5] w-4 h-4 ml-2 mr-2" />
             {/* <DatePickerPersian size="large xs:default" />  */}
-            <p className="font-bold font-irSans text-gray-400 hover:text-gray-600" id="dateFilter">
+            <p
+              className="font-bold font-irSans text-gray-400 hover:text-gray-600"
+              id="dateFilter">
               تاریخ انتشار
             </p>
           </div>
@@ -247,31 +285,47 @@ const NewsArticle = () => {
 
         {/* SortBy newsArticle */}
         <div className="flex w-full gap-[14px]  mb-[30px] h-[40px] ">
-          <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 font-bold leading-4">
+          <span
+            onClick={() => {
+              qClient.invalidateQueries("newsList")
+              setParams({ ...params, SortingCol: "currentView" });
+              console.log(params);
+            }}
+            className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 font-bold leading-4">
             <input
               type="checkbox"
               id="mostVisited"
               name="sortGroup"
               className="bg-[#a5a5a5]  w-3 h-3 cursor-pointer"
             />
-            <label for="mostVisited" className="cursor-pointer"> پربازدیدترین </label>
+            <label htmlFor="mostVisited" className="cursor-pointer">
+              پربازدیدترین
+            </label>
           </span>
-          <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
+          <span
+            onClick={() => {
+              qClient.invalidateQueries("newsList")
+              setParams({ ...params, SortingCol: "updateDate" });
+              console.log(params);
+            }}
+            className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
             <input
               type="checkbox"
               id="newest"
               name="sortGroup"
               className="bg-[#a5a5a5]  w-3 h-3  cursor-pointer"
             />
-            <label for="newest" className="cursor-pointer"> جدیدترین</label>
+            <label htmlFor="newest" className="cursor-pointer">
+              جدیدترین
+            </label>
           </span>
         </div>
         {/* end SortBy newsArticle */}
 
         {/*The ListOf News and Articels */}
-        <div className="">
-          <ListNewsCards articelList={articelList} />
-        </div>
+
+        <ListNewsCards data={data} isLoading={isLoading} />
+
         {/*Button More */}
         <div>
           <Button className="border border-secondary  font-irSans ">

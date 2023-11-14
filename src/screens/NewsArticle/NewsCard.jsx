@@ -1,24 +1,53 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 import { BsBookHalf } from "react-icons/bs";
-import { AiOutlineStar } from "react-icons/ai";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { FaUserEdit } from "react-icons/fa";
 
-const NewsCard = ({ id, title, nameWriter, view, description, star }) => {
+
+const NewsCard = ({
+  id,
+  title,
+  nameWriter,
+  view,
+  description,
+  pic,
+  isLiked,
+}) => {
+  const handleLikeClick= () => {
+    if(isLiked){
+      isLiked = false;
+      console.log(isLiked);
+    } else {
+      isLiked = true; console.log(isLiked);
+    }
+  }
   return (
     <>
       {/* border border-bg-[#ffffff] */}
-      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff]  rounded-md p-3 ">
+      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff] dark:shadow-shadowDarkFront  rounded-md p-3 cursor-pointer">
         {/* Image */}
-        <div className="w-full mx-auto justify-center pb-4 cursor-pointer">
-          <img src="/public/assets/img/itemNewsPic.jpg" alt="NewsPic" />
+        <div className="relative w-full mx-auto justify-center pb-4 cursor-default">
+          <img className="w-full object-cover" src={pic} alt="NewsPic" />
+          <div className="absolute bottom-6 right-2 p-1 bg-slate-500 rounded-full bg-opacity-70 cursor-pointer">
+            {isLiked ? (
+              <span className="text-xl text-white" onClick={handleLikeClick}>
+                <FaHeart />
+              </span>
+            ) : (
+              <span className="text-xl text-white " onClick={handleLikeClick}>
+                <FaRegHeart />
+              </span>
+            )}
+          </div>
         </div>
         {/* Text below the photo */}
         <div className="mx-auto">
           {/* Title */}
-          <div>
-            <p className=" flex justify-center text-justify  xs:text-sm  font-bold whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px]">
+          <div className="">
+            <p className=" flex justify-center text-justify xs:text-sm  font-bold whitespace-nowrap pb-2 md:text-[11px] lg:text-[12px] sm:text-[12px] truncate">
               {title}
             </p>
           </div>

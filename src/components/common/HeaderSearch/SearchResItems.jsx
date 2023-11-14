@@ -16,7 +16,7 @@ function SearchResItems({ data, header, isLoading, isLoadingError }) {
       </div>
     );
   }
-  else if (isLoadingError) {
+  else if (data?.length < 1) {
     <SearchResNull />
   }
   return (
