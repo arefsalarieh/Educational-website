@@ -1,14 +1,32 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import http from '../../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 
 
-const Course = ({courseShape , courseName , teacher , date , src }) => {
+const Course = ({courseShape , idx , courseName , teacher , date , src }) => {
+
+  // const courseInfo =async () =>{
+  //   const result = await http.get(`/Home/GetCourseDetails?CourseId=` + idx )
+  //   return result;
+  // }
+
+  // const {data , status} = useQuery('courseInfo' , courseInfo )
+
+  //  status === 'success' && console.log(data);
+
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/CoursesDetail")
+    navigate(`/CourseMenuDetail/${idx}`)
   }
+
+  //console.log(idx);
+
+
+
+
 
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses
