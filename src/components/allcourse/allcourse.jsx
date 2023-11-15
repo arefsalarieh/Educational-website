@@ -62,7 +62,7 @@ const Allcourse = ({parentShape , courseShape}) => {
               {status === 'success' && (
                 data.courseFilterDtos.map((item , index)=>{
                   return(
-                    <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.classRoomName}  teacher={item.teacherName} date={item.date} src={item.tumbImageAddress}/>          
+                    <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.title}  teacher={item.teacherName} date={item.date} src={item.tumbImageAddress}/>          
                   )
                   })                 
               )}
