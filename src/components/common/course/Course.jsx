@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Course = ({courseShape , courseName , teacher , date , src ,typeName,levelName}) => {
+const Course = ({id,courseShape , courseName , teacher , date , src ,typeName,levelName}) => {
   const navigate = useNavigate()
   const handleClick = () => {
     navigate("/CoursesDetail")

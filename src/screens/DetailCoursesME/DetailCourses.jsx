@@ -5,11 +5,13 @@ import "/src/menuTabs.css";
 import { InsertCommentCourse } from "./InsertCommentCourse";
 import { CommentCourses } from "./CommentCourses";
 import { motion } from "framer-motion"
-
+import http from '../../core/services/interceptor'
 import {
   BsFillCheckCircleFill,
   BsFillArrowDownCircleFill,
 } from "react-icons/bs";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
 
 const DetailCourses = () => {
   const [articelList, setArticelList] = useState([
@@ -60,6 +62,18 @@ const DetailCourses = () => {
       date: "1399/07/19",
     },
   ]);
+
+  const courseId = useParams();
+  
+  const getDetailCourse = async () =>{
+    const result = await http.get(`/Home/GetCourseDetails?CourseId=${ courseId.id}`)
+    return result;
+  }
+
+  const {data , status} = useQuery('courseQuery', getDetailCourse)
+
+  status === 'success' &&  console.log(courseId.id);
+
 
   return (
     <>
@@ -176,6 +190,7 @@ const DetailCourses = () => {
           </motion.div>
           {/* end Left Side */}
         </div>
+
         {/* end Top Container */}
 
         {/*Border Split Top and Below*/}
