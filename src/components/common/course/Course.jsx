@@ -4,11 +4,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Course = ({courseShape , courseName , teacher , date , src }) => {
+const Course = ({courseShape , id , courseName , teacher , date , src }) => {
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/CoursesDetail")
+    navigate("/CourseMenuDetail/:" + id)
   }
+
+  console.log(id);
+
+
 
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses

@@ -23,13 +23,13 @@ const Article = () => {
 
   return (
     <>
-        {/* {status === 'success' &&(
-            data.map((item , index)=>{
+        {
+            newsList.map((item , index)=>{
                 return(
-                    <SingleNewsAndArticle key={index} pic={item.img} desc={item.describe}/>                
+                    <SingleNewsAndArticle key={index} pic={item.pic} desc={item.desc}/>                
                 )
-            })  
-        )} */}
+            }  
+        )}
 
     </>
   )

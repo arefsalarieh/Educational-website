@@ -23,14 +23,14 @@ const Allcourse = ({parentShape , courseShape}) => {
 
 
       
-      
       const changeStart = (pageSize) =>{
         setPageNumber(pageSize) ;
         console.log(pageNumber);
       
       }    
       
-      const [pageNumber , setPageNumber] = useState(1)      
+      const [pageNumber , setPageNumber] = useState(1)  
+          
 
       const getCourseList = async () =>{
         const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=4&SortingCol=Active&SortType=DESC&TechCount=0`)
@@ -41,7 +41,7 @@ const Allcourse = ({parentShape , courseShape}) => {
 
       const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList , )
 
-      
+      status === 'success' && console.log(data.courseFilterDtos);
 
       var st = 'st' ;
 
@@ -62,7 +62,7 @@ const Allcourse = ({parentShape , courseShape}) => {
               {status === 'success' && (
                 data.courseFilterDtos.map((item , index)=>{
                   return(
-                    <Course key={index} courseShape={courseShape} courseName={item.classRoomName}  teacher={item.teacherName} date={item.date} src={item.tumbImageAddress}/>          
+                    <Course key={index} courseShape={courseShape} id={item.courseId} courseName={item.classRoomName}  teacher={item.teacherName} date={item.date} src={item.tumbImageAddress}/>          
                   )
                   })                 
               )}
