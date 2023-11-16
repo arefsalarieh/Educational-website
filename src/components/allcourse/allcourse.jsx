@@ -25,7 +25,7 @@ const Allcourse = ({parentShape , courseShape}) => {
       
       const changeStart = (pageSize) =>{
         setPageNumber(pageSize) ;
-        console.log(pageNumber);
+  
       
       }    
       
