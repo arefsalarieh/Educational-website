@@ -11,8 +11,8 @@ import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import { useParams } from "react-router-dom";
 
-const DetailCourse = ({id}) => {
-  //const {id} = useParams();
+const DetailCourse = () => {
+  const {id} = useParams();
   // status==='success' && console.log(title);
   const [articelList, setArticelList] = useState([
     {
@@ -63,12 +63,15 @@ const DetailCourse = ({id}) => {
     },
   ]);
 
-  // const courseInfo =async () =>{
-  //   const result = await http.get('/Home/GetCourseDetails?CourseId=' + id )
-  //   return result;
-  // }
+  const courseInfo =async () =>{
+    const result = await http.get(`/Home/GetCourseDetails?CourseId=${id}`)
+    return result;
+  }
 
-  // const {data , status} = useQuery('courseDetail' , courseInfo )
+  const {data , status} = useQuery(['courseInfo' , id] , courseInfo )
+
+
+
 
   
 
@@ -91,34 +94,24 @@ const DetailCourse = ({id}) => {
                   عنوان دوره :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
-                    {/* {status === 'success' && data.title} */}
+                   {status === 'success' && data.title}
                 </p>
               </div>
               {/*category */}
               <div className="flex  gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
-                  دسته خبر :
+                   دسته بندی :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
-                  مقاله
+                   {status === 'success' && data.courseLevelName}                  
                 </p>
               </div>
             </div>
             {/*content article right side */}
             <div className="flex flex-col">
-              <p className="text-sm font-bold font-irSans">متن خبر :</p>
+              <p className="text-sm font-bold font-irSans"> توضیحیات :</p>
               <p className="text-sm text-justify font-irSans">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-                کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را
-                برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در
-                زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
-                دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات
-                پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                   {status === 'success' && data.describe}  
               </p>
             </div>
             {/*end content article right side */}
@@ -133,16 +126,20 @@ const DetailCourse = ({id}) => {
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
                   <p className="text-[13px]  font-bold font-irSans">
-                    تاریخ انتشار خبر :
+                    تاریخ  شروع :
                   </p>
-                  <span className=" text-[13px]">1402/07/19</span>
+                  <span className=" text-[13px]">
+                     {status === 'success' && data.startTime}                     
+                  </span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
                   <p className="text-[13px]  font-bold font-irSans">
-                    دسته بندی:
+                    تاریخ  پایان : 
                   </p>
-                  <span className="text-[13px] font-irSans">مقاله</span>
+                  <span className="text-[13px] font-irSans">
+                     {status === 'success' && data.endTime}                      
+                  </span>
                 </div>
               </div>
             </div>

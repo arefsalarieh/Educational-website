@@ -17,7 +17,7 @@ import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 import Courses from "../screens/Courses/Courses.jsx"
 import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 import { CourseMenuDetail } from "../screens/DetailCourses/CourseMenuDetail.jsx";
-import { CourseMenuDetail } from "../screens/DetailCourses/CourseMenuDetail.jsx";
+
 
 const router = createBrowserRouter([
   {

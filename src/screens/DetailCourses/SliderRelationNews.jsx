@@ -9,13 +9,30 @@ import {
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import "../../../node_modules/swiper/swiper-bundle.min.js";
 import { SingleArticleDetail } from "./SingleArticleDetail";
-
 import "../../../node_modules/swiper/modules/virtual";
-// import { Virtual } from 'swiper/modules';
+import http from '../../core/services/interceptor'
+import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 
-// import { ListArticleDetail } from "./ListArticleDetail";
 
 const SliderRelationNews = ({ articelList }) => {
+
+
+  const navigate = useNavigate()
+
+  const handleClick = (idx) => {
+     navigate(`/CourseMenuDetail/${idx}`)
+   
+  }
+
+  const getCourseSlide =async () =>{
+    const result = await http.get('Home/GetCoursesTop?Count=6' )
+    return result;
+  }
+
+  const {data , status} = useQuery('CourseSlide' , getCourseSlide )
+
+
   return (
     <>
       <Swiper
@@ -43,19 +60,20 @@ const SliderRelationNews = ({ articelList }) => {
         // scrollbar={{ draggable: true }}
       >
         <div className=" flex flex-row gap-16  ">
-          {articelList.map((card, index) => {
-            return (
-              <SwiperSlide key={card}>
-                <SingleArticleDetail
-                  key={index}
-                  id={card.id}
-                  title={card.title}
-                  date={card.date}
-                  // pic={card.pic}
-                />
-              </SwiperSlide>
-            );
-          })}
+          {status === 'success' && (
+              data.map((card, index) => {
+              return (
+                <SwiperSlide key={index}  onClick={()=>handleClick(card.courseId)}>
+                  <SingleArticleDetail
+                    id={card.id}
+                    title={card.title}
+                    date={card.statusName}
+                    pic={card.imageAddress}
+                  />
+                </SwiperSlide>
+              );
+            })
+          ) }
         </div>
       </Swiper>
     </>

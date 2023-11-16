@@ -6,13 +6,13 @@ import {useQuery} from 'react-query'
 
 
 
-const Course = ({courseShape , id , courseName , teacher , date , src }) => {
+const Course = ({courseShape , idx , courseName , teacher , date , src }) => {
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/CourseMenuDetail/:" + id)
+    navigate("/CourseMenuDetail/" + idx)
   }
 
-  console.log(id);
+  console.log(idx);
 
 
 

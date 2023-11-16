@@ -8,19 +8,19 @@ import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 
 const CourseMenuDetail = () => {
-   const {id} = useParams();
+  //  const {id} = useParams();
   const [details, setDetails] = useState(true);
   const [comments, setComments] = useState(false);
   const [insertComment, setInsertComment] = useState(false);
 
-  const courseInfo =async () =>{
-    const result = await http.get(`/Home/GetCourseDetails?CourseId=` + id )
-    return result;
-  }
+  // const courseInfo =async () =>{
+  //   const result = await http.get(`/Home/GetCourseDetails?CourseId=` + id )
+  //   return result;
+  // }
 
-  const {data , status} = useQuery('courseInfo' , courseInfo )
+  //const {data , status} = useQuery('courseInfo' , courseInfo )
 
-   status === 'success' && console.log(id);
+   //status === 'success' && console.log(data);
 
 
 
@@ -77,7 +77,7 @@ const CourseMenuDetail = () => {
       </ul>
       {/* body Page */}
       <section className="flex flex-col md:flex-row-reverse bg-[#f3f3f3]">
-        {details && <DetailCourse id={id} />}
+        {details && <DetailCourse  />}
         {comments && <Comments />}
         {insertComment && <InsertComment />}
       </section>
