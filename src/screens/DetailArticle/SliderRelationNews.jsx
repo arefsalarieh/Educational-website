@@ -15,9 +15,12 @@ import { useQuery } from "react-query";
 // import { Virtual } from 'swiper/modules';
 
 import { getAllNewsPure } from "../../core/services/api/news";
+import { useNavigate } from "react-router-dom";
 
 
-const SliderRelationNews = ({ articelList }) => {
+const SliderRelationNews = () => {
+  const navigate = useNavigate();
+
   const { data, isLoading, status } = useQuery({
     queryKey: ["newsList"],
     queryFn: () => {
@@ -64,6 +67,7 @@ const SliderRelationNews = ({ articelList }) => {
                   title={card.title}
                   date={card.insertDate}
                   pic={card.currentImageAddressTumb}
+                  onClick = {() => navigate("/NewsArticle/menudetail/" + card.id)}
                 />
               </SwiperSlide>
             );
