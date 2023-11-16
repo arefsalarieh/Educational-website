@@ -13,7 +13,7 @@ import {
   BsFillArrowDownCircleFill,
 } from "react-icons/bs";
 
-const DetailArticle = () => {
+const DetailArticle = ({data}) => {
   const [articelList, setArticelList] = useState([
     {
       title: " 1آموزش جامع طراحی وب",
@@ -79,7 +79,7 @@ const DetailArticle = () => {
                   عنوان خبر :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
-                  دوره جامع آموزش ری اکت
+                  {data?.title}
                 </p>
               </div>
               {/*category */}
@@ -96,17 +96,7 @@ const DetailArticle = () => {
             <div className="flex flex-col">
               <p className="text-sm font-bold font-irSans">متن خبر :</p>
               <p className="w-4/5 text-sm text-justify font-irSans">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-                کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را
-                برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در
-                زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
-                دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات
-                پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                {data?.describe}
               </p>
             </div>
             {/*end content article right side */}
@@ -123,7 +113,7 @@ const DetailArticle = () => {
                   <p className="text-[13px]  font-bold font-irSans">
                     تاریخ انتشار خبر :
                   </p>
-                  <span className=" text-[13px]">1402/07/19</span>
+                  <span className=" text-[13px]">{data?.updateDate}</span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
@@ -142,7 +132,7 @@ const DetailArticle = () => {
             {/* Images */}
             <div className="w-full  mx-auto justify-center  ">
               <img
-                src="/public/assets/img/detailNewsPic.webp"
+                src={data?.currentImageAddress}
                 className="mx-auto justify-center"
                 alt="newsPic"
               />
@@ -166,7 +156,7 @@ const DetailArticle = () => {
         {/*The ListOf Related news and articles */}
         <motion.div initial={{opacity:0, y:100}} animate={{opacity:1, y:0}} transition={{delay:0.7}} className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
-          <SliderRelationNews className="px-2 pb-2" articelList={articelList} />
+          <SliderRelationNews articelList={articelList} />
         </motion.div>
         {/* end The ListOf Related news and articles */}
         {/* <div className="flex justify-center">

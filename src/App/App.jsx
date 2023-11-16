@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         errorElement: <RouteError />,
       },
       {
-        path: "/menudetail",
+        path: "/NewsArticle/menudetail/:id",
         element: <MenuDetail />,
         errorElement: <RouteError />,
       },

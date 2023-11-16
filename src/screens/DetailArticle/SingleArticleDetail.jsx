@@ -1,7 +1,7 @@
 import React from "react";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
 
-const SingleArticleDetail = ({ id, title, date }) => {
+const SingleArticleDetail = ({ id, title, date, pic }) => {
   return (
     <div className="font-irSans">
     {/* 2xl: xl:w-1/7 lg:w-1/6 md:w-1/5 sm:w-1/4   mx-auto  */}
@@ -9,7 +9,7 @@ const SingleArticleDetail = ({ id, title, date }) => {
         {/* Image */}
         <div className="w-full flex justify-center pb-2  flex-grow">
           <img
-            src="/public/assets/img/office.jpg"
+            src={pic}
             alt="NewsPic"
             className=" rounded-full w-36 h-36 p-3  mx-auto  "
           />

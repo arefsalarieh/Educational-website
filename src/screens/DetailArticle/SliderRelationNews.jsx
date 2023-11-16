@@ -11,13 +11,25 @@ import "../../../node_modules/swiper/swiper-bundle.min.js";
 import { SingleArticleDetail } from "./SingleArticleDetail";
 
 import "../../../node_modules/swiper/modules/virtual";
+import { useQuery } from "react-query";
 // import { Virtual } from 'swiper/modules';
 
-// import { ListArticleDetail } from "./ListArticleDetail";
+import { getAllNewsPure } from "../../core/services/api/news";
+
 
 const SliderRelationNews = ({ articelList }) => {
+  const { data, isLoading, status } = useQuery({
+    queryKey: ["newsList"],
+    queryFn: () => {
+      return getAllNewsPure().then((data) => {
+        console.log(data.news);
+        return data;
+      });
+    },
+  });
+
   return (
-    <>
+    <div className="px-2 pb-2">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Virtual]}
         spaceBetween={50}
@@ -43,22 +55,22 @@ const SliderRelationNews = ({ articelList }) => {
         // scrollbar={{ draggable: true }}
       >
         <div className=" flex flex-row gap-16  ">
-          {articelList.map((card, index) => {
+          { status === "success" && data.news?.map((card, index) => {
             return (
               <SwiperSlide key={card}>
                 <SingleArticleDetail
                   key={index}
                   id={card.id}
                   title={card.title}
-                  date={card.date}
-                  // pic={card.pic}
+                  date={card.insertDate}
+                  pic={card.currentImageAddressTumb}
                 />
               </SwiperSlide>
             );
           })}
         </div>
       </Swiper>
-    </>
+    </div>
   );
 };
 export { SliderRelationNews };

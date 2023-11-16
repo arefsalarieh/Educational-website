@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { NewsCard } from "./NewsCard";
 import NewsListSkeleton from "./NewsListSkeleton";
 
 const ListNewsCards = ({ data, isLoading }) => {
+  const navigate = useNavigate()
   if (isLoading) {
     <NewsListSkeleton />;
   }
@@ -19,6 +21,7 @@ const ListNewsCards = ({ data, isLoading }) => {
             description={card.miniDescribe}
             pic={card.currentImageAddressTumb}
             isLiked={card.currentUserIsLike}
+            onClick={() => navigate("/NewsArticle/menudetail/" + card.id)}
           />
         );
       })}

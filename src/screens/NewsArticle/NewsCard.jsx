@@ -6,7 +6,6 @@ import { FaHeart } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { FaUserEdit } from "react-icons/fa";
 
-
 const NewsCard = ({
   id,
   title,
@@ -15,19 +14,21 @@ const NewsCard = ({
   description,
   pic,
   isLiked,
+  onClick,
 }) => {
-  const handleLikeClick= () => {
-    if(isLiked){
+  const handleLikeClick = () => {
+    if (isLiked) {
       isLiked = false;
       console.log(isLiked);
     } else {
-      isLiked = true; console.log(isLiked);
+      isLiked = true;
+      console.log(isLiked);
     }
-  }
+  };
   return (
     <>
       {/* border border-bg-[#ffffff] */}
-      <div className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff] dark:shadow-shadowDarkFront  rounded-md p-3 cursor-pointer">
+      <div onClick={onClick} className="xl:w-1/6 lg:w-1/5 md:w-1/4  xs:w-full sm:w-1/3  mx-auto justify-center shadow-lg  shadow-bg-[#ffffff] dark:shadow-shadowDarkFront  rounded-md p-3 cursor-pointer">
         {/* Image */}
         <div className="relative w-full mx-auto justify-center pb-4 cursor-default">
           <img className="w-full object-cover" src={pic} alt="NewsPic" />
