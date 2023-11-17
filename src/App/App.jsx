@@ -14,7 +14,9 @@ import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 import Courses from "../screens/Courses/Courses.jsx";
 import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 import { MenuDetailCourses } from "../screens/DetailCoursesME/MenuDetailCourses.jsx";
-
+import { ConfirmRegister } from "../components/ConfirmRegister/ConfirmRegister.jsx";
+import { VerifyMessage } from "../components/ConfirmRegister/VerifyMessage.jsx";
+import { RegisterEnd } from "../components/Register/RegisterEnd.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/menudetailcourses",
-        element: <MenuDetailCourses/>,
+        element: <MenuDetailCourses />,
         errorElement: <RouteError />,
       },
       {
@@ -74,6 +76,21 @@ const router = createBrowserRouter([
       {
         path: "/studentPanel",
         element: <StudentPanel />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/confirmregister",
+        element: <ConfirmRegister />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/VerifyMessage",
+        element: <VerifyMessage />,
+        errorElement: <RouteError />,
+      },
+      {
+        path: "/RegisterEnd",
+        element: <RegisterEnd />,
         errorElement: <RouteError />,
       },
       {
