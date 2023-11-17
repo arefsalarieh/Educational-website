@@ -25,7 +25,6 @@ const SliderRelationNews = () => {
     queryKey: ["newsList"],
     queryFn: () => {
       return getAllNewsPure().then((data) => {
-        console.log(data.news);
         return data;
       });
     },

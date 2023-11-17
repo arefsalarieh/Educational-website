@@ -95,7 +95,7 @@ const NewsArticle = () => {
             </label>
           </span>
           <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer -mt-1 mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
-            <select name="sort" id="">
+            <select name="sort">
               <option selected disabled>
                 ترتیب نمایش
               </option>
@@ -104,22 +104,23 @@ const NewsArticle = () => {
                   qClient.invalidateQueries("newsList");
                   setParams({
                     ...params,
-                    SortType: e.target.value,
+                    SortType: e.target.defaultValue,
                   });
                 }}
-                defaultValue="ASC">
+                value="ASC">
                 صعودی
               </option>
               <option
                 onClick={(e) => {
                   qClient.invalidateQueries("newsList");
+                  console.log(e.target.value);
                   setParams({
                     ...params,
-                    SortType: e.target.value,
+                    SortType: e.target.defaultValue,
                   });
                   console.log(params);
                 }}
-                defaultValue="DESC">
+                value="DESC">
                 نزولی
               </option>
             </select>
