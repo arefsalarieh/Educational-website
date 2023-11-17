@@ -80,26 +80,6 @@ const RegisterEnd = () => {
 
                   {/* start of form */}
                   <div className="flex flex-col gap-4 w-full mt-5">
-                    {/* <div className=" w-full flex flex-col lg:flex-row gap-4">
-                      <div className="flex flex-col  w-full">
-                        <p className=" mb-2 whitespace-nowrap  sm:text-base  xs:text-[14px] ">
-                          شماره تماس
-                        </p>
-                        <Input
-                          size="large  xs:default"
-                          className="text-left border border-gray-400 rounded-md placeholder:font-sans placeholder:font-light"
-                          name="number"
-                          value={values.number}
-                          onChange={handleChange}
-                          dir="ltr"
-                        />
-                        <ErrorMessage
-                          name="number"
-                          component={"p"}
-                          className="error"
-                        />
-                      </div>
-                    </div> */}
                     <div className="flex flex-col gap-4">
                       <div>
                         <p className=" mb-2  sm:text-base  xs:text-[14px]  ">
