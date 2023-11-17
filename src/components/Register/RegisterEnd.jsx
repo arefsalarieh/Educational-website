@@ -77,6 +77,9 @@ const RegisterEnd = () => {
                   <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4 ">
                     ثبت نام کاربر
                   </h1>
+
+                  {/* start of form */}
+                  <div className="flex flex-col gap-4 w-full mt-5">
                     <div className="flex flex-col gap-4">
                       <div>
                         <p className=" mb-2  sm:text-base  xs:text-[14px]  ">
