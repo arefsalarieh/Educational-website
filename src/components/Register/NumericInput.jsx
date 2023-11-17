@@ -30,7 +30,7 @@ const NumericInput = (props) => {
         {...props}
         onChange={handleChange}
         onBlur={handleBlur}
-        placeholder="2181531034"
+        placeholder="2181631034"
         maxLength={10}
         dir="ltr" 
            
