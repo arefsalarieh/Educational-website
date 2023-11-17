@@ -7,7 +7,7 @@ function SearchResItems({ data, header, isLoading, isLoadingError }) {
   if (isLoading) {
     return (
       <div className="flex flex-col py-3">
-        <div class="flex items-start justify-start h-6 ms-3 my-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div>
+        <div className="flex items-start justify-start h-6 ms-3 my-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div>
         <div className="flex flex-col items-center pb-2 gap-y-2">
           <SearchItemSkeleton />
           <SearchItemSkeleton />
@@ -16,7 +16,7 @@ function SearchResItems({ data, header, isLoading, isLoadingError }) {
       </div>
     );
   }
-  else if (isLoadingError) {
+  else if (data?.length < 1) {
     <SearchResNull />
   }
   return (

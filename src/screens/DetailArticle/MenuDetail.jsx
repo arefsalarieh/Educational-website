@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DetailArticle } from "./DetailArticle";
 import { Comments } from "./Comments";
 import { InsertComment } from "./InsertComment";
 import { useState } from "react";
 import {motion} from 'framer-motion'
+import { getNewsWithId } from "../../core/services/api/news";
+import { useParams } from "react-router-dom";
+import http from "../../core/services/interceptor"
+import { useQuery } from "react-query";
 
 const MenuDetail = () => {
   const [details, setDetails] = useState(true);
   const [comments, setComments] = useState(false);
   const [insertComment, setInsertComment] = useState(false);
+  const param = useParams();
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["newsItem"],
+    queryFn: () => {
+      return getNewsWithId(param.id).then((data) => {
+        return data;
+      });
+    },
+  });
+
+  // const getNewsById = async() => {
+  //   const res = await http.get("/News/" + param);
+  //   console.log(res);
+  //   return res;
+  // }
+
+  // useEffect (() => {
+  //   getNewsById()
+  // }, [])
+
+
+  // if(error) {
+  //   console.log(error.errors.Id);
+  // }
 
   const detailShowHandler = () => {
     setDetails(true);
@@ -63,7 +92,7 @@ const MenuDetail = () => {
       </ul>
       {/* body Page */}
       <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="flex flex-col md:flex-row-reverse bg-[#f3f3f3] dark:bg-slate-600">
-        {details && <DetailArticle />}
+        {details && <DetailArticle data={data?.detailsNewsDto} />}
         {comments && <Comments />}
         {insertComment && <InsertComment />}
       </motion.div>
