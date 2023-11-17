@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const SingleArticleDetail = ({ id, title, date, pic, onClick }) => {
   const navigate = useNavigate()
   return (
-    <div onClick={onClick} className="font-irSans">
+    <div onClick={onClick} className="font-irSans cursor-pointer">
     {/* 2xl: xl:w-1/7 lg:w-1/6 md:w-1/5 sm:w-1/4   mx-auto  */}
       <div className="w-full flex  flex-col justify-center items-center border border-bg-[#ffffff] rounded-md p-5 bg-white ">
         {/* Image */}

@@ -10,58 +10,10 @@ import { motion } from "framer-motion"
 
 import {
   BsFillCheckCircleFill,
-  BsFillArrowDownCircleFill,
 } from "react-icons/bs";
 
 const DetailArticle = ({data}) => {
-  const [articelList, setArticelList] = useState([
-    {
-      title: " 1آموزش جامع طراحی وب",
-      date: "1402/07/19",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1402/07/18",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1402/07/17",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1402/07/20",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1402/07/16",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1402/07/11",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1402/07/17",
-    },
-    {
-      title: " آموزش جامع طراحی وب",
-      date: "1300/07/18",
-      title: " آموزش جامع طراحی وب",
-      date: "1300/07/18",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1401/07/19",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1400/07/19",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1399/07/19",
-    },
-  ]);
+  
 
   return (
     <>
@@ -156,7 +108,7 @@ const DetailArticle = ({data}) => {
         {/*The ListOf Related news and articles */}
         <motion.div initial={{opacity:0, y:100}} animate={{opacity:1, y:0}} transition={{delay:0.7}} className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
-          <SliderRelationNews articelList={articelList} />
+          <SliderRelationNews />
         </motion.div>
         {/* end The ListOf Related news and articles */}
         {/* <div className="flex justify-center">
