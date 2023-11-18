@@ -29,6 +29,8 @@ const Login = () => {
     if (user.success === true) {
       toast.success(user.message);
       // alert(user.message)
+    } else {
+      toast.error(user.errors);
     }
     if (user.roles === null) {
       navigate("/studentPanel");

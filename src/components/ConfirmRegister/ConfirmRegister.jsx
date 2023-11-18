@@ -32,6 +32,12 @@ const ConfirmRegister = () => {
     const bodyReg = { phoneNumber: values.number };
     const result = await http.post("/Sign/SendVerifyMessage", bodyReg);
     return result;
+    if (result.success === true) {
+      toast.success(result.message);
+    }
+    else{
+      toast.error(result.errors);
+    }
     console.log(result);
     console.log(values.number);
   };
