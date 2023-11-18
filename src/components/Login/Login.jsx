@@ -23,6 +23,7 @@ const Login = () => {
       password: values.pass,
       rememberMe: values.remember,
     };
+    console.log(userobj);
     const user = await loginAPI(userobj);
     console.log(user);
     setItem("token", user.token);
@@ -55,10 +56,11 @@ const Login = () => {
           email: "",
           pass: "",
         }}
-        // onSubmit={onSubmit}
+        // onSubmit={loginUser}
         validationSchema={validation}
       >
         {({ values, handleSubmit, handleChange }) => (
+          
           <form>
             {/* Global Container */}
             <div className=" global-container">
