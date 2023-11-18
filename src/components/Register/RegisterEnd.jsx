@@ -104,7 +104,7 @@ const RegisterEnd = () => {
                         <ErrorMessage
                           name="email"
                           component={"p"}
-                          className="error"
+                          className="text-red-600 text-[14px] whitespace-nowrap"
                         />
                       </div>
                     </div>
@@ -127,7 +127,7 @@ const RegisterEnd = () => {
                       <ErrorMessage
                         name="pass"
                         component={"p"}
-                        className="error"
+                        className="text-red-600 text-[14px] whitespace-nowrap"
                       />
                     </div>
                     {/*Bouttons */}
