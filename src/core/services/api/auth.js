@@ -1,3 +1,4 @@
+
 import http from "../interceptor";
 
 export const loginAPI = async (user) => {
@@ -6,6 +7,7 @@ export const loginAPI = async (user) => {
 
     return response;
   } catch (err) {
-    return false;
+    return("error");
   }
 };
+
