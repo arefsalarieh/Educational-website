@@ -17,6 +17,7 @@ import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 import Courses from "../screens/Courses/Courses.jsx"
 import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 import { CourseMenuDetail } from "../screens/DetailCourses/CourseMenuDetail.jsx";
+import NewRegister from "../screens/NewRegister.jsx/NewRegister.jsx";
 
 
 const router = createBrowserRouter([
@@ -36,9 +37,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <RegisterPage />,
+        element: <NewRegister />,
         errorElement: <RouteError />,
-      },
+      },   
       {
         path: "/forgotPassword",
         element: <ForgotPassword />,

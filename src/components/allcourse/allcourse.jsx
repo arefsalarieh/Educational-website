@@ -32,15 +32,15 @@ const Allcourse = ({parentShape , courseShape}) => {
       const [pageNumber , setPageNumber] = useState(1)  
           
 
+
       const getCourseList = async () =>{
         const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=4&SortingCol=Active&SortType=DESC&TechCount=0`)
         return result;
       }
 
-      
-
       const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList , )
 
+      
       status === 'success' && console.log(data.courseFilterDtos);
 
       var st = 'st' ;

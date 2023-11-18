@@ -29,13 +29,13 @@ const onError = (err) => {
 
 instance.interceptors.response.use(onSuccess, onError);
 
-// instance.interceptors.request.use(opt => {
-//     const token = getItem("token") ? JSON.parse(getItem("token")) : null;
+instance.interceptors.request.use(opt => {
+    //const token = getItem("token") ? JSON.parse(getItem("token")) : null;
 
-//     // opt.headers['MessageTest'] = "Hello World"; 
-//     // opt.headers['Content-Type'] = "application/json";
-//     if (token) opt.headers.Authorization = 'Bearer ' + token;
-//     return opt
-// })
+    // opt.headers['MessageTest'] = "Hello World"; 
+    // opt.headers['Content-Type'] = "application/json";
+    //if (token) opt.headers.Authorization = 'Bearer ' + token;
+    return opt
+})
 
 export default instance;
