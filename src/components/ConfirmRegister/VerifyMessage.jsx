@@ -63,7 +63,7 @@ const VerifyMessage = () => {
                     <ErrorMessage
                       name="code"
                       component={"p"}
-                      className="error"
+                      className="text-red-600 text-[14px] whitespace-nowrap"
                     />
                   </div>
                   {/*Boutton */}
