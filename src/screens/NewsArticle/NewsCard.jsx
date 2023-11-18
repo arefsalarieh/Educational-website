@@ -16,6 +16,7 @@ const NewsCard = ({
   isLiked,
   onClick,
 }) => {
+  console.log(id, title, nameWriter, view, description, pic, isLiked, onClick);
   const handleLikeClick = () => {
     if (isLiked) {
       isLiked = false;
@@ -34,7 +35,7 @@ const NewsCard = ({
           <img className="w-full object-cover" src={pic} alt="NewsPic" />
           <div className="absolute bottom-6 right-2 p-1 bg-slate-500 rounded-full bg-opacity-70 cursor-pointer">
             {isLiked ? (
-              <span className="text-xl text-white" onClick={handleLikeClick}>
+              <span className="text-xl text-red-500" onClick={handleLikeClick}>
                 <FaHeart />
               </span>
             ) : (

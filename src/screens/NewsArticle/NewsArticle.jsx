@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import { QueryClient, useQuery } from "react-query";
-import { getAllNews } from "../../core/services/api/news";
-
-import { ListNewsCards } from "./ListNewsCards";
 import React from "react";
+import { useEffect, useState } from "react";
+import { QueryClient, useInfiniteQuery, useQuery } from "react-query";
+import { getAllNews, getInfiniteAllNews } from "../../core/services/api/news";
+import { useInView } from "react-intersection-observer";
+import { ListNewsCards } from "./ListNewsCards";
 import { Button, Dropdown, Space } from "antd";
 import SearchCourses from "../../components/common/search/SearchCourses";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
+import http from "../../core/services/interceptor";
 
 // import "react-datepicker/dist/react-datepicker.css";
 // import { DatePickerPersian } from "../../components/common/datePicker/DatePickerPersian"
 // import "../../datepicker.css";
 
 const NewsArticle = () => {
+  const { ref, inView } = useInView();
   const qClient = new QueryClient();
   const [params, setParams] = useState({
     PageNumber: 1,
@@ -21,15 +23,43 @@ const NewsArticle = () => {
     SortType: "DESC",
   });
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["newsList", params],
-    queryFn: () => {
-      return getAllNews(params).then((data) => {
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["newsList", params],
+  //   queryFn: () => {
+  //     return getAllNews(params).then((data) => {
+  //       console.log(data.news);
+  //       return data.news;
+  //     });
+  //   },
+  // });
+
+  const {
+    status,
+    data,
+    isLoading,
+    isFetchingNextPage,
+    fetchNextPage,
+    fetchPreviousPage,
+    hasNextPage,
+    hasPreviousPage,
+  } = useInfiniteQuery(
+    ["newsList", params],
+    async () => {
+      return getInfiniteAllNews(params).then((data) => {
         return data.news;
       });
     },
-  });
+    {
+      // getPreviousPageParam: (firstPage) => firstPage.previousId ?? undefined,
+      getNextPageParam: (pageParam) => (pageParam += 1),
+    }
+  );
 
+  React.useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   return (
     <div className="font-irSans">
@@ -56,8 +86,8 @@ const NewsArticle = () => {
         {/* <div className="flex  w-full gap-2 mr-2 mt-4">
           <div className="flex text-[#131b1f] text-[11px] md:text-sm  bg-white  cursor-pointer select-none items-center rounded-xl border border-[#dddedf] pr-2  pl-2 md:pr-4  md:pl-4 font-light relative bottom-2 h-[30px]">
             <BsFillCalendarCheckFill className=" text-[#a5a5a5] w-4 h-4 ml-2 mr-2" /> */}
-            {/* <DatePickerPersian size="large xs:default" />  */}
-            {/* <p
+        {/* <DatePickerPersian size="large xs:default" />  */}
+        {/* <p
               className="font-bold font-irSans text-gray-400 hover:text-gray-600"
               id="dateFilter">
               تاریخ انتشار
@@ -145,12 +175,20 @@ const NewsArticle = () => {
 
         {/*The ListOf News and Articels */}
 
-        <ListNewsCards data={data} isLoading={isLoading}/>
+        <ListNewsCards status={status} data={data} isLoading={isLoading} />
 
         {/*Button More */}
         <div>
-          <Button className="border border-secondary  font-irSans ">
-            بیشتر
+          <Button
+            ref={ref}
+            onClick={() => fetchNextPage()}
+            disabled={!hasNextPage || isFetchingNextPage}
+            className="border border-secondary  font-irSans ">
+            {isFetchingNextPage
+              ? "بارگذاری موارد بیشتر"
+              : hasNextPage
+              ? "بیشتر"
+              : "پایان"}
           </Button>
         </div>
       </div>

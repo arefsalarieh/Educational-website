@@ -14,19 +14,20 @@ export const getAllNews = async (params) => {
     return result;
   };
 
-  // export const getInfiniteAllNews = (pageNumber) => {
-  //   const result = http.get(
-  //     `/News?PageNumber=${pageNumber}&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC&Query=`
-  //   );
-  //   console.log(result);
-  //   return result;
-  // };
+  export const getInfiniteAllNews = (params) => {
+    const result = http.get(
+      `/News?PageNumber=${params.PageNumber}&RowsOfPage=${params.RowsOfPage}&SortingCol=${params.SortingCol}&SortType=${params.SortType}&Query=`
+    );
+    console.log(result);
+    return result;
+  };
 
+
+  // used in SliderRelationNews for slider
   export const getNewsWithId = async (id) => {
     const result = await http.get(
       `/News/${id}`
     );
-    console.log(result);
     return result;
   };
 
