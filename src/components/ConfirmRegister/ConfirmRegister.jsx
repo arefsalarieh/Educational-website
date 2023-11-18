@@ -33,6 +33,12 @@ const ConfirmRegister = () => {
     const result = await http.post("/Sign/SendVerifyMessage", bodyReg);
     return result;
     console.log(result);
+    if (result.success === true) {
+      toast.success(result.message);
+    }
+    else{
+      toast.error(result.errors);
+    }
     console.log(values.number);
   };
   const validation = yup.object().shape({
