@@ -97,7 +97,7 @@ const Login = () => {
                     <ErrorMessage
                       name="email"
                       component={"p"}
-                      className="error"
+                      className="text-red-600 text-[14px] whitespace-nowrap"
                     />
                     <p className="font-semibold  mb-2">پسورد</p>
                     <Input.Password
@@ -114,7 +114,7 @@ const Login = () => {
                     <ErrorMessage
                       name="pass"
                       component={"p"}
-                      className="error"
+                      className="text-red-600 text-[14px] whitespace-nowrap"
                     />
                     <div className="message-forgot  flex">
                       <input
