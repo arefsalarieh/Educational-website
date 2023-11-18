@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
 import { onNumberChange } from "../../redux/user";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 
 
@@ -34,8 +35,10 @@ const ConfirmRegister = () => {
     return result;
     console.log(result);
     if (result.success === true) {
-      toast.success(result.message);
-      navigate("/VerifyMessage");
+      toast.success(user.message);
+      setTimeout(() => {
+        navigate("../ConfirmRegister/VerifyMessage.jsx")
+      }, "2000");
     }
     else{
       toast.error(result.errors);
@@ -57,7 +60,7 @@ const ConfirmRegister = () => {
         {({ values, handleSubmit, handleChange }) => (
           <form onSubmit={handleSubmit}>
             {/* Global Container */}
-            <div className=" flex items-center justify-center   bg-bgLogRegFor  w-screen h-screen">
+            <div className=" flex items-center justify-center     w-screen h-screen font-irSans bg-gradient-to-b from-primary dark:from-teal-800 ">
               {/* Card Container  */}
               <div className="flex  w-9/12 h-fit p-12 space-y-10  bg-white shadow-2xl rounded-2xl lg:flex-row  xs:flex-col-reverse ">
                 {/* Right Side */}
@@ -86,7 +89,7 @@ const ConfirmRegister = () => {
                     <button
                       type="submit"
                       // onClick={handleClick}
-                      className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
+                      className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-teal-600  dark:bg-teal-800 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
                     >
                       ثبت شماره تماس
                     </button>

@@ -15,6 +15,7 @@ import * as yup from "yup";
 import axios from "axios";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
+import toast from "react-hot-toast";
 
 const RegisterEnd = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);

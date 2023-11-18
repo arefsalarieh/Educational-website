@@ -6,6 +6,7 @@ import * as yup from "yup";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const VerifyMessage = () => {
 
@@ -22,7 +23,9 @@ const VerifyMessage = () => {
     return result;
     if (result.success === true) {
       toast.success(result.message);
-      navigate("/RegisterEnd");
+      setTimeout(() => {
+        navigate("../Register/RegisterEnd.jsx")
+      }, "2000");
     }
     else{
       toast.error(result.errors);
@@ -30,10 +33,9 @@ const VerifyMessage = () => {
     console.log(result);
   };
 
-  const validation = yup.object().shape({
-    code: yup.code().required("لطفاکد تایید را وارد کنید."),
-  });
-
+  // const validation = yup.object().shape({
+  //   code: yup.code().required("لطفا کد تایید را وارد کنید."),
+  // });
 
   return (
     <>
@@ -42,13 +44,13 @@ const VerifyMessage = () => {
           code: "",
         }}
         onSubmit={onSubmit}
-        validationSchema={validation}
+        // validationSchema={validation}
       >
         {({ values, handleSubmit, handleChange }) => (
           <form onSubmit={handleSubmit}>
 
             {/* Global Container */}
-            <div className=" flex items-center justify-center   bg-bgLogRegFor  w-screen h-screen">
+            <div className=" flex items-center justify-center  font-irSans bg-gradient-to-b from-primary dark:from-teal-800  w-screen h-screen">
               {/* Card Container  */}
               <div className="flex  w-9/12 h-fit p-12 space-y-10  bg-white shadow-2xl rounded-2xl lg:flex-row  xs:flex-col-reverse ">
                 {/* Right Side */}
@@ -76,7 +78,7 @@ const VerifyMessage = () => {
                   <div className="w-full mt-4 ">
                     <button
                       type="submit"
-                      className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
+                      className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9  bg-teal-600  dark:bg-teal-800 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
                     >
                       ارسال کد
                     </button>
