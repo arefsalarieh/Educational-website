@@ -44,22 +44,6 @@ const VerifyMessage = () => {
                   <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
                     تایید پیام
                   </h1>
-                  {/* <div className="flex flex-col">
-                    <p className="sm:font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[12px]">
-                      لطفا شماره تماس خود را وارد نمایید :
-                    </p>
-                    <Input
-                      className="fletext-center sm:py-2 border border-gray-400 rounded-md placeholder:font-sans placeholder:font-light  w-full px-10 xs:py-1  sm:placeholder:text-base xs:placeholder:text-[13px] "
-                      name="number"
-                      value={values.number}
-                      onChange={handleChange}
-                    />
-                    <ErrorMessage
-                      name="number"
-                      component={"p"}
-                      className="error"
-                    />
-                  </div> */}
                   <div className="flex flex-col">
                     <p className="sm:font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[12px]">
                       لطفاکد فعالسازی را وارد نمایید :
