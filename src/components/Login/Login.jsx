@@ -12,7 +12,7 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import { loginAPI } from "../../core/services/api/auth";
 import { setItem } from "../../core/services/common/storage.services";
-import toast from "react-hot-toast";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -45,7 +45,7 @@ const Login = () => {
     email: yup
       .string()
       .required(" لطفا ایمیل یا شماره تماس خود را وارد کنید! "),
-    pass: yup.string().required(".لطفا پسورد  را وارد نمایید"),
+    pass: yup.string().required("لطفا پسورد  را وارد نمایید"),
   });
 
   return (
