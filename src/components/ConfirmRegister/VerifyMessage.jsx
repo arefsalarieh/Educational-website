@@ -15,6 +15,12 @@ const VerifyMessage = () => {
     const bodyVerify = {phoneNumber: userinfo.number,verifyCode:values.code};
     const result = await http.post("/Sign/VerifyMessage",bodyVerify);
     return result;
+    if (result.success === true) {
+      toast.success(result.message);
+    }
+    else{
+      toast.error(result.errors);
+    }
     console.log(result);
   };
 
