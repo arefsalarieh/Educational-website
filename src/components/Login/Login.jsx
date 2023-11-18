@@ -12,6 +12,7 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import { loginAPI } from "../../core/services/api/auth";
 import { setItem } from "../../core/services/common/storage.services";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -21,32 +22,30 @@ const Login = () => {
     const userobj = {
       phoneOrGmail: values.email,
       password: values.pass,
-      rememberMe: values.remember,
+      rememberMe:values.remember,
     };
+
+    console.log(values.remember);
     console.log(userobj);
     const user = await loginAPI(userobj);
     console.log(user);
     setItem("token", user.token);
-    if (user.success === true) {
+    if (user.success === true ) {
       toast.success(user.message);
-      // alert(user.message)
-    } else {
+      setTimeout(() => {
+        navigate("/studentPanel")
+      }, "2000");
+    }
+    else {
       toast.error(user.errors);
     }
-    if (user.roles === null) {
-      navigate("/studentPanel");
-    }
   };
-
-  // const handleClick = () => {
-  //   navigate("/studentPanel");
-  // };
 
   const validation = yup.object().shape({
     email: yup
       .string()
       .required(" لطفا ایمیل یا شماره تماس خود را وارد کنید! "),
-    pass: yup.string().required("لطفا پسورد  را وارد نمایید"),
+    pass: yup.string().required(".لطفا پسورد  را وارد نمایید"),
   });
 
   return (
@@ -55,13 +54,14 @@ const Login = () => {
         initialValues={{
           email: "",
           pass: "",
+          remember: false,
         }}
         // onSubmit={loginUser}
         validationSchema={validation}
+        onSubmit={loginUser}
       >
-        {({ values, handleSubmit, handleChange }) => (
-          
-          <form>
+        {({ values, handleSubmit, handleChange ,setFieldValue}) => (
+          <form onSubmit={handleSubmit}>
             {/* Global Container */}
             <div className=" global-container">
               {/* Card Container  */}
@@ -94,6 +94,11 @@ const Login = () => {
                         onChange={handleChange}
                       />
                     </div>
+                    <ErrorMessage
+                      name="email"
+                      component={"p"}
+                      className="error"
+                    />
                     <p className="font-semibold  mb-2">پسورد</p>
                     <Input.Password
                       placeholder="************"
@@ -116,6 +121,8 @@ const Login = () => {
                         className="ml-2"
                         type="checkbox"
                         id="check"
+                        value={values.remember}
+                        onChange={(e) =>setFieldValue("remember",e.target.checked )}
                         name="remember"
                       />
                       <label for="check" />
@@ -124,7 +131,11 @@ const Login = () => {
                     {/*Bouttons */}
                     <div className="flex mt-8 sm:ml-10">
                       <button className=" button-register">ثبت نام</button>
-                      <button onClick={loginUser} className="button-login">
+                      <button
+                        onSubmit={loginUser}
+                        className="button-login"
+                        type="submit"
+                      >
                         ورود
                       </button>
                     </div>
