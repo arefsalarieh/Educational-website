@@ -35,6 +35,7 @@ const ConfirmRegister = () => {
     console.log(result);
     if (result.success === true) {
       toast.success(result.message);
+      navigate("/VerifyMessage");
     }
     else{
       toast.error(result.errors);

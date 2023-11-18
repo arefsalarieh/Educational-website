@@ -9,6 +9,11 @@ import { useSelector } from "react-redux";
 
 const VerifyMessage = () => {
 
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate("/RegisterEnd");
+  };
+
   const  userinfo= useSelector((reducer)=>reducer.user);
 
   const onSubmit = async (values) => {
@@ -17,6 +22,7 @@ const VerifyMessage = () => {
     return result;
     if (result.success === true) {
       toast.success(result.message);
+      navigate("/RegisterEnd");
     }
     else{
       toast.error(result.errors);
@@ -25,7 +31,7 @@ const VerifyMessage = () => {
   };
 
   const validation = yup.object().shape({
-    code: yup.number().required("لطفاکد تایید را وارد کنید."),
+    code: yup.code().required("لطفاکد تایید را وارد کنید."),
   });
 
 
@@ -33,7 +39,7 @@ const VerifyMessage = () => {
     <>
       <Formik
         initialValues={{
-          number: "",
+          code: "",
         }}
         onSubmit={onSubmit}
         validationSchema={validation}
