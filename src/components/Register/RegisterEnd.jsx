@@ -38,7 +38,6 @@ const RegisterEnd = () => {
   const onSubmit = async (values) => {
     const bodyReg = { phoneNumber: values.number,gmail:values.email,password:values.pass };
     const result = await http.post("/Sign/Register", bodyReg);
-    return result;
     if (result.success === true) {
       toast.success(result.message);
     }
@@ -46,6 +45,8 @@ const RegisterEnd = () => {
       toast.error(result.errors);
     }
     console.log(result);
+    return result;
+
   };
 
   const validation = yup.object().shape({

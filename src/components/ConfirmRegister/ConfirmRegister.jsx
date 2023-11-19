@@ -32,7 +32,6 @@ const ConfirmRegister = () => {
     console.log(onNumberChange(values.number))
     const bodyReg = { phoneNumber: values.number };
     const result = await http.post("/Sign/SendVerifyMessage", bodyReg);
-    return result;
     console.log(result);
     if (result.success === true) {
       toast.success(user.message);
@@ -44,6 +43,8 @@ const ConfirmRegister = () => {
       toast.error(result.errors);
     }
     console.log(values.number);
+    return result;
+ 
   };
   const validation = yup.object().shape({
     number: yup.number().required("لطفا شماره تماس خود را وارد کنید."),
