@@ -1,5 +1,6 @@
 import axios from "axios";
 import { json } from "react-router-dom";
+import { getItem } from "../common/storage.services";
 
 const baseURL = import.meta.env.VITE_BASE_URL
 
@@ -30,11 +31,11 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use(opt => {
-    //const token = getItem("token") ? JSON.parse(getItem("token")) : null;
+    const token = getItem("token") ? JSON.parse(getItem("token")) : null;
 
-    // opt.headers['MessageTest'] = "Hello World"; 
-    // opt.headers['Content-Type'] = "application/json";
-    //if (token) opt.headers.Authorization = 'Bearer ' + token;
+     opt.headers['MessageTest'] = "Hello World"; 
+     opt.headers['Content-Type'] = "application/json";
+    if (token) opt.headers.Authorization = 'Bearer ' + token;
     return opt
 })
 

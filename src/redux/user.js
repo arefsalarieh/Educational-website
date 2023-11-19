@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { useSelector } from 'react-redux'
+import { getItem } from '../core/services/common/storage.services';
 
 const userSlice = createSlice({
     name: 'user',
@@ -8,7 +9,7 @@ const userSlice = createSlice({
         password : '',
         name: "",
         phoneNumber : '',
-        token : '',
+        token : getItem('token') ? getItem('token') : '',
     },
     
     reducers: {
@@ -30,7 +31,7 @@ const userSlice = createSlice({
     },
 });
 
-export const {onEmailChange , onPhoneNumberChange , onPasswordChange , onTokenChange} = userSlice.actions; // common way
+export const {onEmailChange , onPhoneNumberChange , onPasswordChange , onTokenChange } = userSlice.actions; // common way
 
 export const useUserSelector = () => useSelector(reducer => reducer.user) // costume hook
 

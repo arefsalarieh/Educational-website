@@ -23,13 +23,19 @@ const LoginForm = () => {
         const result = await http.post(`/Sign/Login` , person)
 
         setItem('token' , result.token)
+      
 
-        {result.success === true && dispatch(onTokenChange(result.token))}
+         {result.success === true && dispatch(onTokenChange(result.token))}
 
 
-
-        console.log(user);
     }
+            
+        //  const z=  getItem('token')
+        //  console.log(z)
+
+         
+
+
 
   return (
     <Formik onSubmit={onSubmit} initialValues={{email : '' , pass : '' , check : false}} className='flex' >
