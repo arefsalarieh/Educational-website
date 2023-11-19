@@ -128,7 +128,7 @@ const DetailCourse = () => {
         {/*The ListOf Related news and articles */}
         <div className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
-          <SliderRelationNews articelList={articelList} />
+          <SliderRelationNews  />
         </div>
         {/* end The ListOf Related news and articles */}
         <div className="flex justify-center">
