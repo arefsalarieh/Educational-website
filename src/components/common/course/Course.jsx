@@ -12,7 +12,7 @@ const Course = ({courseShape , idx , courseName , teacher , date , src }) => {
     navigate("/CourseMenuDetail/" + idx)
   }
 
-  console.log(idx);
+
 
 
 

@@ -33,9 +33,6 @@ const NewRegister = () => {
         </div>
 
 
-
-
-
     </div>
   )
 }

@@ -15,7 +15,7 @@ const PishForm = () => {
   const onSubmit = (values)=>{
 
     setPishData(values)
-    console.log(pishData);  
+   // console.log(pishData);  
   }
   return (
 

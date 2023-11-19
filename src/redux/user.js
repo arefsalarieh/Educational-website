@@ -8,6 +8,7 @@ const userSlice = createSlice({
         password : '',
         name: "",
         phoneNumber : '',
+        token : '',
     },
     
     reducers: {
@@ -23,11 +24,13 @@ const userSlice = createSlice({
             state.password = action.payload
         },        
 
-
+        onTokenChange: (state, action) => {
+            state.token = action.payload
+        }, 
     },
 });
 
-export const {onEmailChange , onPhoneNumberChange , onPasswordChange} = userSlice.actions; // common way
+export const {onEmailChange , onPhoneNumberChange , onPasswordChange , onTokenChange} = userSlice.actions; // common way
 
 export const useUserSelector = () => useSelector(reducer => reducer.user) // costume hook
 

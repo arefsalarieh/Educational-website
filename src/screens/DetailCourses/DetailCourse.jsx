@@ -14,54 +14,7 @@ import { useParams } from "react-router-dom";
 const DetailCourse = () => {
   const {id} = useParams();
   // status==='success' && console.log(title);
-  const [articelList, setArticelList] = useState([
-    {
-      title: " 1آموزش جامع طراحی وب",
-      date: "1402/07/19",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1402/07/18",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1402/07/17",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1402/07/20",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1402/07/16",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1402/07/11",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1402/07/17",
-    },
-    {
-      title: " آموزش جامع طراحی وب",
-      date: "1300/07/18",
-      title: " آموزش جامع طراحی وب",
-      date: "1300/07/18",
-    },
-    {
-      title: " 2آموزش جامع طراحی وب",
-      date: "1401/07/19",
-    },
-    {
-      title: " 3آموزش جامع طراحی وب",
-      date: "1400/07/19",
-    },
-    {
-      title: " 4آموزش جامع طراحی وب",
-      date: "1399/07/19",
-    },
-  ]);
+
 
   const courseInfo =async () =>{
     const result = await http.get(`/Home/GetCourseDetails?CourseId=${id}`)
