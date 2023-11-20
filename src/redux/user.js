@@ -9,7 +9,7 @@ const userSlice = createSlice({
         password : '',
         name: "",
         phoneNumber : '',
-        token : getItem('token') ? getItem('token') : '',
+        token : getItem('token') ? getItem('token') : null,
     },
     
     reducers: {

@@ -41,7 +41,7 @@ const Allcourse = ({parentShape , courseShape}) => {
       const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList , )
 
       
-      status === 'success' && console.log(data.courseFilterDtos);
+      //status === 'success' && console.log(data.courseFilterDtos);
 
       var st = 'st' ;
 

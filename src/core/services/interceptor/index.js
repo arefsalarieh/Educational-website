@@ -1,6 +1,10 @@
 import axios from "axios";
 import { json } from "react-router-dom";
 import { getItem } from "../common/storage.services";
+import { useSelector , useDispatch } from 'react-redux'
+
+
+
 
 const baseURL = import.meta.env.VITE_BASE_URL
 
@@ -31,7 +35,11 @@ const onError = (err) => {
 instance.interceptors.response.use(onSuccess, onError);
 
 instance.interceptors.request.use(opt => {
+
+    //const user = useSelector(state => state.user)
+
     const token = getItem("token") ? getItem("token") : null;
+
 
      opt.headers['MessageTest'] = "Hello World"; 
      opt.headers['Content-Type'] = "application/json";
