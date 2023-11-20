@@ -56,7 +56,6 @@ const Login = () => {
           pass: "",
           remember: false,
         }}
-        // onSubmit={loginUser}
         validationSchema={validation}
         onSubmit={loginUser}
       >
