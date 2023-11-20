@@ -41,8 +41,8 @@ instance.interceptors.request.use(opt => {
     const token = getItem("token") ? getItem("token") : null;
 
 
-     opt.headers['MessageTest'] = "Hello World"; 
-     opt.headers['Content-Type'] = "application/json";
+    //  opt.headers['MessageTest'] = "Hello World"; 
+    //  opt.headers['Content-Type'] = "application/json";
     if (token) opt.headers.Authorization = 'Bearer ' + token;
     return opt
 })

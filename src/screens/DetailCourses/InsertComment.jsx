@@ -21,16 +21,16 @@ const InsertComment = () => {
         Describe : values.desc,
       }
 
-      data.append('CourseId' , 'id')
-      data.append('Title' , 'values.title')
-      data.append('Describe' , 'values.desc')
+      // data.append('CourseId' , 'id')
+      // data.append('Title' , 'values.title')
+      // data.append('Describe' , 'values.desc')
 
-      //const keys = Object.keys(comment)
-      // keys.forEach((key)=>{
-      //   const item = comment[key]
-      //   data.append(key , item)
-      //   //console.log(data);
-      // })
+      const keys = Object.keys(comment)
+      keys.forEach((key)=>{
+        const item = comment[key]
+        data.append(key , item)
+        //console.log(data);
+      })
 
       const result = await http.post(`/Course/AddCommentCourse` , data)
 

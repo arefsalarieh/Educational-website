@@ -46,7 +46,7 @@ const Comments = () => {
           {status === 'success' && (
             data.map((item , index)=>{
               return(
-                <div className="flex">
+                <div key={index} className="flex">
                   <img
                     src="/public/assets/img/academi.jpg"
                     alt="academi"
@@ -56,11 +56,11 @@ const Comments = () => {
                     <div className="flex flex-col gap-4 pr-2">
                       <p className="flex flex-row gap-2 text-[14px] md:text-lg font-irSans whitespace-nowrap font-bold">
                         <div className="md:text-lg">{item.author}</div>
-                        <span className="text-gray-300">|</span>
+                        <span className="text-gray-300">{item.title}|</span>
                         <div className="md:text-sm"></div>
                       </p>
                       <p className="flex flex-col gap-2 text-[14px] font-irSans text-gray-800 ">
-                        {item.title}
+                        {item.describe}
                       </p>
                     </div>
                   </div>
