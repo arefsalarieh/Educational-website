@@ -19,6 +19,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginUser = async (values) => {
+    console.log('rrrr')
     const userobj = {
       phoneOrGmail: values.email,
       password: values.pass,
