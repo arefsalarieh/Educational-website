@@ -16,6 +16,10 @@ import RegisterPage from "../screens/Register/RegisterPage.jsx";
 import NewsArticle from "../screens/NewsArticle/NewsArticle.jsx";
 import Courses from "../screens/Courses/Courses.jsx"
 import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
+import { CourseMenuDetail } from "../screens/DetailCourses/CourseMenuDetail.jsx";
+import NewRegister from "../screens/NewRegister.jsx/NewRegister.jsx";
+import NewLogin from "../screens/NewLogin/NewLogin.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -29,14 +33,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginPage />,
+        element: <NewLogin />,
         errorElement: <RouteError />,
       },
       {
         path: "/register",
-        element: <RegisterPage />,
+        element: <NewRegister />,
         errorElement: <RouteError />,
-      },
+      },   
       {
         path: "/forgotPassword",
         element: <ForgotPassword />,
@@ -64,10 +68,10 @@ const router = createBrowserRouter([
         errorElement: <RouteError />,
       },
       {
-        path: "/CoursesDetail",
-        element: <CoursesDetail />,
+        path: "/CourseMenuDetail/:id",
+        element: <CourseMenuDetail/>,
         errorElement: <RouteError />,
-      },
+      },      
       {
         path: "/studentPanel",
         element: <StudentPanel />,

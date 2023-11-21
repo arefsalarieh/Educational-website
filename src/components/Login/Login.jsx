@@ -16,7 +16,7 @@ const Login = () => {
 
   return (
     <>
-      <Formik>
+      <Formik >
         <form>
           {/* Global Container */}
           {/* bg-teal-600 */}
@@ -48,7 +48,7 @@ const Login = () => {
                     }
                   />
                   <div className="message-forgot ">
-                    رمز عبورم را فرا موش کردم ):
+                    رمز عبورم را فرا موش کردم 
                   </div>
                   {/*Bouttons */}
                   <div className="flex mt-8 sm:ml-10">

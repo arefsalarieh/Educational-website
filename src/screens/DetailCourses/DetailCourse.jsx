@@ -6,49 +6,65 @@ import { Space, Tabs, Divider } from "antd";
 import "/src/menuTabs.css";
 import { InsertComment } from "./InsertComment";
 import { Comments } from "./Comments";
-import { motion } from "framer-motion"
+import {BsFillCheckCircleFill, BsFillArrowDownCircleFill,} from "react-icons/bs";
+import http from '../../core/services/interceptor'
+import {useQuery} from 'react-query'
+import { useParams } from "react-router-dom";
 
-import {
-  BsFillCheckCircleFill,
-} from "react-icons/bs";
+const DetailCourse = () => {
+  const {id} = useParams();
+  // status==='success' && console.log(title);
 
-const DetailArticle = () => {
+
+  const courseInfo =async () =>{
+    const result = await http.get(`/Home/GetCourseDetails?CourseId=${id}`)
+    return result;
+  }
+
+  const {data , status} = useQuery(['courseInfo' , id] , courseInfo )
+
+
+
+
+  
+
 
 
   return (
     <>
+    
       {/* Global Container */}
-      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 dark:bg-slate-600 ">
+      <div className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 ">
         {/* Top Container */}
         {/* sm:flex-row */}
         <div className="flex flex-col-reverse md:flex-row">
           {/* Right Side */}
-          <motion.div initial={{opacity:0, x:100}} animate={{opacity:1, x:0}} transition={{delay:0.3}} className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center   ps-4">
-            <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28 ">
+          <div className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center">
+            <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28">
               {/*title */}
               <div className="flex gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
-                  عنوان خبر :
+                  عنوان دوره :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
-                  {data?.title}
+                   {status === 'success' && data.title}
                 </p>
               </div>
               {/*category */}
               <div className="flex  gap-2 md:flex-col">
                 <p className="text-sm font-bold whitespace-nowrap font-irSans">
-                  دسته خبر :
+                   دسته بندی :
                 </p>
                 <p className="text-[13px] font-semibold whitespace-nowrap font-irSans">
-                  مقاله
+                   {status === 'success' && data.courseLevelName}                  
                 </p>
               </div>
             </div>
             {/*content article right side */}
             <div className="flex flex-col">
-              <p className="text-sm font-bold font-irSans">متن خبر :</p>
-              <p className="w-4/5 text-sm text-justify font-irSans">
-                {data?.describe}
+              <p className="text-sm font-bold font-irSans"> توضیحیات :</p>
+              <p className="text-sm text-justify font-irSans">
+                   {status === 'success' && data.describe}  
               </p>
             </div>
             {/*end content article right side */}
@@ -63,60 +79,64 @@ const DetailArticle = () => {
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
                   <p className="text-[13px]  font-bold font-irSans">
-                    تاریخ انتشار خبر :
+                    تاریخ  شروع :
                   </p>
-                  <span className=" text-[13px]">{data?.updateDate}</span>
+                  <span className=" text-[13px]">
+                     {status === 'success' && data.startTime}                     
+                  </span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
                   <p className="text-[13px]  font-bold font-irSans">
-                    دسته بندی:
+                    تاریخ  پایان : 
                   </p>
-                  <span className="text-[13px] font-irSans">مقاله</span>
+                  <span className="text-[13px] font-irSans">
+                     {status === 'success' && data.endTime}                      
+                  </span>
                 </div>
               </div>
             </div>
             {/*end More Information  Section*/}
-          </motion.div>
+          </div>
           {/* end Right Side */}
           {/* Left Side */}
-          <motion.div initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.3}}>
+          <div>
             {/* Images */}
             <div className="w-full  mx-auto justify-center  ">
               <img
-                src={data?.currentImageAddress}
+                src="/public/assets/img/detailNewsPic.webp"
                 className="mx-auto justify-center"
                 alt="newsPic"
               />
             </div>
-          </motion.div>
+          </div>
           {/* end Left Side */}
         </div>
         {/* end Top Container */}
 
         {/*Border Split Top and Below*/}
-        <motion.div className="w-full mt-14 mb-6">
+        <div className="w-full mt-14 mb-6">
           <div className="w-full  border-2 border-gray-200"></div>
           <div className="mx-auto relative bottom-4  items-center  bg-zinc-100  w-fit h-fit px-3">
-            <p className="text-sm text-center font-irSans md:text-lg dark:text-slate-800">
+            <p className="text-sm text-center font-irSans md:text-lg">
               اخبار مرتبط
             </p>
           </div>
-        </motion.div>
+        </div>
         {/* end Border Split Top and Below */}
 
         {/*The ListOf Related news and articles */}
-        <motion.div initial={{opacity:0, y:100}} animate={{opacity:1, y:0}} transition={{delay:0.7}} className="">
+        <div className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
-          <SliderRelationNews />
-        </motion.div>
+          <SliderRelationNews  />
+        </div>
         {/* end The ListOf Related news and articles */}
-        {/* <div className="flex justify-center">
+        <div className="flex justify-center">
           <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-8 h-8 md:w-12 md:h-12 relative  top-8 md:top-10" />
-        </div> */}
-      </motion.div>
+        </div>
+      </div>
       {/*end Global Container */}
     </>
   );
 };
-export { DetailArticle };
+export { DetailCourse };

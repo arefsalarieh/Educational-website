@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import http from '../../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 
 
-const Course = ({courseShape , courseName , teacher , date , src }) => {
+const Course = ({courseShape , idx , courseName , teacher , date , src }) => {
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/CoursesDetail")
+    navigate("/CourseMenuDetail/" + idx)
   }
+
+
+
+
 
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses
@@ -23,7 +29,7 @@ const Course = ({courseShape , courseName , teacher , date , src }) => {
     },
 
     //course style for landing 
-    {parent : 'border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/4',
+    {parent : 'border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/5',
       firstDiv:'bg-course p-8',
       img:' mx-auto w-4/6',
       secondDiv:'',

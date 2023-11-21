@@ -29,6 +29,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
+import { getItem } from "../../core/services/common/storage.services";
 
 // antd header
 const { Search } = Input;
@@ -250,6 +251,16 @@ const Header = () => {
             <PhoneIcon className="h-4 w-4" aria-hidden="true" />
             <span>تماس با ما</span>
           </Link>
+
+          {getItem("token") && (
+            <Link
+              to="/studentPanel"
+              className="underline-hover bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
+              <PhoneIcon className="h-4 w-4" aria-hidden="true" />
+              <span>پنل</span>
+            </Link>             
+          )}
+         
         </Popover.Group>
         <div
           className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
@@ -293,6 +304,7 @@ const Header = () => {
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+          
           <div className="mt-6 flow-root ">
             <div className="-my-6 divide-y divide-gray-500/10 text-gray-900 dark:text-stone-300">
               <div className="space-y-2 py-6">
@@ -327,6 +339,7 @@ const Header = () => {
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
                   <span>تماس با ما</span>
                 </Link>
+                
               </div>
               <div className="py-6 flex gap-x-4">
                 <Link

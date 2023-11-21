@@ -16,6 +16,8 @@ import {
 import { Link } from "react-router-dom";
 import ModalSlider from "./ModalSlider";
 import { motion } from "framer-motion"
+import http from '../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
@@ -30,6 +32,16 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
   const showModal = ()=>{
     setModalStyle('absolute top-0 z-50 bg-gray-600/50 h-screen w-full ')
   }
+
+  const getProfileInfo = async () =>{
+    const result = await http.get(`/SharePanel/GetProfileInfo`)
+    return result;
+    //console.log(result);
+  }
+
+  const {data , status} = useQuery('courseQuery' , getProfileInfo  )
+
+  //status === 'success' && console.log(data);
 
   return (
     <>
@@ -46,15 +58,16 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
           }}
           className="block mx-auto mt-8 md:absolute md:start-1/4 top-4 md:-top-16 lg:-top-24 xl:-top-28 2xl:-top-32 w-2/3 md:w-1/2 rounded-full hover:scale-110 duration-150 cursor-pointer">
           <img
-            src={userInfo.img}
+            // src={data.currentPictureAddress ? data.currentPictureAddress : userInfo.img}
             className="rounded-full object-contain hover:ring-4 hover:ring-secondary"
             onClick={showModal}
+            src={status === 'success' && data.currentPictureAddress}
           />
         </div>
         {/* user data */}
         <div className="mt-6 md:mt-24 lg:mt-28 xl:mt-32 flex flex-col items-center justify-center">
           <span className="md:text-base lg:text-lg cursor-pointer hover:text-secondary duration-150">
-            {userInfo.name}
+          {status === 'success' && data.fName } {status === 'success' && data.lName   } 
           </span>
           <span className="mt-4 hidden md:block sm:text-xs lg:text-sm cursor-default">
             {userInfo.role}
@@ -125,7 +138,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
                         setNavigateTo("edit");
                       }}
                       className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
-                      اطلاعات کاربری
+                          تغیر اطلاعات کاربری
                     </li>
                     <li
                       onClick={() => {

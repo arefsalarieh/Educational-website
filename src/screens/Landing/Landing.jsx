@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/common/button/button'
 import Services from '../../components/Services/Services';
@@ -74,8 +75,10 @@ const Landing = () => {
         
         <AllCourse parentShape='landing' courseShape='landing'/>
 
+        <Link to='/courses'>
+          <Button title='مشاهده دوره ها' paddingX='p-4' paddingY='p-4' extra='mx-auto mt-12'/>        
+        </Link>
 
-        <Button title='مشاهده دوره ها' paddingX='p-4' paddingY='p-4' extra='mx-auto mt-12'/>
 
       </motion.section>
 
