@@ -6,12 +6,9 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 
 
-const AllCoursesItem = ({ pic, name, teacher, term, startDate, cost,courseName }) => {
+const AllCoursesItem = ({ name, teacher, term, cost,levelName,technologyList}) => {
   return (
     <div className="my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border">
-      <div className="w-1/2 lg:w-1/12 mx-auto lg:mx-0">
-        <img className=" mt-6 lg:mt-0 mx-auto w-full" src={pic} />
-      </div>
       <h2 className="font-extrabold mt-4 lg:mt-0">
         <span className="lg:hidden">نام دوره :</span>
         <span className="font-light"> {name}</span>
@@ -21,12 +18,12 @@ const AllCoursesItem = ({ pic, name, teacher, term, startDate, cost,courseName }
         <span className="font-light">{teacher} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">نام ترم :</span>
-        <span className="font-light">{term} </span>
+        <span className="lg:hidden"> آموزش و یادگیری :</span>
+        <span className="font-light">{technologyList} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">تاریخ شروع :</span>
-        <span className="font-light">{startDate} </span>
+        <span className="lg:hidden"> سطح دوره :</span>
+        <span className="font-light">{levelName} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
         <span className="lg:hidden">قیمت :</span>
@@ -206,11 +203,10 @@ const AllCourses = () => {
       />
       <div className="mx-auto  w-10/12 lg:mt-8">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
-          <h3 className="pr-3 xl:pr-6 2xl:pr-8">نصویز</h3>
           <h3 className="pr-10 xl:pr-16 2xl:pr-26">نام دوره</h3>
           <h3 className="pr-16 xl:pr-20 2xl:pr-26">مدرس</h3>
-          <h3 className="pr-12 xl:pr-16 2xl:pr-22">نام ترم</h3>
-          <h3 className="pr-6 xl:pr-10 2xl:pr-16">ناریخ شروع </h3>
+          <h3 className="pr-6 xl:pr-10 2xl:pr-16">  آموزش و یادگیری</h3>
+          <h3 className="pr-12 xl:pr-16 2xl:pr-22"> سطح دوره</h3>
           <h3 className="pr-12 xl:pr-18 2xl:pr-24">قیمت </h3>
         </div>
         {status === "success" &&
@@ -218,14 +214,11 @@ const AllCourses = () => {
             return (
               <AllCoursesItem
                 key={index}
-                // pic={item.pic}
-                name={item.fullName}
+                name={item.title}
                 teacher={item.teacherName}
                 term={item.termName}
-                startDate={item.startDate}
-                courseName={item.title}
-                date={item.lastUpdate}
-                src={item.technologyList}
+                levelName={item.levelName}
+                technologyList={item.technologyList}
                 cost={item.cost}
               />
             );
