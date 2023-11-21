@@ -61,6 +61,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
             // src={data.currentPictureAddress ? data.currentPictureAddress : userInfo.img}
             className="rounded-full object-contain hover:ring-4 hover:ring-secondary"
             onClick={showModal}
+            src={status === 'success' && data.currentPictureAddress}
           />
         </div>
         {/* user data */}
