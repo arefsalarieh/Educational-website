@@ -34,6 +34,8 @@ instance.interceptors.response.use(onSuccess, onError);
 instance.interceptors.request.use((opt) => {
   const token = getItem("token") ? getItem("token") : null;
 
+  console.log('token0',token)
+
   // opt.headers['MessageTest'] = "Hello World";
   // opt.headers['Content-Type'] = "application/json";
   if (token) opt.headers.Authorization = "Bearer " + token;
