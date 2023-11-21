@@ -6,7 +6,7 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 
 
-const AllCoursesItem = ({ pic, name, teacher, term, startDate, cost }) => {
+const AllCoursesItem = ({ pic, name, teacher, term, startDate, cost,courseName }) => {
   return (
     <div className="my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border">
       <div className="w-1/2 lg:w-1/12 mx-auto lg:mx-0">
@@ -178,14 +178,13 @@ const AllCourses = () => {
     setStart((pageSize - 1) * 6);
   };
 
-  const [pageNumber, setPageNumber] = useState(1);
 
-  const getAllCourse = async () => {
-    const result = await http.get(
-      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=`
-    );
+  const [pageNumber , setPageNumber] = useState(1)      
+
+  const getAllCourse = async () =>{
+    const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0`)
     return result;
-  };
+  }
 
   const { data, status } = useQuery(["allCourseQuery", pageNumber], getAllCourse);
 
@@ -215,15 +214,18 @@ const AllCourses = () => {
           <h3 className="pr-12 xl:pr-18 2xl:pr-24">قیمت </h3>
         </div>
         {status === "success" &&
-          data.listOfMyCourses.map((item, index) => {
+          data.courseFilterDtos.map((item, index) => {
             return (
               <AllCoursesItem
                 key={index}
-                pic={item.pic}
+                // pic={item.pic}
                 name={item.fullName}
-                teacher={item.teacher}
+                teacher={item.teacherName}
                 term={item.termName}
                 startDate={item.startDate}
+                courseName={item.title}
+                date={item.lastUpdate}
+                src={item.technologyList}
                 cost={item.cost}
               />
             );
