@@ -9,7 +9,7 @@ import {useQuery} from 'react-query'
 import http from '../../core/services/interceptor'
 import { setItem , getItem , removeItem , clearStorage } from '../../core/services/common/storage.services';
 
-const LoginForm = () => {
+const LoginForm = ({steps , setSteps}) => {
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
 
@@ -26,6 +26,8 @@ const LoginForm = () => {
       
 
          {result.success === true && dispatch(onTokenChange(result.token))}
+         {result.success === true && setSteps(1)}
+         {result.success === false && alert('نام کاربری یا پسورد اشتباه است')}
 
 
     }

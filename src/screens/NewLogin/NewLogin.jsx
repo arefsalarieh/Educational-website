@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginForm from './LoginForm'
+import SuccessLogin from './successLogin'
 
 const NewLogin = () => {
+    const [steps , setSteps] = useState(0)
 
 
 
@@ -14,7 +16,9 @@ const NewLogin = () => {
 
         <div className='flex'>
             <div className='w-1/2'>
-                <LoginForm/>
+                {steps === 0 && <LoginForm steps={steps} setSteps={setSteps}/>}
+                {steps === 1 && <SuccessLogin/>}
+                
             </div>
 
             <div  className='w-1/2 '>
