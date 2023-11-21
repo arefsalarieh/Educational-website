@@ -113,6 +113,19 @@ const PaidCourses = () => {
   const changeStart = (pageSize) => {
     setStart((pageSize - 1) * 6);
   };
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const getMyCourse = async () => {
+    const result = await http.get(
+      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=`
+    );
+    return result;
+  };
+
+  const { data, status } = useQuery(["myCourseQuery", pageNumber], getMyCourse);
+
+  status === "success" && console.log(data);
+
   const smallList = pCourses.filter(
     (item, index) => index >= start && index <= end
   );
@@ -136,6 +149,9 @@ const PaidCourses = () => {
           <h3 className="pr-6 xl:pr-10 2xl:pr-16">ناریخ شروع </h3>
           <h3 className="pr-12 xl:pr-18 2xl:pr-24">قیمت </h3>
         </div>
+        {status === "success" &&
+          data.listOfMyCourses.map((item, index) => {
+            // {smallList.map((item , index)=>{
             return (
               <PaidCoursesItem
               key={index}
@@ -147,6 +163,7 @@ const PaidCourses = () => {
               cost={item.cost}
               />
             );
+          })}
         <div className="mt-8">
           <Pagination
             total={pCourses.length}
