@@ -37,7 +37,7 @@ const Login = () => {
       }, "7000");
     }
     else {
-      toast.error(user.errors);
+      toast.error(user.message);
     }
   };
 
@@ -47,7 +47,7 @@ const Login = () => {
       .required(" لطفا ایمیل یا شماره تماس خود را وارد کنید! "),
     pass: yup.string().required("لطفا پسورد  را وارد نمایید"),
   });
-
+  
   return (
     <>
       <Formik
@@ -78,6 +78,10 @@ const Login = () => {
                   transition={{ delay: 0.3 }}
                   className="right-side-container "
                 >
+
+                  
+                  <Toaster/>
+
                   <h1 className="">ورود کاربر</h1>
                   {/* Right section Inputes */}
                   <div className="mr-8 mt-5 sm:mr-6">
