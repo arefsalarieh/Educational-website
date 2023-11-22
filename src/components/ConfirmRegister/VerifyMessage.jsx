@@ -7,6 +7,7 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const VerifyMessage = () => {
 
