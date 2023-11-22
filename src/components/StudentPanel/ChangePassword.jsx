@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { ContentChangePass } from "./ContentChangePass";
 import * as yup from "yup";
 import { InputPasswordComp } from "./InputPasswordComp";
-import toast from "react-hot-toast";
+import toast,{Toaster} from "react-hot-toast";
 import http from "../../core/services/interceptor";
 import { getItem } from "../../core/services/common/storage.services";
 
@@ -25,9 +25,13 @@ const ChangePassword = () => {
     console.log(result);
     if (result.success === true) {
       toast.success(result.message);
+      setTimeout(() => {
+        navigate("/studentPanel")
+      }, "2000");
+      
       navigate("/");
     } else {
-      toast.error(result.errors);
+      toast.error(result.message);
     }
     console.log(result);
     return result;
@@ -66,6 +70,9 @@ const ChangePassword = () => {
               <h1 className="font-irSans font-bold  text-center text-[20px]  md:text-[26px] ">
                 تغییر رمز عبور
               </h1>
+
+              <Toaster/>
+
               <div className="flex flex-col gap-4  md:gap-8 p-6 md:p-3">
                 <div className="md:flex">
                   <p className="font-irSans mb-2 font-bold md:font-semibold  whitespace-nowrap  w-[135px] text-sm md:text-[16px]  pl-[46px]">
