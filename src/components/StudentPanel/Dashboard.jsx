@@ -22,14 +22,6 @@ const Dashboard = () => {
     {title:'سه دوره خریداری شده' , pic:'coursescount.png'},
     {title:'سه دوره خریداری شده' , pic:'coursescount.png'},
   ])
-  const getMyCourse = async () => {
-    const result = await http.get(
-      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=`
-    );
-    return result;
-  }
-
-
 
   return (
     <div className='px-6 mb-6 sm:flex sm:flex-wrap justify-around gap-2 font-irSans'>
