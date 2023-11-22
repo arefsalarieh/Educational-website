@@ -27,7 +27,7 @@ const VerifyMessage = () => {
       }, "2000");
     }
     else{
-      toast.error(result.errors);
+      toast.error(result.message);
     }
     console.log(result);
     return result;
@@ -59,6 +59,7 @@ const VerifyMessage = () => {
                   <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
                     تایید پیام
                   </h1>
+                  <Toaster/>
                   <div className="flex flex-col">
                     <p className="sm:font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[12px]">
                       لطفاکد فعالسازی را وارد نمایید :
