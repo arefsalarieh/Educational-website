@@ -204,8 +204,8 @@ const AllCourses = () => {
         backgroundColor="bg-pannel"
         width="w-9/12 lg:w-3/12"
         height="h-10"
-        name="searchInp"
-        value={values.searchInp}
+        // name="searchInp"
+        // value={values.searchInp}
       />
       <div className="mx-auto  w-10/12 lg:mt-8">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
