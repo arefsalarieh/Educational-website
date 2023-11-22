@@ -21,7 +21,7 @@ const Courses = () => {
 
         <h2 className='mb-12 text-lg font-extrabold'>دوره های آموزشی</h2>
 
-        <BigSearch placeholder='جستجوی دوره ...'/>
+        {/* <BigSearch placeholder='جستجوی دوره ...'/> */}
 
         <Allcourse parentShape='courses' courseShape='courses'/>
 

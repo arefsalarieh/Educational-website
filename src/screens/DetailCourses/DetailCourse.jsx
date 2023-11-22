@@ -24,6 +24,8 @@ const DetailCourse = () => {
   const {data , status} = useQuery(['courseInfo' , id] , courseInfo )
 
 
+// status === 'success' && console.log(data);
+
 
 
   

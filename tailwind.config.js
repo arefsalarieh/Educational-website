@@ -56,6 +56,7 @@ export default {
         headerSvg: "url('src/assets/images/headerShape.svg')",
         magnifier :  "url('./magnifier.png')",
         courseIcon :  "url('./courseIcon.png')",
+        like : "url('./like.png')"
       },
 
       backgroundSize: {

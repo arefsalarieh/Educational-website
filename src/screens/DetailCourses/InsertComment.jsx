@@ -5,15 +5,20 @@ import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import { Formik } from 'formik'
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
+import { clearStorage } from "../../core/services/common/storage.services";
+
 
 const InsertComment = () => {
   const {id} = useParams();
+  const navigate = useNavigate()
 
 
   const onSubmit =async (values) =>{
 
-      const data = new FormData()
+     const data = new FormData()
+    try{
+
 
       const comment = {
         CourseId : id,
@@ -34,8 +39,13 @@ const InsertComment = () => {
 
       const result = await http.post(`/Course/AddCommentCourse` , data)
 
-
       console.log(result);
+    }catch(error){
+      clearStorage()
+      navigate("/login" )
+      console.log(error);
+    }
+
   }
   return (
     <>
