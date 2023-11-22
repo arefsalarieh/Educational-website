@@ -6,6 +6,7 @@ import BuyCourse from "./BuyCourse.jsx";
 import EditProfile from "./EditProfile.jsx";
 import ChangePassword from "./ChangePassword.jsx";
 import { motion } from "framer-motion"
+import UploadImage from "./UploadImage.jsx";
 
 
 
@@ -22,7 +23,9 @@ let layoutRenderer = (navigateTo) => {
     return <EditProfile />;
   } else if (navigateTo === "changePass") {
     return <ChangePassword />;
-  }
+  } else if (navigateTo === "UploadImage") {
+    return <UploadImage />;
+  }  
 };
 
 

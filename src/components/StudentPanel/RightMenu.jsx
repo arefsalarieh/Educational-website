@@ -147,6 +147,13 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
                       className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
                       تغییر گذرواژه
                     </li>
+                  <li
+                      onClick={() => {
+                        setNavigateTo("UploadImage");
+                      }}
+                      className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
+                        آپلود عکس پروفایل
+                    </li>                    
                   </ul>
                 </AccordionBody>
               </Accordion>
