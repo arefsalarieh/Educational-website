@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
 import { onNumberChange } from "../../redux/user";
 import { useNavigate } from "react-router";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -40,7 +40,7 @@ const ConfirmRegister = () => {
       }, "2000");
     }
     else{
-      toast.error(result.errors);
+      toast.error(result.message);
     }
     console.log(values.number);
     return result;
@@ -69,6 +69,9 @@ const ConfirmRegister = () => {
                   <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
                     تایید کاربر
                   </h1>
+
+                  <Toaster/>
+
                   <div className="flex flex-col">
                     <p className="sm:font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[12px]">
                       لطفا شماره تماس خود را وارد نمایید :
