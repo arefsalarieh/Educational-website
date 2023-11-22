@@ -4,9 +4,13 @@ import { Pagination } from "antd";
 import style from "./PaidCourses.modules.css";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
-
+import { useParams } from "react-router-dom";
 
 const AllCoursesItem = ({ name, teacher, term, cost,levelName,technologyList}) => {
+
+  const courseId = useParams();
+
+
   return (
     <div className="my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border">
       <h2 className="font-extrabold mt-4 lg:mt-0">
@@ -179,7 +183,7 @@ const AllCourses = () => {
   const [pageNumber , setPageNumber] = useState(1)      
 
   const getAllCourse = async () =>{
-    const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0`)
+    const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0&Query=`)
     return result;
   }
 
@@ -200,6 +204,8 @@ const AllCourses = () => {
         backgroundColor="bg-pannel"
         width="w-9/12 lg:w-3/12"
         height="h-10"
+        name="searchInp"
+        value={values.searchInp}
       />
       <div className="mx-auto  w-10/12 lg:mt-8">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
