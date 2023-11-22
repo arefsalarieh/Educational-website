@@ -185,7 +185,7 @@ const AllCourses = () => {
 
   const { data, status } = useQuery(["allCourseQuery", pageNumber], getAllCourse);
 
-  status === 'success' && console.log(data)
+  // status === 'success' && console.log(data)
 
   const smallList = pCourses.filter(
     (item, index) => index >= start && index <= end
