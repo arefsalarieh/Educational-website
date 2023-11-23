@@ -7,13 +7,49 @@ import { LikeOutlined , DislikeOutlined} from "@ant-design/icons";
 
 
 
-const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount }) => {
+
+const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId }) => {
+  const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
+  const [like , setLike] = useState(1)
   const handleClick = () => {
     navigate("/CourseMenuDetail/" + idx)
   }
 
+  const handleLike =async (e) =>{
 
+    const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
+    {userIsLiked === false ? setCount(2) : null}
+    
+  }
+
+
+
+  const handleDeleteLike =async () =>{
+    const data = new FormData()
+
+    const dislikeObj = {
+      CourseLikeId : idx,
+    }
+
+    const keys = Object.keys(dislikeObj)
+
+    keys.forEach((key)=>{
+      const item = dislikeObj[key]
+      data.append(key , item)
+      console.log(data);
+    })
+
+
+    //data.append('CourseLikeId' , userLikedId)
+
+     const result = await http.delete(`/Course/DeleteCourseLike` , data)  
+
+     console.log(result); 
+  }
+
+  
+  
 
 
 
@@ -58,16 +94,20 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
             {courseShape =='courses' ? 
             <p className={ courseStyle[0].secondP }>  تاریخ شروع : {date}</p>
             : null}
-            <div className='flex h-6 border-2 border-gray-300 mt-6'>
+            <div className='flex  h-6  mt-6'>
               <div className='flex w-1/2  h-6 justify-center'>
-                <LikeOutlined className=' overflow-hidden'/> 
-                <h5 className='mr-2'>{likeCount}</h5>              
+                {userIsLiked === true || count !==likeCount ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
+
+                <h5 className='mr-2'>{count}</h5>              
               </div>
 
-              <div className='flex w-1/2  h-6 justify-center '>
-                <DislikeOutlined className=' overflow-hidden' />
-                 <h5 className='mr-2'>rk</h5>         
-              </div>              
+             <button onClick={handleLike} className='flex w-1/4  h-6 justify-center '>
+                <img className=' overflow-hidden' src='./like1.png'/>       
+              </button>                
+
+              <button onClick={handleDeleteLike} className='flex w-1/4  h-6 justify-center '>
+                <img className=' overflow-hidden' src='./dislike1.png'/>       
+              </button>              
             </div>
 
             <button className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>

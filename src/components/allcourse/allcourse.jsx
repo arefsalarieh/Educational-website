@@ -17,15 +17,18 @@ const Allcourse = ({parentShape , courseShape}) => {
     const [search , setSearch] = useState('')
 
 
+
     const handleSearch = (e) =>{
       console.log(e.target.value);
       e.target.value && setSearch(`&Query=${e.target.value}`)
-      !e.target.value && setSearch('')
+      !e.target.value && setSearch(1)
     }
    
       const changeStart = (pageSize) =>{
         setPageNumber(pageSize) ;
-      }    
+      }   
+      
+      
             
 
       const getCourseList = async () =>{
@@ -33,7 +36,7 @@ const Allcourse = ({parentShape , courseShape}) => {
         return result;
       }
 
-      const {data , status} = useQuery(['courseQuery' , pageNumber , search ] , getCourseList , )
+      const {data , status} = useQuery(['courseQuery' , pageNumber , search  ] , getCourseList , )
 
       
       //status === 'success' && console.log(data.courseFilterDtos);
@@ -63,7 +66,8 @@ const Allcourse = ({parentShape , courseShape}) => {
               {status === 'success' && (
                 data.courseFilterDtos.map((item , index)=>{
                   return(
-                    <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.title}  teacher={item.teacherName} date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount}/>          
+                    <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
+                     date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount} userIsLiked={item.userIsLiked} userLikedId={item.userLikedId}/>          
                   )
                   })                 
               )}
