@@ -85,7 +85,7 @@ const BuyCourse = () => {
   };
 
   const { data, status } = useQuery(
-    "buyCourseQuery",
+    ["buyCourseQuery", pageNumber],
     getBuyCourse
   );
   status === 'success' && console.log(data)
