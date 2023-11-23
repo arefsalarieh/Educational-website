@@ -104,11 +104,10 @@ const BuyCourse = () => {
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
           <h3 className="pr-10 xl:pr-8 2xl:pr-14">نام دوره</h3>
           <h3 className="pr-16 xl:pr-14 2xl:pr-14">نام دانشجو</h3>
-          <h3 className="pr-16 xl:pr-18 2xl:pr-22">تاریخ خرید </h3>
+          <h3 className="pr-16 xl:pr-18 2xl:pr-22">تاریخ رزرو دوره </h3>
         </div>
         {status === "success" && 
           data.map((item, index) => {
-            if(item.accept==true){
               return (
                 <BuyCourseItem
                   key={index}
@@ -117,7 +116,6 @@ const BuyCourse = () => {
                   reserverDate={item.reserverDate}
                 />
               );
-            }
           })}
 
         <div className="mt-8">
