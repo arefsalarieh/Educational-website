@@ -8,31 +8,34 @@ import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import swal from "sweetalert";
 
 const VerifyMessage = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleClick = () => {
     navigate("/RegisterEnd");
   };
 
-  const  userinfo= useSelector((reducer)=>reducer.user);
+  const userinfo = useSelector((reducer) => reducer.user);
 
   const onSubmit = async (values) => {
-    const bodyVerify = {phoneNumber: userinfo.number,verifyCode:values.code};
-    const result = await http.post("/Sign/VerifyMessage",bodyVerify);
+    const bodyVerify = {
+      phoneNumber: userinfo.number,
+      verifyCode: values.code,
+    };
+    const result = await http.post("/Sign/VerifyMessage", bodyVerify);
     if (result.success === true) {
-      toast.success(result.message);
+      // toast.success(user.message);
+      swal(result.message, "", "success");
       setTimeout(() => {
-        navigate("../Register/RegisterEnd")
+        navigate("../Register/RegisterEnd");
       }, "2000");
-    }
-    else{
-      toast.error(result.message);
+    } else {
+      // toast.error(result.message);
+      sweetAlert("", result.message, "error");
     }
     console.log(result);
     return result;
-  
   };
 
   // const validation = yup.object().shape({
@@ -50,7 +53,6 @@ const VerifyMessage = () => {
       >
         {({ values, handleSubmit, handleChange }) => (
           <form onSubmit={handleSubmit}>
-
             {/* Global Container */}
             <div className=" flex items-center justify-center  font-irSans bg-gradient-to-b from-primary dark:from-teal-800  w-screen h-screen">
               {/* Card Container  */}
@@ -58,9 +60,9 @@ const VerifyMessage = () => {
                 {/* Right Side */}
                 <div className=" w-1/3  flex flex-col justify-center sm:w-full xs:w-full ml-20">
                   <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
-                    تایید پیام
+                    احراز هویت 
                   </h1>
-                  <Toaster/>
+                  <Toaster />
                   <div className="flex flex-col">
                     <p className="sm:font-semibold mb-2 whitespace-nowrap  sm:text-base  xs:text-[12px]">
                       لطفاکد فعالسازی را وارد نمایید :

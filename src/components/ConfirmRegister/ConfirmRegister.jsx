@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { onNumberChange } from "../../redux/user";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
-
+import swal from 'sweetalert';
 
 
 
@@ -34,13 +34,15 @@ const ConfirmRegister = () => {
     const result = await http.post("/Sign/SendVerifyMessage", bodyReg);
     console.log(result);
     if (result.success === true) {
-      toast.success(user.message);
+      // toast.success(user.message);
+      swal(result.message, "", "success");
       setTimeout(() => {
         navigate("../ConfirmRegister/VerifyMessage")
       }, "2000");
     }
     else{
-      toast.error(result.message);
+      // toast.error(result.message);
+      sweetAlert("",result.message, "error");
     }
     console.log(values.number);
     return result;
@@ -66,7 +68,7 @@ const ConfirmRegister = () => {
               <div className="flex  w-9/12 h-fit p-12 space-y-10  bg-white shadow-2xl rounded-2xl lg:flex-row  xs:flex-col-reverse ">
                 {/* Right Side */}
                 <div className=" w-1/3  flex flex-col justify-center sm:w-full xs:w-full ml-20">
-                  <h1 className="justify-center font-mono sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
+                  <h1 className="justify-center font-irSans sm:mb-5 sm:text-4xl font-bold text-center sm:text-center  xs:text-[26px] xs:mb-4">
                     تایید کاربر
                   </h1>
 
@@ -95,7 +97,7 @@ const ConfirmRegister = () => {
                       // onClick={handleClick}
                       className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9 bg-teal-600  dark:bg-teal-800 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
                     >
-                      ثبت شماره تماس
+                      بررسی
                     </button>
                   </div>
                 </div>

@@ -16,6 +16,7 @@ import axios from "axios";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import toast, { Toaster } from "react-hot-toast";
+import swal from "sweetalert";
 
 const RegisterEnd = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -39,10 +40,12 @@ const RegisterEnd = () => {
     const bodyReg = { phoneNumber: values.number,gmail:values.email,password:values.pass };
     const result = await http.post("/Sign/Register", bodyReg);
     if (result.success === true) {
-      toast.success(result.message);
+      // toast.success(result.message);
+       swal(result.message, "", "success");
     }
     else{
-      toast.success(result.message);
+      // toast.success(result.message);
+      sweetAlert("", result.message, "error");
     }
     console.log(result);
     return result;
@@ -134,15 +137,21 @@ const RegisterEnd = () => {
                     </div>
                     {/*Bouttons */}
                     <div className="flex  sm:mt-8    xs:mt-4 sm:justify-items-center sm:justify-center ">
-                      <button
+                      {/* <button
                         type="submit"
                         className="w-full  xs:justify-center whitespace-nowrap ml-4   flex  sm:justify-center sm:items-center  lg:px-10 md:px-24 space-x-4 font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center  hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center"
                       >
                         ثبت نام
-                      </button>
-                      <button className="w-full   xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
+                      </button> */}
+                      {/* <button className="w-full   xs:justify-center whitespace-nowrap  flex sm:justify-center sm:items-center    lg:px-10 md:px-24  space-x-4  font-sans font-bold text-white dark:text-stone-200 rounded-md shadow-lg  bg-teal-600  dark:bg-teal-800 dark:shadow-shadowDarkUp shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150 sm:w-5/6 xs:w-1/2 xs:px-0  xs:py-1 xs:text-center">
                         ورود
-                      </button>
+                      </button> */}
+                        <button
+                      type="submit"
+                      className=" w-full  flex justify-center items-center sm:p-3  md:px-6 md:py-2 space-x-4 font-sans font-bold text-white rounded-md shadow-lg px-9  bg-teal-600  dark:bg-teal-800 shadow-cyan-100 hover:bg-opacity-90  hover:shadow-lg border transition   text-center hover:-translate-y-0.5 duration-150  xs:px-0  xs:py-1 xs:text-center  "
+                    >
+                       ثبت نام
+                    </button>
                     </div>
                   </div>
                   {/* end of form */}
