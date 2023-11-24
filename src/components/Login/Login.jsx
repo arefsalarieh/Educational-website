@@ -13,6 +13,7 @@ import { useQuery } from "react-query";
 import { loginAPI } from "../../core/services/api/auth";
 import { setItem } from "../../core/services/common/storage.services";
 import toast, { Toaster } from 'react-hot-toast';
+import swal from 'sweetalert';
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
@@ -31,13 +32,15 @@ const Login = () => {
     console.log(user);
     setItem("token", user.token);
     if (user.success === true ) {
-      toast.success(user.message);
+      // toast.success(user.message);
+      swal(user.message, "", "success");
       setTimeout(() => {
         navigate("/studentPanel")
       }, "7000");
     }
     else {
-      toast.error(user.message);
+      // toast.error(user.message);
+      sweetAlert("",user.message, "error");
     }
   };
 
