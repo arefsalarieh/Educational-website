@@ -24,7 +24,7 @@ const VerifyMessage = () => {
     if (result.success === true) {
       toast.success(result.message);
       setTimeout(() => {
-        navigate("../Register/RegisterEnd.jsx")
+        navigate("../Register/RegisterEnd")
       }, "2000");
     }
     else{
