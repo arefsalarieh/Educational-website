@@ -3,35 +3,40 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { ContentChangePass } from "./ContentChangePass";
 import * as yup from "yup";
 import { InputPasswordComp } from "./InputPasswordComp";
-import toast,{Toaster} from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import http from "../../core/services/interceptor";
 import { getItem } from "../../core/services/common/storage.services";
+import swal from 'sweetalert';
 
 import { useNavigate } from "react-router";
 
 const ChangePassword = () => {
   const navigate = useNavigate();
 
-
-
   const onSubmit = async (values) => {
+    if (values.newPass != values.newConfirm) {
+      // alert("پسوردهای جدید برابر نیست");  
+      sweetAlert("", "لطفا پسورد جدید و تکرار پسورد جدید را مشابه وارد کنید!", "error");
+    }
     const bodyCange = {
       oldPassword: values.oldPass,
       newPassword: values.newPass,
     };
     console.log(bodyCange);
-    http.defaults.headers.post['Authorization'] = `Bearer ${getItem('token')}`;
+    http.defaults.headers.post["Authorization"] = `Bearer ${getItem("token")}`;
     const result = await http.post("/SharePanel/ChangePassword", bodyCange);
     console.log(result);
     if (result.success === true) {
-      toast.success(result.message);
+      // toast.success(result.message);
+      swal(result.message, "", "success");
       setTimeout(() => {
-        navigate("/studentPanel")
+        navigate("/studentPanel");
       }, "2000");
-      
+
       navigate("/");
     } else {
-      toast.error(result.message);
+      // toast.error(result.message);
+      sweetAlert("",result.message, "error");
     }
     console.log(result);
     return result;
@@ -71,7 +76,7 @@ const ChangePassword = () => {
                 تغییر رمز عبور
               </h1>
 
-              <Toaster/>
+              <Toaster />
 
               <div className="flex flex-col gap-4  md:gap-8 p-6 md:p-3">
                 <div className="md:flex">
