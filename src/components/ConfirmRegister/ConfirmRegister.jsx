@@ -36,7 +36,7 @@ const ConfirmRegister = () => {
     if (result.success === true) {
       toast.success(user.message);
       setTimeout(() => {
-        navigate("../ConfirmRegister/VerifyMessage.jsx")
+        navigate("../ConfirmRegister/VerifyMessage")
       }, "2000");
     }
     else{
