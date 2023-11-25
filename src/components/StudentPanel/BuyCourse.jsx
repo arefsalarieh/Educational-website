@@ -97,7 +97,7 @@ const BuyCourse = () => {
   return (
     <div className="xl:flex mx-auto flex-wrap justify-center my-8 lg:pt-6 text-center font-irSans">
       <h2 className="block  my-12 lg:my-0  lg:w-full lg:text-center text-2xl font-extrabold">
-        دوره های خریداری شده
+        دوره های رزرو شده
       </h2>
 
       <div className="w-10/12 mx-auto lg:w-8/12 xl:w-6/12 lg:mx-auto lg:mt-8 ">
