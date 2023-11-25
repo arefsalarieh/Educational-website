@@ -114,10 +114,17 @@ const PaidCourses = () => {
     setStart((pageSize - 1) * 6);
   };
   const [pageNumber, setPageNumber] = useState(1);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+    e.target.value && setSearch(`&Query=${e.target.value}`);
+    !e.target.value && setSearch(1);
+  };
 
   const getMyCourse = async () => {
     const result = await http.get(
-      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=`
+      `/SharePanel/GetMyCourses?PageNumber=1&RowsOfPage=10&SortingCol=DESC&SortType=LastUpdate&Query=${search}`
     );
     return result;
   };
@@ -135,11 +142,20 @@ const PaidCourses = () => {
       <h2 className="block  my-12 lg:my-0  lg:w-7/12 lg:text-left text-2xl font-extrabold">
         دوره های من
       </h2>
-      <SearchCourses
+      {/* <SearchCourses
         backgroundColor="bg-pannel"
         width="w-9/12 lg:w-3/12"
         height="h-10"
-      />
+      /> */}
+      <div className="border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12 mt-10">
+        <input
+          onChange={handleSearch}
+          type="text"
+          className="block w-full pr-4"
+          placeholder="جستجوی دوره ..."
+        />
+        <button className="block  bg-magnifier bg-50 bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4 bg-zgh"></button>
+      </div>
       <div className="mx-auto  w-10/12 lg:mt-8">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
           <h3 className="pr-3 xl:pr-6 2xl:pr-8">نصویز</h3>
@@ -154,13 +170,13 @@ const PaidCourses = () => {
             // {smallList.map((item , index)=>{
             return (
               <PaidCoursesItem
-              key={index}
-              pic={item.pic}
-              name={item.fullName}
-              teacher={item.teacher}
-              term={item.termName}
-              startDate={item.startDate}
-              cost={item.cost}
+                key={index}
+                pic={item.pic}
+                name={item.fullName}
+                teacher={item.teacher}
+                term={item.termName}
+                startDate={item.startDate}
+                cost={item.cost}
               />
             );
           })}
