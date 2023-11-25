@@ -6,10 +6,15 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 
-const AllCoursesItem = ({ name, teacher, term, cost,levelName,technologyList}) => {
-
+const AllCoursesItem = ({
+  name,
+  teacher,
+  term,
+  cost,
+  levelName,
+  technologyList,
+}) => {
   const courseId = useParams();
-
 
   return (
     <div className="my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border">
@@ -179,17 +184,28 @@ const AllCourses = () => {
     setStart((pageSize - 1) * 6);
   };
 
+  const [pageNumber, setPageNumber] = useState(1);
+  const [search, setSearch] = useState("");
 
-  const [pageNumber , setPageNumber] = useState(1)      
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+    e.target.value && setSearch(`&Query=${e.target.value}`);
+    !e.target.value && setSearch(1);
+  };
 
-  const getAllCourse = async () =>{
-    const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0&Query=`)
+  const getAllCourse = async () => {
+    const result = await http.get(
+      `/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=4&SortingCol=Active&SortType=DESC${search}&TechCount=0`
+    );
     return result;
-  }
+  };
 
-  const { data, status } = useQuery(["allCourseQuery", pageNumber], getAllCourse);
+  const { data, status } = useQuery(
+    ["allCourseQuery", pageNumber, search],
+    getAllCourse
+  );
 
-  status === 'success' && console.log(data)
+  status === "success" && console.log(data);
 
   const smallList = pCourses.filter(
     (item, index) => index >= start && index <= end
@@ -200,18 +216,27 @@ const AllCourses = () => {
       <h2 className="block  my-12 lg:my-0  lg:w-7/12 lg:text-left text-2xl font-extrabold">
         لیست دوره ها
       </h2>
-      <SearchCourses
+      {/* <SearchCourses
         backgroundColor="bg-pannel"
         width="w-9/12 lg:w-3/12"
         height="h-10"
-        // name="searchInp"
-        // value={values.searchInp}
-      />
+        onChange={handleSearch}
+      /> */}
+        <div className="border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12 mt-10">
+          <input
+            onChange={handleSearch}
+            type="text"
+            className="block w-full pr-4"
+            placeholder="جستجوی دوره ..."
+          />
+          <button className="block  bg-magnifier bg-50 bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4 bg-zgh"></button>
+        </div>
+
       <div className="mx-auto  w-10/12 lg:mt-8">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
           <h3 className="pr-10 xl:pr-16 2xl:pr-26">نام دوره</h3>
           <h3 className="pr-16 xl:pr-20 2xl:pr-26">مدرس</h3>
-          <h3 className="pr-6 xl:pr-10 2xl:pr-16">  آموزش و یادگیری</h3>
+          <h3 className="pr-6 xl:pr-10 2xl:pr-16"> آموزش و یادگیری</h3>
           <h3 className="pr-12 xl:pr-16 2xl:pr-22"> سطح دوره</h3>
           <h3 className="pr-12 xl:pr-18 2xl:pr-24">قیمت </h3>
         </div>
