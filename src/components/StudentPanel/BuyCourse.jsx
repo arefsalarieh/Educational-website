@@ -100,8 +100,8 @@ const BuyCourse = () => {
         دوره های خریداری شده
       </h2>
 
-      <div className="w-10/12 mx-auto lg:w-8/12 xl:w-6/12 lg:mx-auto lg:mt-8">
-        <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel ">
+      <div className="w-10/12 mx-auto lg:w-8/12 xl:w-6/12 lg:mx-auto lg:mt-8 ">
+        <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel  ">
           <h3 className="pr-10 xl:pr-8 2xl:pr-14">نام دوره</h3>
           <h3 className="pr-16 xl:pr-14 2xl:pr-14">نام دانشجو</h3>
           <h3 className="pr-16 xl:pr-18 2xl:pr-22">تاریخ رزرو دوره </h3>
@@ -130,7 +130,7 @@ const BuyCourse = () => {
         </div>
       </div>
 
-      <div className="xl:flex text-center flex-wrap mt-8 p-4 lg:w-8/12 xl:w-3/12 mx-auto bg-mygray">
+      {/* <div className="xl:flex text-center flex-wrap mt-8 p-4 lg:w-8/12 xl:w-3/12 mx-auto bg-mygray">
         <h2 className="my-8 xl:my-4 lg:w-1/2 xl:w-full mx-auto xl:mt-14">
           جمع کل :
           <span className="bg-zgh xl:block  text-center w-fit mx-auto mt-4  text-white p-1  rounded">
@@ -157,7 +157,7 @@ const BuyCourse = () => {
           borderWidth="border-none"
           extra="h-10 mx-auto"
         ></Button>
-      </div>
+      </div> */}
     </div>
   );
 };
