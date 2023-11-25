@@ -16,6 +16,14 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
     navigate("/CourseMenuDetail/" + idx)
   }
 
+  const handleReserve =async () =>{
+    const itemId = {
+      courseId: idx,
+    }
+    const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
+    console.log(result);
+  }
+
   const handleLike =async (e) =>{
 
     const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
@@ -29,7 +37,7 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
     const data = new FormData()
 
     const dislikeObj = {
-      CourseLikeId : idx,
+      CourseLikeId : userLikedId,
     }
 
     const keys = Object.keys(dislikeObj)
@@ -110,7 +118,7 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
               </button>              
             </div>
 
-            <button className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
+            <button onClick={handleReserve} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
         </div>
     </motion.div>
   )
