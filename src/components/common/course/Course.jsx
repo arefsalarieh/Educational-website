@@ -46,25 +46,30 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
 
   const handleDeleteLike =async () =>{
     const data = new FormData()
+    try{
+    //     const comment = {
+    //   CourseLikeId : userLikedId,
+    // }
 
-    const dislikeObj = {
-      CourseLikeId : userLikedId,
+
+
+    // const keys = Object.keys(comment)
+    // keys.forEach((key)=>{
+    //   const item = comment[key]
+    //   data.append(key , item)
+    //   //console.log(data);
+    // })
+
+
+    data.append('CourseLikeId' , userLikedId)
+
+     const result = await http.delete(`/Course/DeleteCourseLike` , {data:data})  
+
+     console.log(result);   
+    }catch(error){
+      console.log(error);
     }
 
-    const keys = Object.keys(dislikeObj)
-
-    keys.forEach((key)=>{
-      const item = dislikeObj[key]
-      data.append(key , item)
-      console.log(data);
-    })
-
-
-    //data.append('CourseLikeId' , userLikedId)
-
-     const result = await http.delete(`/Course/DeleteCourseLike` , data)  
-
-     console.log(result); 
   }
 
   
