@@ -36,6 +36,7 @@ const BuyCourseItem = ({pic , name , teacher , term , startDate , cost}) =>{
 }
 
 const BuyCourse = () => {
+  
   const [buyCourses , setBuyCourses] = useState([
     {pic:'c1.png' , name : 'دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : 250000 },
     {pic:'c2.png' , name : 'دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : 250000  },

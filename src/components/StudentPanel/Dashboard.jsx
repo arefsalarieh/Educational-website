@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import http from '../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 
 const DashboardItem = ({title , pic}) => {
@@ -14,6 +16,17 @@ const DashboardItem = ({title , pic}) => {
 
 
 const Dashboard = () => {
+
+  const getProfileInfo = async () =>{
+    const result = await http.get(`/SharePanel/GetProfileInfo`)
+    return result;
+    //console.log(result);
+  }
+
+  const {data , status} = useQuery('dashboard' , getProfileInfo  )
+
+  status === 'success' && console.log(data);
+
   const [dashItem , setDashItem] = useState([
     {title:'سه دوره خریداری شده' , pic:'coursescount.png'},
     {title:'سه دوره خریداری شده' , pic:'coursescount.png'},
@@ -25,11 +38,9 @@ const Dashboard = () => {
   return (
     <div className='px-6 mb-6 sm:flex sm:flex-wrap justify-around gap-2 font-irSans'>
       <h2 className='block w-full text-center text-lg font-extrabold my-20'>داشبورد</h2>
-      {dashItem.map((item , index)=>{
-        return(
-          <DashboardItem key={index} title={item.title} pic={item.pic}/>
-        )
-      })}
+          {status === 'success' &&  <DashboardItem  title={data.fName + ' ' + data.lName}  pic={'coursescount.png'}/>}
+
+
 
     </div>
   )

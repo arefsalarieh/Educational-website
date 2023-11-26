@@ -42,6 +42,7 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
 }
 
 const PaidCourses = () => {
+  
   const getReserveCourse = async () =>{
     const result = await http.get(`/SharePanel/GetMyCoursesReserve`)
     return result;

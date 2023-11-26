@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import SearchCourses from '../common/search/searchCourses'
 import { Pagination } from 'antd'
 import style from './PaidCourses.modules.css'
+import http from '../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 
 const AllCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
@@ -28,11 +30,11 @@ const AllCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>تاریخ شروع   :</span>
-        <span className='font-light'>{startDate}  </span>
+        <span className='font-light'>  </span>
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>قیمت    :</span>
-        <span className='font-light'>{cost}  تومان  </span>
+        <span className='font-light'>  تومان  </span>
       </h2>
       <div className= 'mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6'> </div>
 
@@ -46,6 +48,19 @@ const AllCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
 
 
 const AllCourses = () => {
+
+  const getFavoriteCourse = async () =>{
+    const result = await http.get(`/SharePanel/GetMyFavoriteCourses`)
+    return result;
+    //console.log(result);
+  }
+
+  const {data , status} = useQuery('reserveQuery' , getFavoriteCourse  )
+
+  status === 'success' && console.log(data.favoriteCourseDto);
+
+
+
   const [pCourses , setPCourses] = useState([
     {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
     {pic:'c2.png' , name : '2دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
@@ -92,10 +107,10 @@ const AllCourses = () => {
           <h3 className='pr-12 xl:pr-18 2xl:pr-24'>قیمت </h3>
         </div>
 
-        {smallList.map((item , index)=>{
+        {data.favoriteCourseDto.map((item , index)=>{
           return(
-            <AllCoursesItem key={index} pic={item.pic} name={item.name} teacher={item.teacher} 
-            term={item.term} startDate={item.startDate} cost={item.cost}/>            
+            <AllCoursesItem key={index} pic={item.pic} name={item.courseTitle} teacher={item.teacheName} 
+            term={item.levelName} startDate={item.startDate} cost={item.cost}/>            
           )
         })}
 
