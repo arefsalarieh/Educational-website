@@ -101,14 +101,14 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
                         setNavigateTo("allCourses");
                       }}
                       className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
-                      لیست دوره‌ها
+                        دوره های مورد علاقه
                     </li>
                     <li
                       onClick={() => {
                         setNavigateTo("paidCourses");
                       }}
                       className="p-1 text-xs md:text-sm xl:text-base hover:ps-2 hover:text-secondary hover:bg-white hover:bg-opacity-60 hover:shadow-md rounded-md duration-150 cursor-pointer">
-                      دوره‌های من
+                      دوره‌های رزرو شده
                     </li>
                     <li
                       onClick={() => {

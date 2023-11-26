@@ -8,7 +8,7 @@ import { LikeOutlined , DislikeOutlined} from "@ant-design/icons";
 
 
 
-const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId }) => {
+const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite }) => {
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
@@ -23,6 +23,17 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
     const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
     console.log(result);
   }
+
+  const handleFavorite =async () =>{
+    if(userFavorite === false){
+      const itemId = {
+        courseId: idx,
+      }
+      const result = await http.post('/Course/AddCourseFavorite' , itemId )
+      console.log(result);  
+    }
+
+  }  
 
   const handleLike =async (e) =>{
 
@@ -102,15 +113,17 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
             {courseShape =='courses' ? 
             <p className={ courseStyle[0].secondP }>  تاریخ شروع : {date}</p>
             : null}
-            <div className='flex  h-6  mt-6'>
-              <div className='flex w-1/2  h-6 justify-center'>
-                {userIsLiked === true || count !==likeCount ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
 
-                <h5 className='mr-2'>{count}</h5>              
-              </div>
+            <div className='flex  h-6  mt-6'>
+
+              <button onClick={handleFavorite} className='flex w-1/2  h-6 justify-center'>
+                {userFavorite === true  ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
+             
+              </button>
 
              <button onClick={handleLike} className='flex w-1/4  h-6 justify-center '>
-                <img className=' overflow-hidden' src='./like1.png'/>       
+                {userIsLiked === true || count !==likeCount ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
+                <h5 className='mr-2'>{count}</h5>                        
               </button>                
 
               <button onClick={handleDeleteLike} className='flex w-1/4  h-6 justify-center '>

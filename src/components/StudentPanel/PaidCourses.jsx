@@ -2,33 +2,37 @@ import React, { useState } from 'react'
 import SearchCourses from '../common/search/searchCourses'
 import { Pagination } from 'antd'
 import style from './PaidCourses.modules.css'
+import http from '../../core/services/interceptor'
+import {useQuery} from 'react-query'
 
 const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
+
+
   return(
     <div className='my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border'>
       <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0'>
-        <img className=' mt-6 lg:mt-0 mx-auto' src={pic}/>        
+        <img className=' mt-6 lg:mt-0 mx-auto' />        
       </div>
 
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>نام دوره :</span>
-        <span className='font-light'>  {name}</span>
+        <span className='font-light'>{name}  </span>
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>مدرس  :</span>
-        <span className='font-light'>{teacher} </span>
+        <span className='font-light'> </span>
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>نام ترم  :</span>
-        <span className='font-light'>{term}   </span>
+        <span className='font-light'>  </span>
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>تاریخ شروع   :</span>
-        <span className='font-light'>{startDate}  </span>
+        <span className='font-light'> {startDate} </span>
       </h2>
       <h2 className='font-extrabold mt-4 lg:mt-0'>
         <span className='lg:hidden'>قیمت    :</span>
-        <span className='font-light'>{cost}   تومان </span>
+        <span className='font-light'>   تومان </span>
       </h2>
       <div className= 'mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6'> </div>
 
@@ -38,6 +42,16 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
 }
 
 const PaidCourses = () => {
+  const getReserveCourse = async () =>{
+    const result = await http.get(`/SharePanel/GetMyCoursesReserve`)
+    return result;
+    //console.log(result);
+  }
+
+  const {data , status} = useQuery('reserveQuery' , getReserveCourse  )
+
+  status === 'success' && console.log(data);
+
   const [pCourses , setPCourses] = useState([
     {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
     {pic:'c2.png' , name : '2دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
@@ -76,12 +90,15 @@ const PaidCourses = () => {
           <h3 className='pr-12 xl:pr-18 2xl:pr-24'>قیمت </h3>
         </div>
 
-        {smallList.map((item , index)=>{
-          return(
-            <PaidCoursesItem key={index} pic={item.pic} name={item.name} teacher={item.teacher} 
-            term={item.term} startDate={item.startDate} cost={item.cost}/>            
-          )
-        })}
+        {status === 'success' && (
+          data.map((item , index)=>{
+            return(
+              <PaidCoursesItem key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
+              term={item.term} startDate={item.reserverDate} cost={item.cost}/>            
+            )
+          })
+        )}
+
 
         <div className='mt-8'>
            <Pagination total={pCourses.length} pageSize={6} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>
