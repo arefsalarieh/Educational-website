@@ -36,7 +36,7 @@ const Login = () => {
       swal(user.message, "", "success");
       setTimeout(() => {
         navigate("/studentPanel")
-      }, "7000");
+      }, "2000");
     }
     else {
       // toast.error(user.message);
