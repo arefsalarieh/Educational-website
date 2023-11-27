@@ -190,7 +190,7 @@ const AllCourses = () => {
   const handleSearch = (e) => {
     console.log(e.target.value);
     e.target.value && setSearch(`&Query=${e.target.value}`);
-    !e.target.value && setSearch(1);
+    !e.target.value && setSearch("");
   };
 
   const getAllCourse = async () => {
