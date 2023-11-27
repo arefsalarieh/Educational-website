@@ -30,6 +30,7 @@ import {
 import { Link } from "react-router-dom";
 import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
 import { getItem } from "../../core/services/common/storage.services";
+import { useSelector } from "react-redux";
 
 // antd header
 const { Search } = Input;
@@ -191,6 +192,8 @@ const Header2 = () => {
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const user = useSelector((reducer) => reducer)
+
   return (
     <header className="bg-transparent">
       <nav
@@ -252,17 +255,18 @@ const Header = () => {
             <span>تماس با ما</span>
           </Link>
 
-          {getItem("token") && (
+          {/* {getItem("token") && (
             <Link
               to="/studentPanel"
               className="underline-hover bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
               <PhoneIcon className="h-4 w-4" aria-hidden="true" />
               <span>پنل</span>
             </Link>             
-          )}
+          )} */}
          
         </Popover.Group>
-        <div
+
+        { getItem("token") === "" ? <div
           className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
           style={{ flex: 1 }}>
           <HeaderSearch />
@@ -276,7 +280,23 @@ const Header = () => {
             className="text-sm leading-6 text-zinc-100 bg-secondary px-4 py-1 font-irSans rounded-lg hover:bg-yellow-600 hover:text-white hover:shadow-md hover:shadow-yellow-700 transition-all duration-200">
             <span>ثبت نام</span>
           </Link>
-        </div>
+        </div> :
+        <div
+          className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
+          style={{ flex: 1 }}>
+          <HeaderSearch />
+          <Link
+            to="login"
+            className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
+              <img src="" alt="" />
+            <span>{user? "کاربر " + user.name : "نام کاربر"}</span>
+          </Link>
+          <Link
+            to="register"
+            className="text-sm leading-6 text-gray-400 px-4 py-1 font-irSans rounded-lg hover:text-gray-600 hover:text-shadow-md transition-all duration-200">
+            <span>خروج</span>
+          </Link>
+        </div> }
 
         
       </nav>
