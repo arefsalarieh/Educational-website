@@ -15,13 +15,14 @@ const Allcourse = ({parentShape , courseShape}) => {
 
     const [pageNumber , setPageNumber] = useState(1)    
     const [search , setSearch] = useState('')
+    
 
 
 
     const handleSearch = (e) =>{
       console.log(e.target.value);
       e.target.value && setSearch(`&Query=${e.target.value}`)
-      !e.target.value && setSearch(1)
+      !e.target.value && setSearch('')
     }
    
       const changeStart = (pageSize) =>{
@@ -68,7 +69,7 @@ const Allcourse = ({parentShape , courseShape}) => {
                   return(
                     <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
                      date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount} userIsLiked={item.userIsLiked} userLikedId={item.userLikedId}
-                     userFavorite={item.userFavorite}/>          
+                     userFavorite={item.userFavorite} pageNumber={pageNumber} search={search} getCourseList={getCourseList}/>          
                   )
                   })                 
               )}

@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import http from '../../../core/services/interceptor'
-import {useQuery} from 'react-query'
+import {useMutation, useQuery} from 'react-query'
 import { LikeOutlined , DislikeOutlined} from "@ant-design/icons";
 
 
 
 
-const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite }) => {
+const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite , pageNumber , search , getCourseList}) => {
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
@@ -33,14 +33,28 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
       console.log(result);  
     }
 
-  }  
+  } 
+
+  // const addLike =async () =>{
+  //       const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
+  // }
+  
+  
+  // const postLike = () =>{
+  //   return useMutation(addLike)
+  // }
+
+
+
 
   const handleLike =async (e) =>{
 
     const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
-    {userIsLiked === false ? setCount(2) : null}
-    
+
+    console.log(result);
   }
+
+  
 
 
 
@@ -127,7 +141,7 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
               </button>
 
              <button onClick={handleLike} className='flex w-1/4  h-6 justify-center '>
-                {userIsLiked === true || count !==likeCount ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
+                {userIsLiked === true ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
                 <h5 className='mr-2'>{count}</h5>                        
               </button>                
 
