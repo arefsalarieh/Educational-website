@@ -23,37 +23,37 @@ const NewsArticle = () => {
     SortType: "DESC",
   });
 
-  // const { data, isLoading } = useQuery({
-  //   queryKey: ["newsList", params],
-  //   queryFn: () => {
-  //     return getAllNews(params).then((data) => {
-  //       console.log(data.news);
-  //       return data.news;
-  //     });
-  //   },
-  // });
-
-  const {
-    status,
-    data,
-    isLoading,
-    isFetchingNextPage,
-    fetchNextPage,
-    fetchPreviousPage,
-    hasNextPage,
-    hasPreviousPage,
-  } = useInfiniteQuery(
-    ["newsList", params],
-    async () => {
-      return getInfiniteAllNews(params).then((data) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["newsList", params],
+    queryFn: () => {
+      return getAllNews(params).then((data) => {
+        console.log(data.news);
         return data.news;
       });
     },
-    {
-      // getPreviousPageParam: (firstPage) => firstPage.previousId ?? undefined,
-      getNextPageParam: (pageParam) => (pageParam += 1),
-    }
-  );
+  });
+
+  // const {
+  //   status,
+  //   data,
+  //   isLoading,
+  //   isFetchingNextPage,
+  //   fetchNextPage,
+  //   fetchPreviousPage,
+  //   hasNextPage,
+  //   hasPreviousPage,
+  // } = useInfiniteQuery(
+  //   ["newsList", params],
+  //   async () => {
+  //     return getInfiniteAllNews(params).then((data) => {
+  //       return data.news;
+  //     });
+  //   },
+  //   {
+  //     // getPreviousPageParam: (firstPage) => firstPage.previousId ?? undefined,
+  //     getNextPageParam: (pageParam) => (pageParam += 1),
+  //   }
+  // );
 
   React.useEffect(() => {
     if (inView) {
@@ -179,7 +179,7 @@ const NewsArticle = () => {
 
         {/*Button More */}
         <div>
-          <Button
+          {/* <Button
             ref={ref}
             onClick={() => fetchNextPage()}
             disabled={!hasNextPage || isFetchingNextPage}
@@ -189,7 +189,7 @@ const NewsArticle = () => {
               : hasNextPage
               ? "بیشتر"
               : "پایان"}
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
