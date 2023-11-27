@@ -6,7 +6,8 @@ import { Space, Tabs, Divider } from "antd";
 import "/src/menuTabs.css";
 import { InsertComment } from "./InsertComment";
 import { Comments } from "./Comments";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import NewsArticle from "../../../public/NewsArticle.png";
 
 import {
   BsFillCheckCircleFill,
@@ -14,7 +15,6 @@ import {
 
 const DetailArticle = ({data}) => {
   
-
   return (
     <>
       {/* Global Container */}
@@ -84,7 +84,7 @@ const DetailArticle = ({data}) => {
             {/* Images */}
             <div className="w-full  mx-auto justify-center  ">
               <img
-                src={data?.currentImageAddress}
+                src={data?.currentImageAddress == null ? NewsArticle : data?.currentImageAddress}
                 className="mx-auto justify-center"
                 alt="newsPic"
               />

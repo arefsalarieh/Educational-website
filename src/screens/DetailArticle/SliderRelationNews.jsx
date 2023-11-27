@@ -16,7 +16,7 @@ import { useQuery } from "react-query";
 
 import { getAllNewsPure } from "../../core/services/api/news";
 import { useNavigate } from "react-router-dom";
-
+import NewsArticle from "../../../public/NewsArticle.png";
 
 const SliderRelationNews = () => {
   const navigate = useNavigate();
@@ -29,6 +29,10 @@ const SliderRelationNews = () => {
       });
     },
   });
+
+  const sliderItemNavigate = (id) => {
+    navigate("/NewsArticle/menudetail/" + id)
+  }
 
   return (
     <div className="px-2 pb-2">
@@ -57,20 +61,26 @@ const SliderRelationNews = () => {
         // scrollbar={{ draggable: true }}
       >
         <div className=" flex flex-row gap-16  ">
-          { status === "success" && data.news?.map((card, index) => {
-            return (
-              <SwiperSlide key={card}>
-                <SingleArticleDetail
-                  key={index}
-                  id={card.id}
-                  title={card.title}
-                  date={card.insertDate}
-                  pic={card.currentImageAddressTumb}
-                  onClick = {() => navigate("/NewsArticle/menudetail/" + card.id)}
-                />
-              </SwiperSlide>
-            );
-          })}
+          {status === "success" &&
+            data.news?.map((card, index) => {
+              return (
+                <SwiperSlide key={card}>
+                  <SingleArticleDetail
+                    key={card.id}
+                    id={card.id}
+                    title={card.title}
+                    date={card.insertDate}
+                    pic={
+                      card?.currentImageAddress == null
+                        ? NewsArticle
+                        : card?.currentImageAddress
+                    }
+                    name={card.addUserFullName}
+                    onClick={() => sliderItemNavigate(card.id)}
+                  />
+                </SwiperSlide>
+              );
+            })}
         </div>
       </Swiper>
     </div>

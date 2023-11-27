@@ -23,11 +23,11 @@ const NewsArticle = () => {
     SortType: "DESC",
   });
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, status } = useQuery({
     queryKey: ["newsList", params],
     queryFn: () => {
       return getAllNews(params).then((data) => {
-        console.log(data.news);
+        // console.log(data.news);
         return data.news;
       });
     },
@@ -125,34 +125,21 @@ const NewsArticle = () => {
             </label>
           </span>
           <span className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer -mt-1 mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
-            <select name="sort">
+            <select
+              name="sort"
+              // value={sort}
+              onChange={(e) => {
+                qClient.invalidateQueries("newsList");
+                setParams({
+                  ...params,
+                  SortType: e.target.defaultValue,
+                });
+              }}>
               <option selected disabled>
                 ترتیب نمایش
               </option>
-              <option
-                onClick={(e) => {
-                  qClient.invalidateQueries("newsList");
-                  setParams({
-                    ...params,
-                    SortType: e.target.defaultValue,
-                  });
-                }}
-                value="ASC">
-                صعودی
-              </option>
-              <option
-                onClick={(e) => {
-                  qClient.invalidateQueries("newsList");
-                  console.log(e.target.value);
-                  setParams({
-                    ...params,
-                    SortType: e.target.defaultValue,
-                  });
-                  console.log(params);
-                }}
-                value="DESC">
-                نزولی
-              </option>
+              <option value="ASC">صعودی</option>
+              <option value="DESC">نزولی</option>
             </select>
           </span>
           <span

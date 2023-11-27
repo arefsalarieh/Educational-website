@@ -24,21 +24,6 @@ const MenuDetail = () => {
     },
   });
 
-  // const getNewsById = async() => {
-  //   const res = await http.get("/News/" + param);
-  //   console.log(res);
-  //   return res;
-  // }
-
-  // useEffect (() => {
-  //   getNewsById()
-  // }, [])
-
-
-  // if(error) {
-  //   console.log(error.errors.Id);
-  // }
-
   const detailShowHandler = () => {
     setDetails(true);
     setComments(false);

@@ -16,7 +16,6 @@ const NewsCard = ({
   isLiked,
   onClick,
 }) => {
-  console.log(id, title, nameWriter, view, description, pic, isLiked, onClick);
   const handleLikeClick = () => {
     if (isLiked) {
       isLiked = false;

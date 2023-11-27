@@ -10,7 +10,7 @@ const ListNewsCards = ({ data, isLoading, status }) => {
     <NewsListSkeleton />;
   }
 
-  console.log("props in ListNewsCards", data);
+  // console.log("props in ListNewsCards", data);
 
   return (
     <div className="container mx-auto justify-center flex flex-wrap  gap-6 p-3 lg:flex-row lg:flex-wrap">
