@@ -15,6 +15,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
       levelName: "مقدماتی",
       typeName: "حضوری",
       cost: "17500.00",
+      courseId:"32163702-2676-ee11-b6c7-ca6d3e095898"
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -25,6 +26,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
       levelName: "مقدماتی",
       typeName: "حضوری",
       cost: "17500.00",
+      courseId:"32163702-2676-ee11-b6c7-ca6d3e09588"
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -35,6 +37,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
       levelName: "مقدماتی",
       typeName: "حضوری",
       cost: "17500.00",
+      courseId:"32163702-2676-ee11-b6c7-ca6de095898"
     },
     {
       courseName: "دوره آموزش جامع ریکت",
@@ -45,6 +48,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
       levelName: "مقدماتی",
       typeName: "حضوری",
       cost: "17500.00",
+      courseId:"32163702-2676-ee11-b6c7-ca63e095898"
     },
   ]);
 
@@ -73,7 +77,6 @@ const Allcourse = ({ parentShape, courseShape }) => {
     const result = await http.get(`/Home/GetCoursesWithPagination?PageNumber=${pageNumber}&RowsOfPage=2&SortingCol=Active&SortType=DESC&TechCount=0`)
     return result;
   }
-
   const {data , status} = useQuery(['courseQuery' , pageNumber ] , getCourseList )
 
   var st = "st";

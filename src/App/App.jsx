@@ -72,6 +72,11 @@ const router = createBrowserRouter([
         path: "/CoursesDetail",
         element: <CoursesDetail />,
         errorElement: <RouteError />,
+      }, 
+      {
+        path: "/menudetailcourses/:id",
+        element: <MenuDetailCourses />,
+        errorElement: <RouteError />,
       },
       {
         path: "/studentPanel",
