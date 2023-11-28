@@ -16,9 +16,6 @@ const BuyCourseItem = ({ courseName, studentName, reserverDate }) => {
   }
 
 
-  const [data , status] = useQuery('getReserve' , handleGetReserve)
-  
-  status==='success' && console.log(data)
 
   return (
     <div className="w-full my-12 lg:my-3 lg:flex justify-start bg-mygray items-center gap-10 xl:gap-8  2xl:gap-8 text-sm xl:text-base lg:pl-2 lg:pr-4 2xl:pr-6 mx-auto border">
@@ -119,7 +116,7 @@ const BuyCourse = () => {
           <h3 className="pr-16 xl:pr-18 2xl:pr-22">تاریخ رزرو دوره </h3>
         </div>
         {status === "success" && 
-          data.map((item, index) => {
+          data?.map((item, index) => {
               return (
                 <BuyCourseItem
                   key={index}
