@@ -4,11 +4,20 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Course = ({id,courseShape , courseName , teacher , date , src ,typeName,levelName}) => {
+const Course = ({idx,courseShape , courseName , teacher , date , src ,typeName,levelName}) => {
   const navigate = useNavigate()
   const handleClick = () => {
-    navigate("/CoursesDetail")
+    navigate("/CourseMenuDetail/" + idx)
   }
+
+  const handleReserve =async () =>{
+    const itemId = {
+      courseId: idx,
+    }
+    const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
+    console.log(result);
+  }
+
 
   const [courseStyle , setCourseStyle] = useState([
     // course style for courses
@@ -52,7 +61,7 @@ const Course = ({id,courseShape , courseName , teacher , date , src ,typeName,le
             {courseShape =='courses' ? 
             <p className={ courseStyle[0].secondP }>  تاریخ شروع : {date}</p>
             : null}
-            <button className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
+            <button  onClick={handleReserve} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
         </div>
     </motion.div>
   )

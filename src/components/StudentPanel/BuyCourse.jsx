@@ -8,6 +8,18 @@ import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
 
 const BuyCourseItem = ({ courseName, studentName, reserverDate }) => {
+
+  const handleGetReserve =async () =>{
+    const result =await http.get('/SharePanel/GetMyCoursesReserve')
+    return result
+    //console.log(result)
+  }
+
+
+  const [data , status] = useQuery('getReserve' , handleGetReserve)
+  
+  status==='success' && console.log(data)
+
   return (
     <div className="w-full my-12 lg:my-3 lg:flex justify-start bg-mygray items-center gap-10 xl:gap-8  2xl:gap-8 text-sm xl:text-base lg:pl-2 lg:pr-4 2xl:pr-6 mx-auto border">
       {/* <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0'>
@@ -19,13 +31,13 @@ const BuyCourseItem = ({ courseName, studentName, reserverDate }) => {
         <span className="font-light text-sm"> {courseName}</span>
       </h2>
 
-      <h2 className="font-extrabold mt-4 lg:mt-0">
+      {/* <h2 className="font-extrabold mt-4 lg:mt-0">
         <span className="lg:hidden">نام دانشجو :</span>
         <span className="font-light">{studentName} </span>
-      </h2>
+      </h2> */}
 
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">تاریخ خرید :</span>
+        <span className="lg:hidden">تاریخ رزو دوره :</span>
         <span className="font-light">{reserverDate} </span>
       </h2>
       <div className=" my-4 lg:my-0 bg-red-400  w-3/12 lg:w-fit p-1 mx-auto text-white rounded ">
@@ -103,7 +115,7 @@ const BuyCourse = () => {
       <div className="w-10/12 mx-auto lg:w-8/12 xl:w-6/12 lg:mx-auto lg:mt-8 ">
         <div className="hidden rounded-t-xl lg:flex pr-4 py-2 text-md text-white bg-pannel  ">
           <h3 className="pr-10 xl:pr-8 2xl:pr-14">نام دوره</h3>
-          <h3 className="pr-16 xl:pr-14 2xl:pr-14">نام دانشجو</h3>
+          {/* <h3 className="pr-16 xl:pr-14 2xl:pr-14">نام دانشجو</h3> */}
           <h3 className="pr-16 xl:pr-18 2xl:pr-22">تاریخ رزرو دوره </h3>
         </div>
         {status === "success" && 
@@ -112,7 +124,7 @@ const BuyCourse = () => {
                 <BuyCourseItem
                   key={index}
                   courseName={item.courseName}
-                  studentName={item.studentName}
+                  // studentName={item.studentName}
                   reserverDate={item.reserverDate}
                 />
               );

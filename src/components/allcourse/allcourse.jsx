@@ -92,6 +92,7 @@ const Allcourse = ({ parentShape, courseShape }) => {
             return (
               <Course
                 key={index}
+                idx={item.courseId}
                 courseShape={courseShape}
                 courseName={item.classRoomName}
                 teacher={item.teacherName}
