@@ -28,12 +28,11 @@ const ChangePassword = () => {
     console.log(result);
     if (result.success === true) {
       // toast.success(result.message);
-      swal(result.message, "", "success");
       setTimeout(() => {
-        navigate("/studentPanel");
-      }, "2000");
+        navigate("/");
+      }, "3000");
+      swal(result.message, "", "success");
 
-      navigate("/");
     } else {
       // toast.error(result.message);
       sweetAlert("",result.message, "error");
