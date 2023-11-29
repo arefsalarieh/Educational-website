@@ -35,9 +35,11 @@ const EditProfile = () => {
       //console.log(data);
     })
 
-  const result = await http.put(`/SharePanel/UpdateProfileInfo` , data)
+    const result = await http.put(`/SharePanel/UpdateProfileInfo` , data)
 
     console.log(result);
+
+  
 
     //window.location.reload(false);
   }

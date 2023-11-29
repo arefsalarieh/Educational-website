@@ -19,6 +19,7 @@ import { motion } from "framer-motion"
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import UploadImage from "./UploadImage";
+import EditProfile from "./EditProfile";
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
@@ -47,6 +48,8 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
 
   return (
     <>
+
+
       <ModalSlider modalStyle={modalStyle} setModalStyle={setModalStyle} refetch={refetch}/>
       <motion.div
       initial={{opacity:0 , x:100}}
