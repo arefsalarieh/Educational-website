@@ -18,6 +18,7 @@ import ModalSlider from "./ModalSlider";
 import { motion } from "framer-motion"
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
+import UploadImage from "./UploadImage";
 
 const RightMenu = ({ userInfo, setNavigateTo }) => {
   const [open, setOpen] = React.useState(0);
@@ -29,6 +30,7 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
   const handleAlwaysOpenCourses = () => setAlwaysOpenCourses((x) => !x);
   const handleAlwaysOpenProfile = () => setAlwaysOpenProfile((y) => !y);
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+
   const showModal = ()=>{
     setModalStyle('absolute top-0 z-50 bg-gray-600/50 h-screen w-full ')
   }
@@ -39,13 +41,13 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
     //console.log(result);
   }
 
-  const {data , status} = useQuery('courseQuery' , getProfileInfo  )
+  const {data , status , refetch} = useQuery('courseQuery' , getProfileInfo  )
 
   //status === 'success' && console.log(data);
 
   return (
     <>
-      <ModalSlider modalStyle={modalStyle} setModalStyle={setModalStyle}/>
+      <ModalSlider modalStyle={modalStyle} setModalStyle={setModalStyle} refetch={refetch}/>
       <motion.div
       initial={{opacity:0 , x:100}}
       animate={{opacity:1 , x:0}}
@@ -53,17 +55,17 @@ const RightMenu = ({ userInfo, setNavigateTo }) => {
       className="hidden gap-y-2 sm:block w-1/4 min-h-screen relative items-center justify-center bg-primary me-2 lg:me-4 xl:mt-6 2xl:mt-10 rounded-r-2xl font-irSans text-white">
         {/* image container */}
         <div
-          onClick={() => {
-            setNavigateTo("edit");
-          }}
+
           className="block mx-auto mt-8 md:absolute md:start-1/4 top-4 md:-top-16 lg:-top-24 xl:-top-28 2xl:-top-32 w-2/3 md:w-1/2 rounded-full hover:scale-110 duration-150 cursor-pointer">
           <img
             // src={data.currentPictureAddress ? data.currentPictureAddress : userInfo.img}
             className="rounded-full object-contain hover:ring-4 hover:ring-secondary"
             onClick={showModal}
-            src={status === 'success' && data.currentPictureAddress}
+            src={status === 'success' && data?.currentPictureAddress}
           />
         </div>
+
+
         {/* user data */}
         <div className="mt-6 md:mt-24 lg:mt-28 xl:mt-32 flex flex-col items-center justify-center">
           <span className="md:text-base lg:text-lg cursor-pointer hover:text-secondary duration-150">

@@ -5,7 +5,17 @@ import style from './PaidCourses.modules.css'
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 
-const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
+const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost , reserveId}) =>{
+
+  const deleteReserve = async () =>{
+    const obj ={
+      id : reserveId,
+    }
+
+    const result = await http.delete(`/CourseReserve` , {data:obj})  
+
+    console.log(result);
+  }
 
 
   return(
@@ -34,7 +44,7 @@ const PaidCoursesItem = ({pic , name , teacher , term , startDate , cost}) =>{
         <span className='lg:hidden'>قیمت    :</span>
         <span className='font-light'>   تومان </span>
       </h2>
-      <div className= 'mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6'> </div>
+      <div onClick={deleteReserve} className= 'mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6'> </div>
 
     </div>    
   )
@@ -51,7 +61,7 @@ const PaidCourses = () => {
 
   const {data , status} = useQuery('reserveQuery' , getReserveCourse  )
 
-  status === 'success' && console.log(data);
+
 
   const [pCourses , setPCourses] = useState([
     {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
@@ -75,7 +85,7 @@ const PaidCourses = () => {
   const smallList = pCourses.filter((item , index)=>index >= start && index <= end)
 
 
-
+console.log(data);
 
   return (
     <div className='lg:flex mx-auto flex-wrap my-8 lg:pt-6 text-center font-irSans'>
@@ -91,15 +101,20 @@ const PaidCourses = () => {
           <h3 className='pr-12 xl:pr-18 2xl:pr-24'>قیمت </h3>
         </div>
 
+
+
         {status === 'success' && (
-          data.map((item , index)=>{
+          data?.map((item , index)=>{
             return(
               <PaidCoursesItem key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
-              term={item.term} startDate={item.reserverDate} cost={item.cost}/>            
-            )
-          })
-        )}
+              term={item.term} startDate={item.reserverDate} cost={item.cost} reserveId={item.reserveId}/>            
+              )
+            })
+            )}
 
+            {status === 'loading' && (
+              <h1>bkbkil</h1>
+            )}
 
         <div className='mt-8'>
            <Pagination total={pCourses.length} pageSize={6} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>

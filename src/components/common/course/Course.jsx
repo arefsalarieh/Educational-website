@@ -8,7 +8,7 @@ import { LikeOutlined , DislikeOutlined} from "@ant-design/icons";
 
 
 
-const Course = ({courseShape , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite , pageNumber , search , getCourseList}) => {
+const Course = ({courseShape , refetch , status , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite , pageNumber , search , getCourseList}) => {
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
@@ -35,16 +35,6 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
 
   } 
 
-  // const addLike =async () =>{
-  //       const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
-  // }
-  
-  
-  // const postLike = () =>{
-  //   return useMutation(addLike)
-  // }
-
-
 
 
   const handleLike =async (e) =>{
@@ -52,6 +42,8 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
     const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
 
     console.log(result);
+    console.log(userIsLiked);
+    refetch()
   }
 
   
@@ -61,25 +53,13 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
   const handleDeleteLike =async () =>{
     const data = new FormData()
     try{
-    //     const comment = {
-    //   CourseLikeId : userLikedId,
-    // }
-
-
-
-    // const keys = Object.keys(comment)
-    // keys.forEach((key)=>{
-    //   const item = comment[key]
-    //   data.append(key , item)
-    //   //console.log(data);
-    // })
-
 
     data.append('CourseLikeId' , userLikedId)
 
      const result = await http.delete(`/Course/DeleteCourseLike` , {data:data})  
 
-     console.log(result);   
+     console.log(result);  
+     refetch() 
     }catch(error){
       console.log(error);
     }
@@ -141,6 +121,7 @@ const Course = ({courseShape , idx , courseName , teacher , date , src , likeCou
               </button>
 
              <button onClick={handleLike} className='flex w-1/4  h-6 justify-center '>
+               
                 {userIsLiked === true ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
                 <h5 className='mr-2'>{count}</h5>                        
               </button>                

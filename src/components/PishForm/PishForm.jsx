@@ -21,7 +21,7 @@ const PishForm = () => {
 
   <Formik onSubmit={onSubmit} initialValues={{email: "" , text: "",}} validationSchema={validation}>
     {({values , handleSubmit , handleChange})=>(
-            <form onSubmit={handleSubmit} className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-4 sm:px-12 w-8/12 dark:bg-slate-700 rounded-2xl dark:text-stone-200 font-irSans dark:shadow-shadowDarkUp'    labelCol={{span: 8,}}   >
+            <form onSubmit={handleSubmit} className=' shadow-xl mx-auto lg:mr-48 mt-12 pt-6 px-4 sm:px-12 w-8/12 dark:bg-slate-700 rounded-2xl dark:text-stone-200 font-irSans dark:shadow-shadowDarkUp'     >
       
             <label for='d1'>ایمیل شما</label>
             <Form.Item id='d1' className='w-full  mt-4 rounded-xl' name="email" rules={[{ required: true, message: 'Please input your username!',},]}>

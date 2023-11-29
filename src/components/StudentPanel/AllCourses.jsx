@@ -55,9 +55,9 @@ const AllCourses = () => {
     //console.log(result);
   }
 
-  const {data , status} = useQuery('reserveQuery' , getFavoriteCourse  )
+  const {data , status} = useQuery('favoriteQuery' , getFavoriteCourse  )
 
-  status === 'success' && console.log(data.favoriteCourseDto);
+  status === 'success' && console.log(data);
 
 
 
@@ -107,12 +107,14 @@ const AllCourses = () => {
           <h3 className='pr-12 xl:pr-18 2xl:pr-24'>قیمت </h3>
         </div>
 
-        {data.favoriteCourseDto.map((item , index)=>{
+        { status === 'success' && (
+          data?.favoriteCourseDto?.map((item , index)=>{
           return(
             <AllCoursesItem key={index} pic={item.pic} name={item.courseTitle} teacher={item.teacheName} 
             term={item.levelName} startDate={item.startDate} cost={item.cost}/>            
           )
-        })}
+        })
+        )}
 
         <div className='mt-8'>
            <Pagination total={pCourses.length} pageSize={6} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>

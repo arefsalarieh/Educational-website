@@ -37,10 +37,10 @@ const Allcourse = ({parentShape , courseShape}) => {
         return result;
       }
 
-      const {data , status} = useQuery(['courseQuery' , pageNumber , search  ] , getCourseList , )
+      const {data , status, refetch} = useQuery(['courseQuery' , pageNumber , search  ] , getCourseList , )
 
       
-      //status === 'success' && console.log(data.courseFilterDtos);
+      status === 'success' && console.log(data.courseFilterDtos);
 
       var st = 'st' ;
 
@@ -67,9 +67,9 @@ const Allcourse = ({parentShape , courseShape}) => {
               {status === 'success' && (
                 data.courseFilterDtos.map((item , index)=>{
                   return(
-                    <Course key={index} courseShape={courseShape} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
+                    <Course key={index} courseShape={courseShape} status={status} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
                      date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount} userIsLiked={item.userIsLiked} userLikedId={item.userLikedId}
-                     userFavorite={item.userFavorite} pageNumber={pageNumber} search={search} getCourseList={getCourseList}/>          
+                     userFavorite={item.userFavorite} pageNumber={pageNumber} search={search} getCourseList={getCourseList} refetch={refetch}/>          
                   )
                   })                 
               )}
