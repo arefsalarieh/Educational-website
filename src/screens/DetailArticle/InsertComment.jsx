@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { useMutation } from "react-query";
 import { useParams } from "react-router-dom";
 import { postCommentUserById } from "../../core/services/api/newsComments";
+import toast, { Toaster } from "react-hot-toast";
 
 const validation = yup.object().shape({
   comment: yup
@@ -28,8 +29,10 @@ const InsertComment = () => {
       title: "نظر شخصی",
       describe: value.comment,
     };
-    mutation.mutate(obj)
-    console.log(obj);
+    mutation.mutate(obj);
+    mutation.isError
+      ? toast.error("عملیات موفقیت آمیز نبود، لطفا بعدا تلاش کنید")
+      : toast.success("عملیات با موفقیت انجام شد");
   };
 
   return (
@@ -73,6 +76,7 @@ const InsertComment = () => {
           <BsFillArrowDownCircleFill className="rounded-full text-[#a5a5a5] w-10 h-10 relative  top-12 md:top-16 md:w-12 md:h-12" />
         </div> */}
       </motion.div>
+      <Toaster position="top-left" reverseOrder={false} />
     </>
   );
 };

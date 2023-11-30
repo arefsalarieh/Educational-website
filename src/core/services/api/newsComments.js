@@ -22,6 +22,5 @@ export const postAddUserCommentById = async ({id, likeType}) => {
 
 export const postCommentUserById = async (obj) => {
     const res = await http.post("/News/CreateNewsComment", obj)
-    console.log(res);
     return res;
 }
