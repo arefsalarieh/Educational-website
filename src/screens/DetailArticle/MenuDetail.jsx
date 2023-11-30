@@ -77,7 +77,7 @@ const MenuDetail = () => {
       {/* body Page */}
       <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="flex flex-col md:flex-row-reverse bg-[#f3f3f3] dark:bg-slate-600">
         {details && <DetailArticle data={data?.detailsNewsDto} />}
-        {comments && <Comments id={data?.detailsNewsDto.id} /> }
+        {comments && <Comments id={data?.detailsNewsDto.id} changeToInsertComment = {insertShowHandler} /> }
         {insertComment && <InsertComment />}
       </motion.div>
     </motion.div>

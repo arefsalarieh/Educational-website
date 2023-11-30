@@ -8,8 +8,9 @@ import { QueryClient, useQuery } from "react-query";
 import http from "../../core/services/interceptor";
 import UserComment from "./UserComment";
 import { getCommentsByNewsId } from "../../core/services/api/newsComments";
+import NoCommentsYet from "./NoCommentsYet";
 
-const Comments = ({ id }) => {
+const Comments = ({ id , changeToInsertComment}) => {
   const queryClient = new QueryClient();
 
   const { data, status, refetch } = useQuery({
@@ -49,7 +50,7 @@ const Comments = ({ id }) => {
           )}
 
           {
-            data?.length === 0 ? <p>هیچ</p> :
+            data?.length === 0 ? <NoCommentsYet changeToInsertComment={changeToInsertComment} /> :
             data?.map((cmnt, index) => { return (
               <UserComment key={index} data={cmnt} status={status} refetch={refetch} qClient = {queryClient} />
               )})

@@ -15,18 +15,17 @@ function SearchResItems({ data, header, isLoading, isLoadingError }) {
         </div>
       </div>
     );
-  }
-  else if (data?.length < 1) {
-    <SearchResNull />
+  } else if (data?.length < 1) {
+    <SearchResNull />;
   }
   return (
     <div className="w-full h-auto my-4">
       <h4 className=" ps-6">{header}</h4>
       <div className="w-11/12 max-h-[424px] grid gap-y-4 mx-auto py-4 overflow-y-scroll ">
-        {data ? (
-          data.map((data, index) => <SearchResItem key={index} data={data} />)
-        ) : (
+        {data?.length === 0 ? (
           <SearchResNull />
+        ) : (
+          data?.map((data, index) => <SearchResItem key={index} data={data} />)
         )}
       </div>
     </div>
