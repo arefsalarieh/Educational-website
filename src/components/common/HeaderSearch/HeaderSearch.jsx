@@ -19,7 +19,6 @@ const HeaderSearch = () => {
     queryFn: () => {
       if (!inputEntered) return;
       return headerCourseSearch(inputEntered).then((data) => {
-        console.log(data);
         return data.courseFilterDtos;
       });
     },
@@ -58,7 +57,7 @@ const HeaderSearch = () => {
       {/* modal */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.4 }}
+        animate={{ opacity: 0.4 }}
         transition={{ delay: 0.3 }}
         exit={{ delay: 0.5 }}
         onClick={() => {
@@ -74,7 +73,7 @@ const HeaderSearch = () => {
       {/* search elements */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
         exit={{ delay: 0.5 }}
         className="absolute w-[70%] left-[15%] top-16 font-irSans z-[1000]">
@@ -93,19 +92,19 @@ const HeaderSearch = () => {
             </label>
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               className="relative flex items-center transition-all duration-200">
               <motion.div
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
                 className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <MagnifyingGlassIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               </motion.div>
               <input
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
                 type="search"
                 name="search"
@@ -118,7 +117,7 @@ const HeaderSearch = () => {
               />
               <motion.button
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
                 type="submit"
                 className="text-white absolute left-0  bg-primary dark:bg-teal-800 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-600 font-medium rounded-lg text-sm px-4 py-2 dark:hover:bg-teal-700 dark:focus:ring-teal-800 font-irSans">
@@ -130,7 +129,7 @@ const HeaderSearch = () => {
         {/* search list */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className={
             inputEntered

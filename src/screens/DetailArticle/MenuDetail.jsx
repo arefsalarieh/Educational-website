@@ -6,7 +6,6 @@ import { useState } from "react";
 import {motion} from 'framer-motion'
 import { getNewsWithId } from "../../core/services/api/news";
 import { useParams } from "react-router-dom";
-import http from "../../core/services/interceptor"
 import { useQuery } from "react-query";
 
 const MenuDetail = () => {
@@ -78,7 +77,7 @@ const MenuDetail = () => {
       {/* body Page */}
       <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="flex flex-col md:flex-row-reverse bg-[#f3f3f3] dark:bg-slate-600">
         {details && <DetailArticle data={data?.detailsNewsDto} />}
-        {comments && <Comments />}
+        {comments && <Comments id={data?.detailsNewsDto.id} /> }
         {insertComment && <InsertComment />}
       </motion.div>
     </motion.div>

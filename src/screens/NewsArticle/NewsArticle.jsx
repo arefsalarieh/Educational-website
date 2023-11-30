@@ -4,7 +4,7 @@ import { QueryClient, useInfiniteQuery, useQuery } from "react-query";
 import { getAllNews, getInfiniteAllNews } from "../../core/services/api/news";
 import { useInView } from "react-intersection-observer";
 import { ListNewsCards } from "./ListNewsCards";
-import { Button, Dropdown, Space } from "antd";
+import { Button, Dropdown, Pagination, Space } from "antd";
 import SearchCourses from "../../components/common/search/SearchCourses";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
 import http from "../../core/services/interceptor";
@@ -32,6 +32,11 @@ const NewsArticle = () => {
       });
     },
   });
+
+  const [pageNumber, setPageNumber] = useState(1);
+  const changeStart = (pageSize) => {
+    setPageNumber(pageSize);
+  };
 
   // const {
   //   status,
@@ -132,7 +137,7 @@ const NewsArticle = () => {
                 qClient.invalidateQueries("newsList");
                 setParams({
                   ...params,
-                  SortType: e.target.defaultValue,
+                  SortType: e.target.value,
                 });
               }}>
               <option selected disabled>
@@ -150,7 +155,6 @@ const NewsArticle = () => {
                 SortingCol: "InsertDate",
                 SortType: "DESC",
               });
-              console.log(params);
             }}
             className=" text-xs text-gray-400  hover:text-gray-600 md:text-sm font-irSans cursor-pointer mb-1 border rounded-3xl  border-[#dddedf] bg-white pt-[.5625rem]  pb-[.5625rem] pr-2 pl-2 md:pr-4 md:pl-4 fd font-bold leading-4">
             <label htmlFor="newest" className="cursor-pointer">
@@ -177,6 +181,18 @@ const NewsArticle = () => {
               ? "بیشتر"
               : "پایان"}
           </Button> */}
+          {status === "success" && (
+            <div className="mt-8">
+              <Pagination
+                total={data.totalCount}
+                pageSize={10}
+                showQuickJumper
+                onChange={(pageSize) => {
+                  changeStart(pageSize);
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

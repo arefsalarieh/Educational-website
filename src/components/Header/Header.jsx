@@ -29,7 +29,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
-import { getItem } from "../../core/services/common/storage.services";
+import {
+  getItem,
+  removeItem,
+} from "../../core/services/common/storage.services";
 import { useSelector } from "react-redux";
 
 // antd header
@@ -192,7 +195,7 @@ const Header2 = () => {
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const user = useSelector((reducer) => reducer)
+  const user = useSelector((reducer) => reducer);
 
   return (
     <header className="bg-transparent">
@@ -213,7 +216,9 @@ const Header = () => {
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 shadow-lg hover:bg-slate-50 dark:bg-slate-600 dark:text-slate-300 hover:shadow-2xl transition-all duration-200"
-            onClick={() => setMobileMenuOpen(mobileMenuOpen === false ? true : false)}>
+            onClick={() =>
+              setMobileMenuOpen(mobileMenuOpen === false ? true : false)
+            }>
             <span className="sr-only">نمایش لیست منو</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
@@ -263,42 +268,48 @@ const Header = () => {
               <span>پنل</span>
             </Link>             
           )} */}
-         
         </Popover.Group>
 
-        { getItem("token") === "" ? <div
-          className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
-          style={{ flex: 1 }}>
-          <HeaderSearch />
-          <Link
-            to="login"
-            className="bg-white text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
-            <span>ورود</span>
-          </Link>
-          <Link
-            to="register"
-            className="text-sm leading-6 text-zinc-100 bg-secondary px-4 py-1 font-irSans rounded-lg hover:bg-yellow-600 hover:text-white hover:shadow-md hover:shadow-yellow-700 transition-all duration-200">
-            <span>ثبت نام</span>
-          </Link>
-        </div> :
-        <div
-          className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
-          style={{ flex: 1 }}>
-          <HeaderSearch />
-          <Link
-            to="login"
-            className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
+        {getItem("token") ? (
+          <div
+            className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
+            style={{ flex: 1 }}>
+            <HeaderSearch />
+            <Link
+              to="login"
+              className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
               <img src="" alt="" />
-            <span>{user? "کاربر " + user.name : "نام کاربر"}</span>
-          </Link>
-          <Link
-            to="register"
-            className="text-sm leading-6 text-gray-400 px-4 py-1 font-irSans rounded-lg hover:text-gray-600 hover:text-shadow-md transition-all duration-200">
-            <span>خروج</span>
-          </Link>
-        </div> }
-
-        
+              <span>{user ? "کاربر " + user.name : "نام کاربر"}</span>
+            </Link>
+            <Link
+              to="/"
+              onClick={() => {
+                removeItem("token");
+                setTimeout(() => {
+                  location.reload();
+                }, 500);
+              }}
+              className="text-sm leading-6 text-gray-400 px-4 py-1 font-irSans rounded-lg hover:text-gray-600 hover:text-shadow-md transition-all duration-200">
+              <span>خروج</span>
+            </Link>
+          </div>
+        ) : (
+          <div
+            className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-5"
+            style={{ flex: 1 }}>
+            <HeaderSearch />
+            <Link
+              to="login"
+              className="bg-white text-sm leading-6 px-4 py-1 text-gray-800 font-irSans border border-gray-400 rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
+              <span>ورود</span>
+            </Link>
+            <Link
+              to="register"
+              className="text-sm leading-6 text-zinc-100 bg-secondary px-4 py-1 font-irSans rounded-lg hover:bg-yellow-600 hover:text-white hover:shadow-md hover:shadow-yellow-700 transition-all duration-200">
+              <span>ثبت نام</span>
+            </Link>
+          </div>
+        )}
       </nav>
 
       {/* drawer menu */}
@@ -324,7 +335,7 @@ const Header = () => {
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          
+
           <div className="mt-6 flow-root ">
             <div className="-my-6 divide-y divide-gray-500/10 text-gray-900 dark:text-stone-300">
               <div className="space-y-2 py-6">
@@ -359,7 +370,6 @@ const Header = () => {
                   <PhoneIcon className="h-4 w-4" aria-hidden="true" />
                   <span>تماس با ما</span>
                 </Link>
-                
               </div>
               <div className="py-6 flex gap-x-4">
                 <Link
