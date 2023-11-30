@@ -30,9 +30,9 @@ const InsertComment = () => {
       describe: value.comment,
     };
     mutation.mutate(obj);
-    mutation.isError
-      ? toast.error("عملیات موفقیت آمیز نبود، لطفا بعدا تلاش کنید")
-      : toast.success("عملیات با موفقیت انجام شد");
+    mutation.isError &&
+      toast.error("عملیات موفقیت آمیز نبود، لطفا بعدا تلاش کنید");
+    mutation.isSuccess && toast.success("عملیات با موفقیت انجام شد");
   };
 
   return (
