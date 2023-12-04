@@ -73,17 +73,17 @@ const router = createBrowserRouter([
         errorElement: <RouteError />,
       },      
       {
-        path: "/studentPanel",
-        element: <StudentPanel />,
-        errorElement: <RouteError />,
-      },
-      {
         path: "*",
         element: <RouteError />,
       },
     ],
     errorElement: <RouteError />
-  }
+  },
+  {
+    path: "/studentPanel",
+    element: <StudentPanel />,
+    errorElement: <RouteError />,
+  },
 ]);
 
 
