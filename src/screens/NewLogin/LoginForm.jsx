@@ -22,6 +22,8 @@ const LoginForm = ({steps , setSteps}) => {
 
         const result = await http.post(`/Sign/Login` , person)
 
+        console.log(result);
+
         setItem('token' , result.token)
       
 
@@ -31,6 +33,8 @@ const LoginForm = ({steps , setSteps}) => {
 
 
     }
+
+    
 
     // clearStorage()
     // dispatch(onTokenChange(null))

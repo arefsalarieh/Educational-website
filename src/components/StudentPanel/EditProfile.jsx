@@ -35,9 +35,13 @@ const EditProfile = () => {
       //console.log(data);
     })
 
-  const result = await http.put(`/SharePanel/UpdateProfileInfo` , data)
+    const result = await http.put(`/SharePanel/UpdateProfileInfo` , data)
 
     console.log(result);
+
+  
+
+    //window.location.reload(false);
   }
   return (
     <div className=' w-10/12  py-10 mx-auto my-10 font-irSans'>
@@ -88,10 +92,7 @@ const EditProfile = () => {
             <Input type='text' id='city' name='city' className='w-full' value={values.city} onChange={handleChange}  />            
           </div> 
           
-          <div className=' mt-4 lg:w-5/12'>
-            <label className='block text-center lg:text-right lg:pr-4' htmlFor='email'> ایمیل </label>
-            <Input type='email' id='email' name='email' value={values.email} onChange={handleChange} style={{direction:'ltr'}}/>            
-          </div>
+
 
           <div className=' mt-4 lg:w-5/12'>
             <label className='block text-center lg:text-right lg:pr-4' htmlFor='address'> آدرس </label>
