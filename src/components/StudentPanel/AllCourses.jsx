@@ -210,6 +210,7 @@ const AllCourses = () => {
   const smallList = pCourses.filter(
     (item, index) => index >= start && index <= end
   );
+  const ref = useRef();
   const onChange = (e) => {
     clearTimeout(ref.current);
     const timeOut = setTimeout(() => {
