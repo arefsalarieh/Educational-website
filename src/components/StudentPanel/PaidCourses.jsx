@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import SearchCourses from "../common/search/searchCourses";
 import { Pagination } from "antd";
 import style from "./PaidCourses.modules.css";
@@ -137,6 +137,13 @@ const PaidCourses = () => {
     (item, index) => index >= start && index <= end
   );
 
+  const ref = useRef();
+  const onChange = (e) => {
+    clearTimeout(ref.current);
+    const timeOut = setTimeout(() => {
+      handleSearch(e)
+    }, 700);
+    ref.current = timeOut;}
   return (
     <div className="lg:flex mx-auto flex-wrap my-8 lg:pt-6 text-center font-irSans">
       <h2 className="block  my-12 lg:my-0  lg:w-7/12 lg:text-left text-2xl font-extrabold">
@@ -149,7 +156,7 @@ const PaidCourses = () => {
       /> */}
       <div className="border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12 mt-10">
         <input
-          onChange={handleSearch}
+         onChange={(e)=>onChange(e)}
           type="text"
           className="block w-full pr-4"
           placeholder="جستجوی دوره ..."
