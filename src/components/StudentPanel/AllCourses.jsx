@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import SearchCourses from "../common/search/searchCourses";
 import { Pagination } from "antd";
 import style from "./PaidCourses.modules.css";
@@ -19,23 +19,23 @@ const AllCoursesItem = ({
   return (
     <div className="my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border">
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">نام دوره :</span>
+        <span className="lg:hidden whitespace-nowrap">نام دوره :</span>
         <span className="font-light"> {name}</span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">مدرس :</span>
+        <span className="lg:hidden whitespace-nowrap">مدرس :</span>
         <span className="font-light">{teacher} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden"> آموزش و یادگیری :</span>
+        <span className="lg:hidden whitespace-nowrap"> آموزش و یادگیری :</span>
         <span className="font-light">{technologyList} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden"> سطح دوره :</span>
+        <span className="lg:hidden whitespace-nowrap"> سطح دوره :</span>
         <span className="font-light">{levelName} </span>
       </h2>
       <h2 className="font-extrabold mt-4 lg:mt-0">
-        <span className="lg:hidden">قیمت :</span>
+        <span className="lg:hidden whitespace-nowrap">قیمت :</span>
         <span className="font-light">{cost} تومان </span>
       </h2>
       <div className="mx-auto my-4 lg:my-0 bg-pannel bg-courseIcon bg-center rounded-full overflow-hidden w-6 h-6">
@@ -210,7 +210,12 @@ const AllCourses = () => {
   const smallList = pCourses.filter(
     (item, index) => index >= start && index <= end
   );
-
+  const onChange = (e) => {
+    clearTimeout(ref.current);
+    const timeOut = setTimeout(() => {
+      handleSearch(e)
+    }, 700);
+    ref.current = timeOut;}
   return (
     <div className="lg:flex mx-auto flex-wrap my-8 lg:pt-6 text-center font-irSans">
       <h2 className="block  my-12 lg:my-0  lg:w-7/12 lg:text-left text-2xl font-extrabold">
@@ -224,7 +229,7 @@ const AllCourses = () => {
       /> */}
         <div className="border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12 mt-10">
           <input
-            onChange={handleSearch}
+            onChange={(e)=>onChange(e)} 
             type="text"
             className="block w-full pr-4"
             placeholder="جستجوی دوره ..."
@@ -271,3 +276,4 @@ const AllCourses = () => {
 };
 
 export default AllCourses;
+
