@@ -62,7 +62,7 @@ const TeachersSlider = () => {
       data.map((item , index)=>{
         return(
       <SwiperSlide key={index}>
-        <Slide name={item.fullName} pic={item.pictureAddress} desc={item.linkdinProfileLink}/>
+        <Slide className='h-36' name={item.fullName} pic={item.pictureAddress} desc={item.linkdinProfileLink}/>
       </SwiperSlide>        
         )
       })     

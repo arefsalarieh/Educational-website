@@ -105,15 +105,10 @@ const Landing = () => {
 
           <div className='flex flex-wrap xl:flex-nowrap gap-12 lg:px-48'>
 
-            <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
-              <h3 className='  w-1/12'>اخبار </h3>
-              <span className='border-8 h-4 w-10/12 '></span>
-
-              <News/>
-            </div>
 
 
-            <div className='flex flex-wrap  items-center w-10/12 xl:w-1/2 mx-auto my-8 gap-4'>
+
+            <div className='flex flex-wrap  items-center w-10/12 xl:w-10/12 mx-auto my-8 gap-4'>
               <h3 className='  w-1/12'>مقالات </h3>
               <span className='border-8 h-4 w-10/12 '></span>
 

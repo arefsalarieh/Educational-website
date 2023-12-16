@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import http from '../../../core/services/interceptor'
 import {useMutation, useQuery} from 'react-query'
 import { LikeOutlined , DislikeOutlined} from "@ant-design/icons";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
-
-const Course = ({courseShape , refetch , status , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite , pageNumber , search , getCourseList}) => {
+const Course = ({courseShape , refetch , status , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite}) => {
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
@@ -17,12 +17,22 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
   }
 
   const handleReserve =async () =>{
+    
     const itemId = {
       courseId: idx,
     }
     const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
-    console.log(result);
+    // console.log(result);
+
+    if(result.success === true){
+      toast.success(result.message)    
+    }
+
+    else if(result.success === false){
+      toast.error(result.errors)       
+    }
   }
+  
 
   const handleFavorite =async () =>{
     if(userFavorite === false){
@@ -30,6 +40,7 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
         courseId: idx,
       }
       const result = await http.post('/Course/AddCourseFavorite' , itemId )
+      refetch()
       console.log(result);  
     }
 
@@ -42,7 +53,7 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
     const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
 
     console.log(result);
-    console.log(userIsLiked);
+    // console.log(userIsLiked);
     refetch()
   }
 
@@ -77,7 +88,7 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
       firstDiv:'lg:w-1/2  rounded-xl shadow-inner bg-course',
       img:'mx-auto',
       secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6',
-      h2:'font-bold mt-4 xl:mt-4',
+      h2:'font-bold mt-4 xl:mt-4 truncate',
       firstP:'mt-8',
       secondP:'mt-8',
       but:' block  border-zgh border rounded-xl mx-auto xl:mr-18 mt-6 py-1 px-4',
@@ -86,9 +97,9 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
     //course style for landing 
     {parent : 'border shadow-xl  pb-7 text-center w-full sm:w-5/12 lg:w-1/5',
       firstDiv:'bg-course p-8',
-      img:' mx-auto w-4/6',
+      img:' mx-auto w-4/6 h-20',
       secondDiv:'',
-      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4',
+      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4 ',
       firstP:'p-2 md:p-4 text-sm sm:text-base md:text-lg text-blue-400',
       secondP:'p-2',
       but:' border-2 text-zgh rounded-xl p-2 px-2 md:px-4 m-2 ',  
@@ -104,7 +115,7 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
     transition={{ delay:0.3}}
     className={courseShape =='courses' ? courseStyle[0].parent : courseStyle[1].parent}>
         <div className={courseShape =='courses' ? courseStyle[0].firstDiv : courseStyle[1].firstDiv}>
-            <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={src} alt="" />
+            <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={src ? src : './big.png'} alt="" />
         </div>
         <div className={courseShape =='courses' ? courseStyle[0].secondDiv : courseStyle[1].secondDiv}>
             <h2 className={courseShape =='courses' ? courseStyle[0].h2 : courseStyle[1].h2} onClick={handleClick}>{courseName}</h2>

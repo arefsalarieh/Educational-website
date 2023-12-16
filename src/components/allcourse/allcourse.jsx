@@ -40,7 +40,7 @@ const Allcourse = ({parentShape , courseShape}) => {
       const {data , status, refetch} = useQuery(['courseQuery' , pageNumber , search  ] , getCourseList , )
 
       
-      status === 'success' && console.log(data.courseFilterDtos);
+   
 
       var st = 'st' ;
 
@@ -79,7 +79,7 @@ const Allcourse = ({parentShape , courseShape}) => {
             {parentShape == 'courses' && (
               status === 'success' && (
                 <div className='mt-8'>
-                  <Pagination total={data.totalCount} pageSize={4} showQuickJumper onChange={pageSize=>{changeStart(pageSize)}}/>
+                  <Pagination total={data.totalCount} pageSize={4} showQuickJumper defaultCurrent={pageNumber} onChange={pageSize=>{changeStart(pageSize)}}/>
                 </div>            
                     
               )              

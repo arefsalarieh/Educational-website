@@ -19,6 +19,7 @@ import CoursesDetail from "../screens/CoursesDetail/CoursesDetail.jsx";
 import { CourseMenuDetail } from "../screens/DetailCourses/CourseMenuDetail.jsx";
 import NewRegister from "../screens/NewRegister.jsx/NewRegister.jsx";
 import NewLogin from "../screens/NewLogin/NewLogin.jsx";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const router = createBrowserRouter([
@@ -92,6 +93,10 @@ function App() {
   return (
     <QueryClientProvider client={client}>
       <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </QueryClientProvider>
   );
 }
