@@ -65,13 +65,15 @@ const Allcourse = ({parentShape , courseShape}) => {
 
             <div className={st }>
               {status === 'success' && (
-                data.courseFilterDtos.map((item , index)=>{
-                  return(
-                    <Course key={index} courseShape={courseShape} status={status} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
-                     date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount} userIsLiked={item.userIsLiked} userLikedId={item.userLikedId}
-                     userFavorite={item.userFavorite} pageNumber={pageNumber} search={search} getCourseList={getCourseList} refetch={refetch}/>          
-                  )
-                  })                 
+                  <Course refetch={refetch} courseList={data?.courseFilterDtos}/>
+
+                // data.courseFilterDtos.map((item , index)=>{
+                //   return(
+                //     <Course key={index} courseShape={courseShape} status={status} idx={item.courseId} courseName={item.title}  teacher={item.teacherName}
+                //      date={item.date} src={item.tumbImageAddress} likeCount={item.likeCount} userIsLiked={item.userIsLiked} userLikedId={item.userLikedId}
+                //      userFavorite={item.userFavorite} pageNumber={pageNumber} search={search} getCourseList={getCourseList} refetch={refetch}/>          
+                //   )
+                //   })                 
               )}
 
             </div>

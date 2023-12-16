@@ -8,13 +8,15 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 
-const Course = ({courseShape , refetch , status , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite}) => {
+const Course = ({courseList , courseShape , refetch , status , idx , courseName , teacher , date , src , likeCount , userIsLiked , userLikedId , userFavorite}) => {
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
   const handleClick = () => {
     navigate("/CourseMenuDetail/" + idx)
   }
+
+ 
 
   const handleReserve =async () =>{
     
@@ -34,48 +36,62 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
   }
   
 
-  const handleFavorite =async () =>{
-    if(userFavorite === false){
+  const handleFavorite =async (idC , IsFavorite , favoriteId) =>{
+    if(IsFavorite === false){
       const itemId = {
-        courseId: idx,
+        courseId: idC,
       }
       const result = await http.post('/Course/AddCourseFavorite' , itemId )
+      console.log(result);        
       refetch()
-      console.log(result);  
+    }
+
+    else if(IsFavorite === true){
+      const data = new FormData();
+
+      const itemId = {
+        CourseFavoriteId: favoriteId,
+      }
+
+      const keys = Object.keys(itemId)
+      keys.forEach((key)=>{
+        const item = itemId[key]
+        data.append(key , item)
+        //console.log(data);
+      })
+
+       const result = await http.delete('/Course/DeleteCourseFavorite' , {data:data} )
+       refetch()
+      console.log(result);
     }
 
   } 
 
 
 
-  const handleLike =async (e) =>{
+  const handleLike =async (courseId , likeId , isLike) =>{
+    if(isLike === false){
+      const result = await http.post(`/Course/AddCourseLike?CourseId=${courseId}`)
+      console.log(result);
+      refetch()      
+    }
 
-    const result = await http.post(`/Course/AddCourseLike?CourseId=${idx}`)
+    else if(isLike === true){
+      const data = new FormData()
+      data.append('CourseLikeId' , likeId)
+      const result = await http.delete(`/Course/DeleteCourseLike` , {data:data}) 
+      console.log(result);  
+      refetch() 
+    }
 
-    console.log(result);
-    // console.log(userIsLiked);
-    refetch()
+
   }
 
   
 
 
 
-  const handleDeleteLike =async () =>{
-    const data = new FormData()
-    try{
-
-    data.append('CourseLikeId' , userLikedId)
-
-     const result = await http.delete(`/Course/DeleteCourseLike` , {data:data})  
-
-     console.log(result);  
-     refetch() 
-    }catch(error){
-      console.log(error);
-    }
-
-  }
+  
 
   
   
@@ -108,43 +124,49 @@ const Course = ({courseShape , refetch , status , idx , courseName , teacher , d
 
   return (
 
+    <>
+      {courseList?.map((item , index)=>{
+        return(
+        <motion.div
+          key={index}
+          initial={{opacity:0}}
+          whileInView={{opacity:1}}
+          transition={{ delay:0.3}}
+          className={courseShape =='courses' ? courseStyle[0].parent : courseStyle[1].parent}>
+              <div className={courseShape =='courses' ? courseStyle[0].firstDiv : courseStyle[1].firstDiv}>
+                  <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={item.tumbImageAddress ? item.tumbImageAddress : './big.png'} alt="" />
+              </div>
+              <div className={courseShape =='courses' ? courseStyle[0].secondDiv : courseStyle[1].secondDiv}>
+                  <h2 className={courseShape =='courses' ? courseStyle[0].h2 : courseStyle[1].h2} onClick={handleClick}>{item.title}</h2>
+                  <p className={courseShape =='courses' ? courseStyle[0].firstP : courseStyle[1].firstP}>مدرس : {item.teacherName} </p>
+                  {courseShape =='courses' ? 
+                  <p className={ courseStyle[0].secondP }>   آخرین آپدیت : {هفثئ.lastUpdate}</p>
+                  : null}
 
-    <motion.div
-    initial={{opacity:0}}
-    whileInView={{opacity:1}}
-    transition={{ delay:0.3}}
-    className={courseShape =='courses' ? courseStyle[0].parent : courseStyle[1].parent}>
-        <div className={courseShape =='courses' ? courseStyle[0].firstDiv : courseStyle[1].firstDiv}>
-            <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={src ? src : './big.png'} alt="" />
-        </div>
-        <div className={courseShape =='courses' ? courseStyle[0].secondDiv : courseStyle[1].secondDiv}>
-            <h2 className={courseShape =='courses' ? courseStyle[0].h2 : courseStyle[1].h2} onClick={handleClick}>{courseName}</h2>
-            <p className={courseShape =='courses' ? courseStyle[0].firstP : courseStyle[1].firstP}>مدرس : {teacher} </p>
-            {courseShape =='courses' ? 
-            <p className={ courseStyle[0].secondP }>  تاریخ شروع : {date}</p>
-            : null}
+                  <div className='flex  h-6  mt-6'>
 
-            <div className='flex  h-6  mt-6'>
+                    <button onClick={()=>handleFavorite(item.courseId , item.userFavorite , item.userFavoriteId)} className='flex w-1/2  h-6 justify-center'>
+                      {item.userFavorite === true  ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
+                  
+                    </button>
 
-              <button onClick={handleFavorite} className='flex w-1/2  h-6 justify-center'>
-                {userFavorite === true  ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
-             
-              </button>
+                  <button onClick={()=>{handleLike(item.courseId , item.userLikedId , item.userIsLiked)}} className='flex w-1/4  h-6 justify-center '>
+                    
+                      {item.userIsLiked === true ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
+                      <h5 className='mr-2'>{item.likeCount}</h5>                        
+                    </button>                
+           
+                  </div>
 
-             <button onClick={handleLike} className='flex w-1/4  h-6 justify-center '>
-               
-                {userIsLiked === true ? <img className=' overflow-hidden' src='./like2.png'/> : <img className=' overflow-hidden' src='./like1.png'/>}
-                <h5 className='mr-2'>{count}</h5>                        
-              </button>                
+                  <button onClick={handleReserve} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
+              </div>
+          </motion.div>              
+        )
+      })}
 
-              <button onClick={handleDeleteLike} className='flex w-1/4  h-6 justify-center '>
-                <img className=' overflow-hidden' src='./dislike1.png'/>       
-              </button>              
-            </div>
+    </>
 
-            <button onClick={handleReserve} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
-        </div>
-    </motion.div>
+
   )
 }
 
