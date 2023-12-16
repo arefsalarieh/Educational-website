@@ -52,7 +52,7 @@ const Comments = ({ id , changeToInsertComment}) => {
           {
             data?.length === 0 ? <NoCommentsYet changeToInsertComment={changeToInsertComment} /> :
             data?.map((cmnt, index) => { return (
-              <UserComment key={index} data={cmnt} status={status} refetch={refetch} qClient = {queryClient} />
+              <UserComment key={index} data={cmnt} status={status} refetch={refetch()} qClient = {queryClient} />
               )})
           }
           {/*Boutton */}
