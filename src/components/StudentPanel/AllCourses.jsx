@@ -39,6 +39,7 @@ const AllCoursesItem = ({ favoriteList , refetch}) =>{
       {favoriteList && favoriteList.map((item , index)=>{
         return(
           <div key={index} className='my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-4 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border' >
+            {index+1} -
             <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0 rounded-full overflow-hidden'>
               <img className=' mt-6 lg:mt-0 mx-auto w-12 h-12 rounded-full overflow-hidden' src={item.pic ? item.pic : 'big.png'}/>        
             </div>
@@ -96,7 +97,7 @@ const AllCourses = () => {
           <h3 className='pr-3 xl:pr-6 2xl:pr-8  '>نصویز</h3>
           <h3 className='pr-24 '>نام دوره</h3>
           <h3 className='pr-40'>مدرس</h3>
-          <h3 className='pr-40'> سطح دوره</h3>
+          <h3 className='pr-40'> نوع دوره</h3>
 
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState , useEffect , useRef } from 'react'
 import Course from '../common/course/Course'
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
@@ -18,11 +18,18 @@ const Allcourse = ({parentShape , courseShape}) => {
     
 
 
+    const ref = useRef();
 
     const handleSearch = (e) =>{
-      console.log(e.target.value);
-      e.target.value && setSearch(`&Query=${e.target.value}`)
+      clearTimeout(ref.current)
+
+     const timeOut = setTimeout(()=>{
+      e.target.value && setSearch(`&Query=${e.target.value}`)      
+     },800)
+
       !e.target.value && setSearch('')
+
+      ref.current = timeOut
     }
    
       const changeStart = (pageSize) =>{

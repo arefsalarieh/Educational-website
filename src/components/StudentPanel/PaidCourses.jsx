@@ -66,29 +66,7 @@ const PaidCourses = () => {
 
 
 
-  // const [pCourses , setPCourses] = useState([
-  //   {pic:'c1.png' , name : '1دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c2.png' , name : '2دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c3.png' , name : '3دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c4.png' , name : '4دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c1.png' , name : '5دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c2.png' , name : '6دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c3.png' , name : '7دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  //   {pic:'c4.png' , name : '8دوره ریکت' , teacher : 'دکنر بحرالعلوم' , term : 'بهار ' , startDate : '1400/02/02' , cost : '250000   '},
-  // ])
 
-  // const [start , setStart] = useState(0)
-  // var end = start + 5 ;
-
-  // const changeStart = (pageSize) =>{
-  //   setStart((pageSize-1)*6) ;
-  // }  
-
-
-  // const smallList = pCourses.filter((item , index)=>index >= start && index <= end)
-
-
-// console.log(data);
 
   return (
     <div className='lg:flex mx-auto flex-wrap my-8 lg:pt-6 text-center font-irSans'>
@@ -107,8 +85,11 @@ const PaidCourses = () => {
         {status === 'success' && (
           data?.map((item , index)=>{
             return(
-              <PaidCoursesItem refetch={refetch} key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
-              term={item.term} startDate={item.reserverDate} cost={item.cost} reserveId={item.reserveId}/>            
+              <>
+                  <PaidCoursesItem refetch={refetch} key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
+                  term={item.term} startDate={item.reserverDate} cost={item.cost} reserveId={item.reserveId}/>   
+              </>
+         
               )
             })
             )}
