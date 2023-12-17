@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaHeartBroken } from "react-icons/fa";
 import { BsBookHalf } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -14,6 +14,7 @@ const NewsCard = ({
   description,
   pic,
   isLiked,
+  isDisLiked,
   onClick,
 }) => {
   const handleLikeClick = () => {
@@ -40,6 +41,17 @@ const NewsCard = ({
             ) : (
               <span className="text-xl text-white " onClick={handleLikeClick}>
                 <FaRegHeart />
+              </span>
+            )}
+          </div>
+          <div className="absolute bottom-6 left-2 p-1 bg-slate-500 rounded-full bg-opacity-70 cursor-pointer">
+            {isDisLiked ? (
+              <span className="text-xl text-red-500" onClick={handleLikeClick}>
+                <FaHeartBroken />
+              </span>
+            ) : (
+              <span className="text-xl text-white " onClick={handleLikeClick}>
+                <FaHeartBroken />
               </span>
             )}
           </div>

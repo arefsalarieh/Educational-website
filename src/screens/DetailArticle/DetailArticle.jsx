@@ -9,21 +9,71 @@ import { Comments } from "./Comments";
 import { motion } from "framer-motion";
 import NewsArticle from "../../../public/NewsArticle.png";
 
-import {
-  BsFillCheckCircleFill,
-} from "react-icons/bs";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import { FaHeart, FaHeartBroken, FaRegHeart } from "react-icons/fa";
+import { useMutation } from "react-query";
+import instance from "../../core/services/interceptor";
+import toast from "react-hot-toast";
+import ReactStars from "react-rating-stars-component";
 
-const DetailArticle = ({data}) => {
-  
+const DetailArticle = ({ data, refetch }) => {
+  // console.log(data);
+  const onLikeMutate = useMutation(() =>
+    instance
+      .post(`/News/NewsLike/${data?.id}`)
+      .then((res) => res.success === "true" && toast.success(res.message))
+  );
+
+  const onDislikeMutate = useMutation(() =>
+    instance
+      .post(`/News/NewsDissLike/${data?.id}`)
+      .then((res) => res.success === "true" && toast.success(res.message))
+  );
+
+  const onChangeRatingMutate = useMutation((newRating) => {
+    instance
+      .post(`/News/NewsRate?NewsId=${data?.id}&RateNumber=${newRating}`)
+      .then((res) => {
+        res.success === true && toast.success(res.message);
+        res.error === true && toast.success(res.message);
+      });
+  });
+
+  const handleLikeClick = (bool) => {
+    if (bool == false) {
+      onLikeMutate.mutate();
+      refetch();
+    }
+  };
+
+  const handleDislikeClick = (bool) => {
+    if (bool == false) {
+      onDislikeMutate.mutate();
+      refetch();
+    }
+  };
+
+  const onChangeNewsRate = (newRating) => {
+    onChangeRatingMutate.mutate(newRating);
+  };
+
   return (
     <>
       {/* Global Container */}
-      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.3}} className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 dark:bg-slate-600 ">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="w-full flex  flex-col  font-irSans bg-zinc-100 mx-auto p-5 dark:bg-slate-600 ">
         {/* Top Container */}
         {/* sm:flex-row */}
         <div className="flex flex-col-reverse md:flex-row">
           {/* Right Side */}
-          <motion.div initial={{opacity:0, x:100}} animate={{opacity:1, x:0}} transition={{delay:0.3}} className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center   ps-4">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="w-full flex flex-col gap-6 lg:w-2/3  mx-auto justify-center   ps-4">
             <div className="flex  flex-col md:flex-row justify-start gap-6   md:gap-16  lg:gap-28 ">
               {/*title */}
               <div className="flex gap-2 md:flex-col">
@@ -63,9 +113,21 @@ const DetailArticle = ({data}) => {
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
 
                   <p className="text-[13px]  font-bold font-irSans">
+                    نویسنده :
+                  </p>
+                  <span className=" text-[13px]">
+                    {data?.addUserFullName.replace("-", " ")}
+                  </span>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+
+                  <p className="text-[13px]  font-bold font-irSans">
                     تاریخ انتشار خبر :
                   </p>
-                  <span className=" text-[13px]">{data?.updateDate}</span>
+                  <span className=" text-[13px]">
+                    {data?.updateDate.slice(0, 10)}
+                  </span>
                 </div>
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
@@ -74,21 +136,82 @@ const DetailArticle = ({data}) => {
                   </p>
                   <span className="text-[13px] font-irSans">مقاله</span>
                 </div>
+                <div className="flex w-4/5 justify-between flex-row gap-2">
+                  <div className="flex justify-between flex-row gap-2">
+                    <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                    <p className="text-[13px]  font-bold font-irSans">
+                      تعداد بازدید :
+                    </p>
+                    <span className=" text-[13px]">{data?.currentView}</span>
+                  </div>
+                  <div className="flex justify-between items-center flex-row gap-2">
+                    <p className="text-[13px]  font-bold font-irSans">
+                      امتیاز خبر:
+                    </p>
+                    <ReactStars
+                      count={5}
+                      value={data?.currentRate}
+                      onChange={onChangeNewsRate}
+                      size={24}
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-row gap-2">
+                  <div
+                    className="flex flex-row cursor-pointer"
+                    onClick={() => handleLikeClick(data?.currentUserIsLike)}>
+                    {data?.currentUserIsLike ? (
+                      <FaHeart className=" text-red-500 w-4 h-4" />
+                    ) : (
+                      <FaRegHeart className=" text-secondary w-4 h-4" />
+                    )}
+                    <p className="text-[13px] mx-2 font-bold font-irSans">
+                      تعداد لایک :
+                    </p>
+                    <span className=" text-[13px]">
+                      {data?.currentLikeCount}
+                    </span>
+                  </div>
+                  <div
+                    className="flex flex-row ms-6 cursor-pointer"
+                    onClick={() =>
+                      handleDislikeClick(data?.currentUserIsDissLike)
+                    }>
+                    {data?.currentUserIsDissLike ? (
+                      <FaHeartBroken className=" text-red-500 w-4 h-4" />
+                    ) : (
+                      <FaHeartBroken className=" text-secondary w-4 h-4" />
+                    )}
+                    <p className="text-[13px] mx-2 font-bold font-irSans">
+                      تعداد دیسلایک :
+                    </p>
+                    <span className=" text-[13px]">
+                      {data?.currentDissLikeCount}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             {/*end More Information  Section*/}
           </motion.div>
           {/* end Right Side */}
           {/* Left Side */}
-          <motion.div initial={{opacity:0, x:-100}} animate={{opacity:1, x:0}} transition={{delay:0.3}}>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}>
             {/* Images */}
-            <div className="w-full  mx-auto justify-center  ">
-              <img
-                src={data?.currentImageAddress == null ? NewsArticle : data?.currentImageAddress}
-                className="mx-auto justify-center"
-                alt="newsPic"
-              />
-            </div>
+            {/* <div className="w-full  mx-auto justify-center  "> */}
+            <img
+              src={
+                data?.currentImageAddress == null
+                  ? NewsArticle
+                  : data?.currentImageAddress
+              }
+              className="mx-auto justify-center max-w-2xl max-h-96"
+              alt="newsPic"
+            />
+            {/* </div> */}
           </motion.div>
           {/* end Left Side */}
         </div>
@@ -106,7 +229,11 @@ const DetailArticle = ({data}) => {
         {/* end Border Split Top and Below */}
 
         {/*The ListOf Related news and articles */}
-        <motion.div initial={{opacity:0, y:100}} animate={{opacity:1, y:0}} transition={{delay:0.7}} className="">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="">
           {/* <ListArticleDetail articelList={articelList} /> */}
           <SliderRelationNews />
         </motion.div>
