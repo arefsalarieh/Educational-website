@@ -10,10 +10,14 @@ import {BsFillCheckCircleFill, BsFillArrowDownCircleFill,} from "react-icons/bs"
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import { useParams } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 const DetailCourse = () => {
+
   const {id} = useParams();
-  // status==='success' && console.log(title);
+
 
 
   const courseInfo =async () =>{
@@ -23,8 +27,25 @@ const DetailCourse = () => {
 
   const {data , status} = useQuery(['courseInfo' , id] , courseInfo )
 
+  
 
-// status === 'success' && console.log(data);
+
+  const handleReserve =async (courseIdx) =>{
+    
+    const itemId = {
+      courseId: courseIdx,
+    }
+    const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
+    // console.log(result);
+
+    if(result.success === true){
+      toast.success(result.message)    
+    }
+
+    else if(result.success === false){
+      toast.error(result.errors)       
+    }
+  }
 
 
 
@@ -87,6 +108,7 @@ const DetailCourse = () => {
                      {status === 'success' && data.startTime}                     
                   </span>
                 </div>
+
                 <div className="flex flex-row gap-2">
                   <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
                   <p className="text-[13px]  font-bold font-irSans">
@@ -96,6 +118,45 @@ const DetailCourse = () => {
                      {status === 'success' && data.endTime}                      
                   </span>
                 </div>
+
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                      مدرس : 
+                  </p>
+                  <span className="text-[13px] font-irSans">
+                     {status === 'success' && data.teacherName}                      
+                  </span>
+                </div>
+
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                      ظرفیت : 
+                  </p>
+                  <span className="text-[13px] font-irSans">
+                     {status === 'success' && data.capacity}                      
+                  </span>
+                </div>
+
+                <div className="flex flex-row gap-2">
+                  <BsFillCheckCircleFill className=" rounded-full text-secondary w-4 h-4" />
+                  <p className="text-[13px]  font-bold font-irSans">
+                      توضیحات : 
+                  </p>
+                  <span className="text-[13px] font-irSans">
+                     {status === 'success' && data.describe}                      
+                  </span>
+                </div>
+
+
+
+
+                
+                <div className="flex flex-row gap-2">
+                  <button onClick={()=>handleReserve(id)}  className='border-2 text-white bg-zgh rounded-xl p-2 px-2 md:px-4 m-2'>ثبت دوره</button>
+                </div>
+                
               </div>
             </div>
             {/*end More Information  Section*/}

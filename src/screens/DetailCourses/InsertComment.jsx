@@ -7,6 +7,9 @@ import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import { useParams , useNavigate } from "react-router-dom";
 import { clearStorage } from "../../core/services/common/storage.services";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 
 const InsertComment = () => {
@@ -38,7 +41,14 @@ const InsertComment = () => {
       })
 
       const result = await http.post(`/Course/AddCommentCourse` , data)
-
+      if(result.success === true){
+        toast.success(result.message)    
+      }
+  
+      else if(result.success === false){
+        toast.error(result.errors)       
+      }
+      
       console.log(result);
     }catch(error){
       clearStorage()

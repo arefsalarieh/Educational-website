@@ -12,16 +12,18 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
   const [count , setCount] = useState(likeCount)
   const navigate = useNavigate()
   const [like , setLike] = useState(1)
-  const handleClick = () => {
-    navigate("/CourseMenuDetail/" + idx)
+
+
+  const handleClick = (courseIdx) => {
+    navigate("/CourseMenuDetail/" + courseIdx)
   }
 
  
 
-  const handleReserve =async () =>{
+  const handleReserve =async (courseIdx) =>{
     
     const itemId = {
-      courseId: idx,
+      courseId: courseIdx,
     }
     const result = await http.post('/CourseReserve/ReserveAdd' , itemId )
     // console.log(result);
@@ -104,7 +106,7 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
       firstDiv:'lg:w-1/2  rounded-xl shadow-inner bg-course',
       img:'mx-auto',
       secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6',
-      h2:'font-bold mt-4 xl:mt-4 truncate',
+      h2:'font-bold mt-4 xl:mt-4 truncate cursor-pointer',
       firstP:'mt-8',
       secondP:'mt-8',
       but:' block  border-zgh border rounded-xl mx-auto xl:mr-18 mt-6 py-1 px-4',
@@ -115,7 +117,7 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
       firstDiv:'bg-course p-8',
       img:' mx-auto w-4/6 h-20',
       secondDiv:'',
-      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4 ',
+      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4 cursor-pointer ',
       firstP:'p-2 md:p-4 text-sm sm:text-base md:text-lg text-blue-400',
       secondP:'p-2',
       but:' border-2 text-zgh rounded-xl p-2 px-2 md:px-4 m-2 ',  
@@ -137,7 +139,7 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
                   <img className={courseShape =='courses' ? courseStyle[0].img : courseStyle[1].img}  src={item.tumbImageAddress ? item.tumbImageAddress : './big.png'} alt="" />
               </div>
               <div className={courseShape =='courses' ? courseStyle[0].secondDiv : courseStyle[1].secondDiv}>
-                  <h2 className={courseShape =='courses' ? courseStyle[0].h2 : courseStyle[1].h2} onClick={handleClick}>{item.title}</h2>
+                  <h2 className={courseShape =='courses' ? courseStyle[0].h2 : courseStyle[1].h2} onClick={()=>handleClick(item.courseId)}>{item.title}</h2>
                   <p className={courseShape =='courses' ? courseStyle[0].firstP : courseStyle[1].firstP}>مدرس : {item.teacherName} </p>
                   {courseShape =='courses' ? 
                   <p className={ courseStyle[0].secondP }>   آخرین آپدیت : {هفثئ.lastUpdate}</p>
@@ -158,7 +160,7 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
            
                   </div>
 
-                  <button onClick={handleReserve} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
+                  <button onClick={()=>handleReserve(item.courseId)} className={courseShape =='courses' ? courseStyle[0].but : courseStyle[1].but}>ثبت دوره</button>
               </div>
           </motion.div>              
         )
