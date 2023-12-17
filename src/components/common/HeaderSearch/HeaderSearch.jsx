@@ -29,7 +29,6 @@ const HeaderSearch = () => {
     queryFn: () => {
       if (!inputEntered) return;
       return headerNewsSearch(inputEntered).then((data) => {
-        console.log(data);
         return data.news;
       });
     },
@@ -141,12 +140,16 @@ const HeaderSearch = () => {
             data={course}
             isLoading={courseIsLoading}
             header="دوره‌ها"
+            wannaSearch={wannaSearch}
+            setWannaSearch={setWannaSearch}
           />
           {/* news result */}
           <SearchResItems
             data={news}
             isLoading={newsIsLoading}
             header="اخبار و مقالات"
+            wannaSearch={wannaSearch}
+            setWannaSearch={setWannaSearch}
           />
         </motion.div>
       </motion.div>

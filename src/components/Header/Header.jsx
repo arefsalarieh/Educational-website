@@ -197,7 +197,6 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate()
   const user = useSelector((reducer) => reducer.user);
-  setItem("userF&LName", (user.fname + " " + user.lname))
 
   return (
     <header className="bg-transparent">
@@ -262,14 +261,6 @@ const Header = () => {
             <span>تماس با ما</span>
           </Link>
 
-          {/* {getItem("token") && (
-            <Link
-              to="/studentPanel"
-              className="underline-hover bg-white dark:bg-inherit text-sm leading-6 font-irSans flex items-center gap-x-2 box-border hover:text-secondary transition-all duration-200 px-2 py-1">
-              <PhoneIcon className="h-4 w-4" aria-hidden="true" />
-              <span>پنل</span>
-            </Link>             
-          )} */}
         </Popover.Group>
 
         {getItem("token") ? (
@@ -282,7 +273,7 @@ const Header = () => {
               onClick={() => navigate(`/studentPanel` )}
               className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
               <img src="" alt="" />
-              <span>{user.fname  !== null || undefined ? user.fname + " " + user.lname : "کاربر بی نام"}</span>
+              <span>{user.fname  !== null || undefined ? getItem("userF&LName") : "کاربر بی نام"}</span>
             </Link>
             <Link
               to="/"

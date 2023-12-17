@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import instance from '../../core/services/interceptor';
 import {onPhoneNumberChange, onFnameChange, onLnameChange, onUsernameChange, onEmailChange, onImageChange} from '../../redux/user'
 import toast from 'react-hot-toast';
+import { setItem } from '../../core/services/common/storage.services';
 
 const SuccessLogin = () => {
     const navigate = useNavigate()
@@ -14,6 +15,7 @@ const SuccessLogin = () => {
     }
 
     const userId = useSelector(state => state.user.id)
+    const user = useSelector(state => state.user)
 
     const {data: getUserDataById, status} = useQuery("getUserDataById", () => {return instance.get(`/User/UserDetails/${userId}`)})
     console.log(getUserDataById);
@@ -26,7 +28,10 @@ const SuccessLogin = () => {
       dispatch(onEmailChange(getUserDataById.gmail))
       dispatch(onImageChange(getUserDataById.currentPictureAddress))
       toast.success("ورود موفقیت آمیز")
-    } else toast.error("خطا در دریافت داده")
+    }
+
+  setItem("userF&LName", (user.fname + " " + user.lname))
+
 
 
   return (
