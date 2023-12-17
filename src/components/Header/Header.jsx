@@ -32,6 +32,7 @@ import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
 import {
   getItem,
   removeItem,
+  setItem,
 } from "../../core/services/common/storage.services";
 import { useSelector } from "react-redux";
 
@@ -196,7 +197,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate()
   const user = useSelector((reducer) => reducer.user);
-  console.log(user);
+  setItem("userF&LName", (user.fname + " " + user.lname))
 
   return (
     <header className="bg-transparent">

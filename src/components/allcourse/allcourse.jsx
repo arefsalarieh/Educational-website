@@ -65,7 +65,7 @@ const Allcourse = ({parentShape , courseShape}) => {
             {parentShape === 'courses' && 
               <div className='border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12'>
                 <input onChange={handleSearch} type="text" className='block w-full pr-4' placeholder='جستجوی دوره ...' />
-                <button className='block  bg-magnifier bg-50 bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4 bg-zgh'></button>
+                <button className='block  bg-magnifier bg-[length:30px_30px] bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4 bg-zgh'></button>
               </div>            
             }
 

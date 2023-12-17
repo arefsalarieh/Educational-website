@@ -1,6 +1,6 @@
 import axios from "axios";
 import { json } from "react-router-dom";
-import { getItem } from "../common/storage.services";
+import { getItem, removeItem } from "../common/storage.services";
 import { useSelector , useDispatch } from 'react-redux'
 
 
@@ -17,17 +17,24 @@ const onSuccess = (response) => {
 }
 
 const onError = (err) => {
-    // console.log(err);
+    console.log(err);
 
-    // if(err.response.status === 401){
-    //     // clearStorage()
-    //     removeItem('token');
-    //     window.location.pathname = '/' // or '/login'
-    // }
+    if (err.message === "Network Error"){
+        toast.error("توکن شما منقضی شده است")
+        removeItem('token');
+        window.location.pathname = '/login'
+    }
 
-    // if(err.response.status >= 400 && err.response.status < 500){
-    //     // alert("Client request error: " + err.response.status);
-    // }
+    if(err.response.status === 401){
+        // clearStorage()
+        removeItem('token');
+        toast.error('توکن شما منقضی شده است')
+        window.location.pathname = '/' // or '/login'
+    }
+
+    if(err.response.status >= 400 && err.response.status < 500){
+        // alert("Client request error: " + err.response.status);
+    }
 
     return Promise.reject(err);
 }

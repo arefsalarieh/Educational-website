@@ -29,6 +29,7 @@ const ListNewsCards = ({ data, isLoading, status }) => {
             description={card.miniDescribe}
             pic={card.currentImageAddressTumb ? card.currentImageAddressTumb : card.addUserProfileImage}
             isLiked={card.currentUserIsLike}
+            isDisLiked={card.currentUserIsDissLike}
             onClick={() => navigate("/NewsArticle/menudetail/" + card.id)}
           />
         );

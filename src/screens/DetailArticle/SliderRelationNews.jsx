@@ -29,6 +29,7 @@ const SliderRelationNews = () => {
       });
     },
   });
+  console.log(data?.news);
 
   const sliderItemNavigate = (id) => {
     navigate("/NewsArticle/menudetail/" + id)
@@ -64,16 +65,16 @@ const SliderRelationNews = () => {
           {status === "success" &&
             data.news?.map((card, index) => {
               return (
-                <SwiperSlide key={card}>
+                <SwiperSlide key={index}>
                   <SingleArticleDetail
                     key={card.id}
                     id={card.id}
                     title={card.title}
                     date={card.insertDate}
                     pic={
-                      card?.currentImageAddress == null
+                      card?.currentImageAddressTumb == null || undefined || false
                         ? NewsArticle
-                        : card?.currentImageAddress
+                        : card?.currentImageAddressTumb
                     }
                     name={card.addUserFullName}
                     onClick={() => sliderItemNavigate(card.id)}
