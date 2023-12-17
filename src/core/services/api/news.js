@@ -2,7 +2,7 @@ import http from '../interceptor'
 
 export const getAllNews = async (params) => {
     const result = await http.get(
-      `/News?PageNumber=${params.PageNumber}&RowsOfPage=${params.RowsOfPage}&SortingCol=${params.SortingCol}&SortType=${params.SortType}&Query=`
+      `/News?PageNumber=${params.PageNumber}&RowsOfPage=${params.RowsOfPage}&SortingCol=${params.SortingCol}&SortType=${params.SortType}&Query=${params.Query}`
     );
     return result;
   };

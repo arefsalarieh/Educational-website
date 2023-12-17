@@ -27,7 +27,7 @@ const ListNewsCards = ({ data, isLoading, status }) => {
             view={card.currentView}
             nameWriter={card.addUserFullName}
             description={card.miniDescribe}
-            pic={card.addUserProfileImage}
+            pic={card.currentImageAddressTumb ? card.currentImageAddressTumb : card.addUserProfileImage}
             isLiked={card.currentUserIsLike}
             onClick={() => navigate("/NewsArticle/menudetail/" + card.id)}
           />

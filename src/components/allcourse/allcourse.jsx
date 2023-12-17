@@ -91,7 +91,7 @@ const Allcourse = ({parentShape , courseShape}) => {
                   <Pagination total={data.totalCount} pageSize={4} showQuickJumper defaultCurrent={pageNumber} onChange={pageSize=>{changeStart(pageSize)}}/>
                 </div>            
                     
-              )              
+              )               
             )}
 
 

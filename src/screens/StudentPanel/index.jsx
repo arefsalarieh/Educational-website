@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RightMenu from "../../components/StudentPanel/RightMenu.jsx";
 import LeftLayout from "../../components/StudentPanel/LeftLayout.jsx";
 import { motion } from "framer-motion"
+import { getItem } from "../../core/services/common/storage.services.js";
 
 const userInfo = {
   img: "https://shiftart.com/wp-content/uploads/2017/04/RC-Profile-Square-1000x1000.jpg",

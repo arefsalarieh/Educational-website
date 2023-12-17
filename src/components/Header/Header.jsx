@@ -27,7 +27,7 @@ import {
   XMarkIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HeaderSearch from "../common/HeaderSearch/HeaderSearch";
 import {
   getItem,
@@ -194,8 +194,9 @@ const Header2 = () => {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navigate = useNavigate()
   const user = useSelector((reducer) => reducer.user);
+  console.log(user);
 
   return (
     <header className="bg-transparent">
@@ -276,7 +277,8 @@ const Header = () => {
             style={{ flex: 1 }}>
             <HeaderSearch />
             <Link
-              to="login"
+              to=""
+              onClick={() => navigate(`/studentPanel` )}
               className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
               <img src="" alt="" />
               <span>{user.fname  !== null || undefined ? user.fname + " " + user.lname : "کاربر بی نام"}</span>

@@ -8,19 +8,35 @@ import { Button, Dropdown, Pagination, Space } from "antd";
 import SearchCourses from "../../components/common/search/SearchCourses";
 import { BsFillCalendarCheckFill } from "react-icons/bs";
 import http from "../../core/services/interceptor";
+import { useRef } from "react";
 
 // import "react-datepicker/dist/react-datepicker.css";
 // import { DatePickerPersian } from "../../components/common/datePicker/DatePickerPersian"
 // import "../../datepicker.css";
 
 const NewsArticle = () => {
-  const { ref, inView } = useInView();
   const qClient = new QueryClient();
+  const [search , setSearch] = useState('')
+  const ref = useRef();
+
+  const handleSearch = (e) =>{
+    clearTimeout(ref.current)
+
+   const timeOut = setTimeout(()=>{
+    e.target.value && setSearch(e.target.value)
+   },800)
+
+    !e.target.value && setSearch('')
+
+    ref.current = timeOut
+  }
+
   const [params, setParams] = useState({
     PageNumber: 1,
     RowsOfPage: 10,
     SortingCol: "InsertDate",
     SortType: "DESC",
+    Query: search,
   });
 
   const { data, isLoading, status } = useQuery({
@@ -28,15 +44,16 @@ const NewsArticle = () => {
     queryFn: () => {
       return getAllNews(params).then((data) => {
         // console.log(data.news);
-        return data.news;
+        return data;
       });
     },
   });
 
-  const [pageNumber, setPageNumber] = useState(1);
-  const changeStart = (pageSize) => {
-    setPageNumber(pageSize);
-  };
+  console.log(data?.news);
+
+  const changeStart = (pageSize) =>{
+    setParams({...params, PageNumber: pageSize}) ;
+  } 
 
   // const {
   //   status,
@@ -60,11 +77,11 @@ const NewsArticle = () => {
   //   }
   // );
 
-  React.useEffect(() => {
-    if (inView) {
-      fetchNextPage();
-    }
-  }, [inView]);
+  // React.useEffect(() => {
+  //   if (inView) {
+  //     fetchNextPage();
+  //   }
+  // }, [inView]);
 
   return (
     <div className="font-irSans">
@@ -84,7 +101,10 @@ const NewsArticle = () => {
             اخبار و مقالات
           </p>
           {/* <AntdInputSearch className="flex  justify-items-center mx-auto placeholder:font-irSans placeholder:font-light placeholder:text-[10px] md:w-[400px]" /> */}
-          <SearchCourses className="cursor-pointer" />
+          <div className='border mx-auto  flex rounded-lg  overflow-hidden w-8/12 md:w-6/12 h-10 md:h-12'>
+                <input onChange={handleSearch} type="text" className='block w-full pr-4' placeholder='جستجوی دوره ...' />
+                <button className='block  bg-magnifier bg-50 bg-no-repeat bg-center  rounded-none w-10 md:w-12  text-white p-2.5 px-4 bg-zgh'></button>
+              </div>     
         </div>
         {/*end Title and Input Seach  */}
         {/* filter newsArticle */}
@@ -140,7 +160,7 @@ const NewsArticle = () => {
                   SortType: e.target.value,
                 });
               }}>
-              <option selected disabled>
+              <option defaultValue disabled>
                 ترتیب نمایش
               </option>
               <option value="ASC">صعودی</option>
@@ -166,7 +186,11 @@ const NewsArticle = () => {
 
         {/*The ListOf News and Articels */}
 
-        <ListNewsCards status={status} data={data} isLoading={isLoading} />
+        <ListNewsCards
+          status={status}
+          data={data?.news}
+          isLoading={isLoading}
+        />
 
         {/*Button More */}
         <div>
@@ -187,6 +211,7 @@ const NewsArticle = () => {
                 total={data.totalCount}
                 pageSize={10}
                 showQuickJumper
+                defaultCurrent={params.PageNumber}
                 onChange={(pageSize) => {
                   changeStart(pageSize);
                 }}
