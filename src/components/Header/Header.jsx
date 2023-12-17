@@ -195,7 +195,7 @@ const Header2 = () => {
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const user = useSelector((reducer) => reducer);
+  const user = useSelector((reducer) => reducer.user);
 
   return (
     <header className="bg-transparent">
@@ -279,7 +279,7 @@ const Header = () => {
               to="login"
               className="bg-white text-sm leading-6 px-4 py-1 border border-gray-400 text-gray-800 font-irSans  rounded-lg hover:text-black hover:shadow-lg transition-all duration-200">
               <img src="" alt="" />
-              <span>{user ? "کاربر " + user.name : "نام کاربر"}</span>
+              <span>{user.fname  !== null || undefined ? user.fname + " " + user.lname : "کاربر بی نام"}</span>
             </Link>
             <Link
               to="/"
