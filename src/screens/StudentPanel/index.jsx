@@ -14,6 +14,8 @@ const StudentPanel = () => {
 
   // useEffect(() => {console.log(navigateTo);}, [navigateTo])
 
+  if (getItem('token') === false || undefined || null) return <ErrorPage />
+
   return (
     <motion.div 
     initial={{opacity:0}}
