@@ -148,7 +148,7 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
                   <div className='flex  h-6  mt-6'>
 
                     <button onClick={()=>handleFavorite(item.courseId , item.userFavorite , item.userFavoriteId)} className='flex w-1/2  h-6 justify-center'>
-                      {item.userFavorite === true  ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className=' overflow-hidden' src='./heart1.png'/>}
+                      {item.userFavorite === true  ? <img className=' overflow-hidden' src='./heart2.png'/> : <img className='w-1/4 overflow-hidden' src='./heart1.png'/>}
                   
                     </button>
 
