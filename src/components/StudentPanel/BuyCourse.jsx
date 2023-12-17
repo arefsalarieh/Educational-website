@@ -6,12 +6,12 @@ import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import { Button , Flex  } from 'antd';
 import { Input , Select  } from 'antd'
+import { useNavigate } from 'react-router-dom';
+
 
 const BuyCourseItem = ({ acceptCourseList , refetch}) =>{
 
-
-
-
+  const navigate = useNavigate()
 
 
 
@@ -39,7 +39,7 @@ const BuyCourseItem = ({ acceptCourseList , refetch}) =>{
             </h2>
 
             <div  className= 'mx-auto my-4 lg:my-0 text-white w-6 h-6'>
-              <Button  className='bg-blue-400'>    </Button> 
+              <Button onClick={()=>navigate('/CourseMenuDetail/' + item.courseId)}  className='bg-blue-400'>  جزییات  </Button> 
             </div>
 
           </div>

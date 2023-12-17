@@ -6,15 +6,19 @@ import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import toast, { Toaster } from 'react-hot-toast';
 import { Button , Flex  } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const PaidCoursesItem = ({refetch , pic , name , teacher , term , startDate , cost , reserveId}) =>{
+const PaidCoursesItem = ({data ,courseId , refetch , pic , name , teacher , term , startDate , cost , reserveId}) =>{
+  const navigate = useNavigate()
 
-  const deleteReserve = async () =>{
+  const deleteReserve = async (resId) =>{
     const obj ={
-      id : reserveId,
+      id : resId,
     }
 
     const result = await http.delete(`/CourseReserve` , {data:obj})  
+     refetch()   
+
     if(result.success === true){
       toast.success(result.message)    
     }
@@ -23,33 +27,41 @@ const PaidCoursesItem = ({refetch , pic , name , teacher , term , startDate , co
       toast.error(result.errors)       
     }
 
-    refetch()
+
     console.log(result);
   }
 
 
   return(
-    <div className='h-10 my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-9 xl:gap-12 2xl:gap-18 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border'>
-      {/* <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0'>
-        <img className=' mt-6 lg:mt-0 mx-auto' />        
-      </div> */}
+    <>
+      {data && data.map((item , index)=>{
+        return(
+          <div key={index} className='h-10 my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-10 xl:gap-12 2xl:gap-5 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border'>
 
-      <div className='font-extrabold mt-4 lg:mt-0  w-56 truncate' >
-        <span className='lg:hidden'>نام دوره :</span>
-        <span className='font-light'>{name}  </span>
-      </div>
+            <div className='font-extrabold mt-4 lg:mt-0  w-56 truncate' >
+              <span className='lg:hidden'>نام دوره :</span>
+              <span className='font-light'>{item.courseName}  </span>
+            </div>
 
-      <h2 className='font-extrabold mt-4 lg:mt-0  w-48'>
-        <span className='lg:hidden'>تاریخ    :</span>
-        <span className='font-light'> {startDate} </span>
-      </h2>
-      <h2 className='font-extrabold mt-4 lg:mt-0'>
-        <span className='lg:hidden'>قیمت    :</span>
-        <span className='font-light'>   تومان </span>
-      </h2>
-      <div onClick={deleteReserve} className= 'mx-auto my-4 lg:my-0 text-white w-6 h-6'><Button className='bg-blue-400'>حذف رزرو </Button> </div>
-      
-    </div>    
+            <h2 className='font-extrabold mt-4 lg:mt-0  w-48'>
+              <span className='lg:hidden'>تاریخ    :</span>
+              <span className='font-light'> {item.reserverDate} </span>
+            </h2>
+
+            <div  className= 'mx-auto my-4 lg:my-0 text-white  h-6'>
+                <Button onClick={()=>navigate('/CourseMenuDetail/' + item.courseId)} className='bg-green-400'>  جزییات  </Button> 
+            </div>
+                  
+
+            <div  className= 'mx-auto my-4 lg:my-0 text-white w-6 h-6'>
+              <Button onClick={()=>deleteReserve(item.reserveId)} className='bg-blue-400'>حذف رزرو </Button> 
+            </div>
+            
+          </div>           
+        )
+      })}
+
+    </>   
   )
 
 }
@@ -77,21 +89,21 @@ const PaidCourses = () => {
           {/* <h3 className='pr-3 xl:pr-6 2xl:pr-8'>نصویز</h3> */}
           <h3 className='pr-10 xl:pr-16 2xl:pr-26'>نام دوره</h3>
           <h3 className='pr-6 xl:pr-10 2xl:pr-48'>ناریخ شروع </h3>
-          <h3 className='pr-12 xl:pr-18 2xl:pr-36'>وضعیت </h3>
         </div>
 
 
 
-        {status === 'success' && (
-          data?.map((item , index)=>{
-            return(
-              <>
-                  <PaidCoursesItem refetch={refetch} key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
-                  term={item.term} startDate={item.reserverDate} cost={item.cost} reserveId={item.reserveId}/>   
-              </>
+        {status === 'success' && (<PaidCoursesItem data={data} refetch={refetch}/>
+
+          // data?.map((item , index)=>{
+          //   return(
+          //     <>
+          //         <PaidCoursesItem courseId={item.courseId} refetch={refetch} key={index} pic={item.pic} name={item.courseName} teacher={item.teacher} 
+          //         term={item.term} startDate={item.reserverDate} cost={item.cost} reserveId={item.reserveId}/>   
+          //     </>
          
-              )
-            })
+          //     )
+          //   })
             )}
 
             {status === 'loading' && (

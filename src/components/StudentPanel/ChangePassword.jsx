@@ -4,12 +4,19 @@ import { ContentChangePass } from "./ContentChangePass";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Button, Input, Space } from "antd";
 import http from '../../core/services/interceptor'
+import toast, { Toaster } from 'react-hot-toast';
 
 const ChangePassword = () => {
 
   const changePasswordFunc =async (values)=>{
     const result = await http.post('/SharePanel/ChangePassword' , values)
+    if(result.success === true){
+      toast.success(result.message)    
+    }
 
+    else if(result.success === false){
+      toast.error(result.errors)       
+    }
     console.log(result);
   }
 

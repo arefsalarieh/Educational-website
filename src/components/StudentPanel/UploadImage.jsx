@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import Button from "../common/button/button";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
+import toast, { Toaster } from 'react-hot-toast';
 
 const UploadImage = () => {
   const handlePic = async (values) => {
@@ -10,6 +11,15 @@ const UploadImage = () => {
     data.append("formFile", values.file);
 
     const result = await http.post(`/SharePanel/AddProfileImage`, data);
+    
+    if(result.success === true){
+      toast.success(result.message)    
+    }
+
+    else if(result.success === false){
+      toast.error(result.errors)       
+    }
+
     console.log(result);
   };
   return (

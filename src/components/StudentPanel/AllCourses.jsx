@@ -5,10 +5,12 @@ import style from './PaidCourses.modules.css'
 import http from '../../core/services/interceptor'
 import {useQuery} from 'react-query'
 import { Button , Flex  } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 
 const AllCoursesItem = ({ favoriteList , refetch}) =>{
-  // favoriteList && console.log(favoriteList);
+  
+  const navigate = useNavigate()
 
 
 
@@ -38,10 +40,10 @@ const AllCoursesItem = ({ favoriteList , refetch}) =>{
     <>
       {favoriteList && favoriteList.map((item , index)=>{
         return(
-          <div key={index} className='my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-4 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border' >
+          <div key={index} className='my-12 lg:my-3 lg:flex justify-around bg-mygray items-center gap-1 text-sm xl:text-base lg:pr-4 2xl:pr-6 mx-auto border' >
             {index+1} -
             <div className='w-1/2 lg:w-1/12 mx-auto lg:mx-0 rounded-full overflow-hidden'>
-              <img className=' mt-6 lg:mt-0 mx-auto w-12 h-12 rounded-full overflow-hidden' src={item.pic ? item.pic : 'big.png'}/>        
+              <img className=' mt-6 lg:mt-0 mx-auto w-12 h-12 rounded-full overflow-hidden' src={item.tumbImageAddress ? item.tumbImageAddress : 'big.png'}/>        
             </div>
 
             <h2 className='font-extrabold mt-4 lg:mt-0  w-40 truncate'>
@@ -53,11 +55,16 @@ const AllCoursesItem = ({ favoriteList , refetch}) =>{
               <span className='font-light'>{item.teacheName} </span>
             </h2>
             <h2 className='font-extrabold mt-4 lg:mt-0 w-30 border truncate'>
-              <span className='lg:hidden'> سطح دوره  :</span>
+              <span className='lg:hidden'> نوع دوره  :</span>
               <span className='font-light'>{item.typeName}   </span>
             </h2>
 
-            <div  className= 'mx-auto my-4 lg:my-0 text-white w-6 h-6'>
+            <div  className= 'mx-auto my-4 lg:my-0 text-white  h-6'>
+              <Button onClick={()=>navigate('/CourseMenuDetail/' + item.courseId)} className='bg-green-400'>  جزییات  </Button> 
+            </div>
+            
+
+            <div  className= 'mx-auto my-4 lg:my-0 text-white  h-6'>
               <Button onClick={()=>deleteFavorite(item.favoriteId)} className='bg-blue-400'> حذف از لیست </Button> 
             </div>
 

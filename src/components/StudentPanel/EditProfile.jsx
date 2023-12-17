@@ -5,6 +5,7 @@ import TextArea from "antd/es/input/TextArea";
 import Button from "../common/button/button";
 import http from "../../core/services/interceptor";
 import { useQuery } from "react-query";
+import toast, { Toaster } from 'react-hot-toast';
 
 const EditProfile = () => {
   const [newDetail, serNewDetail] = useState();
@@ -36,6 +37,14 @@ const EditProfile = () => {
 
     const result = await http.put(`/SharePanel/UpdateProfileInfo`, data);
 
+    if(result.success === true){
+      toast.success(result.message)    
+    }
+
+    else if(result.success === false){
+      toast.error(result.errors)       
+    }
+    
     console.log(result);
 
     //window.location.reload(false);

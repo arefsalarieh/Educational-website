@@ -105,10 +105,10 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
     {parent : 'border  md:w-5/12 rounded-xl p-8 lg:flex shadow-2xl dark:shadow-shadowDarkUp dark:border-slate-400 m-6 md:m-0 cursor-pointer',
       firstDiv:'lg:w-1/2  rounded-xl shadow-inner bg-course',
       img:'mx-auto',
-      secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6',
-      h2:'font-bold mt-4 xl:mt-4 truncate cursor-pointer',
-      firstP:'mt-8',
-      secondP:'mt-8',
+      secondDiv:'lg:w-1/2 text-center lg:text-right lg:pr-6 ',
+      h2:'font-bold mt-4 xl:mt-4 truncate cursor-pointer truncate',
+      firstP:'mt-8 truncate',
+      secondP:'mt-8 truncate',
       but:' block  border-zgh border rounded-xl mx-auto xl:mr-18 mt-6 py-1 px-4',
     },
 
@@ -117,9 +117,9 @@ const Course = ({courseList , courseShape , refetch , status , idx , courseName 
       firstDiv:'bg-course p-8',
       img:' mx-auto w-4/6 h-20',
       secondDiv:'',
-      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4 cursor-pointer ',
-      firstP:'p-2 md:p-4 text-sm sm:text-base md:text-lg text-blue-400',
-      secondP:'p-2',
+      h2:'p-2 md:p-4 text-sm sm:text-base md:text-xl font-sm mt-4 cursor-pointer truncate',
+      firstP:'p-2 md:p-4 text-sm sm:text-base md:text-lg text-blue-400 truncate',
+      secondP:'p-2 truncate',
       but:' border-2 text-zgh rounded-xl p-2 px-2 md:px-4 m-2 ',  
     }
   ])
