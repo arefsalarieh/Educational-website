@@ -10,7 +10,13 @@ import { motion } from "framer-motion";
 import NewsArticle from "../../../public/NewsArticle.png";
 
 import { BsFillCheckCircleFill } from "react-icons/bs";
-import { FaHeart, FaHeartBroken, FaRegHeart } from "react-icons/fa";
+import {
+  FaHeart,
+  FaHeartBroken,
+  FaRegHeart,
+  FaThumbsDown,
+  FaThumbsUp,
+} from "react-icons/fa";
 import { useMutation } from "react-query";
 import instance from "../../core/services/interceptor";
 import toast from "react-hot-toast";
@@ -35,9 +41,25 @@ const DetailArticle = ({ data, refetch }) => {
       .post(`/News/NewsRate?NewsId=${data?.id}&RateNumber=${newRating}`)
       .then((res) => {
         res.success === true && toast.success(res.message);
-        res.error === true && toast.success(res.message);
+        res.error === true && toast.success(":خطا",res.message);
       });
   });
+
+  const onAddFavMutate = useMutation(() => {
+    instance.post(`/News/AddFavoriteNews?NewsId=${data?.id}`).then((res) => {
+      res.success === true && toast.success(res.message);
+      res.error === true && toast.success(":خطا",res.message);
+    });
+  });
+
+  const onِDeleteFavMutate = useMutation(() => {
+    instance.delete(`/News/DeleteFavoriteNews`, {deleteEntityId: data?.id}).then((res) => {
+      res.success === true && toast.success(res.message);
+      res.error === true && toast.success(":خطا",res.message);
+    });
+  });
+
+  onAddFavMutate.isError && toast.error("خطا")
 
   const handleLikeClick = (bool) => {
     if (bool == false) {
@@ -50,6 +72,17 @@ const DetailArticle = ({ data, refetch }) => {
     if (bool == false) {
       onDislikeMutate.mutate();
       refetch();
+    }
+  };
+
+  const handleFaveClick = (bool) => {
+    console.log(bool);
+    if (bool == false) {
+      onAddFavMutate.mutate();
+      refetch();
+    } else {
+      onِDeleteFavMutate.mutate()
+      refetch()
     }
   };
 
@@ -159,11 +192,23 @@ const DetailArticle = ({ data, refetch }) => {
                 <div className="flex flex-row gap-2">
                   <div
                     className="flex flex-row cursor-pointer"
-                    onClick={() => handleLikeClick(data?.currentUserIsLike)}>
-                    {data?.currentUserIsLike ? (
+                    onClick={() => handleFaveClick(data?.isCurrentUserFavorite)}>
+                    {data?.isCurrentUserFavorite ? (
                       <FaHeart className=" text-red-500 w-4 h-4" />
                     ) : (
-                      <FaRegHeart className=" text-secondary w-4 h-4" />
+                      <FaHeart className=" text-secondary w-4 h-4" />
+                    )}
+                    <p className="text-[13px] mx-2 font-bold font-irSans">
+                      {data?.isCurrentUserFavorite ? "حذف از لیست علاقمندی‌ها" : "افزودن به علاقمندی‌ها"}
+                    </p>
+                  </div>
+                  <div
+                    className="flex flex-row mx-6 cursor-pointer"
+                    onClick={() => handleLikeClick(data?.currentUserIsLike)}>
+                    {data?.currentUserIsLike ? (
+                      <FaThumbsUp className=" text-red-500 w-4 h-4" />
+                    ) : (
+                      <FaThumbsUp className=" text-secondary w-4 h-4" />
                     )}
                     <p className="text-[13px] mx-2 font-bold font-irSans">
                       تعداد لایک :
@@ -173,14 +218,14 @@ const DetailArticle = ({ data, refetch }) => {
                     </span>
                   </div>
                   <div
-                    className="flex flex-row ms-6 cursor-pointer"
+                    className="flex flex-row  cursor-pointer"
                     onClick={() =>
                       handleDislikeClick(data?.currentUserIsDissLike)
                     }>
                     {data?.currentUserIsDissLike ? (
-                      <FaHeartBroken className=" text-red-500 w-4 h-4" />
+                      <FaThumbsDown className=" text-red-500 w-4 h-4" />
                     ) : (
-                      <FaHeartBroken className=" text-secondary w-4 h-4" />
+                      <FaThumbsDown className=" text-secondary w-4 h-4" />
                     )}
                     <p className="text-[13px] mx-2 font-bold font-irSans">
                       تعداد دیسلایک :

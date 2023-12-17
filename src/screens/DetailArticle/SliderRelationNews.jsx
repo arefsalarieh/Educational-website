@@ -72,7 +72,7 @@ const SliderRelationNews = () => {
                     title={card.title}
                     date={card.insertDate}
                     pic={
-                      card?.currentImageAddressTumb == null
+                      card?.currentImageAddressTumb == null || undefined || false
                         ? NewsArticle
                         : card?.currentImageAddressTumb
                     }
