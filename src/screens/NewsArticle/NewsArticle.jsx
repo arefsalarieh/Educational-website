@@ -50,6 +50,8 @@ const NewsArticle = () => {
     },
   });
 
+  // data && console.log('oooooooooooo' , data)
+
   const changeStart = (pageSize) =>{
     setParams({...params, PageNumber: pageSize}) ;
   } 
