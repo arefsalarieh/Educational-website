@@ -17,16 +17,7 @@ const items = [
     key: 'news',
     icon: <WifiOutlined />,
   },
-  {
-    label: 'خدمات',
-    key: 'services',
-    icon: <ToolOutlined />,
-  },
-  {
-    label:'تماس با ما',
-    key: 'contactUs',
-    icon: <PhoneOutlined />,
-  }
+
 ];
 const AntdTopMenu = () => {
   const [current, setCurrent] = useState('home');
